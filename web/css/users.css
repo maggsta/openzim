@@ -1,0 +1,152 @@
+.category .feed
+{
+  margin: 4px 15px;
+  float: right;
+  line-height: 25px;
+  background-position: left center;
+}
+
+.category .feed a
+{
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.heading
+{
+  color: #AAAAAA;
+  font-weight: bold;
+  border-bottom: 1px dotted #999;
+}
+
+.users
+{
+ width: 760px;
+ margin: 0 auto;
+}
+
+.users tr.even
+{
+  background-color: #f3fafc;
+}
+
+.users tr.odd
+{
+}
+
+.users tr:hover
+{
+  background-color: #fff;
+}
+
+.users td
+{
+  padding: 12px 15px;
+  border-bottom: 1px dotted #999;
+  text-align: left;
+}
+
+.users td.details,
+.users td.directive,
+.users td.name
+{
+  border-right: 1px dotted #999;
+}
+
+.users .ranking
+{
+  color: #524F46;
+  font-weight: bold;
+  width: 25%;
+}
+
+.users .directive
+{
+  color: #d2813f;
+  width: 25%;
+}
+
+.users .details
+{
+  color: #524F46;
+  width: 25%;
+}
+
+.users .details a
+{
+  padding: 12px 15px;
+  display: block;
+  text-decoration: none;
+}
+
+.users .directive a:hover
+{
+  text-decoration: underline;
+}
+
+.more_jobs
+{
+  text-align: right;
+  text-transform: uppercase;
+  font-size: 85%;
+  margin: 5px 15px 15px;
+  clear: both;
+}
+
+.more_jobs a
+{
+  color: #176f94;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 130%;
+}
+
+.more_jobs a:hover
+{
+  color: #176f94;
+  text-decoration: underline;
+}
+
+.pagination_desc
+{
+  margin-left: 15px;
+  margin-top: 10px;
+  font-style: italic;
+  color: #828f95;
+}
+
+.pagination_desc strong
+{
+  color: #176f94;
+}
+
+.pagination
+{
+  margin-top: 10px;
+  float: right;
+  margin-right: 10px;
+  color: #176f94;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.pagination a
+{
+  margin: 0 1px;
+  text-decoration: none;
+  color: #828f95;
+  font-size: 75%;
+  vertical-align: 1px;
+  font-weight: normal;
+}
+
+.pagination a:hover
+{
+  text-decoration: underline;
+}
+
+.pagination img
+{
+  vertical-align: -2px;
+}
