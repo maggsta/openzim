@@ -1,0 +1,47 @@
+# config/doctrine/schema.yml
+ZimAnlage:
+  actAs: { Timestampable: ~ }
+  columns:
+    name: { type: string(255), notnull: true, unique: true }
+    zeit: { type: integer }
+    ziel: { type: string(255) }
+    methode: { type: string(255) }
+    material: { type: string(1000) }
+    tip: { type: string(255) }
+    kurzinhalt: { type: string(1000) }
+    inhalt: { type: string(10000) }
+    rolle_tm: { type: string(255) } 
+    bild_id:  { type: integer }
+  relations:
+    Bild: { onDelete: CASCADE, local: bild_id, foreign: id } 
+
+Bild:
+  actAs: { Timestampable: ~ }
+  columns:
+    path: { type: string(255), notnull: true, unique: true }
+    caption: { type: string(255) }
+
+Stunde:
+  actAs: { Timestampable: ~ }
+  columns:
+    description: { type: string(255), notnull: true }
+    zim_id: { type: integer, notnull: true }
+  relations:
+    Anlagen:
+      type: many
+      class: ZimAnlage
+      local: id
+    Zim:
+      local: zim_id
+      foreign: id
+
+Zim:
+  actAs: { Timestampable: ~ }
+  columns:
+    name: { type: string(255), notnull: true }
+  relations:
+    Phonenumbers:
+      type: many
+      class: Stunde
+      local: id
+      foreign: zim_id
