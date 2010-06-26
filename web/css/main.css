@@ -43,13 +43,13 @@ body
 #header h1
 {
   height: 110px;
-  width: 783px;
+  width: 90%;
   margin: 0 auto;
 }
 
 #header h1 a {
   display: block;
-  width: 150px;
+  width: 409px;
   height: 110px;
   background: url(../images/logo.jpg) no-repeat;
 }

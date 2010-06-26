@@ -10,32 +10,11 @@
   </head>
   <body>
     <div id="container">
+      
       <div id="header">
-        <div class="content">
-
-          <!--
-	  <h1><a href="<?php echo url_for('bild/index') ?>">
-            <img src="/images/logo.jpg" alt="openBRD+" />
-          </a></h1>
-          
-          <div id="sub_header">
-		
-            <div class="search">
-              <h2>Search for Content / Discussions</h2>
-              <form action="" method="get">
-                <input type="text" name="keywords"
-                  id="search_keywords" />
-                <input type="submit" value="search" />
-                <div class="help">
-                  Enter some keywords (city, country, position, ...)
-                </div>
-              </form>
-            </div>
-          </div>
-          -->
-
-	<div id="sub_header"></div>
-	</div>
+        <h1><a href="<?php echo url_for('bild/index') ?>">
+          <img src="/images/logo.jpg" alt="openZIM" />
+        </a></h1>
       </div>
 
       <div id="content">
