@@ -25,14 +25,14 @@ a
 body
 {
   font: 14px "Lucida Grande", Lucida, Verdana, sans-serif;
-  background-color: #828f95;
+  background-color: #000;
 }
 
 #container
 {
   margin-left: auto;
   margin-right: auto;
-  background: #fff url(../images/bg-page.png) bottom repeat-x;
+  background: #fff;
 }
 
 #header
@@ -185,20 +185,21 @@ body
   margin-top: 60px;
   font-size: 90%;
   margin-bottom: 0px;
-  height: 153px;
+  height: 250px;
   background: url(../images/bg-footer.jpg) repeat-x bottom;
   padding-top: 10px;
   position: relative;
 }
 
 #footer .content {
-  width: 783px;
-  margin: 0 auto;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 }
 
 #footer a
 {
-  color: #77766F;
+  color: #FFF;
 }
 
 #footer ul
