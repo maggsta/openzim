@@ -5,6 +5,8 @@
   <head>
     <title><?php include_slot('title', '-= openZIM =-') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
+    <?php use_javascript('jquery-1.4.2.min.js') ?>
+    <?php use_javascript('search.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
@@ -12,7 +14,7 @@
     <div id="container">
       
       <div id="header">
-        <h1><a href="<?php echo url_for('bild/index') ?>">
+        <h1><a href="<?php echo url_for('zimAnlage/index') ?>">
           <img src="/images/logo.jpg" alt="openZIM" />
         </a></h1>
       </div>

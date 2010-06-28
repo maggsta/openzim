@@ -15,7 +15,7 @@ generator:
         password_again: { label: "Password (again)" }
 
       list:
-        title:   User list
+        title:   Benutzer Liste
         display: [=username, created_at, updated_at, last_login]
 
       form:

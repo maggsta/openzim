@@ -87,9 +87,17 @@ body
   background-position: left -80px;
 }
 
-#sub_header .search input#search_keywords
+.search{
+  padding-top: 10px;
+}
+
+.search h2 {
+  font-size: 80%;
+}
+
+.search input#search_keywords
 {
-  font-size: 160%;
+  font-size: 120%;
   padding: 8px 10px;
   line-height: 1.5em;
   margin-bottom: 3px;
@@ -99,7 +107,7 @@ body
   border: 0;
   background: url(../images/search-box.jpg);
   text-indent: 0;
-  color: #666;
+  color: #000;
 }
 
 #sub_header .post h2
@@ -162,11 +170,11 @@ body
 #content h1
 {
   margin-top: 10px;
-  margin-bottom: 1px;
+  margin-bottom: 10px;
   padding: 0px 15px;
   font-size: 124%;
   text-transform: uppercase;
-  background: url(../images/bg-listheader.gif) no-repeat;
+  background: #777; 
   line-height: 32px;
   color: #fff;
 }

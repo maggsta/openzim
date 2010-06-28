@@ -66,6 +66,23 @@ class zimAnlageActions extends sfActions
     $this->redirect('zimAnlage/index');
   }
 
+  public function executeSearch(sfWebRequest $request)
+  {
+	$this->forwardUnless($query = $request->getParameter('query'), 'zimAnlage', 'index');
+ 
+  	$this->zimAnlagen = Doctrine_Core::getTable('ZimAnlage')->getForLuceneQuery($query);
+ 
+  	if ($request->isXmlHttpRequest())
+  	{
+		if ('*' == $query || !$this->zimAnlagen)
+    		{
+      			return $this->renderText('No results.');
+    		}
+    		return $this->renderPartial('zimAnlage/list', array('zimAnlagen' => $this->zimAnlagen));
+ 	}
+
+  }
+
   protected function processForm(sfWebRequest $request, sfForm $form)
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));

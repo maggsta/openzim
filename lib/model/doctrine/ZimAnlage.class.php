@@ -12,4 +12,64 @@
  */
 class ZimAnlage extends BaseZimAnlage
 {
+
+	public function save(Doctrine_Connection $con = null)
+	{  
+	
+		$conn = $conn ? $conn : $this->getTable()->getConnection();
+  		$conn->beginTransaction();
+  		try
+  		{
+ 			$ret = parent::save($conn);
+ 			$this->updateLuceneIndex();
+     			$conn->commit();
+ 
+    			return $ret;
+  		}
+  		catch (Exception $e)
+  		{
+    			$conn->rollBack();
+    			throw $e;
+  		}
+
+	}
+
+	public function delete(Doctrine_Connection $conn = null)
+	{
+  		$index = ZimAnlageTable::getLuceneIndex();
+ 
+  		foreach ($index->find('pk:'.$this->getId()) as $hit)
+  		{
+    			$index->delete($hit->id);
+  		}
+ 
+  		return parent::delete($conn);
+	}
+
+	public function updateLuceneIndex()
+	{
+  		$index = ZimAnlageTable::getLuceneIndex();
+ 
+  		// remove existing entries
+  		foreach ($index->find('pk:'.$this->getId()) as $hit)
+  		{
+    			$index->delete($hit->id);
+  		}
+ 
+  		$doc = new Zend_Search_Lucene_Document();
+ 
+  		// store primary key to identify it in the search results
+  		$doc->addField(Zend_Search_Lucene_Field::Keyword('pk', $this->getId()));
+ 
+  		// index job fields
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('name', $this->getName(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('ziel', $this->getZiel(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('inhalt', $this->getInhalt(), 'utf-8'));
+ 
+  		// add job to the index
+  		$index->addDocument($doc);
+  		$index->commit();
+	}
+
+
 }
