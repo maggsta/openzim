@@ -12,11 +12,12 @@
   </head>
   <body>
     <div id="container">
-      
+ 
       <div id="header">
-        <h1><a href="<?php echo url_for('zimAnlage/index') ?>">
+        <h1><a href="<?php echo url_for('anlage/index') ?>">
           <img src="/images/logo.jpg" alt="openZIM" />
         </a></h1>
+    
       </div>
 
       <div id="content">

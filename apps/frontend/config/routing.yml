@@ -3,7 +3,7 @@
 
 anlage_search:
   url:   /search
-  param: { module: zimAnlage, action: search }
+  param: { module: anlage, action: search }
 
 sf_guard_signin:
   url:   /login
@@ -20,7 +20,7 @@ sf_guard_password:
 # default rules
 homepage:
   url:   /
-  param: { module: zimAnlage, action: index }
+  param: { module: anlage, action: index }
 
 # generic rules
 # please, remove them by adding more specific rules

@@ -18,6 +18,7 @@ abstract class BaseBildForm extends BaseFormDoctrine
       'id'         => new sfWidgetFormInputHidden(),
       'path'       => new sfWidgetFormInputText(),
       'caption'    => new sfWidgetFormInputText(),
+      'anlage_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Anlage'), 'add_empty' => false)),
       'created_at' => new sfWidgetFormDateTime(),
       'updated_at' => new sfWidgetFormDateTime(),
     ));
@@ -26,6 +27,7 @@ abstract class BaseBildForm extends BaseFormDoctrine
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'path'       => new sfValidatorString(array('max_length' => 255)),
       'caption'    => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'anlage_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Anlage'))),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
     ));

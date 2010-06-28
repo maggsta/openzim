@@ -7,17 +7,23 @@
  * 
  * @property string $description
  * @property integer $zim_id
- * @property Doctrine_Collection $Anlagen
+ * @property integer $start_anlage_id
+ * @property integer $end_anlage_id
+ * @property Anlage $Anlage
  * @property Zim $Zim
  * 
- * @method string              getDescription() Returns the current record's "description" value
- * @method integer             getZimId()       Returns the current record's "zim_id" value
- * @method Doctrine_Collection getAnlagen()     Returns the current record's "Anlagen" collection
- * @method Zim                 getZim()         Returns the current record's "Zim" value
- * @method Stunde              setDescription() Sets the current record's "description" value
- * @method Stunde              setZimId()       Sets the current record's "zim_id" value
- * @method Stunde              setAnlagen()     Sets the current record's "Anlagen" collection
- * @method Stunde              setZim()         Sets the current record's "Zim" value
+ * @method string  getDescription()     Returns the current record's "description" value
+ * @method integer getZimId()           Returns the current record's "zim_id" value
+ * @method integer getStartAnlageId()   Returns the current record's "start_anlage_id" value
+ * @method integer getEndAnlageId()     Returns the current record's "end_anlage_id" value
+ * @method Anlage  getAnlage()          Returns the current record's "Anlage" value
+ * @method Zim     getZim()             Returns the current record's "Zim" value
+ * @method Stunde  setDescription()     Sets the current record's "description" value
+ * @method Stunde  setZimId()           Sets the current record's "zim_id" value
+ * @method Stunde  setStartAnlageId()   Sets the current record's "start_anlage_id" value
+ * @method Stunde  setEndAnlageId()     Sets the current record's "end_anlage_id" value
+ * @method Stunde  setAnlage()          Sets the current record's "Anlage" value
+ * @method Stunde  setZim()             Sets the current record's "Zim" value
  * 
  * @package    openZIM
  * @subpackage model
@@ -38,18 +44,25 @@ abstract class BaseStunde extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
+        $this->hasColumn('start_anlage_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
+        $this->hasColumn('end_anlage_id', 'integer', null, array(
+             'type' => 'integer',
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('ZimAnlage as Anlagen', array(
-             'local' => 'id',
+        $this->hasOne('Anlage', array(
+             'local' => 'end_anlage_id',
              'foreign' => 'id'));
 
         $this->hasOne('Zim', array(
              'local' => 'zim_id',
-             'foreign' => 'id'));
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

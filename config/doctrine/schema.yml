@@ -1,5 +1,5 @@
 # config/doctrine/schema.yml
-ZimAnlage:
+Anlage:
   actAs: { Timestampable: ~ }
   columns:
     name: { type: string(255), notnull: true, unique: true }
@@ -10,38 +10,35 @@ ZimAnlage:
     tip: { type: string(255) }
     kurzinhalt: { type: string(1000) }
     inhalt: { type: string(10000) }
-    rolle_tm: { type: string(255) } 
-    bild_id:  { type: integer }
+    rolle_tm: { type: string(255) }
+    zim_id:  { type: integer }
+    lnr: { type: integer , unique: true }
   relations:
-    Bild: { onDelete: CASCADE, local: bild_id, foreign: id } 
+    Zim: {  onDelete: CASCADE, local: zim_id, foreign: id, foreignAlias: Anlagen }
 
 Bild:
   actAs: { Timestampable: ~ }
   columns:
     path: { type: string(255), notnull: true, unique: true }
     caption: { type: string(255) }
+    anlage_id: { type: integer, notnull: true } 
+  relations:
+    Anlage: {  onDelete: CASCADE, local: anlage_id, foreign: id, foreignAlias: Bilder }
 
 Stunde:
   actAs: { Timestampable: ~ }
   columns:
     description: { type: string(255), notnull: true }
     zim_id: { type: integer, notnull: true }
+    start_anlage_id: { type: integer }
+    end_anlage_id: { type: integer }
   relations:
-    Anlagen:
-      type: many
-      class: ZimAnlage
-      local: id
-    Zim:
-      local: zim_id
-      foreign: id
+    Anlage: { foreignType: one, local: start_anlage_id }
+    Anlage: { foreignType: one, local: end_anlage_id }
+    Zim: {  onDelete: CASCADE, local: zim_id, foreign: id, foreignAlias: Stunden }
 
 Zim:
   actAs: { Timestampable: ~ }
   columns:
     name: { type: string(255), notnull: true }
-  relations:
-    Phonenumbers:
-      type: many
-      class: Stunde
-      local: id
-      foreign: zim_id
+

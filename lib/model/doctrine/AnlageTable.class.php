@@ -1,12 +1,12 @@
 <?php
 
 
-class ZimAnlageTable extends Doctrine_Table
+class AnlageTable extends Doctrine_Table
 {
     
     public static function getInstance()
     {
-        return Doctrine_Core::getTable('ZimAnlage');
+        return Doctrine_Core::getTable('Anlage');
     }
 
     public function getForLuceneQuery($query)
@@ -41,10 +41,11 @@ class ZimAnlageTable extends Doctrine_Table
  	}
  
   	return Zend_Search_Lucene::create($index);
-	}
+    }
  
-	static public function getLuceneIndexFile()
-	{
-  		return sfConfig::get('sf_data_dir').'/zimAnlage.'.sfConfig::get('sf_environment').'.index';
-	}
+    static public function getLuceneIndexFile()
+    {
+    	return sfConfig::get('sf_data_dir').'/anlage.'.sfConfig::get('sf_environment').'.index';
+    }
+
 }

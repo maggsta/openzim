@@ -7,14 +7,17 @@
  * 
  * @property string $path
  * @property string $caption
- * @property Doctrine_Collection $ZimAnlage
+ * @property integer $anlage_id
+ * @property Anlage $Anlage
  * 
- * @method string              getPath()      Returns the current record's "path" value
- * @method string              getCaption()   Returns the current record's "caption" value
- * @method Doctrine_Collection getZimAnlage() Returns the current record's "ZimAnlage" collection
- * @method Bild                setPath()      Sets the current record's "path" value
- * @method Bild                setCaption()   Sets the current record's "caption" value
- * @method Bild                setZimAnlage() Sets the current record's "ZimAnlage" collection
+ * @method string  getPath()      Returns the current record's "path" value
+ * @method string  getCaption()   Returns the current record's "caption" value
+ * @method integer getAnlageId()  Returns the current record's "anlage_id" value
+ * @method Anlage  getAnlage()    Returns the current record's "Anlage" value
+ * @method Bild    setPath()      Sets the current record's "path" value
+ * @method Bild    setCaption()   Sets the current record's "caption" value
+ * @method Bild    setAnlageId()  Sets the current record's "anlage_id" value
+ * @method Bild    setAnlage()    Sets the current record's "Anlage" value
  * 
  * @package    openZIM
  * @subpackage model
@@ -36,14 +39,19 @@ abstract class BaseBild extends sfDoctrineRecord
              'type' => 'string',
              'length' => 255,
              ));
+        $this->hasColumn('anlage_id', 'integer', null, array(
+             'type' => 'integer',
+             'notnull' => true,
+             ));
     }
 
     public function setUp()
     {
         parent::setUp();
-        $this->hasMany('ZimAnlage', array(
-             'local' => 'id',
-             'foreign' => 'bild_id'));
+        $this->hasOne('Anlage', array(
+             'local' => 'anlage_id',
+             'foreign' => 'id',
+             'onDelete' => 'CASCADE'));
 
         $timestampable0 = new Doctrine_Template_Timestampable();
         $this->actAs($timestampable0);

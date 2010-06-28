@@ -7,7 +7,7 @@ $(document).ready(function()
     if (this.value.length >= 3 || this.value == '')
     {
       $('#loader').show();
-      $('#zimAnlagen').load(
+      $('#anlagen').load(
         $(this).parents('form').attr('action'),
         { query: this.value + '*' },
         function() { $('#loader').hide(); }
