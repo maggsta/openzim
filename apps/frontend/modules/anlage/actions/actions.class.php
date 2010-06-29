@@ -78,7 +78,7 @@ class anlageActions extends sfActions
       } 
       else 
         $this->anlagen = Doctrine_Core::getTable('Anlage')->getForLuceneQuery($query);
- 
+    $this->setTemplate('index');
     if ($request->isXmlHttpRequest())
     {
       if ( !$this->anlagen)
