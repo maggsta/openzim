@@ -11,6 +11,15 @@
 class BildForm extends BaseBildForm
 {
   public function configure()
-  {
+  { 
+    $this->widgetSchema['path'] = new sfWidgetFormInputFile(array(
+      'label' => 'Bild',
+    ));
+
+    $this->validatorSchema['path'] = new sfValidatorFile(array(
+      'required'   => false,
+      'path'       => sfConfig::get('sf_upload_dir').'/bilder',
+      'mime_types' => 'web_images',
+    ));
   }
 }

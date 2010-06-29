@@ -6,19 +6,12 @@
     </tr>
     <tr>
       <th>Path:</th>
-      <td><?php echo $bild->getPath() ?></td>
+      <td><img src="/uploads/bilder/<?php echo $bild->getPath() ?>" alt="<?php
+echo $job->getCaption() ?> logo" /></td>
     </tr>
     <tr>
       <th>Caption:</th>
       <td><?php echo $bild->getCaption() ?></td>
-    </tr>
-    <tr>
-      <th>Created at:</th>
-      <td><?php echo $bild->getCreatedAt() ?></td>
-    </tr>
-    <tr>
-      <th>Updated at:</th>
-      <td><?php echo $bild->getUpdatedAt() ?></td>
     </tr>
   </tbody>
 </table>
