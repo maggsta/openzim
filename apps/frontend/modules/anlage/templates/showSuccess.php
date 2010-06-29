@@ -1,10 +1,6 @@
 <table>
   <tbody>
     <tr>
-      <th>Id:</th>
-      <td><?php echo $anlage->getId() ?></td>
-    </tr>
-    <tr>
       <th>Name:</th>
       <td><?php echo $anlage->getName() ?></td>
     </tr>
@@ -40,14 +36,16 @@
       <th>Rolle tm:</th>
       <td><?php echo $anlage->getRolleTm() ?></td>
     </tr>
-    <tr>
-      <th>Zim:</th>
-      <td><?php echo $anlage->getZimId() ?></td>
-    </tr>
-    <tr>
-      <th>Lnr:</th>
-      <td><?php echo $anlage->getLnr() ?></td>
-    </tr>
+    <?php if ( !is_null( $anlage->getZimId() ) ) {  ?>
+      <tr>
+        <th>Zim:</th>
+        <td><?php echo $anlage->getZimId() ?></td>
+      </tr>
+      <tr>
+        <th>Lnr:</th>
+        <td><?php echo $anlage->getLnr() ?></td>
+      </tr>
+    <?php } ?> 
   </tbody>
 </table>
 
