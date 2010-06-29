@@ -16,5 +16,30 @@ class AnlageForm extends BaseAnlageForm
       $this['rolle_tm'], $this['zim_id'],
       $this['lnr']     
     );
+
+    $form = new BildCollectionForm(null, array(
+       'anlage' => $this->getObject(),
+       'size'    => 1,
+       'label' => 'Bilder hinzufügen',
+     ));
+ 
+    $this->embedForm('neueBilder', $form);
   }
+
+  public function saveEmbeddedForms($con = null, $forms = null)
+  {
+     if (null === $forms)
+     {
+        $bilder = $this->getValue('neueBilder');
+        $forms = $this->embeddedForms;
+        foreach ($this->embeddedForms['neueBilder'] as $name => $form)
+        {
+          if (!isset($bilder[$name]))
+          {
+            unset($forms['neueBilder'][$name]);
+          }
+        }
+     }
+     return parent::saveEmbeddedForms($con, $forms);
+   }
 }

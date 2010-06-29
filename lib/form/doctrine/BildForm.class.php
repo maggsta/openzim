@@ -12,6 +12,10 @@ class BildForm extends BaseBildForm
 {
   public function configure()
   { 
+    unset(
+      $this['anlage_id']    
+    );
+
     $this->widgetSchema['path'] = new sfWidgetFormInputFile(array(
       'label' => 'Bild',
     ));

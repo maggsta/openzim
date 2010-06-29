@@ -18,7 +18,20 @@
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form ?>
+    <!--  <?php echo $form ?> -->
+      <?php echo $form['name']->renderRow() ?>
+      <?php echo $form['zeit']->renderRow() ?>
+      <?php echo $form['ziel']->renderRow() ?>
+      <?php echo $form['methode']->renderRow() ?>
+      <?php echo $form['material']->renderRow() ?>
+      <?php echo $form['tip']->renderRow() ?>
+      <?php echo $form['kurzinhalt']->renderRow() ?>
+      <?php echo $form['inhalt']->renderRow() ?>     
+      <?php echo $form->renderHiddenFields() ?>
+      <?php foreach ($form['neueBilder'] as $bild): ?>
+	  <?php echo $bild['path']->renderRow() ?>
+          <?php echo $bild['caption']->renderRow() ?>
+      <?php endforeach; ?>
     </tbody>
   </table>
 </form>
