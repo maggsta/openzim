@@ -1,0 +1,12 @@
+<phpunit>
+<filter>
+  <blacklist>
+    <directory>../tests/</directory>
+    <directory>../documentation/</directory>
+    <directory>../unittests/</directory>
+  </blacklist>
+  <whitelist>
+    <directory suffix=".php">../library/</directory>
+  </whitelist>
+</filter>
+</phpunit>

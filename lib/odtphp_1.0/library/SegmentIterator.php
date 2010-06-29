@@ -5,7 +5,7 @@
  * You need Zip Extension or PclZip library
  * Encoding : ISO-8859-1
  * Last commit by $Author: neveldo $
- * Date - $Date: 2009-06-17 11:11:57 +0200 (Mi, 17 Jun 2009) $
+ * Date - $Date: 2009-06-17 11:11:57 +0200 (mer., 17 juin 2009) $
  * SVN Revision - $Rev: 42 $
  * Id : $Id: SegmentIterator.php 42 2009-06-17 09:11:57Z neveldo $
  *

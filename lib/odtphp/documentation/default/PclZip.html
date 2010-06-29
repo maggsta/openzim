@@ -1,0 +1,1790 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<!-- template designed by Marco Von Ballmoos -->
+			<title>Docs For Class PclZip</title>
+			<link rel="stylesheet" href="../media/stylesheet.css" />
+			<meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'/>
+		</head>
+		<body>
+			<div class="page-body">			
+<h2 class="class-name">Class PclZip</h2>
+
+<a name="sec-description"></a>
+<div class="info-box">
+	<div class="info-box-title">Description</div>
+	<div class="nav-bar">
+					<span class="disabled">Description</span> |
+													<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+						|											<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+						
+					</div>
+	<div class="info-box-body">
+        		<!-- ========== Info from phpDoc block ========= -->
+		<p class="notes">
+			Located in <a class="field" href="_zip---pclzip---pclzip.lib.php.html">/zip/pclzip/pclzip.lib.php</a> (line <span class="field">190</span>)
+		</p>
+		
+				
+		<pre></pre>
+	
+			</div>
+</div>
+
+
+
+	<a name="sec-var-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variable Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+						<span class="disabled">Vars</span> (<a href="#sec-vars">details</a>)
+							| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+								</div>
+		<div class="info-box-body">
+			<div class="var-summary">
+																																																								<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$error_code" title="details" class="var-name">$error_code</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$error_string" title="details" class="var-name">$error_string</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$magic_quotes_status" title="details" class="var-name">$magic_quotes_status</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$zipname" title="details" class="var-name">$zipname</a>
+				</div>
+																<div class="var-title">
+					<span class="var-type">mixed</span>
+					<a href="#$zip_fd" title="details" class="var-name">$zip_fd</a>
+				</div>
+											</div>
+		</div>
+	</div>
+
+	<a name="sec-method-summary"></a>
+	<div class="info-box">
+		<div class="info-box-title">Method Summary</span></div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+																		<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+				 
+				|
+						<span class="disabled">Methods</span> (<a href="#sec-methods">details</a>)
+		</div>
+		<div class="info-box-body">			
+			<div class="method-summary">
+																																																																																																																																																																																																																																																																																																																																																																																																																				
+												<div class="method-definition">
+											<span class="method-result">PclZip</span>
+										<a href="#PclZip" title="details" class="method-name">PclZip</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_zipname</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#add" title="details" class="method-name">add</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filelist</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#create" title="details" class="method-name">create</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filelist</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#delete" title="details" class="method-name">delete</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#deleteByIndex" title="details" class="method-name">deleteByIndex</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_index</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#duplicate" title="details" class="method-name">duplicate</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#errorCode" title="details" class="method-name">errorCode</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#errorInfo" title="details" class="method-name">errorInfo</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$p_full</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#errorName" title="details" class="method-name">errorName</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$p_with_code</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#extract" title="details" class="method-name">extract</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#extractByIndex" title="details" class="method-name">extractByIndex</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_index</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#listContent" title="details" class="method-name">listContent</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#merge" title="details" class="method-name">merge</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive_to_add</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privAdd" title="details" class="method-name">privAdd</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privAddFile" title="details" class="method-name">privAddFile</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privAddFileList" title="details" class="method-name">privAddFileList</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privAddFileUsingTempFile" title="details" class="method-name">privAddFileUsingTempFile</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privAddList" title="details" class="method-name">privAddList</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privCalculateStoredFilename" title="details" class="method-name">privCalculateStoredFilename</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privCheckFileHeaders" title="details" class="method-name">privCheckFileHeaders</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_local_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_central_header</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privCheckFormat" title="details" class="method-name">privCheckFormat</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$p_level</span> = <span class="var-default">0</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privCloseFd" title="details" class="method-name">privCloseFd</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privConvertHeader2FileInfo" title="details" class="method-name">privConvertHeader2FileInfo</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_info</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privCreate" title="details" class="method-name">privCreate</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privDeleteByRule" title="details" class="method-name">privDeleteByRule</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privDirCheck" title="details" class="method-name">privDirCheck</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_dir</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$p_is_dir</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privDisableMagicQuotes" title="details" class="method-name">privDisableMagicQuotes</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privDuplicate" title="details" class="method-name">privDuplicate</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive_filename</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privErrorLog" title="details" class="method-name">privErrorLog</a>
+											([<span class="var-type"></span>&nbsp;<span class="var-name">$p_error_code</span> = <span class="var-default">0</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$p_error_string</span> = <span class="var-default">''</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privErrorReset" title="details" class="method-name">privErrorReset</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privExtractByRule" title="details" class="method-name">privExtractByRule</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_file_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_all_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privExtractFile" title="details" class="method-name">privExtractFile</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_all_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privExtractFileAsString" title="details" class="method-name">privExtractFileAsString</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_string</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privExtractFileInOutput" title="details" class="method-name">privExtractFileInOutput</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privExtractFileUsingTempFile" title="details" class="method-name">privExtractFileUsingTempFile</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privFileDescrExpand" title="details" class="method-name">privFileDescrExpand</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privFileDescrParseAtt" title="details" class="method-name">privFileDescrParseAtt</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_file_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$v_options</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$v_requested_options</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privList" title="details" class="method-name">privList</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_list</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privMerge" title="details" class="method-name">privMerge</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_archive_to_add</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privOpenFd" title="details" class="method-name">privOpenFd</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_mode</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privOptionDefaultThreshold" title="details" class="method-name">privOptionDefaultThreshold</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privParseOptions" title="details" class="method-name">privParseOptions</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_options_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_size</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$v_result_list</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$v_requested_options</span> = <span class="var-default">false</span>])
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privReadCentralFileHeader" title="details" class="method-name">privReadCentralFileHeader</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privReadEndCentralDir" title="details" class="method-name">privReadEndCentralDir</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_central_dir</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privReadFileHeader" title="details" class="method-name">privReadFileHeader</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privSwapBackMagicQuotes" title="details" class="method-name">privSwapBackMagicQuotes</a>
+										()
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privWriteCentralFileHeader" title="details" class="method-name">privWriteCentralFileHeader</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privWriteCentralHeader" title="details" class="method-name">privWriteCentralHeader</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">$p_nb_entries</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_size</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_offset</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_comment</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#privWriteFileHeader" title="details" class="method-name">privWriteFileHeader</a>
+											(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+									</div>
+																<div class="method-definition">
+											<span class="method-result">void</span>
+										<a href="#properties" title="details" class="method-name">properties</a>
+										()
+									</div>
+								</div>
+		</div>
+	</div>		
+
+	<a name="sec-vars"></a>
+	<div class="info-box">
+		<div class="info-box-title">Variables</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+										<a href="#sec-var-summary">Vars</a> (<span class="disabled">details</span>)
+						
+			
+										| 
+									<a href="#sec-method-summary">Methods</a> (<a href="#sec-methods">details</a>)
+							
+					</div>
+		<div class="info-box-body">
+			<a name="var$error_code" id="$error_code"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$error_code</span>
+			 = <span class="var-default"> 1</span>			(line <span class="line-number">199</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$error_string" id="$error_string"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$error_string</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number">200</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$magic_quotes_status" id="$magic_quotes_status"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$magic_quotes_status</span>
+						(line <span class="line-number">205</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$zipname" id="$zipname"><!-- --></A>
+<div class="oddrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$zipname</span>
+			 = <span class="var-default"> ''</span>			(line <span class="line-number">193</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+<a name="var$zip_fd" id="$zip_fd"><!-- --></A>
+<div class="evenrow">
+
+	<div class="var-header">
+		<span class="var-title">
+			<span class="var-type">mixed</span>
+			<span class="var-name">$zip_fd</span>
+			 = <span class="var-default"> 0</span>			(line <span class="line-number">196</span>)
+		</span>
+	</div>
+
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	
+		
+		
+
+</div>
+						
+		</div>
+	</div>
+	
+	<a name="sec-methods"></a>
+	<div class="info-box">
+		<div class="info-box-title">Methods</div>
+		<div class="nav-bar">
+			<a href="#sec-description">Description</a> |
+															<a href="#sec-var-summary">Vars</a> (<a href="#sec-vars">details</a>)
+																	<a href="#sec-method-summary">Methods</a> (<span class="disabled">details</span>)
+						
+		</div>
+		<div class="info-box-body">
+			<A NAME='method_detail'></A>
+
+<a name="methodPclZip" id="PclZip"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">Constructor PclZip</span> (line <span class="line-number">215</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">PclZip</span>
+		<span class="method-name">
+			PclZip
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_zipname</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_zipname</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodadd" id="add"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">add</span> (line <span class="line-number">469</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			add
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filelist</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filelist</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodcreate" id="create"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">create</span> (line <span class="line-number">274</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			create
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filelist</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filelist</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoddelete" id="delete"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">delete</span> (line <span class="line-number">1059</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			delete
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoddeleteByIndex" id="deleteByIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">deleteByIndex</span> (line <span class="line-number">1124</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			deleteByIndex
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_index</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_index</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodduplicate" id="duplicate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">duplicate</span> (line <span class="line-number">1229</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			duplicate
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_archive</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoderrorCode" id="errorCode"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">errorCode</span> (line <span class="line-number">1348</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			errorCode
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methoderrorInfo" id="errorInfo"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">errorInfo</span> (line <span class="line-number">1410</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			errorInfo
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$p_full</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_full</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methoderrorName" id="errorName"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">errorName</span> (line <span class="line-number">1364</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			errorName
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$p_with_code</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_with_code</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodextract" id="extract"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">extract</span> (line <span class="line-number">730</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			extract
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodextractByIndex" id="extractByIndex"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">extractByIndex</span> (line <span class="line-number">897</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			extractByIndex
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_index</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_index</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodlistContent" id="listContent"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">listContent</span> (line <span class="line-number">669</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			listContent
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodmerge" id="merge"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">merge</span> (line <span class="line-number">1292</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			merge
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive_to_add</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_archive_to_add</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivAdd" id="privAdd"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privAdd</span> (line <span class="line-number">2330</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privAdd
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivAddFile" id="privAddFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privAddFile</span> (line <span class="line-number">2734</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privAddFile
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivAddFileList" id="privAddFileList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privAddFileList</span> (line <span class="line-number">2663</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privAddFileList
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivAddFileUsingTempFile" id="privAddFileUsingTempFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privAddFileUsingTempFile</span> (line <span class="line-number">3034</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privAddFileUsingTempFile
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivAddList" id="privAddList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privAddList</span> (line <span class="line-number">2594</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privAddList
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivCalculateStoredFilename" id="privCalculateStoredFilename"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privCalculateStoredFilename</span> (line <span class="line-number">3171</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privCalculateStoredFilename
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_filedescr</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivCheckFileHeaders" id="privCheckFileHeaders"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privCheckFileHeaders</span> (line <span class="line-number">4899</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privCheckFileHeaders
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_local_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_central_header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_local_header</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_central_header</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivCheckFormat" id="privCheckFormat"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privCheckFormat</span> (line <span class="line-number">1449</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privCheckFormat
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$p_level</span> = <span class="var-default">0</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_level</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivCloseFd" id="privCloseFd"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privCloseFd</span> (line <span class="line-number">2565</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privCloseFd
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodprivConvertHeader2FileInfo" id="privConvertHeader2FileInfo"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privConvertHeader2FileInfo</span> (line <span class="line-number">3530</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privConvertHeader2FileInfo
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_header</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_info</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_header</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_info</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivCreate" id="privCreate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privCreate</span> (line <span class="line-number">2292</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privCreate
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_filedescr_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivDeleteByRule" id="privDeleteByRule"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privDeleteByRule</span> (line <span class="line-number">5136</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privDeleteByRule
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_result_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivDirCheck" id="privDirCheck"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privDirCheck</span> (line <span class="line-number">5495</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privDirCheck
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_dir</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$p_is_dir</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_dir</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_is_dir</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivDisableMagicQuotes" id="privDisableMagicQuotes"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privDisableMagicQuotes</span> (line <span class="line-number">5871</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privDisableMagicQuotes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodprivDuplicate" id="privDuplicate"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privDuplicate</span> (line <span class="line-number">5767</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privDuplicate
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_archive_filename</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_archive_filename</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivErrorLog" id="privErrorLog"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privErrorLog</span> (line <span class="line-number">5836</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privErrorLog
+		</span>
+					([<span class="var-type"></span>&nbsp;<span class="var-name">$p_error_code</span> = <span class="var-default">0</span>], [<span class="var-type"></span>&nbsp;<span class="var-name">$p_error_string</span> = <span class="var-default">''</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_error_code</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_error_string</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivErrorReset" id="privErrorReset"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privErrorReset</span> (line <span class="line-number">5853</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privErrorReset
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodprivExtractByRule" id="privExtractByRule"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privExtractByRule</span> (line <span class="line-number">3571</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privExtractByRule
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_file_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_all_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_file_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_remove_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_remove_all_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivExtractFile" id="privExtractFile"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privExtractFile</span> (line <span class="line-number">3953</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privExtractFile
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_remove_all_path</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_entry</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_remove_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_remove_all_path</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivExtractFileAsString" id="privExtractFileAsString"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privExtractFileAsString</span> (line <span class="line-number">4567</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privExtractFileAsString
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_string</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_entry</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_string</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivExtractFileInOutput" id="privExtractFileInOutput"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privExtractFileInOutput</span> (line <span class="line-number">4442</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privExtractFileInOutput
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_entry</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivExtractFileUsingTempFile" id="privExtractFileUsingTempFile"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privExtractFileUsingTempFile</span> (line <span class="line-number">4353</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privExtractFileUsingTempFile
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_entry</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_entry</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivFileDescrExpand" id="privFileDescrExpand"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privFileDescrExpand</span> (line <span class="line-number">2150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privFileDescrExpand
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_filedescr_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivFileDescrParseAtt" id="privFileDescrParseAtt"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privFileDescrParseAtt</span> (line <span class="line-number">2001</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privFileDescrParseAtt
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_file_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$p_filedescr</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$v_options</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$v_requested_options</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_file_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_filedescr</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$v_options</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$v_requested_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivList" id="privList"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privList</span> (line <span class="line-number">3432</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privList
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_list</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_list</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivMerge" id="privMerge"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privMerge</span> (line <span class="line-number">5558</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privMerge
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_archive_to_add</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_archive_to_add</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivOpenFd" id="privOpenFd"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privOpenFd</span> (line <span class="line-number">2526</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privOpenFd
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_mode</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_mode</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivOptionDefaultThreshold" id="privOptionDefaultThreshold"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privOptionDefaultThreshold</span> (line <span class="line-number">1950</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privOptionDefaultThreshold
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_options</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivParseOptions" id="privParseOptions"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privParseOptions</span> (line <span class="line-number">1506</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privParseOptions
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_options_list</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_size</span>, <span class="var-type"></span>&nbsp;<span class="var-name">&$v_result_list</span>, [<span class="var-type"></span>&nbsp;<span class="var-name">$v_requested_options</span> = <span class="var-default">false</span>])
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_options_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_size</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$v_result_list</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$v_requested_options</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivReadCentralFileHeader" id="privReadCentralFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privReadCentralFileHeader</span> (line <span class="line-number">4762</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privReadCentralFileHeader
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivReadEndCentralDir" id="privReadEndCentralDir"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privReadEndCentralDir</span> (line <span class="line-number">4949</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privReadEndCentralDir
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_central_dir</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_central_dir</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivReadFileHeader" id="privReadFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privReadFileHeader</span> (line <span class="line-number">4633</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privReadFileHeader
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivSwapBackMagicQuotes" id="privSwapBackMagicQuotes"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privSwapBackMagicQuotes</span> (line <span class="line-number">5913</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privSwapBackMagicQuotes
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+<a name="methodprivWriteCentralFileHeader" id="privWriteCentralFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privWriteCentralFileHeader</span> (line <span class="line-number">3343</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privWriteCentralFileHeader
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivWriteCentralHeader" id="privWriteCentralHeader"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">privWriteCentralHeader</span> (line <span class="line-number">3401</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privWriteCentralHeader
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">$p_nb_entries</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_size</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_offset</span>, <span class="var-type"></span>&nbsp;<span class="var-name">$p_comment</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_nb_entries</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_size</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_offset</span>			</li>
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">$p_comment</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodprivWriteFileHeader" id="privWriteFileHeader"><!-- --></a>
+<div class="oddrow">
+	
+	<div class="method-header">
+		<span class="method-title">privWriteFileHeader</span> (line <span class="line-number">3294</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			privWriteFileHeader
+		</span>
+					(<span class="var-type"></span>&nbsp;<span class="var-name">&$p_header</span>)
+			</div>
+	
+			<ul class="parameters">
+					<li>
+				<span class="var-type"></span>
+				<span class="var-name">&$p_header</span>			</li>
+				</ul>
+		
+			
+	</div>
+<a name="methodproperties" id="properties"><!-- --></a>
+<div class="evenrow">
+	
+	<div class="method-header">
+		<span class="method-title">properties</span> (line <span class="line-number">1150</span>)
+	</div> 
+	
+	<!-- ========== Info from phpDoc block ========= -->
+	
+	<div class="method-signature">
+		<span class="method-result">void</span>
+		<span class="method-name">
+			properties
+		</span>
+				()
+			</div>
+	
+		
+			
+	</div>
+						
+		</div>
+	</div>
+
+
+	<p class="notes" id="credit">
+		Documentation generated on Wed, 17 Jun 2009 11:08:39 +0200 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.1</a>
+	</p>
+	</div></body>
+</html>

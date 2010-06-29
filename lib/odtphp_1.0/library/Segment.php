@@ -8,7 +8,7 @@ class SegmentException extends Exception
  * You need Zip Extension or PclZip library
  * Encoding : ISO-8859-1
  * Last commit by $Author: neveldo $
- * Date - $Date: 2009-06-17 12:12:59 +0200 (Mi, 17 Jun 2009) $
+ * Date - $Date: 2009-06-17 12:12:59 +0200 (mer., 17 juin 2009) $
  * SVN Revision - $Rev: 44 $
  * Id : $Id: Segment.php 44 2009-06-17 10:12:59Z neveldo $
  *

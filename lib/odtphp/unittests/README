@@ -1,0 +1,41 @@
+README (English)
+--------------------------------
+This directory contains unit tests for quality control
+of odtPHP development.
+
+
+PHPUNIT
+-------
+
+To use them, you must:
+
+* Install PHPUnit
+If using Eclipse, you must also add an entry as external tool for phpunit programm with:
+-Name:      PHPUnit
+-Location:  Linux:   /usr/bin/php
+            Windows: C:\Program Files (x86)\wamp\bin\php\php5.2.8\php.exe
+-Workspace: ${workspace_loc}
+-Arguments: Linux:   /usr/bin/phpunit ${resource_path}
+            Windows: "C:\Program Files (x86)\PHPUnit-3.4.9\phpunit.php" ${resource_path}
+
+* Run Unit tests: 
+Run > phpunit TestFile.php
+If using Eclipse, select the test and click on menu "Run external tools and choose PHPUnit".
+
+* Generate a report of Unit tests code coverage among tested classes only:
+Run > phpunit --coverage-html ./report odtPHPSuite.php
+Note that xdebug must be installed for this feature to work.
+
+* Generate a report of Unit tests code coverage among all odtPHP classes:
+Increase your PHP memory (memory_limit in php.ini) to 528MB.
+Run > phpunit --configuration ./phpunittest.xml --coverage-html ./report odtPHPSuite.php
+
+
+
+PHPDEPEND
+---------
+* Install PDepend
+
+* Laucnh PDepend analysis:
+pdepend --summary-xml=./report/summary.xml --jdepend-chart=./report/jdepend.svg --overview-pyramid=./report/pyramid.svg /yourdir
+ 
