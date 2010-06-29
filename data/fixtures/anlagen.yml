@@ -1,0 +1,65 @@
+Anlage:
+  E02:
+    name: E02
+    zeit: 5
+    ziel: TN kennen die Ziele des NDC.
+    methode: Visualisierung
+    material: |
+      Vorbereitetes Pinnwandpapier mit „Netzwerk für Demokratie und Courage„
+      Überschrift
+      laminierte Karten
+    tip: |
+      Locker, fluffig mitreißend erzählen. Fremdworte von der Klasse erklären
+      lassen, wenn möglich.
+    kurzinhalt: Projektvorstellung NDC
+    inhalt: |
+      1.„Das Netzwerk für Demokratie und Courage ist ein großes Projekt, indem alle
+      Beteiligten eines gemeinsam haben, das sind die Ziele“ Zielscheibe anpinnen
+
+      2.„Mit dem Projekt wollen wir gemeinsam etwas erreichen“ Zielpfeile anpinnen
+      und kurz erläutern
+
+      3.„Wir, das sind völlig unterschiedliche junge Leute, aus ganz verschiedenen
+      Bundesländern, die Projekttage, wie diesen und auch andere Workshops oder
+      Veranstaltungen zu Themen, wie Diskriminierung, Rassismus, Medien durchführen“
+      Projektagskarte und Teamer_innenFiguren anpinnen
+
+      4.„Wir gehen auch in andere Klassen und Schulen. Denn unser Projekt ist für
+      Schülerinnen und Schüler ab der 8. Klasse, aber auch an Auszubildende und eure
+      Lehrerinnen und Lehrer gerichtet“ Zielgruppenkarten und Figuren anpinnen
+
+      5.„Durch die Unterstützung der vielen verschiedenen Partnerinnen und Partner
+      bleibt das Projekt nicht nur vielfältig, sondern ist auch finanziell sicher,
+      damit unsere Angebote weiterhin kostenlos für euch bleiben“ KoopPartner_innen
+      anpinnen
+
+      6.„Da wir ein Beteiligungsprojekt sind, könnt ihr auch gern bei uns mitmachen,
+      dafür schaut einfach mal auf unserer Website vorbei.“ Karte mit Webadresse
+      anpinnen
+    rolle_tm: kurz und knackig bleiben
+
+  E03:
+    name: E03
+    zeit: 10
+    ziel: And as symfony uses Doctrine
+    methode: built-in behaviors
+    material: |
+      you dont need to define all columns values. If not, symfony will use the
+      default value defined in the database schema. And as symfony uses Doctrine to
+      load the data into the database, all the built-in behaviors
+    tip: |
+      equires that the fixtures files be prefixed with numbers to determine the
+      order in which the files will be loaded. With D
+    kurzinhalt: we have defined two jobs labelled 
+    inhalt: |
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+      enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+      in reprehenderit in.
+ 
+      Voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa
+      qui officia deserunt mollit anim id est laborum.
+    rolle_tm: Voluptate velit esse cillum dolore eu fugiat
+

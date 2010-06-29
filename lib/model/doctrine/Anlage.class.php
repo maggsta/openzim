@@ -12,7 +12,7 @@
  */
 class Anlage extends BaseAnlage
 {
-	public function save(Doctrine_Connection $con = null)
+	public function save(Doctrine_Connection $conn = null)
 	{  
 	
 		$conn = $conn ? $conn : $this->getTable()->getConnection();
