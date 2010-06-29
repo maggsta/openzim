@@ -23,6 +23,7 @@ class AnlageForm extends BaseAnlageForm
        'label' => 'Bilder hinzufügen',
      ));
  
+    $this->embedRelation('Bilder');
     $this->embedForm('neueBilder', $form);
   }
 

@@ -28,6 +28,10 @@
       <?php echo $form['kurzinhalt']->renderRow() ?>
       <?php echo $form['inhalt']->renderRow() ?>     
       <?php echo $form->renderHiddenFields() ?>
+      <?php foreach ($form['Bilder'] as $bild): ?>
+	  <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
+	  <?php echo $bild['caption']->renderRow() ?>
+      <?php endforeach; ?>
       <?php foreach ($form['neueBilder'] as $bild): ?>
 	  <?php echo $bild['path']->renderRow() ?>
           <?php echo $bild['caption']->renderRow() ?>

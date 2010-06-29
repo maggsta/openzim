@@ -16,14 +16,17 @@ class BildForm extends BaseBildForm
       $this['anlage_id']    
     );
 
-    $this->widgetSchema['path'] = new sfWidgetFormInputFile(array(
-      'label' => 'Bild',
-    ));
-
     $this->validatorSchema['path'] = new sfValidatorFile(array(
       'required'   => false,
       'path'       => sfConfig::get('sf_upload_dir').'/bilder',
       'mime_types' => 'web_images',
+    ));
+
+    $this->widgetSchema['path'] = new sfWidgetFormInputFileEditable(array(
+        'file_src'    => sfConfig::get('sf_upload_dir').'/bilder/'.$this->getObject()->getPath(),
+        'edit_mode'   => !$this->isNew(),
+        'is_image'    => true,
+        'with_delete' => !$this->isNew(),
     ));
   }
 }
