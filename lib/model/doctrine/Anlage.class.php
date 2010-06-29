@@ -81,6 +81,14 @@ class Anlage extends BaseAnlage
 		$odf->setVars('Inhalt', $this->getInhalt(),false,'UTF-8');
 		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
 		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
+	   	$odf->setVars('zeit', $this->getZeit(), false);
+ 		$bilder = $odf->setSegment('bilder');
+                foreach ( $this->getBilder() as $bild ){
+		  $bilder->titel($bild->getCaption());
+    		  $bilder->setImage('bild',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
+		  $bilder->merge();
+		}
+		$odf->mergeSegment($bilder);
 		$odf->exportAsAttachedFile ($this->getName().'.odt');  
         }
 }
