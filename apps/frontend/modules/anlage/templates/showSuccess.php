@@ -48,14 +48,6 @@
       <th>Lnr:</th>
       <td><?php echo $anlage->getLnr() ?></td>
     </tr>
-    <tr>
-      <th>Created at:</th>
-      <td><?php echo $anlage->getCreatedAt() ?></td>
-    </tr>
-    <tr>
-      <th>Updated at:</th>
-      <td><?php echo $anlage->getUpdatedAt() ?></td>
-    </tr>
   </tbody>
 </table>
 
