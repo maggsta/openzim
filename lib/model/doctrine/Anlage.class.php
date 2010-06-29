@@ -76,11 +76,11 @@ class Anlage extends BaseAnlage
 	
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 	   	$odf->setVars('zeit', $this->getZeit(), false);
-		$odf->setVars('ziel', $this->getZiel(), false);
-		$odf->setVars('tip', $this->getTip(), false);
-		$odf->setVars('Inhalt', $this->getInhalt(), false);
-		$odf->setVars('methode', $this->getMethode(), false);
-		$odf->setVars('material', $this->getMaterial(), false);
+		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
+		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
+		$odf->setVars('Inhalt', $this->getInhalt(),false,'UTF-8');
+		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
+		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
 		$odf->exportAsAttachedFile ($this->getName().'.odt');  
         }
 }
