@@ -70,12 +70,18 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
- 
-    $this->anlagen = Doctrine_Core::getTable('Anlage')->getForLuceneQuery($query);
+    if ('*' == $query )
+    {
+        $this->anlagen = Doctrine::getTable('Anlage')
+          ->createQuery('a')
+          ->execute();
+      } 
+      else 
+        $this->anlagen = Doctrine_Core::getTable('Anlage')->getForLuceneQuery($query);
  
     if ($request->isXmlHttpRequest())
     {
-      if ('*' == $query || !$this->anlagen)
+      if ( !$this->anlagen)
       {
         return $this->renderText('No results.');
       }
