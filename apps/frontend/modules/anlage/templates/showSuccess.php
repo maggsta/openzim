@@ -53,4 +53,6 @@
 
 <a href="<?php echo url_for('anlage/edit?id='.$anlage->getId()) ?>">Edit</a>
 &nbsp;
+<a href="<?php echo url_for('anlage/export?id='.$anlage->getId()) ?>">Export</a>
+&nbsp;
 <a href="<?php echo url_for('anlage/index') ?>">List</a>

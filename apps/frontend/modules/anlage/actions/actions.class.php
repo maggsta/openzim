@@ -66,6 +66,19 @@ class anlageActions extends sfActions
     $this->redirect('anlage/index');
   }
 
+  public function executeExport(sfWebRequest $request)
+  {
+    $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+
+    $this->anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id')));
+    $this->anlage->generateOdf();
+    throw new sfStopException();        
+    
+  //   $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
+  //  $this->setTemplate('show');
+//    $this->redirect('anlage/show/id/'.$request->getParameter('id'));
+  }
+
   // apps/frontend/modules/job/actions/actions.class.php
   public function executeSearch(sfWebRequest $request)
   {

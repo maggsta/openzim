@@ -1,5 +1,6 @@
 <?php
 
+require_once(dirname(__FILE__).'/../../odtphp/library/odf.php');
 /**
  * Anlage
  * 
@@ -69,4 +70,17 @@ class Anlage extends BaseAnlage
   		$index->addDocument($doc);
   		$index->commit();
 	}
+	
+        public function generateOdf()
+	{
+	
+		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
+	   	$odf->setVars('zeit', $this->getZeit(), false);
+		$odf->setVars('ziel', $this->getZiel(), false);
+		$odf->setVars('tip', $this->getTip(), false);
+		$odf->setVars('Inhalt', $this->getInhalt(), false);
+		$odf->setVars('methode', $this->getMethode(), false);
+		$odf->setVars('material', $this->getMaterial(), false);
+		$odf->exportAsAttachedFile ($this->getName().'.odt');  
+        }
 }
