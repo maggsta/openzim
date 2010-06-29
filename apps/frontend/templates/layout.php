@@ -14,7 +14,7 @@
     <div id="container">
  
       <div id="header">
-        <h1><a href="<?php echo url_for('anlage/index') ?>">
+        <h1><a href="<?php echo url_for('homepage') ?>">
           <img src="/images/logo.jpg" alt="openZIM" />
         </a></h1>
     
