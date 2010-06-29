@@ -19,6 +19,9 @@
       <td class="inhalt">
         <?php echo $anlage->getKurzInhalt() ?>
       </td>
+      <td class="export">
+	<a href="<?php echo url_for('anlage/export?id='.$anlage->getId()) ?>">Export</a>
+      </td>
     </tr>
   <?php endforeach; ?>
 </table>
