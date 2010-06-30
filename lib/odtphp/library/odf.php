@@ -99,6 +99,19 @@ class Odf
 			$this->_moveRowSegments();
 		}
 
+		public function setImageReplace($key, $value)
+		{
+		        $filename = strtok(strrchr($value, '/'), '/.');
+		        $file = substr(strrchr($value, '/'), 1);
+		        $size = @getimagesize($value);
+		        if ($size === false) {
+		            throw new OdfException("Invalid image");
+		        }
+		        $this->images[$value] = $file;
+		        $this->vars[$key] = $file;
+		        return $this;
+		}
+
 		/**
 		 * Assing a template variable
 		 *
