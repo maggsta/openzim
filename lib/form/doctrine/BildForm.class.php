@@ -23,7 +23,7 @@ class BildForm extends BaseBildForm
     ));
 
     $this->widgetSchema['path'] = new sfWidgetFormInputFileEditable(array(
-        'file_src'    => sfConfig::get('sf_upload_dir').'/bilder/'.$this->getObject()->getPath(),
+        'file_src'    => '/'.basename(sfConfig::get('sf_upload_dir')).'/bilder/'.$this->getObject()->getPath(),
         'edit_mode'   => !$this->isNew(),
         'is_image'    => true,
         'with_delete' => !$this->isNew(),
