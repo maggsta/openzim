@@ -1,6 +1,8 @@
 <?php
 
 require_once(dirname(__FILE__).'/../../odtphp/library/odf.php');
+require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php');
+
 /**
  * Anlage
  * 
@@ -73,12 +75,15 @@ class Anlage extends BaseAnlage
 	
         public function generateOdf()
 	{
-	
+		
+		$htmlConverter = new htmlConverter();
+		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
+
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 	   	$odf->setVars('zeit', $this->getZeit(), false);
 		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
 		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
-		$odf->setVars('Inhalt', $this->getInhalt(),false,'UTF-8');
+		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
 		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
 		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
 	   	$odf->setVars('zeit', $this->getZeit(), false);
@@ -87,5 +92,6 @@ class Anlage extends BaseAnlage
 		  break;
 		}
 		$odf->exportAsAttachedFile ($this->getName().'.odt');  
+
         }
 }
