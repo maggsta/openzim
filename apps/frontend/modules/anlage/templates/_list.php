@@ -20,6 +20,9 @@
         <?php echo $anlage->getKurzInhalt() ?>
       </td>
       <td class="export">
+	<a href="<?php echo url_for('anlage/edit?id='.$anlage->getId())?>">Edit</a>
+      </td>
+      <td class="export">
 	<a href="<?php echo url_for('anlage/export?id='.$anlage->getId()) ?>">Export</a>
       </td>
     </tr>
