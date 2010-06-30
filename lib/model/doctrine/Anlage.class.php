@@ -83,7 +83,7 @@ class Anlage extends BaseAnlage
 		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
 	   	$odf->setVars('zeit', $this->getZeit(), false);
                 foreach ( $this->getBilder() as $bild ){
-    		  $odf->setImageReplace('1000000000000280000001908F3889B3.jpg',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
+    		  $odf->setImage('bild',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
 		  break;
 		}
 		$odf->exportAsAttachedFile ($this->getName().'.odt');  
