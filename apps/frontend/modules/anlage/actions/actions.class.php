@@ -95,6 +95,14 @@ class anlageActions extends sfActions
     else
         $this->anlagen = $q->execute();
     $this->setTemplate('index');
+    
+    //Warum hat das bei noXmlRequest KEIN Template!!!???!!!
+    //=====================================================
+    //if ( !$this->anlagen)
+    //{
+    //	return $this->renderText('No results.');
+    //}
+
     if ($request->isXmlHttpRequest())
     {
       if ( !$this->anlagen)

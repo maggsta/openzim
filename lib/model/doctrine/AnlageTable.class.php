@@ -40,7 +40,7 @@ class AnlageTable extends Doctrine_Table
   	if (empty($pks))
   	{
     		return array();
- 	 }
+ 	}
  
   	$q = $this->createQuery('j')
     		->whereIn('j.id', $pks)
