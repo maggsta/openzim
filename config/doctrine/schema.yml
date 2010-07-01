@@ -14,7 +14,7 @@ Anlage:
     zim_id:  { type: integer }
     lnr: { type: integer , unique: true }
   relations:
-    Zim: {  onDelete: CASCADE, local: zim_id, foreign: id, foreignAlias: Anlagen }
+    Zim: {  local: zim_id, foreign: id, foreignAlias: Anlagen }
 
 Bild:
   actAs: { Timestampable: ~ }

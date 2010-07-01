@@ -110,8 +110,7 @@ abstract class BaseAnlage extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Zim', array(
              'local' => 'zim_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+             'foreign' => 'id'));
 
         $this->hasMany('Bild as Bilder', array(
              'local' => 'id',
