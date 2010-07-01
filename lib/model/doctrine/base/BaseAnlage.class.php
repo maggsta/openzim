@@ -68,21 +68,21 @@ abstract class BaseAnlage extends sfDoctrineRecord
         $this->hasColumn('zeit', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('ziel', 'string', 255, array(
+        $this->hasColumn('ziel', 'string', 1000, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 1000,
              ));
-        $this->hasColumn('methode', 'string', 255, array(
+        $this->hasColumn('methode', 'string', 1000, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 1000,
              ));
         $this->hasColumn('material', 'string', 1000, array(
              'type' => 'string',
              'length' => 1000,
              ));
-        $this->hasColumn('tip', 'string', 255, array(
+        $this->hasColumn('tip', 'string', 1000, array(
              'type' => 'string',
-             'length' => 255,
+             'length' => 1000,
              ));
         $this->hasColumn('kurzinhalt', 'string', 1000, array(
              'type' => 'string',

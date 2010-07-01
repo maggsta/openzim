@@ -4,10 +4,10 @@ Anlage:
   columns:
     name: { type: string(255), notnull: true, unique: true }
     zeit: { type: integer }
-    ziel: { type: string(255) }
-    methode: { type: string(255) }
+    ziel: { type: string(1000) }
+    methode: { type: string(1000) }
     material: { type: string(1000) }
-    tip: { type: string(255) }
+    tip: { type: string(1000) }
     kurzinhalt: { type: string(1000) }
     inhalt: { type: string(10000) }
     rolle_tm: { type: string(255) }
