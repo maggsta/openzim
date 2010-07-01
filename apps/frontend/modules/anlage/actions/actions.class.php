@@ -89,7 +89,11 @@ class anlageActions extends sfActions
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
     $this->anlage = Doctrine_Core::getTable('Anlage');
-    $this->anlagen = $this->anlage->getAll($query)->execute();
+    $q = $this->anlage->getAll($query);
+    if ( is_array($q) )
+	$this->anlagen = $q;
+    else
+        $this->anlagen = $q->execute();
     $this->setTemplate('index');
     if ($request->isXmlHttpRequest())
     {
