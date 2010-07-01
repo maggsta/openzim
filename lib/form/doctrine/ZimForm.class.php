@@ -17,8 +17,14 @@ class ZimForm extends BaseZimForm
 		new sfWidgetFormDoctrineChoice(array(
 			'model' => $this->getRelatedModelName('Anlagen'),
 			'multiple' => true,
+//			'label_associated' => 'Anlagen für dieses ZIM',
+//			'label_unassociated' => 'Verfügbare Anlagen',
 			'add_empty' => true,
         		'renderer_class' => 'sfWidgetFormSelectDoubleList'));
 
+	$this->validatorSchema['Anlagen'] = 
+		new sfValidatorDoctrineChoice(array(
+			'model' => $this->getRelatedModelName('Anlagen')));
+		
   }
 }
