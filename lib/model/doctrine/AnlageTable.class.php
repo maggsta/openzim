@@ -9,6 +9,12 @@ class AnlageTable extends Doctrine_Table
         return Doctrine_Core::getTable('Anlage');
     }
 
+    public static function getAllFree()
+    {
+        AnlageTable::getInstance()->createQuery('a')
+           ->where('a.zim_id IS NULL')->execute();
+    }
+
     
     public function getAll($query = '*')
     {
