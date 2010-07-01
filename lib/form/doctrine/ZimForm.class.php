@@ -24,7 +24,9 @@ class ZimForm extends BaseZimForm
 
 	$this->validatorSchema['Anlagen'] = 
 		new sfValidatorDoctrineChoice(array(
-			'model' => $this->getRelatedModelName('Anlagen')));
+			'model' => $this->getRelatedModelName('Anlagen'),
+			'required' => false
+			));
 		
   }
 }
