@@ -12,7 +12,14 @@ class anlageActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->anlagen = Doctrine::getTable('Anlage')->getAll();
+    $this->anlage = Doctrine::getTable('Anlage');
+    $this->pager = new sfDoctrinePager(
+      'Anlage',
+      sfConfig::get('app_max_anlagen')
+    );
+    $this->pager->setQuery($this->anlage->getAll());
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();
   }
 
   public function executeShow(sfWebRequest $request)
@@ -81,7 +88,8 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
-    $this->anlagen = Doctrine_Core::getTable('Anlage')->getAll($query);
+    $this->anlage = Doctrine_Core::getTable('Anlage');
+    $this->anlagen = $this->anlage->getAll($query)->execute();
     $this->setTemplate('index');
     if ($request->isXmlHttpRequest())
     {
@@ -91,6 +99,16 @@ class anlageActions extends sfActions
       }
 
       return $this->renderPartial('anlage/list', array('anlagen' => $this->anlagen));
+    }
+    else
+    {
+       $this->pager = new sfDoctrinePager(
+         'Anlage',
+         sfConfig::get('app_max_anlagen')
+       );
+       $this->pager->setQuery($this->anlage->getAll($query));
+       $this->pager->setPage($request->getParameter('page', 1));
+       $this->pager->init();
     }
   }
 

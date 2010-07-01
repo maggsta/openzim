@@ -10,16 +10,14 @@ class AnlageTable extends Doctrine_Table
     }
 
     
-    public static function getAll($query = '*')
+    public function getAll($query = '*')
     {
       if ('*' == $query )
       {
-          return Doctrine::getTable('Anlage')
-            ->createQuery('a')
-            ->execute();
+          return $this->createQuery('a');      
       } 
       else 
-        return Doctrine::getTable('Anlage')->getForLuceneQuery($query);
+        return $this->getForLuceneQuery($query);
     }
 
     public function getForLuceneQuery($query)
@@ -41,7 +39,7 @@ class AnlageTable extends Doctrine_Table
     		->whereIn('j.id', $pks)
     		->limit(20);
  
-  	return $q->execute();
+  	return $q;
     }
 
     static public function getLuceneIndex()

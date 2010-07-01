@@ -3,7 +3,7 @@
 
 # default values
 all:
-
+  max_anlagen:  10
   tiny_mce:
     my_settings:
       theme: advanced
