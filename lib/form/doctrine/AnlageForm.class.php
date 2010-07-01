@@ -13,7 +13,7 @@ class AnlageForm extends BaseAnlageForm
   public function configure()
   {
     unset(
-      $this['rolle_tm'], $this['zim_id'],
+      $this['rolle_tm'], //$this['zim_id'],
       $this['lnr']     
     );
 

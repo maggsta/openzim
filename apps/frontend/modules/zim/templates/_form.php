@@ -18,7 +18,9 @@
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form ?>
+    <!--  <?php echo $form ?> -->
+      <?php echo $form['name']->renderRow() ?>
+      <?php echo $form['Anlagen']->renderRow() ?>
     </tbody>
   </table>
 </form>

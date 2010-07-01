@@ -94,4 +94,10 @@ class Anlage extends BaseAnlage
 		$odf->exportAsAttachedFile ($this->getName().'.odt');  
 
         }
+
+	public function __toString()
+	{
+		return $this->getName();
+	}
+
 }

@@ -12,5 +12,13 @@ class ZimForm extends BaseZimForm
 {
   public function configure()
   {
+	$this->embedRelation('Anlagen');
+	$values = array();
+	foreach($this->getObject()->getAnlagen() as $anlage) {
+		$values[$anlage->getId()] = $anlage->__toString();
+	}
+	$this->widgetSchema['Anlagen'] = new sfWidgetFormChoice(array(
+		'choices' => $values,
+        	'renderer_class' => 'sfWidgetFormSelectDoubleList'));
   }
 }

@@ -20,6 +20,7 @@
     </tfoot>
     <tbody>
     <!--  <?php echo $form ?> -->
+      <?php echo $form['zim_id']->renderRow() ?>	
       <?php echo $form['name']->renderRow() ?>
       <?php echo $form['zeit']->renderRow() ?>
       <?php echo $form['ziel']->renderRow() ?>
