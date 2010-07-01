@@ -7,7 +7,7 @@ class htmlConverter {
 
 	public function replaceDoubleQuotes($text) {
 
-                return str_replace('&ldquo;', '"', str_replace('&bdquo;', '"', $text));
+                return str_replace('&ldquo;', '“', str_replace('&bdquo;', '„', $text));
 
         }
 
