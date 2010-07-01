@@ -11,8 +11,9 @@ class AnlageTable extends Doctrine_Table
 
     public static function getAllFree()
     {
-        AnlageTable::getInstance()->createQuery('a')
-           ->where('a.zim_id IS NULL')->execute();
+        return AnlageTable::getInstance()->createQuery('a')
+           ->where('a.zim_id IS NULL')
+	   ->execute();
     }
 
     

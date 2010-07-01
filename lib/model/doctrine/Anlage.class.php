@@ -97,7 +97,7 @@ class Anlage extends BaseAnlage
 
 	public function __toString()
 	{
-		return $this->getName();
+		return $this->getName().' -- '.$this->getZiel();
 	}
 
 }
