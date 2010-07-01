@@ -26,7 +26,7 @@ class AnlageForm extends BaseAnlageForm
     $this->embedRelation('Bilder');
     $this->embedForm('neueBilder', $form);
 
-    $this->widgetSchema['inhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '10'));
+    $this->widgetSchema['inhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '20'));
 
   }
 

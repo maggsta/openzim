@@ -1,3 +1,13 @@
+
+<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+	tinyMCE.init({
+	mode : "textareas",
+	theme : "advanced",
+	readonly : true
+});
+</script>
+
 <table>
   <tbody>
     <tr>
@@ -30,7 +40,7 @@
     </tr>
     <tr>
       <th>Inhalt:</th>
-      <td><?php echo $anlage->getInhalt() ?></td>
+      <td><textarea style="width:100%; height:300px"><?php echo $anlage->getInhalt() ?></textarea></td>
     </tr>
     <tr>
       <th>Rolle tm:</th>
