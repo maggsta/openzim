@@ -12,9 +12,7 @@ class anlageActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->anlagen = Doctrine::getTable('Anlage')
-      ->createQuery('a')
-      ->execute();
+    $this->anlagen = Doctrine::getTable('Anlage')->getAll();
   }
 
   public function executeShow(sfWebRequest $request)
@@ -83,14 +81,7 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
-    if ('*' == $query )
-    {
-        $this->anlagen = Doctrine::getTable('Anlage')
-          ->createQuery('a')
-          ->execute();
-      } 
-      else 
-        $this->anlagen = Doctrine_Core::getTable('Anlage')->getForLuceneQuery($query);
+    $this->anlagen = Doctrine_Core::getTable('Anlage')->getAll($query);
     $this->setTemplate('index');
     if ($request->isXmlHttpRequest())
     {

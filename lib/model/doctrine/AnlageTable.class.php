@@ -9,6 +9,19 @@ class AnlageTable extends Doctrine_Table
         return Doctrine_Core::getTable('Anlage');
     }
 
+    
+    public static function getAll($query = '*')
+    {
+      if ('*' == $query )
+      {
+          return Doctrine::getTable('Anlage')
+            ->createQuery('a')
+            ->execute();
+      } 
+      else 
+        return Doctrine::getTable('Anlage')->getForLuceneQuery($query);
+    }
+
     public function getForLuceneQuery($query)
     {
   	$hits = self::getLuceneIndex()->find($query);
