@@ -7,7 +7,7 @@
  * 
  * @package    openZIM
  * @subpackage model
- * @author     Your name here
+ * @author     Christoph Herbst
  * @version    SVN: $Id: Builder.php 7490 2010-03-29 19:53:27Z jwage $
  */
 class Zim extends BaseZim
@@ -15,6 +15,18 @@ class Zim extends BaseZim
         public function generateOdf()
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
+		$anlagen = $odf->setSegment('anlagen');
+		foreach($this->getAnlagen() AS $anlage) {
+		    $anlagen->name($anlage->getName());
+		    $anlagen->zeit($anlage->getZeit());
+		    $anlagen->ziel($anlage->getZiel());
+		    $anlagen->kurzinhalt($anlage->getKurzinhalt());
+		    $anlagen->methode($anlage->getMethode());
+		    $anlagen->rolletm($anlage->getRolleTm());
+		    $anlagen->material($anlage->getMaterial());
+		    $anlagen->merge();
+		}
+		$odf->mergeSegment($anlagen);
 /*	   	$odf->setVars('zeit', $this->getZeit(), false);
 		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
 		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
