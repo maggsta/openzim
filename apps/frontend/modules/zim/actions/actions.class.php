@@ -17,6 +17,20 @@ class zimActions extends sfActions
       ->execute();
   }
 
+  public function executeExport(sfWebRequest $request)
+  {
+    $this->forward404Unless($zim =
+	Doctrine::getTable('Zim')->find(array($request->getParameter('id'))),
+	sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+
+    $zim->generateOdf();
+    throw new sfStopException();        
+    
+  //   $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
+  //  $this->setTemplate('show');
+//    $this->redirect('anlage/show/id/'.$request->getParameter('id'));
+  }
+
   public function executeShow(sfWebRequest $request)
   {
     $this->zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id')));

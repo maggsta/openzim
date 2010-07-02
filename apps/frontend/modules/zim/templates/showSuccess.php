@@ -21,4 +21,6 @@
 
 <a href="<?php echo url_for('zim/edit?id='.$zim->getId()) ?>">Edit</a>
 &nbsp;
+<a href="<?php echo url_for('zim/export?id='.$zim->getId()) ?>">Export</a>
+&nbsp;
 <a href="<?php echo url_for('zim/index') ?>">List</a>

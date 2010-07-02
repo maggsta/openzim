@@ -12,4 +12,20 @@
  */
 class Zim extends BaseZim
 {
+        public function generateOdf()
+	{
+		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
+/*	   	$odf->setVars('zeit', $this->getZeit(), false);
+		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
+		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
+		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
+		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
+		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
+	   	$odf->setVars('zeit', $this->getZeit(), false);
+                foreach ( $this->getBilder() as $bild ){
+    		  $odf->setImage('bild',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
+		  break;
+		}*/
+		$odf->exportAsAttachedFile ($this->getName().'.odt');  
+        }
 }
