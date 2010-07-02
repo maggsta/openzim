@@ -44,7 +44,7 @@
         <div class="content">
           <ul>
 	    <li><a href=""><?php echo __('about openZIM') ?></a></li>
-	    <li><?php echo link_to(__('Logout'), '@sf_guard_signout') ?></li>
+	    <li><?php if( $sf_user->isAuthenticated() ) echo link_to(__('Logout'), '@sf_guard_signout') ?></li>
 	  </ul>
 	</div>
       </div>
