@@ -1,9 +1,29 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
+anlage:
+  class:   sfDoctrineRouteCollection
+  options: { model: Anlage }
+
+zim:
+  class:   sfDoctrineRouteCollection
+  options: { model: Zim }
+
+bild:
+  class:   sfDoctrineRouteCollection
+  options: { model: Bild }
+
+stunde:
+  class:   sfDoctrineRouteCollection
+  options: { model: Stunde }
+
 anlage_search:
   url:   /search
   param: { module: anlage, action: search }
+
+change_language:
+  url:   /change_language
+  param: { module: language, action: changeLanguage }
 
 sf_guard_signin:
   url:   /login

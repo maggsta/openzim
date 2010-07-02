@@ -14,10 +14,12 @@
     <div id="container">
  
       <div id="header">
-        <h1><a href="<?php echo url_for('homepage') ?>">
-          <img src="/images/logo.jpg" alt="openZIM" />
-        </a></h1>
-    
+	<h1>
+		<a href="<?php echo url_for('homepage') ?>">
+          		<img src="/images/logo.jpg" alt="openZIM" />
+        	</a>
+	</h1>
+        <?php include_component('language', 'language') ?>
       </div>
 
       <div id="content">
@@ -41,13 +43,10 @@
       <div id="footer">
         <div class="content">
           <ul>
-            <li><a href="">about openZIM</a></li>
-            <li class="feed"><a href="">Full feed</a></li>
-            <li><a href="">openZIM API</a></li>
-            <li class="last"><a href="">Affiliates</a></li>
-            <li><?php echo link_to('Logout', '@sf_guard_signout') ?></li>
+	    <li><a href=""><?php echo __('about openZIM') ?></a></li>
+	    <li><?php echo link_to(__('Logout'), '@sf_guard_signout') ?></li>
 	  </ul>
-        </div>
+	</div>
       </div>
     </div>
   </body>
