@@ -19,12 +19,13 @@ class ZimForm extends BaseZimForm
 			'multiple' => true,
 //			'label_associated' => 'Anlagen für dieses ZIM',
 //			'label_unassociated' => 'Verfügbare Anlagen',
-			'add_empty' => true,
         		'renderer_class' => 'sfWidgetFormSelectDoubleList'));
+	$this->widgetSchema['Anlagen']->setDefault($this->getObject()->getAnlagen());
 
 	$this->validatorSchema['Anlagen'] = 
 		new sfValidatorDoctrineChoice(array(
 			'model' => $this->getRelatedModelName('Anlagen'),
+			'multiple' => true,
 			'required' => false
 			));
 		
