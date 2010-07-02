@@ -79,9 +79,9 @@ class anlageActions extends sfActions
     $this->anlage->generateOdf();
     throw new sfStopException();        
     
-  //   $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
-  //  $this->setTemplate('show');
-//    $this->redirect('anlage/show/id/'.$request->getParameter('id'));
+   // $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
+   // $this->setTemplate('show');
+   // $this->redirect('anlage/show/id/'.$request->getParameter('id'));
   }
 
   // apps/frontend/modules/job/actions/actions.class.php
@@ -90,37 +90,28 @@ class anlageActions extends sfActions
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
     $this->anlage = Doctrine_Core::getTable('Anlage');
     $q = $this->anlage->getAll($query);
-    if ( is_array($q) )
+
+    if ( is_array($q) ) {
 	$this->anlagen = $q;
-    else
+	$q = Doctrine_Core::getTable('Anlage')->createQuery('a')->where('a.id = -1');
+    }
+    else {
         $this->anlagen = $q->execute();
+    }
+    
     $this->setTemplate('index');
     
-    //Warum hat das bei noXmlRequest KEIN Template!!!???!!!
-    //=====================================================
-    //if ( !$this->anlagen)
-    //{
-    //	return $this->renderText('No results.');
-    //}
+    $this->pager = new sfDoctrinePager(
+    	'Anlage',
+        sfConfig::get('app_max_anlagen')
+    );
+    $this->pager->setQuery($q);
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();	
 
     if ($request->isXmlHttpRequest())
     {
-      if ( !$this->anlagen)
-      {
-        return $this->renderText('No results.');
-      }
-
-      return $this->renderPartial('anlage/list', array('anlagen' => $this->anlagen));
-    }
-    else
-    {
-       $this->pager = new sfDoctrinePager(
-         'Anlage',
-         sfConfig::get('app_max_anlagen')
-       );
-       $this->pager->setQuery($this->anlage->getAll($query));
-       $this->pager->setPage($request->getParameter('page', 1));
-       $this->pager->init();
+       return $this->renderPartial('anlage/list', array('anlagen' => $this->anlagen));
     }
   }
 

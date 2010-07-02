@@ -1,4 +1,10 @@
-<table id="anlagen">
+<?php 
+if(count($anlagen) == 0) {
+	echo 'no results';
+}
+else { ?>   
+
+<table>
   <thead>
     <tr>
       <th>Name</th>
@@ -7,7 +13,6 @@
     </tr>
   </thead>
   <tbody>
-
   <?php foreach ($anlagen as $i => $anlage): ?>
     <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
       <td class="name">
@@ -28,3 +33,6 @@
     </tr>
   <?php endforeach; ?>
 </table>
+
+<?php } ?>
+

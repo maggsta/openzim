@@ -1,7 +1,7 @@
 <?php include_partial('anlage/search') ?>
 
 <h1>Anlagen</h1>
-
+<div id="anlagen">
 <?php include_partial('anlage/list', array('anlagen' => $pager->getResults())) ?>
 
 <?php if ($pager->haveToPaginate()): ?>
@@ -36,5 +36,6 @@ $pager->getLastPage() ?>">
     </a>
   </div>
 <?php endif; ?>
+</div>
  
 <a href="<?php echo url_for('anlage/new') ?>">New</a>
