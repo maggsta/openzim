@@ -19,7 +19,7 @@
           		<img src="/images/logo.jpg" alt="openZIM" />
         	</a>
 	</h1>
-        <?php //include_component('language', 'language') ?>
+        <?php include_component('language', 'language') ?>
       </div>
 
       <div id="content">

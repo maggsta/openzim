@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2010-07-02T22:12:32Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>about openZIM</source>
+        <target>über openZim</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Logout</source>
+        <target>abmelden</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Choose language:</source>
+        <target>Sprache wählen:</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
