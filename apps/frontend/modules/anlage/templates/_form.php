@@ -31,12 +31,10 @@
 	  <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
 	  <?php echo $bild['caption']->renderRow() ?>
       <?php endforeach; ?>
-      <?php if ( $form->getObject()->getBilder()->count() == 0 ) :
-	foreach ($form['neueBilder'] as $bild): ?>
+      <?php foreach ($form['neueBilder'] as $bild): ?>
 	  <?php echo $bild['path']->renderRow() ?>
           <?php echo $bild['caption']->renderRow() ?>
-        <?php endforeach;
-       endif; ?>
+      <?php endforeach; ?>
     </tbody>
   </table>
 </form>
