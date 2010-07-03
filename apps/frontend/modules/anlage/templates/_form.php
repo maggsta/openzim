@@ -22,6 +22,7 @@
       <?php echo $form['zeit']->renderRow() ?>
       <?php echo $form['ziel']->renderRow() ?>
       <?php echo $form['methode']->renderRow() ?>
+      <?php echo $form['rolle_tm']->renderRow() ?>
       <?php echo $form['material']->renderRow() ?>
       <?php echo $form['tip']->renderRow() ?>
       <?php echo $form['kurzinhalt']->renderRow() ?>

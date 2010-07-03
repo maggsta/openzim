@@ -30,7 +30,7 @@ class anlageActions extends sfActions
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new AnlageForm();
+    $this->form = new AnlageCreateForm();
   }
 
   public function executeCreate(sfWebRequest $request)
