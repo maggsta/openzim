@@ -12,4 +12,8 @@
  */
 class Stunde extends BaseStunde
 {
+	public function __toString()
+	{
+		return $this->getLnr().'. Stunde: '.$this->getName();
+	}
 }

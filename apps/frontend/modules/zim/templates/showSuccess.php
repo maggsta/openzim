@@ -4,16 +4,30 @@
       <th>Name:</th>
       <td><?php echo $zim->getName() ?></td>
     </tr>
-      <th>Anlagen:</th>
+    <tr>
+      <th>Stunden:</th>
 	<table>
 	  <tbody>
-      <?php foreach ($zim->getAnlagen() as $anlage): ?>
+      <?php foreach ($zim->getStunden() as $stunde): ?>
 	    <tr>
-              <td><?php echo $anlage ?></td>
+              <td><?php echo $stunde ?></td>
     	    </tr>
+	    <tr>
+	      <th>Anlagen:</th>
+		<table>
+		  <tbody>
+	      <?php foreach ($stunde->getAnlagen() as $anlage): ?>
+		    <tr>
+	              <td><?php echo $anlage ?></td>
+	    	    </tr>	
+	      <?php endforeach; ?>
+	  	  </tbody>
+		</table>
+	    </tr>
       <?php endforeach; ?>
   	  </tbody>
 	</table>
+    </tr>
   </tbody>
 </table>
 
