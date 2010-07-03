@@ -27,11 +27,13 @@ class Odf
 		);
 		protected $file;
 		protected $contentXml;			// To store content of content.xml file
+		protected $stylesXml;			// To store content of styles.xml file
 		protected $manifestXml;			// To store content of META-INF/manifest.xml file
 		protected $tmpfile;
 		protected $tmpdir='';
 		protected $images = array();
 		protected $vars = array();
+		protected $styleVars = array();
 		protected $segments = array();
 		const PIXEL_TO_CM = 0.026458333;
 		/**
@@ -84,6 +86,9 @@ class Odf
 			if (($this->contentXml = $this->file->getFromName('content.xml')) === false) {
 				throw new OdfException("Nothing to parse - Check that the content.xml file is correctly formed in source file '$filename'");
 			}
+			if (($this->stylesXml = $this->file->getFromName('styles.xml')) === false) {
+				throw new OdfException("Nothing to parse - Check that the styles.xml file is correctly formed in source file '$filename'");
+			}
 			if (($this->manifestXml = $this->file->getFromName('META-INF/manifest.xml')) === false) {
  				throw new OdfException("Something is wrong with META-INF/manifest.xm in source file '$filename'");
 			}
@@ -108,14 +113,27 @@ class Odf
 		 * @throws OdfException
 		 * @return odf
 		 */
-		public function setVars($key, $value, $encode = true, $charset = 'ISO-8859')
+		private function setVarsPrivate($key, $value, $encode = true,
+			$charset = 'ISO-8859',$file,&$vars)
 		{
-			if (strpos($this->contentXml, $this->config['DELIMITER_LEFT'] . $key . $this->config['DELIMITER_RIGHT']) === false) {
+			if (strpos($file, $this->config['DELIMITER_LEFT'] . $key . $this->config['DELIMITER_RIGHT']) === false) {
 				throw new OdfException("var $key not found in the document");
 			}
 			$value = $encode ? htmlspecialchars($value) : $value;
 			$value = ($charset == 'ISO-8859') ? utf8_encode($value) : $value;
-			$this->vars[$this->config['DELIMITER_LEFT'] . $key . $this->config['DELIMITER_RIGHT']] = str_replace("\n", "<text:line-break/>", $value);
+			$vars[$this->config['DELIMITER_LEFT'] . $key . $this->config['DELIMITER_RIGHT']] = str_replace("\n", "<text:line-break/>", $value);
+			return $this;
+		}
+
+		public function setVars($key, $value, $encode = true, $charset = 'ISO-8859')
+		{
+			$this->setVarsPrivate($key,$value,$encode,$charset,$this->contentXml,$this->vars);
+			return $this;
+		}
+
+		public function setStyleVars($key, $value, $encode = true, $charset = 'ISO-8859')
+		{
+			$this->setVarsPrivate($key,$value,$encode,$charset,$this->stylesXml,$this->styleVars);
 			return $this;
 		}
 
@@ -184,6 +202,7 @@ IMG;
 		private function _parse()
 		{
 			$this->contentXml = str_replace(array_keys($this->vars), array_values($this->vars), $this->contentXml);
+			$this->stylesXml = str_replace(array_keys($this->styleVars), array_values($this->styleVars),$this->stylesXml);
 		}
 
 		/**
@@ -287,6 +306,9 @@ IMG;
 			$res=$this->file->open($this->tmpfile);
 			$this->_parse();
 			if (! $this->file->addFromString('content.xml', $this->contentXml)) {
+				throw new OdfException('Error during file export addFromString');
+			}
+			if (! $this->file->addFromString('styles.xml',$this->stylesXml)) {
 				throw new OdfException('Error during file export addFromString');
 			}
 			foreach ($this->images as $imageKey => $imageValue) {
