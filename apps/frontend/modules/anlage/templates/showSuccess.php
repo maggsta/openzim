@@ -46,16 +46,14 @@
       <th>Rolle tm:</th>
       <td><?php echo $anlage->getRolleTm() ?></td>
     </tr>
-    <?php if ( !is_null( $anlage->getZimId() ) ) {  ?>
-      <tr>
-        <th>Zim:</th>
-        <td><?php echo $anlage->getZimId() ?></td>
-      </tr>
-      <tr>
-        <th>Lnr:</th>
-        <td><?php echo $anlage->getLnr() ?></td>
-      </tr>
-    <?php } ?> 
+    <tr>
+      <th>Zim:</th>
+      <td><?php echo $anlage->getStunde()->getZim()->getName() ?></td>
+    </tr>
+    <tr>
+      <th>Stunde:</th>
+      <td><?php echo $anlage->getStunde()->getLnr().'. '.$anlage->getStunde()->getName() ?></td>
+    </tr>
   </tbody>
 </table>
 

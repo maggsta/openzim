@@ -1,6 +1,30 @@
+Zim:
+  PTE2010:
+    name: | 
+      Eurovision – it´s your turn!
+      Ein Projekttag zum Europa von heute&morgen
+
+Stunde:
+  S1:
+    lnr: 1
+    Zim: PTE2010
+    name: Was verbindest Du mit Europa? Einführung und Projektvorstellung
+  S2:
+    lnr: 2
+    Zim: PTE2010
+    name: Wörüber reden wir eigentlich? Von Europa zur Europäischen Union  
+<?php for ($i = 3; $i <= 6; $i++): ?>
+  S<?php echo $i ?>:
+    lnr: <?php echo $i."\n" ?>
+    Zim: PTE2010
+    name: Name stunde <?php echo $i.".\n" ?>
+<?php endfor ?>
+
 Anlage:
   E02:
-    name: E02
+    kuerzel: E
+    lnr: 2
+    Stunde: S1
     zeit: 5
     ziel: TN kennen die Ziele des NDC.
     methode: Visualisierung
@@ -40,7 +64,9 @@ Anlage:
 
 <?php for ($i = 100; $i <= 130; $i++): ?>
   E<?php echo $i ?>:
-    name: E<?php echo $i."\n" ?>
+    kuerzel: E
+    lnr: <?php echo $i."\n" ?>
+    Stunde: S<?php echo ($i % 5 +1)."\n" ?>
     zeit: <?php echo fmod($i, 2) ? "10\n" : "5\n" ?>
     ziel: And as symfony uses Doctrine
     methode: built-in behaviors

@@ -47,6 +47,11 @@ class Anlage extends BaseAnlage
  
   		return parent::delete($conn);
 	}
+ 
+	public function getName($query = '*')
+    	{
+       		return $this->getKuerzel().$this->getLnr();
+    	}
 
 	public function updateLuceneIndex()
 	{

@@ -16,7 +16,6 @@ class AnlageTable extends Doctrine_Table
 	   ->execute();
     }
 
-    
     public function getAll($query = '*')
     {
       if ('*' == $query )

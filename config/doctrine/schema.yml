@@ -2,7 +2,7 @@
 Anlage:
   actAs: { Timestampable: ~ }
   columns:
-    name: { type: string(255), notnull: true, unique: true }
+    kuerzel: { type: string(255), notnull: true }
     zeit: { type: integer }
     ziel: { type: string(1000) }
     methode: { type: string(1000) }
@@ -10,13 +10,26 @@ Anlage:
     tip: { type: string(1000) }
     kurzinhalt: { type: string(1000) }
     inhalt: { type: string(10000) }
-    rolle_tm: { type: string(255) }
-    zim_id:  { type: integer }
-    lnr: { type: integer , unique: true }
+    rolle_tm: { type: string(1000) }
+    stunde_id:  { type: integer, notnull: true }
+    lnr: { type: integer, notnull: true }
   relations:
-    Zim: {  local: zim_id, foreign: id, foreignAlias: Anlagen }
+    Stunde: { onDelete: CASCADE, local: stunde_id, foreign: id, foreignAlias: Anlagen }
+  indexes:
+    kuerzel_lnr:
+      fields: [kuerzel, lnr]
+      type: unique
 
 Bild:
+  actAs: { Timestampable: ~ }
+  columns:
+    path: { type: string(255), notnull: true, unique: true }
+    caption: { type: string(1000) }
+    anlage_id: { type: integer, notnull: true } 
+  relations:
+    Anlage: {  onDelete: CASCADE, local: anlage_id, foreign: id, foreignAlias: Bilder }
+
+Anhang:
   actAs: { Timestampable: ~ }
   columns:
     path: { type: string(255), notnull: true, unique: true }
@@ -28,14 +41,15 @@ Bild:
 Stunde:
   actAs: { Timestampable: ~ }
   columns:
-    description: { type: string(255), notnull: true }
+    lnr: { type: integer, notnull: true }
+    name: { type: string(255), notnull: true }
     zim_id: { type: integer, notnull: true }
-    start_anlage_id: { type: integer }
-    end_anlage_id: { type: integer }
   relations:
-    Anlage: { foreignType: one, local: start_anlage_id }
-    Anlage: { foreignType: one, local: end_anlage_id }
     Zim: {  onDelete: CASCADE, local: zim_id, foreign: id, foreignAlias: Stunden }
+  indexes:
+    zim_lnr:
+      fields: [zim_id, lnr]
+      type: unique
 
 Zim:
   actAs: { Timestampable: ~ }

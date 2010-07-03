@@ -13,7 +13,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'name'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'kuerzel'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'zeit'       => new sfWidgetFormFilterInput(),
       'ziel'       => new sfWidgetFormFilterInput(),
       'methode'    => new sfWidgetFormFilterInput(),
@@ -22,14 +22,14 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
       'kurzinhalt' => new sfWidgetFormFilterInput(),
       'inhalt'     => new sfWidgetFormFilterInput(),
       'rolle_tm'   => new sfWidgetFormFilterInput(),
-      'zim_id'     => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Zim'), 'add_empty' => true)),
-      'lnr'        => new sfWidgetFormFilterInput(),
+      'stunde_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Stunde'), 'add_empty' => true)),
+      'lnr'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'created_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at' => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
     ));
 
     $this->setValidators(array(
-      'name'       => new sfValidatorPass(array('required' => false)),
+      'kuerzel'    => new sfValidatorPass(array('required' => false)),
       'zeit'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'ziel'       => new sfValidatorPass(array('required' => false)),
       'methode'    => new sfValidatorPass(array('required' => false)),
@@ -38,7 +38,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
       'kurzinhalt' => new sfValidatorPass(array('required' => false)),
       'inhalt'     => new sfValidatorPass(array('required' => false)),
       'rolle_tm'   => new sfValidatorPass(array('required' => false)),
-      'zim_id'     => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Zim'), 'column' => 'id')),
+      'stunde_id'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Stunde'), 'column' => 'id')),
       'lnr'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'created_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at' => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
@@ -62,7 +62,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'         => 'Number',
-      'name'       => 'Text',
+      'kuerzel'    => 'Text',
       'zeit'       => 'Number',
       'ziel'       => 'Text',
       'methode'    => 'Text',
@@ -71,7 +71,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
       'kurzinhalt' => 'Text',
       'inhalt'     => 'Text',
       'rolle_tm'   => 'Text',
-      'zim_id'     => 'ForeignKey',
+      'stunde_id'  => 'ForeignKey',
       'lnr'        => 'Number',
       'created_at' => 'Date',
       'updated_at' => 'Date',
