@@ -85,6 +85,9 @@ class Anlage extends BaseAnlage
 		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
 
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
+	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr(), false);
+	   	$odf->setStyleVars('kuerzel', $this->getKuerzel(), false);
+	   	$odf->setStyleVars('lnr', $this->getLnr(), false);
 	   	$odf->setVars('zeit', $this->getZeit(), false);
 		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
 		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
