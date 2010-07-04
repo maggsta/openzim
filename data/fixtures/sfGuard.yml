@@ -4,22 +4,43 @@ sfGuardUser:
     password:       admin
     is_super_admin: true
 
+  sgu_author:
+    username:       author
+    password:       author
+    is_super_admin: false
+
 sfGuardPermission:
   sgp_admin:
     name:           admin
     description:    Administrator permission
+
+  sgp_author:
+    name:           author
+    description:    Author permission
 
 sfGuardGroup:
   sgg_admin:
     name:           admin
     description:    Administrator group
 
+  sgg_author:
+    name:           author
+    description:    Author Group
+
 sfGuardGroupPermission:
   sggp_admin:
     sfGuardGroup:       sgg_admin
     sfGuardPermission:  sgp_admin
 
+  sggp_author:
+    sfGuardGroup:       sgg_author
+    sfGuardPermission:  sgp_author
+
 sfGuardUserGroup:
   sgug_admin:
     sfGuardGroup:       sgg_admin
     sfGuardUser:        sgu_admin
+
+  sgug_author:
+    sfGuardGroup:       sgg_author
+    sfGuardUser:        sgu_author

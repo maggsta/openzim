@@ -8,7 +8,7 @@ class languageComponents extends sfComponents
       $this->getUser(),
       array('languages' => array('en', 'de', 'fr'))
     );
-    $this->form->getWidgetSchema()->setLabel('language', __('Choose language:'));
+    $this->form->getWidgetSchema()->setLabel('language', __(' '));
   }
 }
 

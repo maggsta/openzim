@@ -35,7 +35,7 @@ all:
     use_database:           true
 
     #Enable Modules
-    enabled_modules:        [default, sfGuardAuth]
+    enabled_modules:        [default, sfGuardAuth, sfGuardUser]
 
     #Default Langua
     default_culture: de

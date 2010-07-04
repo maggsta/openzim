@@ -18,8 +18,21 @@
 		<a href="<?php echo url_for('homepage') ?>">
           		<img src="/images/logo.jpg" alt="openZIM" />
         	</a>
+	<div id="lang"><?php include_component('language', 'language') ?></div>
 	</h1>
-        <?php include_component('language', 'language') ?>
+        <?php if ($sf_user->isAuthenticated()): ?>
+  	<div id="menu">
+    	<ul>
+		<li><?php echo link_to(__('Homepage'), 'homepage') ?></li>
+		<li><?php echo link_to(__('Attachments'), 'anlage') ?></li>
+		<?php if ($sf_user->isSuperAdmin()): ?>
+			<li><?php echo link_to(__('ZIMs'), 'zim') ?></li>
+			<li><?php echo link_to(__('User'), 'sf_guard_user') ?></li>
+		<?php endif ?>
+		<li><?php echo link_to(__('Logout'), 'sf_guard_signout') ?></li>
+	</ul>
+  	</div>
+	<?php endif ?>
       </div>
 
       <div id="content">
@@ -44,7 +57,6 @@
         <div class="content">
           <ul>
 	    <li><a href=""><?php echo __('about openZIM') ?></a></li>
-	    <li><?php if( $sf_user->isAuthenticated() ) echo link_to(__('Logout'), '@sf_guard_signout') ?></li>
 	  </ul>
 	</div>
       </div>

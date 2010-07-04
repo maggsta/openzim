@@ -38,6 +38,7 @@ body
 #header
 {
   background: url(../images/bg-header.jpg) repeat-x top;
+  padding-bottom: 25px;
 }
 
 #header h1
@@ -202,6 +203,7 @@ body
 #footer .content {
   position: absolute;
   bottom: 10px;
+  left: 10px;
   right: 10px;
 }
 
@@ -212,14 +214,13 @@ body
 
 #footer ul
 {
-  display: inline;
 }
 
 #footer li
 {
+  float: right;
   list-style: none;
   margin-right: 15px;
-  display: inline;
 }
 
 #footer li a
@@ -414,27 +415,39 @@ td
 {
  display: block;
  width: 100%;
- background: #000000;
- color: #CCCCCC;
+ background: #FFF;
+ margin-bottom: 10px;
 }
 
 #menu ul 
 {
-height: 15px;
+height: 20px;
 padding: 2px;
 padding-left: 10px;
+display: inline;
+}
+
+#menu ul li
+{
+float: left;
+padding: 3px 15px;
+border-right: 1px solid #000;
+border-bottom: 1px solid #000;
+display: inline;
 }
 
 #menu li a
 {
- float: left;
  text-decoration: none;
- padding-right: 10px;
- color: #CCCCCC;
+ color: #000;
 }
 
 #menu li a:hover
 {
- color: #FFFFFF;
+ color: #CCC;
 }
 
+#lang 
+{
+ float: right;
+}
