@@ -15,29 +15,24 @@ class Zim extends BaseZim
         public function generateOdf()
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
+	//	$stunden = $odf->setSegment('stunden');
 		$anlagen = $odf->setSegment('anlagen');
-		foreach($this->getAnlagen() AS $anlage) {
-		    $anlagen->name($anlage->getName());
-		    $anlagen->zeit($anlage->getZeit());
-		    $anlagen->ziel($anlage->getZiel());
-		    $anlagen->kurzinhalt($anlage->getKurzinhalt());
-		    $anlagen->methode($anlage->getMethode());
-		    $anlagen->rolletm($anlage->getRolleTm());
-		    $anlagen->material($anlage->getMaterial());
-		    $anlagen->merge();
+		foreach($this->getStunden() AS $stunde) {
+//			$stunden->setVar('nameStunde',$stunde->getName());
+			foreach($stunde->getAnlagen() AS $anlage) {
+			    $anlagen->name($anlage->getName());
+			    $anlagen->zeit($anlage->getZeit());
+			    $anlagen->ziel($anlage->getZiel());
+			    $anlagen->kurzinhalt($anlage->getKurzinhalt());
+			    $anlagen->methode($anlage->getMethode());
+			    $anlagen->rolletm($anlage->getRolleTm());
+			    $anlagen->material($anlage->getMaterial());
+			    $anlagen->merge();
+			}
+//			$stunden->merge();
 		}
+//		$odf->mergeSegment($stunden);
 		$odf->mergeSegment($anlagen);
-/*	   	$odf->setVars('zeit', $this->getZeit(), false);
-		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
-		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
-		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
-		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
-		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
-	   	$odf->setVars('zeit', $this->getZeit(), false);
-                foreach ( $this->getBilder() as $bild ){
-    		  $odf->setImage('bild',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
-		  break;
-		}*/
-		$odf->exportAsAttachedFile ($this->getName().'.odt');  
+		$odf->exportAsAttachedFile ('neuesZim.odt');  
         }
 }
