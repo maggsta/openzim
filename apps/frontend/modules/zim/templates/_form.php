@@ -18,13 +18,29 @@
       </tr>
     </tfoot>
     <tbody>
-      <?php echo $form['name']->renderRow() ?>
       <?php echo $form->renderHiddenFields() ?>
-      <?php echo $form['Stunden']->renderRow() ?>
-      <td>Neue Stunde</td>
+      <?php echo $form['name']->renderRow() ?>
+      <?php foreach ($form['Stunden'] as $stunde): ?>
+          <tr>
+            <td>Stunde:</td>
+	    <td><?php echo $stunde['name'] ?></td>
+	    <td><?php echo $stunde['name']->renderError() ?></td>
+	 </tr> 
+         <tr> <td colspan="6">Anlagen</td></tr>
+         <?php foreach ($stunde['Anlagen'] as $anlage): ?>
+          <tr>
+		<td>  <?php echo $anlage['kuerzel']->renderLabelName() ?></td>
+		<td>  <?php echo $anlage['kuerzel'] ?></td>
+		<td>  <?php echo $anlage['kuerzel']->renderError() ?></td>
+		<td>  <?php echo $anlage['lnr']->renderLabelName() ?></td>
+		<td>  <?php echo $anlage['lnr'] ?></td>
+		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
+	 </tr> 
+         <?php endforeach; ?>
+      <?php endforeach; ?>
+      <tr> <td colspan="6">Neue Stunde</td></tr>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
 	  <?php echo $stunde['name']->renderRow() ?>
-          <?php echo $stunde['Anlagen']->renderRow() ?>
       <?php endforeach; ?>
     </tbody>
   </table>
