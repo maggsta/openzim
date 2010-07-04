@@ -11,7 +11,6 @@ class BildValidatorSchema extends sfValidatorSchema
 {
   protected function configure($options = array(), $messages = array())
   {
-    $this->addMessage('caption', 'The caption is required.');
     $this->addMessage('path', 'The filename is required.');
   }
  
@@ -22,13 +21,6 @@ class BildValidatorSchema extends sfValidatorSchema
     foreach($values as $key => $value)
     {
       $errorSchemaLocal = new sfValidatorErrorSchema($this);
- 
-      // path is filled but no caption
-      if ($value['path'] && !$value['caption'])
-      {
-        $errorSchemaLocal->addError(new sfValidatorError($this, 'required'),
-'caption');
-      }
  
       // caption is filled but no path
       if ($value['caption'] && !$value['path'])
