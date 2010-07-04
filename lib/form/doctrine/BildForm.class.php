@@ -28,5 +28,8 @@ class BildForm extends BaseBildForm
         'is_image'    => true,
         'with_delete' => !$this->isNew(),
     ));
+
+    $this->validatorSchema['path_delete'] = new sfValidatorPass();
+
   }
 }

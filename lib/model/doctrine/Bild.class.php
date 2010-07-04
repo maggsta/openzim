@@ -12,4 +12,12 @@
  */
 class Bild extends BaseBild
 {
+	public function save(Doctrine_Connection $conn = null)
+	{
+		if ( !$this->getPath() )
+			$this->delete();
+		else
+	 		$ret = parent::save($conn);
+		return $ret;
+	}  
 }
