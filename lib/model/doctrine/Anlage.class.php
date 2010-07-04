@@ -83,17 +83,21 @@ class Anlage extends BaseAnlage
 		
 		$htmlConverter = new htmlConverter();
 		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
+		$convertedZiel = $htmlConverter->getODF($this->getZiel());
+		$convertedMethode = $htmlConverter->getODF($this->getMethode());
+		$convertedMaterial = $htmlConverter->getODF($this->getMaterial());
+		$convertedTip = $htmlConverter->getODF($this->getTip());
 
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr(), false);
 	   	$odf->setStyleVars('kuerzel', $this->getKuerzel(), false);
 	   	$odf->setStyleVars('lnr', $this->getLnr(), false);
 	   	$odf->setVars('zeit', $this->getZeit(), false);
-		$odf->setVars('ziel', $this->getZiel(), false,'UTF-8');
-		$odf->setVars('tip', $this->getTip(), false,'UTF-8');
+		$odf->setVars('ziel', $convertedZiel, false,'UTF-8');
+		$odf->setVars('tip', $convertedTip, false,'UTF-8');
 		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
-		$odf->setVars('methode', $this->getMethode(), false,'UTF-8');
-		$odf->setVars('material', $this->getMaterial(), false,'UTF-8');
+		$odf->setVars('methode', $convertedMethode, false,'UTF-8');
+		$odf->setVars('material', $convertedMaterial, false,'UTF-8');
 	   	$odf->setVars('zeit', $this->getZeit(), false);
  		$bilder = $odf->setSegment('bilder');
                 foreach ( $this->getBilder() as $bild ){
