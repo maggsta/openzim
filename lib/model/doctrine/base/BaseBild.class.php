@@ -32,7 +32,6 @@ abstract class BaseBild extends sfDoctrineRecord
         $this->hasColumn('path', 'string', 255, array(
              'type' => 'string',
              'notnull' => true,
-             'unique' => true,
              'length' => 255,
              ));
         $this->hasColumn('caption', 'string', 1000, array(
