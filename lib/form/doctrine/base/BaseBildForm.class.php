@@ -32,10 +32,6 @@ abstract class BaseBildForm extends BaseFormDoctrine
       'updated_at' => new sfValidatorDateTime(),
     ));
 
-    $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'Bild', 'column' => array('path')))
-    );
-
     $this->widgetSchema->setNameFormat('bild[%s]');
 
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);

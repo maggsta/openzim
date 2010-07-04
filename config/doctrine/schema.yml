@@ -23,7 +23,7 @@ Anlage:
 Bild:
   actAs: { Timestampable: ~ }
   columns:
-    path: { type: string(255), notnull: true, unique: true }
+    path: { type: string(255), notnull: true }
     caption: { type: string(1000) }
     anlage_id: { type: integer, notnull: true } 
   relations:
