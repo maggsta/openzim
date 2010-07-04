@@ -15,4 +15,4 @@
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('zim/new') ?>">New</a>
+<a href="<?php echo url_for('zim/new') ?>">New</a>
