@@ -3,7 +3,7 @@
 require_once('../../lib/odtphp/library/odf.php');
 
 
-$odf = new odf('./Anlage_templatelist.odt');
+$odf = new odf('../../lib/odftmp/Anlage_template.odt');
 $odf->setVars('zeit', 5, false);
 $odf->setVars('ziel', 'Ziel', false,'UTF-8');
 $odf->setVars('tip', 'Tip', false,'UTF-8');

@@ -99,6 +99,7 @@ class Segment implements IteratorAggregate, Countable
 			if ($this->file->getFromName('Pictures/' . $imageValue) === false) {
 				$this->file->addFile($imageKey, 'Pictures/' . $imageValue);
 			}
+           	$this->odf->addImageToManifest($imageValue);
         }
         $this->file->close();		
         return $this->xmlParsed;
