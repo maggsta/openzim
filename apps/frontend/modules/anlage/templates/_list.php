@@ -1,3 +1,12 @@
+<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
+<script type="text/javascript">
+        tinyMCE.init({
+        mode : "textareas",
+        theme : "advanced",
+        readonly : true
+});
+</script>
+
 <?php 
 if(count($anlagen) == 0) {
 	echo 'no results';
@@ -19,10 +28,10 @@ else { ?>
 	<?php echo link_to($anlage->getName(), 'anlage/show?id='.$anlage->getId(), $anlage) ?>
       </td>
       <td class="ziel">
-        <?php echo $anlage->getZiel() ?>
+        <textarea style="width:100%; height:100px"><?php echo $anlage->getZiel() ?></textarea>
       </td>
       <td class="inhalt">
-        <?php echo $anlage->getKurzInhalt() ?>
+        <textarea style="width:100%; height:100px"><?php echo $anlage->getKurzInhalt() ?></textarea>
       </td>
       <td class="export">
 	<a href="<?php echo url_for('anlage/edit?id='.$anlage->getId())?>">Edit</a>
