@@ -20,23 +20,23 @@
     </tr>
     <tr>
       <th>Ziel:</th>
-      <td><?php echo $anlage->getZiel() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getZiel() ?></textarea></td>
     </tr>
     <tr>
       <th>Methode:</th>
-      <td><?php echo $anlage->getMethode() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getMethode() ?></textarea></td>
     </tr>
     <tr>
       <th>Material:</th>
-      <td><?php echo $anlage->getMaterial() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getMaterial() ?></textarea></td>
     </tr>
     <tr>
       <th>Tip:</th>
-      <td><?php echo $anlage->getTip() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getTip() ?></textarea></td>
     </tr>
     <tr>
       <th>Kurzinhalt:</th>
-      <td><?php echo $anlage->getKurzinhalt() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getKurzinhalt() ?></textarea></td>
     </tr>
     <tr>
       <th>Inhalt:</th>
@@ -44,7 +44,7 @@
     </tr>
     <tr>
       <th>Rolle tm:</th>
-      <td><?php echo $anlage->getRolleTm() ?></td>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getRolleTm() ?></textarea></td>
     </tr>
     <tr>
       <th>Zim:</th>
