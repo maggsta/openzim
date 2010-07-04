@@ -23,6 +23,7 @@ class htmlConverter {
                   '&Auml;'  => 'Ä', 
                   '&szlig;' => 'ß', 
                   '&nbsp;'  => ' ', 
+                  '&acute;'  => '´', 
 		  '<strong>'  => '<text:span text:style-name="T5">',
 		  '</strong>' => '</text:span>',
                   '<em>'    => '<text:span text:style-name="T1">',
