@@ -12,6 +12,15 @@
  */
 class Stunde extends BaseStunde
 {
+	public function save(Doctrine_Connection $conn = null)
+	{
+		if ($this->isNew() && !$this->getLnr()){
+			$this->setLnr($this->getZim()->
+				getStunden()->count() + 1);
+		}
+		return parent::save($conn);
+	}
+
 	public function __toString()
 	{
 		return $this->getLnr().'. Stunde: '.$this->getName();

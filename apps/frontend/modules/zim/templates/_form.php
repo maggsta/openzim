@@ -20,7 +20,12 @@
     <tbody>
       <?php echo $form['name']->renderRow() ?>
       <?php echo $form->renderHiddenFields() ?>
-      <?php echo $form['Anlagen']->renderRow() ?>
+      <?php echo $form['Stunden']->renderRow() ?>
+      <td>Neue Stunde</td>
+      <?php foreach ($form['neueStunden'] as $stunde): ?>
+	  <?php echo $stunde['name']->renderRow() ?>
+          <?php echo $stunde['Anlagen']->renderRow() ?>
+      <?php endforeach; ?>
     </tbody>
   </table>
 </form>

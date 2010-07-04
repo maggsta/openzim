@@ -12,22 +12,29 @@ class ZimForm extends BaseZimForm
 {
   public function configure()
   {
-	$this->embedRelation('Anlagen');
-	$this->widgetSchema['Anlagen'] = 
-		new sfWidgetFormDoctrineChoice(array(
-			'model' => $this->getRelatedModelName('Anlagen'),
-			'multiple' => true,
-//			'label_associated' => 'Anlagen für dieses ZIM',
-//			'label_unassociated' => 'Verfügbare Anlagen',
-        		'renderer_class' => 'sfWidgetFormSelectDoubleList'));
-	$this->widgetSchema['Anlagen']->setDefault($this->getObject()->getAnlagen());
-
-	$this->validatorSchema['Anlagen'] = 
-		new sfValidatorDoctrineChoice(array(
-			'model' => $this->getRelatedModelName('Anlagen'),
-			'multiple' => true,
-			'required' => false
-			));
-		
+	$form = new StundeCollectionForm(null, array(
+	       'zim' => $this->getObject(),
+	       'size'    => 1,
+	));
+	$this->embedRelation('Stunden');
+    	$this->embedForm('neueStunden', $form);
   }
+
+  public function saveEmbeddedForms($con = null, $forms = null)
+  {
+     if (null === $forms)
+     {
+        $stunden = $this->getValue('neueStunden');
+        $forms = $this->embeddedForms;
+        foreach ($this->embeddedForms['neueStunden'] as $name => $form)
+        {
+          if (!isset($stunden[$name]))
+          {
+            unset($forms['neueStunden'][$name]);
+          }
+        }
+     }
+     return parent::saveEmbeddedForms($con, $forms);
+   }
+
 }

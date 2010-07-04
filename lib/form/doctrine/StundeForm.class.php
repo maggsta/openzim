@@ -12,5 +12,13 @@ class StundeForm extends BaseStundeForm
 {
   public function configure()
   {
+    unset(
+      $this['zim_id'],
+      $this['lnr'] 
+    );
+    $this->validatorSchema['name'] = new sfValidatorString(array(
+	'max_length' => 255, 'required' => !$this->isNew() ));
+	
+    $this->embedRelation('Anlagen','AnlageCreateForm');
   }
 }
