@@ -37,7 +37,7 @@ class anlageActions extends sfActions
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new AnlageForm();
+    $this->form = new AnlageCreateForm();
 
     $this->processForm($request, $this->form);
 
