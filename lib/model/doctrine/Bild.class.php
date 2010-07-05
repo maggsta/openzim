@@ -14,13 +14,14 @@ class Bild extends BaseBild
 {
 	public function save(Doctrine_Connection $conn = null)
 	{
-		$this->imageScale();
-
-		if ( !$this->getPath() )
+		if ( !$this->getPath() ) {
 			$this->delete();
-		else
-	 		$ret = parent::save($conn);
-		return $ret;
+		}
+		else {
+	 		$this->imageScale();
+			$ret = parent::save($conn);
+			return $ret;
+		}
 	}  
 
 	public function imageScale()
