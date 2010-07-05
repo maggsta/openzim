@@ -21,10 +21,9 @@ class zimActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($stunde =
-	Doctrine::getTable('Stunde')->find(array($request->getParameter('stundeid'))),
-		sprintf('Object stunde does not exist (%s).', $request->getParameter('stundeid')));
     $this->forward404Unless($zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id'))), sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+    $stunde = Doctrine::getTable('Stunde')->getLastZimStunde($zim->getId());
+    $this->forward404Unless($stunde, sprintf('Zim (%s) has no stunden.', $request->getParameter('id')));
     $stunde->delete();
 
     $this->redirect('zim/edit?id='.$zim->getId());

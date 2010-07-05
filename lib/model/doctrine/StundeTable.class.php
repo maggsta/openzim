@@ -8,4 +8,16 @@ class StundeTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Stunde');
     }
+    
+    public static function getLastZimStunde($zim_id)
+    {
+       	$maxLnr = self::getInstance()->createQuery('s')
+		->select('MAX(s.lnr) as maxLnr')
+		->where('s.zim_id='.$zim_id)
+		->fetchOne();
+       	$stunde = self::getInstance()->createQuery('s')
+		->where("zim_id = $zim_id AND lnr = $maxLnr->maxLnr")
+		->execute();
+	return $stunde;
+    }
 }
