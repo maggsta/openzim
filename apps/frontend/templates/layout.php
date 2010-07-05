@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php use_javascript('jquery-1.4.2.min.js') ?>
     <?php use_javascript('search.js') ?>
+    <?php use_javascript('paginate.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
