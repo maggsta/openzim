@@ -44,7 +44,9 @@ class Bild extends BaseBild
 		// Bild Skalieren	        	
       		$height = imagesy($image);
 		$width = imagesx($image);
-
+		
+		$new_width  = $width;
+		$new_height = $height;
 		if( $width > 600 ) {
 			$ratio = $width / $height;
 			$new_width = 600;
