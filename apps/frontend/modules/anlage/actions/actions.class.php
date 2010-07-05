@@ -109,10 +109,6 @@ class anlageActions extends sfActions
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();	
 
-    if ($request->isXmlHttpRequest())
-    {
-       return $this->renderPartial('anlage/list', array('anlagen' => $this->anlagen));
-    }
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)

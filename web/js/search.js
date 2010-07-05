@@ -8,7 +8,7 @@ $(document).ready(function()
     {
       $('#loader').show();
       $('#anlagen').load(
-        $(this).parents('form').attr('action'),
+        $(this).parents('form').attr('action') + ' #anlagen',
         { query: this.value + '*' },
         function() { $('#loader').hide(); }
       );

@@ -11,15 +11,17 @@ function setLinkEvents(){
   {
       replaceLinks();
       $('#anlagen').load(
-        $(this).data('href') + ' #anlagen',
-	function(){
-		setLinkEvents();
-	}
+        $(this).data('href') + ' #anlagen'
       );
   });
 }
 
 $(document).ready(function()
 {
-  setLinkEvents();	 
+  setLinkEvents();
+
+  $(document).ajaxComplete(function()
+  {
+    setLinkEvents();
+  });
 });
