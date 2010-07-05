@@ -12,6 +12,6 @@ class AnlageCreateForm extends BaseAnlageForm
 {
   public function configure()
   {
-    $this->useFields(array('kuerzel', 'lnr'));
+    $this->useFields(array('stunde_id','kuerzel', 'lnr'));
   }
 }

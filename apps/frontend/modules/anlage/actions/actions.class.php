@@ -37,7 +37,7 @@ class anlageActions extends sfActions
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new AnlageForm();
+    $this->form = new AnlageCreateForm();
 
     $this->processForm($request, $this->form);
 
@@ -88,8 +88,9 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
-    $this->anlage = Doctrine_Core::getTable('Anlage');
-    $q = $this->anlage->getAll($query);
+    if ( $query[strlen($query)-1] != '*' )
+	$query = $query.'*';
+    $q = Doctrine_Core::getTable('Anlage')->getAll($query);
 
     if ( is_array($q) ) {
 	$this->anlagen = $q;
