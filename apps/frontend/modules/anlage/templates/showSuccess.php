@@ -46,6 +46,17 @@
       <th>Rolle tm:</th>
       <td><textarea style="width:100%; height:100px"><?php echo $anlage->getRolleTm() ?></textarea></td>
     </tr>
+    <?php foreach ($anlage->getBilder() as $i => $bild): ?>
+    <tr>
+      <th><?php echo $i+1 ?>. Bild:</th>
+      <td><img style="height:100px" src=<?php echo '/'.basename(sfConfig::get('sf_upload_dir')).'/bilder/'.$bild->getPath() ?> />
+      </td>
+    </tr>
+    <tr>
+      <th>Beschriftung:</th>
+      <td><textarea style="width:100%; height:100px"><?php echo $bild->getCaption() ?></textarea></td>
+    </tr>
+    <?php endforeach; ?>
     <tr>
       <th>Zim:</th>
       <td><?php echo $anlage->getStunde()->getZim()->getName() ?></td>
