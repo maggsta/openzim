@@ -19,10 +19,10 @@ else { ?>
 	<?php echo link_to($anlage->getName(), 'anlage/show?id='.$anlage->getId(), $anlage) ?>
       </td>
       <td class="ziel">
-        <textarea style="width:100%; height:100px"><?php echo $anlage->getZiel() ?></textarea>
+        <?php echo $anlage->getZiel(ESC_RAW) ?>
       </td>
       <td class="inhalt">
-        <textarea style="width:100%; height:100px"><?php echo $anlage->getKurzInhalt() ?></textarea>
+        <?php echo $anlage->getKurzInhalt(ESC_RAW) ?>
       </td>
       <td class="export">
 	<a href="<?php echo url_for('anlage/edit?id='.$anlage->getId())?>">Edit</a>
