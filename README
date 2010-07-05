@@ -1,0 +1,2 @@
+Ubuntu:
+sudo aptitude install php5-gd
