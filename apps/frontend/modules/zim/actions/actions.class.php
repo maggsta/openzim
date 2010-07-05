@@ -17,6 +17,19 @@ class zimActions extends sfActions
       ->execute();
   }
 
+  public function executeDeleteStunde(sfWebRequest $request)
+  {
+    $request->checkCSRFProtection();
+
+    $this->forward404Unless($stunde =
+	Doctrine::getTable('Stunde')->find(array($request->getParameter('stundeid'))),
+		sprintf('Object stunde does not exist (%s).', $request->getParameter('stundeid')));
+    $this->forward404Unless($zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id'))), sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+    $stunde->delete();
+
+    $this->redirect('zim/edit?id='.$zim->getId());
+  }
+
   public function executeExport(sfWebRequest $request)
   {
     $this->forward404Unless($zim =
@@ -25,10 +38,6 @@ class zimActions extends sfActions
 
     $zim->generateOdf();
     throw new sfStopException();        
-    
-  //   $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
-  //  $this->setTemplate('show');
-//    $this->redirect('anlage/show/id/'.$request->getParameter('id'));
   }
 
   public function executeShow(sfWebRequest $request)

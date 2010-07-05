@@ -19,14 +19,25 @@
     </tfoot>
     <tbody>
       <?php echo $form->renderHiddenFields() ?>
-      <?php echo $form['name']->renderRow() ?>
+      <?php //echo $form['name']->renderRow() ?>
+      <tr>
+	<td>  <?php echo $form['name']->renderLabelName() ?></td>
+	<td colspan="4">  <?php echo $form['name'] ?></td>
+	<td>  <?php echo $form['name']->renderError() ?></td>
+      </tr>
       <?php foreach ($form['Stunden'] as $stunde): ?>
           <tr>
-            <td>Stunde:</td>
+            <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
+            <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
 	    <td><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
+            <td><?php echo link_to('Delete',
+		'zim/deleteStunde?stundeid='.$stunde['id']->getValue().'&id='.$form->getObject()->getId(),
+			array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
 	 </tr> 
-         <tr> <td colspan="6">Anlagen</td></tr>
+         <?php if ($stunde['Anlagen']->count() > 0 ): ?>
+          <tr> <td colspan="6">Anlagen</td></tr>
+         <?php endif; ?>
          <?php foreach ($stunde['Anlagen'] as $anlage): ?>
           <tr>
 		<td>  <?php echo $anlage['kuerzel']->renderLabelName() ?></td>
@@ -38,9 +49,10 @@
 	 </tr> 
          <?php endforeach; ?>
       <?php endforeach; ?>
-      <tr> <td colspan="6">Neue Stunde</td></tr>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
-	  <?php echo $stunde['name']->renderRow() ?>
+         <td>Neue Stunde</td>
+	 <td> <?php echo $stunde['name'] ?></td>
+	 <td> <?php echo $stunde['name']->renderError() ?></td>
       <?php endforeach; ?>
     </tbody>
   </table>
