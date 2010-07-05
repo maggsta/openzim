@@ -15,24 +15,30 @@ class Zim extends BaseZim
         public function generateOdf()
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
-	//	$stunden = $odf->setSegment('stunden');
-		$anlagen = $odf->setSegment('anlagen');
+		$htmlConverter = new htmlConverter();
+		$stunden = $odf->setSegment('stunden');
 		foreach($this->getStunden() AS $stunde) {
-//			$stunden->setVar('nameStunde',$stunde->getName());
+			$stunden->setVars('lnrStunde',$stunde->getLnr());
+			$stunden->setVars('nameStunde',$stunde->getName(),true,'UTF-8');
 			foreach($stunde->getAnlagen() AS $anlage) {
-			    $anlagen->name($anlage->getName());
-			    $anlagen->zeit($anlage->getZeit());
-			    $anlagen->ziel($anlage->getZiel());
-			    $anlagen->kurzinhalt($anlage->getKurzinhalt());
-			    $anlagen->methode($anlage->getMethode());
-			    $anlagen->rolletm($anlage->getRolleTm());
-			    $anlagen->material($anlage->getMaterial());
-			    $anlagen->merge();
+			    $stunden->anlagen->name($anlage->getName());
+			    $stunden->anlagen->zeit($anlage->getZeit());
+			    $stunden->anlagen->setVars('ziel',
+				$htmlConverter->getODF($anlage->getZiel()), false,'UTF-8');
+			    $stunden->anlagen->setVars('kurzinhalt',
+				$htmlConverter->getODF($anlage->getKurzinhalt()), false,'UTF-8');
+			    $stunden->anlagen->setVars('methode',
+				$htmlConverter->getODF($anlage->getMethode()), false,'UTF-8');
+			    $stunden->anlagen->setVars('rolletm',
+				$htmlConverter->getODF($anlage->getRolleTm()), false,'UTF-8');
+			    $stunden->anlagen->name2($anlage->getName());
+			    $stunden->anlagen->setVars('material',
+				$htmlConverter->getODF($anlage->getMaterial()), false,'UTF-8');
+			    $stunden->anlagen->merge();
 			}
-//			$stunden->merge();
+			$stunden->merge();
 		}
-//		$odf->mergeSegment($stunden);
-		$odf->mergeSegment($anlagen);
+		$odf->mergeSegment($stunden);
 		$odf->exportAsAttachedFile ('neuesZim.odt');  
         }
 }
