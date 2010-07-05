@@ -14,10 +14,55 @@ class Bild extends BaseBild
 {
 	public function save(Doctrine_Connection $conn = null)
 	{
+		$this->imageScale();
+
 		if ( !$this->getPath() )
 			$this->delete();
 		else
 	 		$ret = parent::save($conn);
 		return $ret;
 	}  
+
+	public function imageScale()
+	{
+
+		$path = '/'.(sfConfig::get('sf_upload_dir')).'/bilder/'.$this->getPath();
+
+		$filename = $path;
+		$image_info = getimagesize($filename);
+		$image_type = $image_info[2];
+      	
+		// Bild laden	
+		if( $image_type == IMAGETYPE_JPEG ) {
+         		$image = imagecreatefromjpeg($filename);
+      		} elseif( $image_type == IMAGETYPE_GIF ) {
+         		$image = imagecreatefromgif($filename);
+      		} elseif( $image_type == IMAGETYPE_PNG ) {
+         		$image = imagecreatefrompng($filename);
+      		}
+
+		// Bild Skalieren	        	
+      		$height = imagesy($image);
+		$width = imagesx($image);
+
+		if( $width > 600 ) {
+			$ratio = $width / $height;
+			$new_width = 600;
+			$new_height = $new_width / $ratio;
+		}
+
+		$new_image = imagecreatetruecolor($new_width, $new_height);
+      		imagecopyresampled($new_image, $image, 0, 0, 0, 0, $new_width, $new_height, $width, $height);
+      		$image = $new_image;   
+   
+		// Bild sichern
+	 	if( $image_type == IMAGETYPE_JPEG ) {
+                        imagejpeg($image, $filename, 100);
+                } elseif( $image_type == IMAGETYPE_GIF ) {
+                        imagegif($image, $filename);
+                } elseif( $image_type == IMAGETYPE_PNG ) {
+                        imagepng($image, $filename);
+                }
+	}
+
 }

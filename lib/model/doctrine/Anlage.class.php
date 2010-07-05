@@ -101,8 +101,9 @@ class Anlage extends BaseAnlage
 	   	$odf->setVars('zeit', $this->getZeit(), false);
  		$bilder = $odf->setSegment('bilder');
                 foreach ( $this->getBilder() as $bild ){
-		  $bilder->titel($bild->getCaption());
-    		  $bilder->setImage('bild',sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
+                  $convertedCaption = $htmlConverter->getODF($bild->getCaption());
+		  $bilder->setVars('titel', $convertedCaption, false, 'UTF-8');
+    		  $bilder->setImage('bild', sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
 		  $bilder->merge();
 		}
 		$odf->mergeSegment($bilder);

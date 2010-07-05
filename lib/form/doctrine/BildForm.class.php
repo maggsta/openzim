@@ -30,6 +30,6 @@ class BildForm extends BaseBildForm
     ));
 
     $this->validatorSchema['path_delete'] = new sfValidatorPass();
-
+    $this->widgetSchema['caption'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
   }
 }
