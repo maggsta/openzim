@@ -21,11 +21,11 @@
     <tr>
        <td><?php echo $anlage->getName() ?></td>
        <td><?php echo $anlage->getZeit() ?></td>
-       <td><?php echo $anlage->getZiel() ?></td>
-       <td><?php echo $anlage->getKurzinhalt() ?></td>
-       <td><?php echo $anlage->getMethode() ?></td>
-       <td><?php echo $anlage->getRolleTm() ?></td>
-       <td><?php echo $anlage->getMaterial() ?></td>
+       <td><?php echo $anlage->getZiel(ESC_RAW) ?></td>
+       <td><?php echo $anlage->getKurzinhalt(ESC_RAW) ?></td>
+       <td><?php echo $anlage->getMethode(ESC_RAW) ?></td>
+       <td><?php echo $anlage->getRolleTm(ESC_RAW) ?></td>
+       <td><?php echo $anlage->getMaterial(ESC_RAW) ?></td>
     </tr>	
     <?php endforeach; ?>
     <?php endforeach; ?>
