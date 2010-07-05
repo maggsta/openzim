@@ -6,6 +6,8 @@
     <title><?php include_slot('title', '-= openZIM =-') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php use_javascript('jquery-1.4.2.min.js') ?>
+    <?php use_javascript('tiny_mce/tiny_mce.js') ?>
+    <?php use_javascript('tinymce.js') ?>
     <?php use_javascript('search.js') ?>
     <?php use_javascript('paginate.js') ?>
     <?php include_javascripts() ?>
