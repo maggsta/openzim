@@ -92,13 +92,7 @@ class anlageActions extends sfActions
 	$query = $query.'*';
     $q = Doctrine_Core::getTable('Anlage')->getAll($query);
 
-    if ( is_array($q) ) {
-	$this->anlagen = $q;
-	$q = Doctrine_Core::getTable('Anlage')->createQuery('a')->where('a.id = -1');
-    }
-    else {
-        $this->anlagen = $q->execute();
-    }
+    $this->anlagen = $q->execute();
     
     $this->setTemplate('index');
     
