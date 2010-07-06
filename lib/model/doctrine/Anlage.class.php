@@ -71,6 +71,11 @@ class Anlage extends BaseAnlage
   		// index anlage fields
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('name', $this->getName(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('ziel', $this->getZiel(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('kurzinhalt', $this->getKurzinhalt(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('methode', $this->getMethode(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('material', $this->getMaterial(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('tip', $this->getTip(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('rolletm', $this->getRolleTm(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('inhalt', $this->getInhalt(), 'utf-8'));
  
   		// add anlage to the index
