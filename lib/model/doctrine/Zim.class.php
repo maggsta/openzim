@@ -1,5 +1,8 @@
 <?php
 
+require_once(dirname(__FILE__).'/../../odtphp/library/odf.php');
+require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php');
+
 /**
  * Zim
  * 
