@@ -19,10 +19,24 @@ class Bild extends BaseBild
 		}
 		else {
 	 		$this->imageScale();
+			if ($this->isNew() && !$this->getLnr()){
+				$this->setLnr($this->getAnlage()->
+					getBilder()->count() + 1);
+			}
+
 			$ret = parent::save($conn);
 			return $ret;
 		}
 	}  
+
+	public function delete(Doctrine_Connection $conn = null)
+	{
+		/// XXX: should be put in transaction, does not work
+		$oldLnr = $this->getLnr();			
+	  	$ret = parent::delete($conn);
+		$this->getTable()->updateLnrDeleted($oldLnr);
+		return $ret;	
+	}
 
 	public function imageScale()
 	{

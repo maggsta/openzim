@@ -16,6 +16,7 @@ abstract class BaseBildForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
+      'lnr'        => new sfWidgetFormInputText(),
       'path'       => new sfWidgetFormInputText(),
       'caption'    => new sfWidgetFormTextarea(),
       'anlage_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Anlage'), 'add_empty' => false)),
@@ -25,12 +26,17 @@ abstract class BaseBildForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'lnr'        => new sfValidatorInteger(),
       'path'       => new sfValidatorString(array('max_length' => 255)),
       'caption'    => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'anlage_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Anlage'))),
       'created_at' => new sfValidatorDateTime(),
       'updated_at' => new sfValidatorDateTime(),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Bild', 'column' => array('anlage_id', 'lnr')))
+    );
 
     $this->widgetSchema->setNameFormat('bild[%s]');
 

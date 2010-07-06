@@ -23,11 +23,16 @@ Anlage:
 Bild:
   actAs: { Timestampable: ~ }
   columns:
+    lnr: { type: integer, notnull: true }
     path: { type: string(255), notnull: true }
     caption: { type: string(1000) }
     anlage_id: { type: integer, notnull: true } 
   relations:
     Anlage: {  onDelete: CASCADE, local: anlage_id, foreign: id, foreignAlias: Bilder }
+  indexes:
+    anlage_lnr:
+      fields: [anlage_id, lnr]
+      type: unique
 
 Anhang:
   actAs: { Timestampable: ~ }
