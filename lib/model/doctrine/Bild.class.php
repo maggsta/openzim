@@ -38,6 +38,13 @@ class Bild extends BaseBild
 		return $ret;	
 	}
 
+
+	public function generatePathFilename(sfValidatedFile $validatedFile)
+	{
+		$this->setName($validatedFile->getOriginalName());
+		return $validatedFile->generateFilename();
+	}	 
+
 	public function imageScale()
 	{
 

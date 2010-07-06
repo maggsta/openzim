@@ -14,6 +14,7 @@ abstract class BaseBildFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'lnr'        => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'name'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'path'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'caption'    => new sfWidgetFormFilterInput(),
       'anlage_id'  => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Anlage'), 'add_empty' => true)),
@@ -23,6 +24,7 @@ abstract class BaseBildFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'lnr'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'name'       => new sfValidatorPass(array('required' => false)),
       'path'       => new sfValidatorPass(array('required' => false)),
       'caption'    => new sfValidatorPass(array('required' => false)),
       'anlage_id'  => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Anlage'), 'column' => 'id')),
@@ -49,6 +51,7 @@ abstract class BaseBildFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'         => 'Number',
       'lnr'        => 'Number',
+      'name'       => 'Text',
       'path'       => 'Text',
       'caption'    => 'Text',
       'anlage_id'  => 'ForeignKey',

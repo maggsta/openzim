@@ -24,6 +24,7 @@ Bild:
   actAs: { Timestampable: ~ }
   columns:
     lnr: { type: integer, notnull: true }
+    name: { type: string(255), notnull: true }
     path: { type: string(255), notnull: true }
     caption: { type: string(1000) }
     anlage_id: { type: integer, notnull: true } 
