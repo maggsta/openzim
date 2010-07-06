@@ -9,11 +9,17 @@
   - Kofferliste
 
 - Bild/Anhänge:
-  - originale Dateinamen speichern
   -* Media verwaltung für Admin ( Ansicht/download/suche ) 
 
+- Bild:
+  [x] originale Dateinamen speichern
+
+- Anhänge:
+  - originale Dateinamen speichern
+  - In Anlagen form/show integrieren
+
 - ZIM:
-  - Fix export
+  [/] Fix export ( fast, review von NDC fehlt )
   - neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
   - Benutzer zu Zim hinzufügen
   - Benutzer können nur anlagen Ihres Zim sehen
