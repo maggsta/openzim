@@ -1,0 +1,24 @@
+- Allgemein:
+  - Fix BUGS!
+  -* Ajaxify forms
+
+- Anlage: 
+  - Anhänge hinzufügen
+  - Timeline für Inhalt
+  - Autosave für Inhalt
+  - Kofferliste
+
+- Bild/Anhänge:
+  - originale Dateinamen speichern
+  -* Media verwaltung für Admin ( Ansicht/download/suche ) 
+
+- ZIM:
+  - Fix export
+  - neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
+  - Benutzer zu Zim hinzufügen
+  - Benutzer können nur anlagen Ihres Zim sehen
+  - Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
+  - Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
+     - müsste schon im Template sein ( checken )
+
+* Optional ( wenn zeit )
