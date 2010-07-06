@@ -5,7 +5,7 @@
 - Anlage: 
   - Anhänge hinzufügen
   - Timeline für Inhalt
-  - Autosave für Inhalt
+ [x] Autosave für Inhalt (und alle anderen TinyMCE's)
   - Kofferliste
 
 - Bild/Anhänge:
