@@ -88,7 +88,9 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
-    if ( $query[strlen($query)-1] != '*' )
+    if ( strlen($query) <= 2 )
+	$query = '*';
+    elseif ( $query[strlen($query)-1] != '*' )
 	$query = $query.'*';
     $q = Doctrine_Core::getTable('Anlage')->getAll($query);
 
