@@ -10,6 +10,7 @@
     <?php use_javascript('tinymce.js') ?>
     <?php use_javascript('search.js') ?>
     <?php use_javascript('paginate.js') ?>
+    <?php use_javascript('expander.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>

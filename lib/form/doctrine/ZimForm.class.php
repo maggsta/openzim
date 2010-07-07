@@ -18,6 +18,11 @@ class ZimForm extends BaseZimForm
 	));
 	$this->embedRelation('Stunden');
     	$this->embedForm('neueStunden', $form);
+
+	$this->widgetSchema['ziele'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
+        $this->widgetSchema['zielGruppe'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
+        $this->widgetSchema['roterFaden'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
+
   }
 
   public function saveEmbeddedForms($con = null, $forms = null)

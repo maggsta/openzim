@@ -5,7 +5,8 @@
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
-  <table>
+
+<table>
     <tfoot>
       <tr>
         <td colspan="2">
@@ -17,15 +18,38 @@
         </td>
       </tr>
     </tfoot>
+</table>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
+<div class="msg_content">
+
+  <table>
     <tbody>
       <?php echo $form->renderHiddenFields() ?>
-      <?php //echo $form['name']->renderRow() ?>
-      <tr>
-	<td>  <?php echo $form['name']->renderLabelName() ?></td>
-	<td colspan="4">  <?php echo $form['name'] ?></td>
-	<td>  <?php echo $form['name']->renderError() ?></td>
-      </tr>
-      <?php foreach ($form['Stunden'] as $stunde): ?>
+      <?php echo $form['name']->renderRow() ?>
+      <?php  /*
+      	<tr>
+		<td>  <?php echo $form['name']->renderLabelName() ?></td>
+		<td>  <?php echo $form['name'] ?></td>
+		<td>  <?php echo $form['name']->renderError() ?></td>
+      	</tr>
+      */?>	
+      <?php echo $form['ziele']->renderRow() ?>	
+      <?php echo $form['zielGruppe']->renderRow() ?> 
+      <?php echo $form['roterFaden']->renderRow() ?> 
+     </tbody>
+    </table>	
+
+</div></div>
+
+<?php foreach ($form['Stunden'] as $stunde): ?>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: ".$stunde['name']->getValue() ?></p>
+<div class="msg_content">
+
+<table> 
           <tr>
             <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
             <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
@@ -45,7 +69,13 @@
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
 	 </tr> 
          <?php endforeach; ?>
-      <?php endforeach; ?>
+</table>
+
+</div></div>
+
+<?php endforeach; ?>
+
+<table>
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
           <td colspan="6"><?php echo link_to('Letzte Stunde löschen',
@@ -59,5 +89,20 @@
 	 <td> <?php echo $stunde['name']->renderError() ?></td>
       <?php endforeach; ?>
     </tbody>
-  </table>
+</table>
+
+<table>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          &nbsp;<a href="<?php echo url_for('zim/index') ?>">Back to list</a>
+          <?php if (!$form->getObject()->isNew()): ?>
+            &nbsp;<?php echo link_to('Delete', 'zim/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+          <?php endif; ?>
+          <input type="submit" value="Save" />
+        </td>
+      </tr>
+    </tfoot>
+</table>
+
 </form>

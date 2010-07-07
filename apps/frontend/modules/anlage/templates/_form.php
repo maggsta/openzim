@@ -5,6 +5,7 @@
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
+
   <table>
     <tfoot>
       <tr>
@@ -18,24 +19,65 @@
         </td>
       </tr>
     </tfoot>
+  </table>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
+<div class="msg_content">
+<table>
     <tbody>
       <?php echo $form['zeit']->renderRow() ?>
       <?php echo $form['ziel']->renderRow() ?>
       <?php echo $form['methode']->renderRow() ?>
       <?php echo $form['rolle_tm']->renderRow() ?>
       <?php echo $form['material']->renderRow() ?>
+    </tbody>
+  </table>
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE INAHLT') ?></p>
+<div class="msg_content">
+<table>
+    <tbody>
       <?php echo $form['tip']->renderRow() ?>
       <?php echo $form['kurzinhalt']->renderRow() ?>
-      <?php echo $form['inhalt']->renderRow() ?>     
+      <?php echo $form['inhalt']->renderRow() ?>
+    </tbody>
+  </table>  
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE BILDER') ?></p>
+<div class="msg_content">
+<table>
+    <tbody>
       <?php echo $form->renderHiddenFields() ?>
       <?php foreach ($form['Bilder'] as $bild): ?>
-	  <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
-	  <?php echo $bild['caption']->renderRow() ?>
+          <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
+          <?php echo $bild['caption']->renderRow() ?>
       <?php endforeach; ?>
       <?php foreach ($form['neueBilder'] as $bild): ?>
-	  <?php echo $bild['path']->renderRow() ?>
+          <?php echo $bild['path']->renderRow() ?>
           <?php echo $bild['caption']->renderRow() ?>
       <?php endforeach; ?>
     </tbody>
-  </table>
+  </table>  
+</div></div>
+
+<table>
+    <tfoot>
+      <tr>
+        <td colspan="2">
+          &nbsp;<a href="<?php echo url_for('anlage/index') ?>">Back to list</a>
+          &nbsp;<a href="<?php echo url_for('anlage/export?id='.$form->getObject()->getId()) ?>">Export</a>
+          <?php if (!$form->getObject()->isNew()): ?>
+            &nbsp;<?php echo link_to('Delete', 'anlage/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+          <?php endif; ?>
+          <input type="submit" value="Save" />
+        </td>
+      </tr>
+    </tfoot>
+</table>
+
 </form>

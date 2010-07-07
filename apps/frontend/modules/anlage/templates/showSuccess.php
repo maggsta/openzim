@@ -8,6 +8,10 @@
 });
 </script>
 
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
+<div class="msg_content">
+
 <table>
   <tbody>
     <tr>
@@ -27,9 +31,24 @@
       <td><textarea style="width:100%; height:100px"><?php echo $anlage->getMethode() ?></textarea></td>
     </tr>
     <tr>
+      <th>Rolle tm:</th>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getRolleTm() ?></textarea></td>
+    </tr>
+    <tr>
       <th>Material:</th>
       <td><textarea style="width:100%; height:100px"><?php echo $anlage->getMaterial() ?></textarea></td>
     </tr>
+</tbody>
+</table>
+
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE INHALT') ?></p>
+<div class="msg_content">
+
+<table>
+  <tbody>
     <tr>
       <th>Tip:</th>
       <td><textarea style="width:100%; height:100px"><?php echo $anlage->getTip() ?></textarea></td>
@@ -42,10 +61,17 @@
       <th>Inhalt:</th>
       <td><textarea style="width:100%; height:300px"><?php echo $anlage->getInhalt() ?></textarea></td>
     </tr>
-    <tr>
-      <th>Rolle tm:</th>
-      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getRolleTm() ?></textarea></td>
-    </tr>
+</tbody>
+</table>
+
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE BILDER') ?></p>
+<div class="msg_content">
+
+<table>
+  <tbody>
     <?php foreach ($anlage->getBilder() as $i => $bild): ?>
     <tr>
       <th><?php echo $i+1 ?>. Bild:</th>
@@ -57,6 +83,17 @@
       <td><textarea style="width:100%; height:100px"><?php echo $bild->getCaption() ?></textarea></td>
     </tr>
     <?php endforeach; ?>
+</tbody>
+</table>
+
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE ZIM INFO') ?></p>
+<div class="msg_content">
+
+<table>
+  <tbody>
     <tr>
       <th>Zim:</th>
       <td><?php echo $anlage->getStunde()->getZim()->getName() ?></td>
@@ -67,6 +104,8 @@
     </tr>
   </tbody>
 </table>
+
+</div></div>
 
 <hr />
 

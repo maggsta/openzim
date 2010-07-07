@@ -1,6 +1,11 @@
 <h1><?php echo $zim->getName() ?></h1>
+    
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
+<div class="msg_content">	
+
 <table>
-  <thead>
+  <thead>    
     <tr>
        <th><b>Ziele</b></th>
     </tr>
@@ -19,6 +24,19 @@
     <tr>
        <td colspan="7"><?php echo $zim->getRoterFaden(ESC_RAW) ?></td>
     </tr>
+</thead>
+</table>
+
+</div></div>
+
+<?php foreach ($zim->getStunden() as $stunde): ?>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo $stunde ?></p>
+<div class="msg_content">
+
+<table>
+  <thead>
     <tr>
        <th><b>Anlagen</b></th>
     </tr>
@@ -33,7 +51,6 @@
     </tr>
   </thead>
   <tbody>
-    <?php foreach ($zim->getStunden() as $stunde): ?>
     <tr>
        <th colspan="7"><b><?php echo $stunde ?></b></th>
     </tr>
@@ -48,9 +65,12 @@
        <td><?php echo $anlage->getMaterial(ESC_RAW) ?></td>
     </tr>	
     <?php endforeach; ?>
-    <?php endforeach; ?>
   </tbody>
 </table>
+
+</div></div>
+
+<?php endforeach; ?>
 
 <hr />
 

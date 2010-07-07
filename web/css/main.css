@@ -451,3 +451,31 @@ display: inline;
 {
  float: right;
 }
+
+.msg_list {
+margin: 0px;
+padding: 0px;
+width: 100%;
+}
+
+.msg_list p.msg_head {
+padding: 3px 0 3px 25px;
+font-weight: normal;
+background-image: url(../images/expander.jpg);
+background-repeat: no-repeat; 
+}
+
+.msg_head {
+padding: 5px 10px;
+cursor: pointer;
+position: relative;
+background-color:#CCCCCC;
+margin:1px;
+}
+
+.msg_content {
+background-color:#F4F4F8;
+}
+
+
+
