@@ -19,6 +19,10 @@ class Zim extends BaseZim
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
 		$htmlConverter = new htmlConverter();
+		$odf->setVars('nameZim',$this->getName(),true,'UTF-8');
+		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),false,'UTF-8');
+		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),false,'UTF-8');
+		$odf->setVars('roterFaden',$htmlConverter->getODF($this->getRoterFaden()),false,'UTF-8');
 		$stunden = $odf->setSegment('stunden');
 		foreach($this->getStunden() AS $stunde) {
 			$stunden->setVars('lnrStunde',$stunde->getLnr());
