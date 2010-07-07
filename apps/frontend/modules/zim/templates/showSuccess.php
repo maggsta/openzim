@@ -2,21 +2,41 @@
 <table>
   <thead>
     <tr>
-      <th>Nr.</th>
-      <th>Zeit</th>
-      <th>Ziel</th>
-      <th>Inhalt</th>
-      <th>Methode</th>
-      <th>Rolle TM</th>
-      <th>Anlagen/Hilfsmittel</th>
+       <th><b>Ziele</b></th>
+    </tr>
+    <tr>
+       <td colspan="7"><?php echo $zim->getZiele(ESC_RAW) ?></td>
+    </tr>
+    <tr>
+       <th><b>Zielgruppe</b></th>
+    </tr>
+    <tr>
+       <td colspan="7"><?php echo $zim->getZielGruppe() ?></td>
+    </tr>
+    <tr>
+       <th colspan="7"><b>Roter Faden</b></th>
+    </tr>
+    <tr>
+       <td colspan="7"><?php echo $zim->getRoterFaden(ESC_RAW) ?></td>
+    </tr>
+    <tr>
+       <th><b>Anlagen</b></th>
+    </tr>
+    <tr>
+      <td>Nr.</td>
+      <td>Zeit</td>
+      <td>Ziel</td>
+      <td>Inhalt</td>
+      <td>Methode</td>
+      <td>Rolle TM</td>
+      <td>Anlagen/Hilfsmittel</td>
     </tr>
   </thead>
   <tbody>
     <?php foreach ($zim->getStunden() as $stunde): ?>
     <tr>
-       <td colspan="7"><?php echo $stunde ?></td>
+       <th colspan="7"><b><?php echo $stunde ?></b></th>
     </tr>
-    <tr>
      <?php foreach ($stunde->getAnlagen() as $anlage): ?>
     <tr>
        <td><?php echo $anlage->getName() ?></td>
@@ -29,7 +49,6 @@
     </tr>	
     <?php endforeach; ?>
     <?php endforeach; ?>
-    </tr>
   </tbody>
 </table>
 
