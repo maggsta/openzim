@@ -27,6 +27,7 @@
   <table>
     <tbody>
       <?php echo $form->renderHiddenFields() ?>
+<<<<<<< HEAD
       <?php echo $form['name']->renderRow() ?>
       <?php  /*
       	<tr>
@@ -50,10 +51,33 @@
 <div class="msg_content">
 
 <table> 
+=======
+      <tr>
+	<td>  <?php echo $form['name']->renderLabelName() ?></td>
+	<td colspan="4">  <?php echo $form['name'] ?></td>
+	<td>  <?php echo $form['name']->renderError() ?></td>
+      </tr>
+      <tr>
+	<td>  <?php echo $form['ziele']->renderLabelName() ?></td>
+	<td colspan="4">  <?php echo $form['ziele'] ?></td>
+	<td>  <?php echo $form['ziele']->renderError() ?></td>
+      </tr>
+      <tr>
+	<td>  <?php echo $form['zielGruppe']->renderLabelName() ?></td>
+	<td colspan="4">  <?php echo $form['zielGruppe'] ?></td>
+	<td>  <?php echo $form['zielGruppe']->renderError() ?></td>
+      </tr>
+      <tr>
+	<td>  <?php echo $form['roterFaden']->renderLabelName() ?></td>
+	<td colspan="4">  <?php echo $form['roterFaden'] ?></td>
+	<td>  <?php echo $form['roterFaden']->renderError() ?></td>
+      </tr>
+      <?php foreach ($form['Stunden'] as $stunde): ?>
+>>>>>>> ef713e3113aecb8af2d5c082e135aaf7f1b9c27d
           <tr>
             <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
             <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
-	    <td><?php echo $stunde['name'] ?></td>
+	    <td colspan="4"><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
 	 </tr> 
          <?php if ($stunde['Anlagen']->count() > 0 ): ?>

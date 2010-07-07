@@ -1,12 +1,18 @@
 - Allgemein:
   - Fix BUGS!
   -* Ajaxify forms
+  - Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
+  - gleicher benutzer mehrmals eingeloggt testen
+
+- Htmlconverter:
+  - alle nicht unterstützten umlaute entfernen
 
 - Anlage: 
   - Anhänge hinzufügen
-  - Timeline für Inhalt
+  -* Timeline für Inhalt
  [x] Autosave für Inhalt (und alle anderen TinyMCE's)
   - Kofferliste
+  - lock/parallel edit testen
 
 - Bild/Anhänge:
   -* Media verwaltung für Admin ( Ansicht/download/suche ) 
@@ -20,7 +26,7 @@
 
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
-  - neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
+  [x] neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
   - Benutzer zu Zim hinzufügen
   - Benutzer können nur anlagen Ihres Zim sehen
   - Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
@@ -28,3 +34,6 @@
      - müsste schon im Template sein ( checken )
 
 * Optional ( wenn zeit )
+- geplant
+x fertig
+/ fast fertig
