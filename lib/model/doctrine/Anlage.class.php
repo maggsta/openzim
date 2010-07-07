@@ -17,7 +17,9 @@ class Anlage extends BaseAnlage
 {
 	public function save(Doctrine_Connection $conn = null)
 	{  
-	
+		if ( $this->state() != self::STATE_DIRTY && !$this->isNew() )
+			return;
+
 		$conn = $conn ? $conn : $this->getTable()->getConnection();
   		$conn->beginTransaction();
   		try
