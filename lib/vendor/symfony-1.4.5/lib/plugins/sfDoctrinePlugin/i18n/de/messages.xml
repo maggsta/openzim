@@ -1,20 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2010-07-02T22:12:32Z" product-name="messages">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2010-07-08T15:46:50Z" product-name="messages">
     <header/>
     <body>
       <trans-unit id="1">
-        <source>about openZIM</source>
-        <target>über openZim</target>
+        <source>Homepage</source>
+        <target>Startseite</target>
       </trans-unit>
       <trans-unit id="2">
-        <source>Logout</source>
-        <target>abmelden</target>
+        <source>Attachments</source>
+        <target>Anlagen</target>
       </trans-unit>
       <trans-unit id="3">
-        <source>Choose language:</source>
-        <target>Sprache wählen:</target>
+        <source>ZIMs</source>
+        <target>ZIMs</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>User</source>
+        <target>Benutzer</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>Logout</source>
+        <target>Abmelden</target>
+      </trans-unit>
+      <trans-unit id="6">
+        <source>about openZIM</source>
+        <target>über openZIM</target>
+      </trans-unit>
+      <trans-unit id="7">
+        <source> </source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>ANLAGE INFO</source>
+        <target>ANLAGE INFO</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>ANLAGE INHALT</source>
+        <target>ANLAGE INHALT</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>ANLAGE BILDER</source>
+        <target>ANLAGE BILDER</target>
+      </trans-unit>
+      <trans-unit id="11">
+        <source>ANLAGE ZIM INFO</source>
+        <target>ANLAGE ZIM INFO</target>
+      </trans-unit>
+      <trans-unit id="12">
+        <source>ANLAGE INAHLT</source>
+        <target>ANLAGE INHALT</target>
+      </trans-unit>
+      <trans-unit id="13">
+        <source>ANLAGE ANHÄNGE</source>
+        <target>ANLAGE ANHÄNGE</target>
+      </trans-unit>
+      <trans-unit id="14">
+        <source>ZIM DETAILS</source>
+        <target>ZIM DETAILS</target>
       </trans-unit>
     </body>
   </file>
