@@ -66,6 +66,7 @@
 
 </div></div>
 
+<?php if ($anlage->getBilder()->count() > 0) : ?>
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE BILDER') ?></p>
 <div class="msg_content">
@@ -87,6 +88,7 @@
 </table>
 
 </div></div>
+<?php endif; ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE ZIM INFO') ?></p>
