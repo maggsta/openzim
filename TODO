@@ -28,8 +28,12 @@
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
   [x] neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
-  - Benutzer zu Zim hinzufügen
+  [x] Benutzer zu Zim hinzufügen
   - Benutzer können nur anlagen Ihres Zim sehen
+     [x] Anlage executeIndex
+      -  Anlage executeSearch
+      -  Anlage templates sperren: edit, show
+      -  Anlage template: new -> nur Zim Stunden
   - Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
   - Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
      - müsste schon im Template sein ( checken )
