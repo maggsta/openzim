@@ -26,6 +26,14 @@ class AnlageForm extends BaseAnlageForm
     $this->embedRelation('Bilder');
     $this->embedForm('neueBilder', $form);
 
+    $anhang = new Anhang();
+    $anhang->Anlage = $this->getObject();
+    $form = new AnhangForm($anhang);
+    $this->embedRelation('Anhaenge');
+    $this->embedForm('neuerAnhang', $form);
+    
+    $this->mergePostValidator(new AnhangValidatorSchema('neuerAnhang'));
+    
     $this->widgetSchema['inhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '20'));
     $this->widgetSchema['ziel'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
     $this->widgetSchema['rolle_tm'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
@@ -49,6 +57,9 @@ class AnlageForm extends BaseAnlageForm
             unset($forms['neueBilder'][$name]);
           }
         }
+	$anhang = $this->getValue('neuerAnhang');
+        if ( !isset($anhang['path'] ) )
+	    unset($forms['neuerAnhang']);  
      }
      return parent::saveEmbeddedForms($con, $forms);
    }

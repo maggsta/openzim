@@ -38,7 +38,7 @@ class Bild extends BaseBild
 		return $ret;	
 	}
 
-
+	// XXX: not nice, function with side effects, find a better way
 	public function generatePathFilename(sfValidatedFile $validatedFile)
 	{
 		$this->setName($validatedFile->getOriginalName());
