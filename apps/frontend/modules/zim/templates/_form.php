@@ -63,6 +63,9 @@
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
 	 </tr> 
          <?php endforeach; ?>
+         <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
+	    <?php echo $stunde['neueAnlage']->renderRow() ?>
+         <?php endif; ?>
 </table>
 
 </div></div>

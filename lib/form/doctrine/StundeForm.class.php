@@ -20,5 +20,25 @@ class StundeForm extends BaseStundeForm
 	'max_length' => 255, 'required' => !$this->isNew() ));
 
     $this->embedRelation('Anlagen','AnlageAdminEditForm');
+    $this->widgetSchema['neueAnlage'] = new sfWidgetFormDoctrineChoice(array(
+	'add_empty' => true,
+	'model' => 'Anlage',
+	'query' => AnlageTable::getAllFreeQuery(),
+	'label' => 'Anlage hinzufügen'));
+
+    $this->validatorSchema['neueAnlage'] = new sfValidatorDoctrineChoice(array(
+	'model' => 'Anlage', 
+	'query' => AnlageTable::getAllFreeQuery(),
+	'required' => false));
+  }
+  
+  public function updateObject($values = null)
+  {
+    if ( $values['neueAnlage'] ){
+    	$anlage = Doctrine::getTable('Anlage')->find(array($values['neueAnlage']));
+	$anlage->setStunde($this->getObject());
+        $anlage->save();
+    }
+    return parent::updateObject($values); 
   }
 }
