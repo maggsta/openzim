@@ -9,9 +9,9 @@ $(document).ready(function()
   
   $(".msg_content").show();
 
-  $(".msg_content").slideToggle(600);
+  $(".msg_content").slideToggle(0);
 
-  $(".msg_content:first").slideToggle(600); 
+  $(".msg_content:first").slideToggle(0); 
 
   $(".msg_head").click(function()
   {
