@@ -97,7 +97,6 @@ abstract class BaseAnlage extends sfDoctrineRecord
              ));
         $this->hasColumn('stunde_id', 'integer', null, array(
              'type' => 'integer',
-             'notnull' => true,
              ));
         $this->hasColumn('lnr', 'integer', null, array(
              'type' => 'integer',
@@ -120,8 +119,7 @@ abstract class BaseAnlage extends sfDoctrineRecord
         parent::setUp();
         $this->hasOne('Stunde', array(
              'local' => 'stunde_id',
-             'foreign' => 'id',
-             'onDelete' => 'CASCADE'));
+             'foreign' => 'id'));
 
         $this->hasMany('Bild as Bilder', array(
              'local' => 'id',

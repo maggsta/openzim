@@ -11,10 +11,10 @@ Anlage:
     kurzinhalt: { type: string(1000) }
     inhalt: { type: string(10000) }
     rolle_tm: { type: string(1000) }
-    stunde_id:  { type: integer, notnull: true }
+    stunde_id:  { type: integer }
     lnr: { type: integer, notnull: true }
   relations:
-    Stunde: { onDelete: CASCADE, local: stunde_id, foreign: id, foreignAlias: Anlagen }
+    Stunde: { local: stunde_id, foreign: id, foreignAlias: Anlagen }
   indexes:
     kuerzel_lnr:
       fields: [kuerzel, lnr]
