@@ -20,19 +20,19 @@
        <th><b>Ziele</b></th>
     </tr>
     <tr>
-       <td colspan="7"><?php echo $zim->getZiele(ESC_RAW) ?></td>
+       <td><textarea style="width:100%; height:100px"><?php echo $zim->getZiele(ESC_RAW) ?></textarea></td>
     </tr>
     <tr>
        <th><b>Zielgruppe</b></th>
     </tr>
     <tr>
-       <td colspan="7"><?php echo $zim->getZielGruppe() ?></td>
+       <td><?php echo $zim->getZielGruppe() ?></td>
     </tr>
     <tr>
-       <th colspan="7"><b>Roter Faden</b></th>
+       <th><b>Roter Faden</b></th>
     </tr>
     <tr>
-       <td colspan="7"><?php echo $zim->getRoterFaden(ESC_RAW) ?></td>
+       <td><textarea style="width:100%; height:100px"><?php echo $zim->getRoterFaden(ESC_RAW) ?></textarea></td>
     </tr>
 </thead>
 </table>

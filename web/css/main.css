@@ -411,6 +411,8 @@ td
   text-align: left;
 }
 
+/* Menu Styles Begin */
+
 #menu
 {
  display: block;
@@ -452,6 +454,10 @@ display: inline;
  float: right;
 }
 
+/* Menu Styles End */
+
+/* Expander Styles Begin */
+
 .msg_list {
 margin: 0px;
 padding: 0px;
@@ -477,5 +483,12 @@ margin:1px;
 background-color:#F4F4F8;
 }
 
+/* Expander Styles End */
+
+/* Input Text Fields */
+
+input[type=text] { 
+width: 100%; 
+} 
 
 
