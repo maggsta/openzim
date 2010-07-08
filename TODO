@@ -16,6 +16,7 @@
 
 - Bild/Anhänge:
   -* Media verwaltung für Admin ( Ansicht/download/suche ) 
+  - Lösche Bilder/Anhänge wenn Datensatz gelöscht
 
 - Bild:
   [x] originale Dateinamen speichern
