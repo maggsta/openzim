@@ -12,12 +12,20 @@ class anlageActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->anlage = Doctrine::getTable('Anlage');
+    if($this->getUser()->hasCredential('admin')) {
+    	$anlage = Doctrine::getTable('Anlage');
+	$q = $anlage->getAll();
+    }
+    else {
+	$q = Doctrine_Query::create()
+  		->from('Anlage a, a.Stunde s, s.Zim z, z.sfGuardUser u')
+		->where('u.username = ?', $this->getUser()->getUsername());
+    }
     $this->pager = new sfDoctrinePager(
       'Anlage',
       sfConfig::get('app_max_anlagen')
     );
-    $this->pager->setQuery($this->anlage->getAll());
+    $this->pager->setQuery($q);
     $this->pager->setPage($request->getParameter('page', 1));
     $this->pager->init();
   }

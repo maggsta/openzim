@@ -14,6 +14,7 @@ abstract class BaseZimFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'name'       => new sfWidgetFormFilterInput(array('with_empty' => false)),
+      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'add_empty' => true)),
       'ziele'      => new sfWidgetFormFilterInput(),
       'zielGruppe' => new sfWidgetFormFilterInput(),
       'roterFaden' => new sfWidgetFormFilterInput(),
@@ -23,6 +24,7 @@ abstract class BaseZimFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'name'       => new sfValidatorPass(array('required' => false)),
+      'user_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('sfGuardUser'), 'column' => 'id')),
       'ziele'      => new sfValidatorPass(array('required' => false)),
       'zielGruppe' => new sfValidatorPass(array('required' => false)),
       'roterFaden' => new sfValidatorPass(array('required' => false)),
@@ -49,6 +51,7 @@ abstract class BaseZimFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'         => 'Number',
       'name'       => 'Text',
+      'user_id'    => 'ForeignKey',
       'ziele'      => 'Text',
       'zielGruppe' => 'Text',
       'roterFaden' => 'Text',

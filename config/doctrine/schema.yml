@@ -61,7 +61,9 @@ Zim:
   actAs: { Timestampable: ~ }
   columns:
     name: { type: string(255), notnull: true }
+    user_id: { type: integer }
     ziele: { type: string(10000) }
     zielGruppe: { type: string(255) }
     roterFaden: { type: string(10000) }
-
+  relations: 
+    sfGuardUser:  {  local: user_id, foreign: id, foreignAlias: sfGuardUser  }

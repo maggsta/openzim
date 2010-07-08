@@ -17,6 +17,13 @@
 <table>
   <thead>    
     <tr>
+       <th><b>Bearbeiter</b></th>
+    </tr>
+    <tr>
+       <td><?php echo $zim->getSfGuardUser() ?></td>
+    </tr>
+
+    <tr>
        <th><b>Ziele</b></th>
     </tr>
     <tr>

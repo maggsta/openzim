@@ -22,6 +22,7 @@ class ZimForm extends BaseZimForm
 	$this->widgetSchema['ziele'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
         $this->widgetSchema['roterFaden'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
 
+	$this->widgetSchema['userId'] = new sfWidgetFormDoctrineChoice(array('model' => 'sfGuardUser', 'add_empty' => true));
   }
 
   public function saveEmbeddedForms($con = null, $forms = null)

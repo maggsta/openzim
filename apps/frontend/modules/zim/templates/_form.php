@@ -28,13 +28,7 @@
     <tbody>
       <?php echo $form->renderHiddenFields() ?>
       <?php echo $form['name']->renderRow() ?>
-      <?php  /*
-      	<tr>
-		<td>  <?php echo $form['name']->renderLabelName() ?></td>
-		<td>  <?php echo $form['name'] ?></td>
-		<td>  <?php echo $form['name']->renderError() ?></td>
-      	</tr>
-      */?>	
+      <?php echo $form['user_id']->renderRow() ?>
       <?php echo $form['ziele']->renderRow() ?>	
       <?php echo $form['zielGruppe']->renderRow() ?> 
       <?php echo $form['roterFaden']->renderRow() ?> 

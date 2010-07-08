@@ -17,6 +17,7 @@ abstract class BaseZimForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
       'name'       => new sfWidgetFormInputText(),
+      'user_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'add_empty' => true)),
       'ziele'      => new sfWidgetFormTextarea(),
       'zielGruppe' => new sfWidgetFormInputText(),
       'roterFaden' => new sfWidgetFormTextarea(),
@@ -27,6 +28,7 @@ abstract class BaseZimForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
       'name'       => new sfValidatorString(array('max_length' => 255)),
+      'user_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('sfGuardUser'), 'required' => false)),
       'ziele'      => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
       'zielGruppe' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'roterFaden' => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
