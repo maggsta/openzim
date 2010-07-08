@@ -21,6 +21,7 @@
     </tfoot>
   </table>
 
+<?php echo $form->renderHiddenFields() ?>
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
 <div class="msg_content">
@@ -52,7 +53,6 @@
 <div class="msg_content">
 <table>
     <tbody>
-      <?php echo $form->renderHiddenFields() ?>
       <?php foreach ($form['Bilder'] as $bild): ?>
           <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
           <?php echo $bild['caption']->renderRow() ?>
@@ -61,6 +61,19 @@
           <?php echo $bild['path']->renderRow() ?>
           <?php echo $bild['caption']->renderRow() ?>
       <?php endforeach; ?>
+    </tbody>
+  </table>  
+</div></div>
+
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE ANHÄNGE') ?></p>
+<div class="msg_content">
+  <table>
+    <tbody>
+      <?php foreach ($form['Anhaenge'] as $anhang): ?>
+          <?php echo $anhang['path']->renderRow(array('width' => 100)) ?>
+      <?php endforeach; ?>
+      <?php echo $form['neuerAnhang']['path']->renderRow() ?>
     </tbody>
   </table>  
 </div></div>

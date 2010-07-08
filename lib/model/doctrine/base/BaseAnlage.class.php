@@ -18,6 +18,7 @@
  * @property integer $lnr
  * @property Stunde $Stunde
  * @property Doctrine_Collection $Bilder
+ * @property Doctrine_Collection $Anhaenge
  * 
  * @method string              getKuerzel()    Returns the current record's "kuerzel" value
  * @method integer             getZeit()       Returns the current record's "zeit" value
@@ -32,6 +33,7 @@
  * @method integer             getLnr()        Returns the current record's "lnr" value
  * @method Stunde              getStunde()     Returns the current record's "Stunde" value
  * @method Doctrine_Collection getBilder()     Returns the current record's "Bilder" collection
+ * @method Doctrine_Collection getAnhaenge()   Returns the current record's "Anhaenge" collection
  * @method Anlage              setKuerzel()    Sets the current record's "kuerzel" value
  * @method Anlage              setZeit()       Sets the current record's "zeit" value
  * @method Anlage              setZiel()       Sets the current record's "ziel" value
@@ -45,6 +47,7 @@
  * @method Anlage              setLnr()        Sets the current record's "lnr" value
  * @method Anlage              setStunde()     Sets the current record's "Stunde" value
  * @method Anlage              setBilder()     Sets the current record's "Bilder" collection
+ * @method Anlage              setAnhaenge()   Sets the current record's "Anhaenge" collection
  * 
  * @package    openZIM
  * @subpackage model
@@ -121,6 +124,10 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'onDelete' => 'CASCADE'));
 
         $this->hasMany('Bild as Bilder', array(
+             'local' => 'id',
+             'foreign' => 'anlage_id'));
+
+        $this->hasMany('Anhang as Anhaenge', array(
              'local' => 'id',
              'foreign' => 'anlage_id'));
 

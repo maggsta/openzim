@@ -1,5 +1,7 @@
-Anhang suche:
+Anlage suche:
 - eingabe nur von zahlen -> enter
 	-> crash
 - Suche nach name (E100) schlägt fehl
+
+Anhang: anhänge werden gespeichert, egal ob geändert oder nicht
 

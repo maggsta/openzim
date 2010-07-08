@@ -34,6 +34,13 @@ class AnlageForm extends BaseAnlageForm
     $this->widgetSchema['tip'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
     $this->widgetSchema['material'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
 
+    $anhang = new Anhang();
+    $anhang->Anlage = $this->getObject();
+    $form = new AnhangForm($anhang);
+    $this->embedRelation('Anhaenge');
+    $this->embedForm('neuerAnhang', $form);
+    
+    $this->mergePostValidator(new AnhangValidatorSchema('neuerAnhang'));
   }
 
   public function saveEmbeddedForms($con = null, $forms = null)
@@ -49,6 +56,9 @@ class AnlageForm extends BaseAnlageForm
             unset($forms['neueBilder'][$name]);
           }
         }
+	$anhang = $this->getValue('neuerAnhang');
+        if ( !isset($anhang['path'] ) )
+	    unset($forms['neuerAnhang']);  
      }
      return parent::saveEmbeddedForms($con, $forms);
    }
