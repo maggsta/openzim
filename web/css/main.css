@@ -491,4 +491,18 @@ input[type=text] {
 width: 100%; 
 } 
 
+.signinform input[type=text] {
+width: auto;
+}
+
+.signinform input[type=submit] {
+background: url(/images/login.jpg) no-repeat;
+height: 72px;
+width: 136px;
+border: none;
+}
+
+.signinform input[type=submit]:hover {
+background: url(/images/loginover.jpg) no-repeat;
+}
 
