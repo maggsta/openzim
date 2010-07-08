@@ -1,7 +1,7 @@
 - Allgemein:
   - Fix BUGS!
   -* Ajaxify forms
-  - Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
+  [x] Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
   - gleicher benutzer mehrmals eingeloggt testen
 
 - Htmlconverter:
