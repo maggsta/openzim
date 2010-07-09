@@ -41,8 +41,7 @@ class zimActions extends sfActions
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->zim);
+    $this->zim = $this->getRoute()->getObject();
   }
 
   public function executeNew(sfWebRequest $request)
@@ -63,14 +62,13 @@ class zimActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id'))), sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+    $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id'))), sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+    $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
 
     $this->processForm($request, $this->form);
@@ -81,8 +79,7 @@ class zimActions extends sfActions
   public function executeDelete(sfWebRequest $request)
   {
     $request->checkCSRFProtection();
-
-    $this->forward404Unless($zim = Doctrine::getTable('Zim')->find(array($request->getParameter('id'))), sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
+    $zim = $this->getRoute()->getObject();
     $zim->delete();
 
     $this->redirect('zim/index');
