@@ -26,10 +26,15 @@ class anlageActions extends sfActions
     $this->initPager($request, $this->getAnlagenQuery());
   }
 
+  public function validateUser($anlage){
+    	return  $this->getUser()->hasCredential('admin') ||
+		$anlage->ownedByUser($this->getUser());
+  }
+
   public function executeShow(sfWebRequest $request)
   {
-    $this->anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->anlage);
+    $this->anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($this->anlage));
   }
 
   public function executeNew(sfWebRequest $request)
@@ -50,14 +55,15 @@ class anlageActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+    $anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($anlage));  
     $this->form = new AnlageForm($anlage);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+    $anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($anlage));  
     $this->form = new AnlageForm($anlage);
 
     $this->processForm($request, $this->form);
@@ -69,7 +75,8 @@ class anlageActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+    $anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($anlage));  
     $anlage->delete();
 
     $this->redirect('anlage/index');
@@ -78,18 +85,12 @@ class anlageActions extends sfActions
   public function executeExport(sfWebRequest $request)
   {
     $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+    $this->forward404Unless($this->validateUser($anlage));  
 
-    $this->anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id')));
-    $this->anlage->generateOdf();
+    $anlage->generateOdf();
     throw new sfStopException();        
-    
-   // $this->getUser()->setFlash('notice', 'Die anlage wurde exportiert.');
-   // $this->setTemplate('show');
-   // $this->redirect('anlage/show/id/'.$request->getParameter('id'));
   }
 
-  // apps/frontend/modules/job/actions/actions.class.php
- 
   private function initPager(sfWebRequest $request, $query){
     $this->pager = new sfDoctrinePager(
     	'Anlage',

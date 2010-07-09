@@ -49,8 +49,15 @@ class Anlage extends BaseAnlage
  
   		return parent::delete($conn);
 	}
+
+	public function ownedByUser($user){
+		if ( !$this->getStunde() )
+			return false;
+		return $this->getStunde()->getZim()->getSfGuardUser()->getUsername() ==
+			$user->getUsername();
+	}
  
-	public function getName($query = '*')
+	public function getName()
     	{
        		return $this->getKuerzel().$this->getLnr();
     	}
