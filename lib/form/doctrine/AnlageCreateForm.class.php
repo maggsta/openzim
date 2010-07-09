@@ -21,5 +21,9 @@ class AnlageCreateForm extends BaseAnlageForm
     $this->widgetSchema['stunde_id']  = new sfWidgetFormDoctrineChoice(array(
 	'model' => $this->getRelatedModelName('Stunde'), 
 	'query' => $query ));
+    
+    $this->validatorSchema['stunde_id'] = new sfValidatorDoctrineChoice(array(
+	'model' => $this->getRelatedModelName('Stunde'), 
+	'query' => $query ));
   }
 }
