@@ -1,18 +1,15 @@
 <h1>Zims List</h1>
 
 <table>
-  <thead>
-    <tr>
-      <th>Name</th>
-    </tr>
-  </thead>
   <tbody>
     <?php foreach ($zims as $zim): ?>
     <tr>
-      <td><a href="<?php echo url_for('zim/show?id='.$zim->getId()) ?>"><?php echo $zim->getName() ?></a></td>
+      <td><?php echo link_to($zim->getName(), 'zim_show',$zim) ?></td>
+      <td><?php echo link_to('Edit', 'zim_edit',$zim) ?></td>
+      <td><?php echo link_to('Export', 'zim_export',$zim) ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-<a href="<?php echo url_for('zim/new') ?>">New</a>
+<?php echo link_to('Neues ZIM erstellen', 'zim_new') ?>
