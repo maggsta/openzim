@@ -20,7 +20,7 @@
        <th><b>Bearbeiter</b></th>
     </tr>
     <tr>
-       <td><?php echo $zim->getSfGuardUser() ?></td>
+       <td><?php echo $zim->getSfGuardUser()->getUserName()?$zim->getSfGuardUser():'gesperrt'; ?></td>
     </tr>
 
     <tr>
