@@ -6,7 +6,7 @@
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
 
-<?php include_partial('links', array('zim' => $form->getObject())) ?>
+<?php include_partial('editlinks', array('zim' => $form->getObject())) ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -80,6 +80,6 @@
     </tbody>
 </table>
 
-<?php include_partial('links', array('zim' => $form->getObject())) ?>
+<?php include_partial('editlinks', array('zim' => $form->getObject())) ?>
 
 </form>

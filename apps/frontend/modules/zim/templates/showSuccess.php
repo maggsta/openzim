@@ -1,14 +1,6 @@
 <h1><?php echo $zim->getName() ?></h1>
 
-<table>
-<tr><td>
-<a href="<?php echo url_for('zim/edit?id='.$zim->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('zim/export?id='.$zim->getId()) ?>">Export</a>
-&nbsp;
-<a href="<?php echo url_for('zim/index') ?>">Back to List</a>
-</td></tr>
-</table>
+<?php include_partial('showlinks', array('zim' => $zim)) ?>
     
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -89,12 +81,4 @@
 
 <?php endforeach; ?>
 
-<table>
-<tr><td>
-<a href="<?php echo url_for('zim/edit?id='.$zim->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('zim/export?id='.$zim->getId()) ?>">Export</a>
-&nbsp;
-<a href="<?php echo url_for('zim/index') ?>">Back to List</a>
-</td></tr>
-</table>
+<?php include_partial('showlinks', array('zim' => $zim)) ?>
