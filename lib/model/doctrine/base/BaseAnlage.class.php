@@ -13,6 +13,7 @@
  * @property string $tip
  * @property string $kurzinhalt
  * @property string $inhalt
+ * @property string $kofferinfo
  * @property string $rolle_tm
  * @property integer $stunde_id
  * @property integer $lnr
@@ -28,6 +29,7 @@
  * @method string              getTip()        Returns the current record's "tip" value
  * @method string              getKurzinhalt() Returns the current record's "kurzinhalt" value
  * @method string              getInhalt()     Returns the current record's "inhalt" value
+ * @method string              getKofferinfo() Returns the current record's "kofferinfo" value
  * @method string              getRolleTm()    Returns the current record's "rolle_tm" value
  * @method integer             getStundeId()   Returns the current record's "stunde_id" value
  * @method integer             getLnr()        Returns the current record's "lnr" value
@@ -42,6 +44,7 @@
  * @method Anlage              setTip()        Sets the current record's "tip" value
  * @method Anlage              setKurzinhalt() Sets the current record's "kurzinhalt" value
  * @method Anlage              setInhalt()     Sets the current record's "inhalt" value
+ * @method Anlage              setKofferinfo() Sets the current record's "kofferinfo" value
  * @method Anlage              setRolleTm()    Sets the current record's "rolle_tm" value
  * @method Anlage              setStundeId()   Sets the current record's "stunde_id" value
  * @method Anlage              setLnr()        Sets the current record's "lnr" value
@@ -88,6 +91,10 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'length' => 1000,
              ));
         $this->hasColumn('inhalt', 'string', 10000, array(
+             'type' => 'string',
+             'length' => 10000,
+             ));
+        $this->hasColumn('kofferinfo', 'string', 10000, array(
              'type' => 'string',
              'length' => 10000,
              ));

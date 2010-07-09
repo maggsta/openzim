@@ -33,6 +33,7 @@ class AnlageForm extends BaseAnlageForm
     $this->widgetSchema['kurzinhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
     $this->widgetSchema['tip'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
     $this->widgetSchema['material'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
+    $this->widgetSchema['kofferinfo'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
 
     $anhang = new Anhang();
     $anhang->Anlage = $this->getObject();

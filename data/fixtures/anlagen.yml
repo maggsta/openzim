@@ -44,6 +44,7 @@ Anlage:
       Vorbereitetes Pinnwandpapier mit „Netzwerk für Demokratie und Courage„
       Überschrift
       laminierte Karten
+    kofferinfo: Ich packe meinen Koffer und nehme mit: Meinen Laptop und einen UMTS Stick
     tip: |
       Locker, fluffig mitreißend erzählen. Fremdworte von der Klasse erklären
       lassen, wenn möglich.
@@ -86,6 +87,7 @@ Anlage:
       you dont need to define all columns values. If not, symfony will use the
       default value defined in the database schema. And as symfony uses Doctrine to
       load the data into the database, all the built-in behaviors
+    kofferinfo: Ich packe meinen Koffer und nehme mit: Meinen Laptop und einen UMTS Stick
     tip: |
       equires that the fixtures files be prefixed with numbers to determine the
       order in which the files will be loaded. With D

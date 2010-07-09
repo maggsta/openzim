@@ -11,7 +11,9 @@
   [x] Anhänge hinzufügen
   -* Timeline für Inhalt
  [x] Autosave für Inhalt (und alle anderen TinyMCE's)
-  - Kofferliste
+ [/] Kofferliste
+        [x] Kofferinfo im Anhang (edit/show/new/fixtures)
+        - zim -> extrahieren von Kofferinfo aus allen Anlagen und Schreiben in ZIM.odf 
   - lock/parallel edit testen
   - Anlage template:
 	[x] new -> nur Zim Stunden für autor

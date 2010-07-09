@@ -38,6 +38,11 @@
       <th>Material:</th>
       <td><textarea style="width:100%; height:100px"><?php echo $anlage->getMaterial() ?></textarea></td>
     </tr>
+    <tr>
+      <th>Kofferinfo:</th>
+      <td><textarea style="width:100%; height:100px"><?php echo $anlage->getKofferinfo() ?></textarea></td>
+    </tr>
+
 </tbody>
 </table>
 

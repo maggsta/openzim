@@ -32,6 +32,7 @@
       <?php echo $form['methode']->renderRow() ?>
       <?php echo $form['rolle_tm']->renderRow() ?>
       <?php echo $form['material']->renderRow() ?>
+      <?php echo $form['kofferinfo']->renderRow() ?>
     </tbody>
   </table>
 </div></div>
