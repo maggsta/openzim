@@ -6,20 +6,7 @@
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
 
-<table>
-    <tfoot>
-      <tr>
-        <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('zim/index') ?>">Back to list</a>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'zim_delete',$form->getObject(), 
-			array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-          <?php endif; ?>
-          <input type="submit" value="Save" />
-        </td>
-      </tr>
-    </tfoot>
-</table>
+<?php include_partial('links', array('zim' => $form->getObject())) ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -93,18 +80,6 @@
     </tbody>
 </table>
 
-<table>
-    <tfoot>
-      <tr>
-        <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('zim/index') ?>">Back to list</a>
-          <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'zim/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-          <?php endif; ?>
-          <input type="submit" value="Save" />
-        </td>
-      </tr>
-    </tfoot>
-</table>
+<?php include_partial('links', array('zim' => $form->getObject())) ?>
 
 </form>
