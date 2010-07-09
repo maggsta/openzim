@@ -84,7 +84,7 @@ class anlageActions extends sfActions
 
   public function executeExport(sfWebRequest $request)
   {
-    $this->forward404Unless($anlage = Doctrine::getTable('Anlage')->find(array($request->getParameter('id'))), sprintf('Object anlage does not exist (%s).', $request->getParameter('id')));
+    $anlage = $this->getRoute()->getObject();
     $this->forward404Unless($this->validateUser($anlage));  
 
     $anlage->generateOdf();

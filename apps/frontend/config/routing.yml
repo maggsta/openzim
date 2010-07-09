@@ -21,6 +21,15 @@ anlage_search:
   url:   /search
   param: { module: anlage, action: search }
 
+anlage_export:
+  url:     /export/:id
+  class:   sfDoctrineRoute
+  options: { model: Anlage, type: object }
+  param:   { module: anlage, action: export }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 change_language:
   url:   /change_language
   param: { module: language, action: changeLanguage }
