@@ -64,6 +64,7 @@
 <?php endforeach; ?>
 
 <table>
+    <tbody>
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
           <td colspan="6"><?php echo link_to('Letzte Stunde löschen',
@@ -73,7 +74,7 @@
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
-         <td>Neue Stunde</td>
+         <td>Stunde hinzufügen</td>
 	 <td> <?php echo $stunde['name'] ?></td>
 	 <td> <?php echo $stunde['name']->renderError() ?></td>
       <?php endforeach; ?>
