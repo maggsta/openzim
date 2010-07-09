@@ -6,8 +6,8 @@
   <table>
     <tfoot>
       <tr>
-        <td colspan="2">
-          &nbsp;<a href="<?php echo url_for('anlage/index') ?>">Back to list</a>
+        <td>
+          &nbsp;<?php echo link_to('Back to list','anlage') ?>
           <input type="submit" value="Save" />
         </td>
       </tr>
