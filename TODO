@@ -32,6 +32,7 @@
 
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
+   -  Bearbeiter sollten nur aus noch nicht zugeordneten Autoren ausgesucht werden können  
   [x] neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
   [x] Benutzer zu Zim hinzufügen
   [x] Benutzer können nur anlagen Ihres Zim sehen
