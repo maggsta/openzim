@@ -31,10 +31,7 @@ class zimActions extends sfActions
 
   public function executeExport(sfWebRequest $request)
   {
-    $this->forward404Unless($zim =
-	Doctrine::getTable('Zim')->find(array($request->getParameter('id'))),
-	sprintf('Object zim does not exist (%s).', $request->getParameter('id')));
-
+    $zim = $this->getRoute()->getObject();
     $zim->generateOdf();
     throw new sfStopException();        
   }

@@ -9,6 +9,14 @@ zim:
   class:   sfDoctrineRouteCollection
   options: { model: Zim }
 
+zim_export:
+  url:     /export/:id
+  class:   sfDoctrineRoute
+  options: { model: Zim, type: object }
+  param:   { module: zim, action: export }
+  requirements:
+    id: \d+
+    sf_method: [get]
 
 bild:
   class:   sfDoctrineRouteCollection
