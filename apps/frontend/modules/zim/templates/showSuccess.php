@@ -60,12 +60,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-       <th colspan="7"><b><?php echo $stunde ?></b></th>
-    </tr>
      <?php foreach ($stunde->getAnlagen() as $anlage): ?>
     <tr>
-       <td><?php echo $anlage->getName() ?></td>
+       <td><?php echo link_to($anlage->getName(),'anlage_show',$anlage) ?></td>
        <td><?php echo $anlage->getZeit() ?></td>
        <td><?php echo $anlage->getZiel(ESC_RAW) ?></td>
        <td><?php echo $anlage->getKurzinhalt(ESC_RAW) ?></td>
