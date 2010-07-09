@@ -1,10 +1,8 @@
 <table>
 <tr><td>
-<a href="<?php echo url_for('zim/edit?id='.$zim->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('zim/export?id='.$zim->getId()) ?>">Export</a>
-&nbsp;
-<a href="<?php echo url_for('zim/index') ?>">Back to List</a>
+<?php echo link_to('Edit','zim_edit',$zim) ?>&nbsp;
+<?php echo link_to('Export','zim_export',$zim) ?>&nbsp;
+<?php echo link_to('Back to List','zim') ?>&nbsp;
 </td></tr>
 </table>
 
