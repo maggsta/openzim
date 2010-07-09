@@ -39,4 +39,5 @@ $pager->getLastPage() ?>">
 </div>
  
 <?php
- if ( $sf_user->hasZim() ) echo link_to('Neue Anlage erstellen','anlage/new') ?>
+ if ( $sf_user->hasZim() || $sf_user->hasCredential('admin') ) 
+	echo link_to('Neue Anlage erstellen','anlage/new') ?>
