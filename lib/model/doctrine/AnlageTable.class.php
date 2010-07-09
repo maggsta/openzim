@@ -20,17 +20,26 @@ class AnlageTable extends Doctrine_Table
 	return self::getAllFreeQuery()->count();
     }
 
-    public function getAll($query = '*')
+    private function getAllFromUserQuery($user)
     {
-      if ('*' == $query )
-      {
-          return $this->createQuery('a');      
-      } 
-      else 
-        return $this->getForLuceneQuery($query);
+	return $q = Doctrine_Query::create()
+  		->from('Anlage a, a.Stunde s, s.Zim z, z.sfGuardUser u')
+		->where('u.username = ?', $user->getUsername());
     }
 
-    public function getForLuceneQuery($query)
+    public function getAllQuery($query = '*',$user = null)
+    {
+      if ('*' == $query )
+      {	
+	if ( $user )
+	   return $this->getAllFromUserQuery($user);
+	return $this->createQuery('a');
+      } 
+      else 
+        return $this->getForLuceneQuery($query,$user);
+    }
+
+    private function getForLuceneQuery($query, $user = null)
     {
   	$hits = self::getLuceneIndex()->find($query);
  
@@ -40,17 +49,17 @@ class AnlageTable extends Doctrine_Table
   	  	$pks[] = $hit->pk;
   	}
  
+	$q = $this->createQuery('a');
   	if (empty($pks))
   	{
-		$q = $this->createQuery('a')
-		->where('a.id = -1');
- 	}
-	else
+		return $q->andWhere('a.id = -1');
+ 	}	
+	if ( $user )
 	{
-	  	$q = $this->createQuery('a')
-    		->whereIn('a.id', $pks);
+	  	$q = $this->getAllFromUserQuery($user);
 	}
- 
+	
+	$q->andwhereIn('a.id', $pks);
   	return $q;
     }
 

@@ -10,24 +10,20 @@
  */
 class anlageActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
-  {
+  private function getAnlagenQuery($query = '*'){
+    $anlage = Doctrine::getTable('Anlage');
     if($this->getUser()->hasCredential('admin')) {
-    	$anlage = Doctrine::getTable('Anlage');
-	$q = $anlage->getAll();
+	$q = $anlage->getAllQuery($query);
     }
     else {
-	$q = Doctrine_Query::create()
-  		->from('Anlage a, a.Stunde s, s.Zim z, z.sfGuardUser u')
-		->where('u.username = ?', $this->getUser()->getUsername());
+	$q = $anlage->getAllQuery($query,$this->getUser());
     }
-    $this->pager = new sfDoctrinePager(
-      'Anlage',
-      sfConfig::get('app_max_anlagen')
-    );
-    $this->pager->setQuery($q);
-    $this->pager->setPage($request->getParameter('page', 1));
-    $this->pager->init();
+    return $q;
+  }
+
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->initPager($request, $this->getAnlagenQuery());
   }
 
   public function executeShow(sfWebRequest $request)
@@ -93,6 +89,17 @@ class anlageActions extends sfActions
   }
 
   // apps/frontend/modules/job/actions/actions.class.php
+ 
+  private function initPager(sfWebRequest $request, $query){
+    $this->pager = new sfDoctrinePager(
+    	'Anlage',
+        sfConfig::get('app_max_anlagen')
+    );
+    $this->pager->setQuery($query);
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();	
+  }
+
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
@@ -100,20 +107,10 @@ class anlageActions extends sfActions
 	$query = '*';
     elseif ( $query[strlen($query)-1] != '*' )
 	$query = $query.'*';
-    $q = Doctrine_Core::getTable('Anlage')->getAll($query);
-
-    $this->anlagen = $q->execute();
+    $q = $this->getAnlagenQuery($query);
     
     $this->setTemplate('index');
-    
-    $this->pager = new sfDoctrinePager(
-    	'Anlage',
-        sfConfig::get('app_max_anlagen')
-    );
-    $this->pager->setQuery($q);
-    $this->pager->setPage($request->getParameter('page', 1));
-    $this->pager->init();	
-
+    $this->initPager($request, $q);
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
