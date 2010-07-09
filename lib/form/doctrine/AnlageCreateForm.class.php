@@ -12,6 +12,14 @@ class AnlageCreateForm extends BaseAnlageForm
 {
   public function configure()
   {
+    $query = null;
+    if ($zim = $this->getOption('zim'))
+    {
+	$query = StundeTable::getZimStundenQuery($zim);
+    }
     $this->useFields(array('stunde_id','kuerzel', 'lnr'));
+    $this->widgetSchema['stunde_id']  = new sfWidgetFormDoctrineChoice(array(
+	'model' => $this->getRelatedModelName('Stunde'), 
+	'query' => $query ));
   }
 }

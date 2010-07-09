@@ -37,16 +37,25 @@ class anlageActions extends sfActions
     $this->forward404Unless($this->validateUser($this->anlage));
   }
 
+  private function getAnlageCreateForm()
+  {
+    if($this->getUser()->hasCredential('admin')) {
+    	return new AnlageCreateForm();
+    }
+    return new AnlageCreateForm(null,array(
+		'zim' => ZimTable::getZimFromUser($this->getUser())));
+  }
+
   public function executeNew(sfWebRequest $request)
   {
-    $this->form = new AnlageCreateForm();
+    	$this->form = $this->getAnlageCreateForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
     $this->forward404Unless($request->isMethod(sfRequest::POST));
 
-    $this->form = new AnlageCreateForm();
+    $this->form = $this->getAnlageCreateForm();
 
     $this->processForm($request, $this->form);
 
