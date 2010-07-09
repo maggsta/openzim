@@ -12,7 +12,8 @@
         <td colspan="2">
           &nbsp;<a href="<?php echo url_for('zim/index') ?>">Back to list</a>
           <?php if (!$form->getObject()->isNew()): ?>
-            &nbsp;<?php echo link_to('Delete', 'zim/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+            &nbsp;<?php echo link_to('Delete', 'zim_delete',$form->getObject(), 
+			array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
         </td>
@@ -79,8 +80,8 @@
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
           <td colspan="6"><?php echo link_to('Letzte Stunde löschen',
-		'zim/deleteStunde?id='.$form->getObject()->getId(),
-			array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+		'zim_delete_stunde',$form->getObject(),
+		array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
 	  </td>
         </tr>
       <?php endif; ?>

@@ -26,7 +26,7 @@ class zimActions extends sfActions
     $this->forward404Unless($stunde, sprintf('Zim (%s) has no stunden.', $request->getParameter('id')));
     $stunde->delete();
 
-    $this->redirect('zim/edit?id='.$zim->getId());
+    $this->redirect($this->generateUrl('zim_edit',$zim));
   }
 
   public function executeExport(sfWebRequest $request)
@@ -89,7 +89,7 @@ class zimActions extends sfActions
     {
       $zim = $form->save();
 
-      $this->redirect('zim/edit?id='.$zim->getId());
+      $this->redirect($this->generateUrl('zim_edit',$zim));
     }
   }
 }

@@ -19,7 +19,7 @@ zim_export:
     sf_method: [get]
 
 zim_delete_stunde:
-  url:     /deleteStunde/:id
+  url:     /delete_stunde/:id
   class:   sfDoctrineRoute
   options: { model: Zim, type: object }
   param:   { module: zim, action: deleteStunde }
