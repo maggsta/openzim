@@ -9,6 +9,7 @@ zim:
   class:   sfDoctrineRouteCollection
   options: { model: Zim }
 
+
 bild:
   class:   sfDoctrineRouteCollection
   options: { model: Bild }
@@ -26,6 +27,15 @@ anlage_export:
   class:   sfDoctrineRoute
   options: { model: Anlage, type: object }
   param:   { module: anlage, action: export }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+anlage_remove_stunde:
+  url:     /removeStunde/:id
+  class:   sfDoctrineRoute
+  options: { model: Anlage, type: object }
+  param:   { module: anlage, action: removeStunde }
   requirements:
     id: \d+
     sf_method: [get]

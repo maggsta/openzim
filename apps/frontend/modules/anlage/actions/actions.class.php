@@ -91,6 +91,16 @@ class anlageActions extends sfActions
     throw new sfStopException();        
   }
 
+  public function executeRemoveStunde(sfWebRequest $request)
+  {
+    $anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($anlage));  
+    $zimId = $anlage->getStunde()->getZim()->getId();
+    $anlage->setStunde(null);
+    $anlage->save();
+    $this->redirect('zim/edit?id='.$zimId);
+  }
+
   private function initPager(sfWebRequest $request, $query){
     $this->pager = new sfDoctrinePager(
     	'Anlage',

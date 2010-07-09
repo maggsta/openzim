@@ -47,11 +47,11 @@
           <tr>
             <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
             <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
-	    <td colspan="4"><?php echo $stunde['name'] ?></td>
+	    <td colspan="5"><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
 	 </tr> 
          <?php if ($stunde['Anlagen']->count() > 0 ): ?>
-          <tr> <td colspan="6">Anlagen</td></tr>
+          <tr> <td colspan="7">Anlagen</td></tr>
          <?php endif; ?>
          <?php foreach ($stunde['Anlagen'] as $anlage): ?>
           <tr>
@@ -61,6 +61,9 @@
 		<td>  <?php echo $anlage['lnr']->renderLabelName() ?></td>
 		<td>  <?php echo $anlage['lnr'] ?></td>
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
+          	<td><?php echo link_to('Aus ZIM entfernen',
+			'anlage/removeStunde?id='.$anlage['id']->getValue()) ?> </td>
+        </tr>
 	 </tr> 
          <?php endforeach; ?>
          <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
@@ -78,6 +81,7 @@
           <td colspan="6"><?php echo link_to('Letzte Stunde löschen',
 		'zim/deleteStunde?id='.$form->getObject()->getId(),
 			array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+	  </td>
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>

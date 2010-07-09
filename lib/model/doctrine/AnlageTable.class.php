@@ -12,7 +12,7 @@ class AnlageTable extends Doctrine_Table
     public static function getAllFreeQuery()
     {
         return AnlageTable::getInstance()->createQuery('a')
-           ->where('a.stunde_id NOT IN (SELECT id FROM stunde)');
+           ->where('a.stunde_id IS NULL');
     }
     
     public static function getAllFreeCount()

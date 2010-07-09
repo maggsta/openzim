@@ -21,6 +21,16 @@ class Stunde extends BaseStunde
 		return parent::save($conn);
 	}
 
+	public function delete(Doctrine_Connection $conn = null)
+	{
+		foreach( $this->getAnlagen() as $anlage )
+		{
+			$anlage->setStunde(null);
+			$anlage->save(); 
+		}
+  		return parent::delete($conn);
+	}
+
 	public function __toString()
 	{
 		return $this->getLnr().'. Stunde: '.$this->getName();
