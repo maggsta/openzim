@@ -38,4 +38,5 @@ $pager->getLastPage() ?>">
 <?php endif; ?>
 </div>
  
-<a href="<?php echo url_for('anlage/new') ?>">New</a>
+<?php
+ if ( $sf_user->hasZim() ) echo link_to('Neue Anlage erstellen','anlage/new') ?>
