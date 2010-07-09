@@ -18,6 +18,15 @@ zim_export:
     id: \d+
     sf_method: [get]
 
+zim_delete_stunde:
+  url:     /deleteStunde/:id
+  class:   sfDoctrineRoute
+  options: { model: Zim, type: object }
+  param:   { module: zim, action: deleteStunde }
+  requirements:
+    id: \d+
+    sf_method: [delete]
+
 bild:
   class:   sfDoctrineRouteCollection
   options: { model: Bild }
