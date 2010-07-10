@@ -30,13 +30,4 @@ class AnhangForm extends BaseAnhangForm
     $this->validatorSchema['path_delete'] = new sfValidatorPass();
 
   }
-
-  public function updateObject($values = null)
-  {
-    $object = parent::updateObject($values);
- 
-    $object->setName($this->getValue('path')->getOriginalName());
- 
-    return $object;
-  }
 }
