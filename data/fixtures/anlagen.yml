@@ -79,7 +79,7 @@ Anlage:
   E<?php echo $i ?>:
     kuerzel: E
     lnr: <?php echo $i."\n" ?>
-    Stunde: S<?php echo ($i % 6 +1)."\n" ?>
+    Stunde: S<?php echo (floor(($i-99) / 6) +1)."\n" ?>
     zeit: <?php echo fmod($i, 2) ? "10\n" : "5\n" ?>
     ziel: And as symfony uses Doctrine
     methode: built-in behaviors
