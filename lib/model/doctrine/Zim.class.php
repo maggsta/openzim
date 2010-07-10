@@ -28,6 +28,16 @@ class Zim extends BaseZim
 		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),false,'UTF-8');
 		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),false,'UTF-8');
 		$odf->setVars('roterFaden',$htmlConverter->getODF($this->getRoterFaden()),false,'UTF-8');
+		$koffer = $odf->setSegment('koffer');
+		foreach($this->getStunden() AS $stunde) {
+			foreach($stunde->getAnlagen() AS $anlage) {
+			    $koffer->kuerzel($anlage->getKuerzel());
+			    $koffer->lnr($anlage->getLnr());
+			    $koffer->kofferInhalt($anlage->getKofferInfo());
+			    $koffer->merge();
+			}
+		}
+		$odf->mergeSegment($koffer);
 		$stunden = $odf->setSegment('stunden');
 		foreach($this->getStunden() AS $stunde) {
 			$stunden->setVars('lnrStunde',$stunde->getLnr());
