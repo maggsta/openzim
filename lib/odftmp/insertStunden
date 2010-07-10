@@ -1,0 +1,6 @@
+unzip -o ../Zim_template.odt
+sed -i 's/<table:/\[\!-- BEGIN stunden --\]<table:/' content.xml
+sed -i 's/:table>/:table>\[\!-- END stunden --\]/' content.xml
+zip -0 -X ../my-document.odt mimetype
+zip -r ../my-document.odt * -x mimetype
+mv ../my-document.odt ../Zim_template.odt
