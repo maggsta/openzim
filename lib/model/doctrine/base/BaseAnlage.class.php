@@ -116,6 +116,7 @@ abstract class BaseAnlage extends sfDoctrineRecord
              array(
               0 => 'kuerzel',
               1 => 'lnr',
+              2 => 'stunde_id',
              ),
              'type' => 'unique',
              ));

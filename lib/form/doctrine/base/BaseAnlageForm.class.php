@@ -51,7 +51,7 @@ abstract class BaseAnlageForm extends BaseFormDoctrine
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'Anlage', 'column' => array('kuerzel', 'lnr')))
+      new sfValidatorDoctrineUnique(array('model' => 'Anlage', 'column' => array('kuerzel', 'lnr', 'stunde_id')))
     );
 
     $this->widgetSchema->setNameFormat('anlage[%s]');

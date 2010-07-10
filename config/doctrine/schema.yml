@@ -18,7 +18,7 @@ Anlage:
     Stunde: { local: stunde_id, foreign: id, foreignAlias: Anlagen }
   indexes:
     kuerzel_lnr:
-      fields: [kuerzel, lnr]
+      fields: [kuerzel, lnr, stunde_id]
       type: unique
 
 Bild:
