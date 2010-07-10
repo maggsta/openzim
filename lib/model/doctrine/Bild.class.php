@@ -34,7 +34,7 @@ class Bild extends BaseBild
 		/// XXX: should be put in transaction, does not work
 		$oldLnr = $this->getLnr();			
 	  	$ret = parent::delete($conn);
-		$this->getTable()->updateLnrDeleted($oldLnr);
+		$this->getTable()->updateLnrDeleted($oldLnr,$this->getAnlage()->getId());
 		return $ret;	
 	}
 

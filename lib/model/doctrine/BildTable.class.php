@@ -12,15 +12,16 @@ class BildTable extends Doctrine_Table
     public static function getBilderSorted( $anlage_id )
     {
 	return self::getInstance()->createQuery()
-		->from('Bild b,b.Anlage a')
-		->where('a.id = ?',$anlage_id)
+		->from('Bild b')
+		->where('b.anlage_id = ?',$anlage_id)
 		->orderBy('b.lnr')->execute();
     }
 
-    public static function updateLnrDeleted($lnr = 0)
+    public static function updateLnrDeleted($lnr = 0,$anlage_id)
     {
 	$q = self::getInstance()->createQuery('b')
-		->where('b.lnr >'.$lnr)
+		->where('b.anlage_id = ?',$anlage_id)
+		->andWhere('b.lnr > ?',$lnr)
 		->orderBy('b.lnr');
 
 	foreach( $q->execute() as $bild )
