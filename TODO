@@ -42,8 +42,7 @@
      [x]  Anlage executeSearch
      [x]  Anlage templates sperren: edit, show
   - Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
-  - Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
-     - müsste schon im Template sein ( checken )
+  [x] Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
 
 * Optional ( wenn zeit )
 - geplant
