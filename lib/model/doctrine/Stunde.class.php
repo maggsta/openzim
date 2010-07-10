@@ -12,6 +12,12 @@
  */
 class Stunde extends BaseStunde
 {
+	
+	public function getAnlagen()
+	{
+		return AnlageTable::getAnlagenSorted($this->getId());
+	}
+
 	public function save(Doctrine_Connection $conn = null)
 	{
 		if ($this->isNew() && !$this->getLnr()){

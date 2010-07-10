@@ -15,6 +15,11 @@ require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php')
  */
 class Zim extends BaseZim
 {
+	public function getStunden()
+	{
+		return StundeTable::getStundenSorted($this->getId());
+	}
+
         public function generateOdf()
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');

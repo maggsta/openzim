@@ -15,6 +15,11 @@ require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php')
  */
 class Anlage extends BaseAnlage
 {
+	public function getBilder()
+	{
+		return BildTable::getBilderSorted($this->getId());
+	}
+
 	public function save(Doctrine_Connection $conn = null)
 	{  
 		if ( $this->state() != self::STATE_DIRTY && !$this->isNew() )

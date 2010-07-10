@@ -9,6 +9,14 @@ class AnlageTable extends Doctrine_Table
         return Doctrine_Core::getTable('Anlage');
     }
 
+    public static function getAnlagenSorted( $stunde_id )
+    {
+	return self::getInstance()->createQuery()
+		->from('Anlage a,a.Stunde s')
+		->where('s.id = ?',$stunde_id)
+		->orderBy('a.lnr')->execute();
+    }
+
     public static function getAllFreeQuery()
     {
         return AnlageTable::getInstance()->createQuery('a')

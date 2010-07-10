@@ -9,6 +9,14 @@ class BildTable extends Doctrine_Table
         return Doctrine_Core::getTable('Bild');
     }
 
+    public static function getBilderSorted( $anlage_id )
+    {
+	return self::getInstance()->createQuery()
+		->from('Bild b,b.Anlage a')
+		->where('a.id = ?',$anlage_id)
+		->orderBy('b.lnr')->execute();
+    }
+
     public static function updateLnrDeleted($lnr = 0)
     {
 	$q = self::getInstance()->createQuery('b')

@@ -8,7 +8,15 @@ class StundeTable extends Doctrine_Table
     {
         return Doctrine_Core::getTable('Stunde');
     }
-    
+ 
+    public static function getStundenSorted( $zim_id )
+    {
+	return self::getInstance()->createQuery()
+		->from('Stunde s,s.Zim z')
+		->where('z.id = ?',$zim_id)
+		->orderBy('s.lnr')->execute();
+    }
+   
     public static function getZimStundenQuery(Zim $zim)
     {
 	return self::getInstance()->createQuery('s')
