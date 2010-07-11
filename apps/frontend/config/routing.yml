@@ -48,6 +48,15 @@ anlage_export:
     id: \d+
     sf_method: [get]
 
+anhang_download:
+  url:     /anhang/:id/download
+  class:   sfDoctrineRoute
+  options: { model: Anhang, type: object }
+  param:   { module: anhang, action: download }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 anlage_remove_stunde:
   url:     /anlage/:id/removeStunde
   class:   sfDoctrineRoute

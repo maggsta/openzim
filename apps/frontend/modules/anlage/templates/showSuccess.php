@@ -97,6 +97,27 @@
 </div></div>
 <?php endif; ?>
 
+<?php if ($anlage->getAnhaenge()->count() > 0) : ?>
+<div class="msg_list">
+<p class="msg_head"><?php echo __('ANLAGE ANHÄNGE') ?></p>
+<div class="msg_content">
+
+<table>
+  <tbody>
+    <?php foreach ($anlage->getAnhaenge() as $i => $anhang): ?>
+    <tr>
+      <th><?php echo $i+1 ?>. Anhang:</th>
+      <td>
+          <?php echo link_to($anhang->getName(),'anhang_download',$anhang) ?>
+      </td>
+    </tr>
+    <?php endforeach; ?>
+</tbody>
+</table>
+
+</div></div>
+<?php endif; ?>
+
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE ZIM INFO') ?></p>
 <div class="msg_content">
