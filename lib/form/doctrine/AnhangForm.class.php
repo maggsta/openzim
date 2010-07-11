@@ -24,7 +24,8 @@ class AnhangForm extends BaseAnhangForm
         'edit_mode'   => !$this->isNew(),
         'is_image'    => false,
         'with_delete' => !$this->isNew(),
-	'label'     => $this->isNew() ? 'Anhang hinzufügen' : $this->getObject()->getName(),
+	'template'    => '%input%<br/>%delete% %delete_label%',
+	'label'       => $this->isNew() ? 'Anhang hinzufügen' : $this->getObject()->getName(),
     ));
 
     $this->validatorSchema['path_delete'] = new sfValidatorPass();
