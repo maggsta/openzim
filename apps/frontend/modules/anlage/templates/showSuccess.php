@@ -8,6 +8,8 @@
 });
 </script>
 
+<?php include_partial('showlinks', array('anlage' => $anlage)) ?>
+
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
 <div class="msg_content">
@@ -116,8 +118,5 @@
 
 <hr />
 
-<a href="<?php echo url_for('anlage/edit?id='.$anlage->getId()) ?>">Edit</a>
-&nbsp;
-<a href="<?php echo url_for('anlage/export?id='.$anlage->getId()) ?>">Export</a>
-&nbsp;
-<a href="<?php echo url_for('anlage/index') ?>">List</a>
+<?php include_partial('showlinks', array('anlage' => $anlage)) ?>
+
