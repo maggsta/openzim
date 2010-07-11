@@ -10,7 +10,7 @@ zim:
   options: { model: Zim }
 
 zim_export:
-  url:     /export/:id
+  url:     /zim/:id/export
   class:   sfDoctrineRoute
   options: { model: Zim, type: object }
   param:   { module: zim, action: export }
@@ -19,7 +19,7 @@ zim_export:
     sf_method: [get]
 
 zim_delete_stunde:
-  url:     /delete_stunde/:id
+  url:     /zim/:id/delete_stunde
   class:   sfDoctrineRoute
   options: { model: Zim, type: object }
   param:   { module: zim, action: deleteStunde }
@@ -40,7 +40,7 @@ anlage_search:
   param: { module: anlage, action: search }
 
 anlage_export:
-  url:     /export/:id
+  url:     /anlage/:id/export
   class:   sfDoctrineRoute
   options: { model: Anlage, type: object }
   param:   { module: anlage, action: export }
@@ -49,7 +49,7 @@ anlage_export:
     sf_method: [get]
 
 anlage_remove_stunde:
-  url:     /removeStunde/:id
+  url:     /anlage/:id/removeStunde
   class:   sfDoctrineRoute
   options: { model: Anlage, type: object }
   param:   { module: anlage, action: removeStunde }
