@@ -16,16 +16,19 @@ generator:
 
       list:
         title:   Benutzer Liste
-        display: [=username, created_at, updated_at, last_login]
+        display: [=username, created_at]
 
       form:
         class: sfGuardUserAdminForm
         display:
           "NONE":                   [username, password, password_again]
-          "Permissions and groups": [is_active, is_super_admin, groups_list, permissions_list]
+          "Permissions and groups": [is_active, groups_list]
 
       edit:
         title: Editing User "%%username%%"
 
       new:
         title: New User
+
+      filter:
+        display: [username, is_active, created_at, groups_list] 
