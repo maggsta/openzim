@@ -30,4 +30,18 @@ class AnhangForm extends BaseAnhangForm
     $this->validatorSchema['path_delete'] = new sfValidatorPass();
 
   }
+
+  public function updateObject($values = null)
+  {
+    $file = $this['path']->getValue();
+    $object = parent::updateObject($values);
+    $newfile = $object->getPath();
+    $path = sfConfig::get('sf_upload_dir').'/anhaenge/'.$file;
+    if ($file &&  file_exists($path) && $newfile != $file )
+    {
+      unlink($path);
+    }	
+    return $object;
+  }
+
 }

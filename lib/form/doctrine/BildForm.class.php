@@ -34,4 +34,17 @@ class BildForm extends BaseBildForm
     $this->validatorSchema['path_delete'] = new sfValidatorPass();
     $this->widgetSchema['caption'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')), array('cols' => '100', 'rows' => '4'));
   }
+
+  public function updateObject($values = null)
+  {
+    $file = $this['path']->getValue();
+    $object = parent::updateObject($values);
+    $newfile = $object->getPath();
+    $path = sfConfig::get('sf_upload_dir').'/bilder/'.$file;
+    if ($file &&  file_exists($path) && $newfile != $file )
+    {
+      unlink($path);
+    }	
+    return $object;
+  }
 }
