@@ -33,6 +33,10 @@
      [x] form
       -  show
 
+- sfGuardUser:
+  [x] forms: abspecken / anpassen
+  - templates: anpassen
+
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
    -  Bearbeiter sollten nur aus noch nicht zugeordneten Autoren ausgesucht werden können  
