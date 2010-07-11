@@ -22,4 +22,11 @@ class Anhang extends BaseAnhang
 			return $ret;
 		}
 	}  
+
+	// XXX: not nice, function with side effects, find a better way
+	public function generatePathFilename(sfValidatedFile $validatedFile)
+	{
+		$this->setName($validatedFile->getOriginalName());
+		return $validatedFile->generateFilename();
+	}	 
 }
