@@ -10,10 +10,11 @@
 - Anlage: 
   [x] Anhänge hinzufügen
   -* Timeline für Inhalt
- [x] Autosave für Inhalt (und alle anderen TinyMCE's)
- [/] Kofferliste
+  [x] Autosave für Inhalt (und alle anderen TinyMCE's)
+  [/] Kofferliste
         [x] Kofferinfo im Anhang (edit/show/new/fixtures)
-        - zim -> extrahieren von Kofferinfo aus allen Anlagen und Schreiben in ZIM.odf 
+        [/] export nach ZIM.odf 
+		- mehrere Zeilen werden nicht korrekt eingerückt
   - lock/parallel edit testen
   - Anlage template:
 	[x] new -> nur Zim Stunden für autor
@@ -41,7 +42,7 @@
      [x] Anlage executeIndex
      [x]  Anlage executeSearch
      [x]  Anlage templates sperren: edit, show
-  - Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
+  [x] Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
   [x] Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
 
 * Optional ( wenn zeit )
