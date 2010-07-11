@@ -1,18 +1,10 @@
-function replaceLinks(){
-  $('.pagination > a').each(function(){
-	$(this).data('href',$(this).attr('href'));
-  	$(this).removeAttr('href');
-  });
-
-}
-
 function setLinkEvents(){
-  $('.pagination > a').click(function(key)
+  $('.pagination > a').click(function()
   {
-      replaceLinks();
       $('#anlagen').load(
-        $(this).data('href') + ' #anlagen'
+        $(this).attr('href') + ' #anlagen'
       );
+      return false;
   });
 }
 
