@@ -4,8 +4,8 @@
   [x] Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
   - gleicher benutzer mehrmals eingeloggt testen
 
-- Htmlconverter:
-  - alle nicht unterstützten umlaute entfernen
+[x] Htmlconverter:
+  [x] alle nicht unterstützten umlaute entfernen
 
 - Anlage: 
   [x] Anhänge hinzufügen
