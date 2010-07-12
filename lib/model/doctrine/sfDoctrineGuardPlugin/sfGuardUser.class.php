@@ -12,4 +12,13 @@
  */
 class sfGuardUser extends PluginsfGuardUser
 {
+	public function hasCredential($credential)
+	{
+		if ( $this->getIsSuperAdmin() ) 
+			return true;
+		foreach( $this->getGroups() as $group )
+			if ( $group->getName() == $credential )
+				return true;
+		return false;
+	}
 }
