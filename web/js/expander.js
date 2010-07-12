@@ -4,8 +4,9 @@
  *
  */
 
-function initExpander()
+$(document).ready(function()
 {
+  
   $(".msg_content").hide();
 
   $(".msg_content:first").slideToggle(600); 
@@ -13,15 +14,6 @@ function initExpander()
   $(".msg_head").click(function()
   {
     $(this).next(".msg_content").slideToggle(600);
-  });
-}
-
-$(document).ready(function()
-{
-  initExpander(); 
-  $(document).ajaxComplete(function()
-  {
-    initExpander();
   });
 
 });

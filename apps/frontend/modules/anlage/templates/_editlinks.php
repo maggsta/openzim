@@ -9,7 +9,6 @@
             &nbsp;<?php echo link_to('Löschen', 'anlage_delete',$form->getObject(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
           <?php endif; ?>
           <input type="submit" value="Save" />
-          <img class="anlage_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" />
         </td>
       </tr>
     </tfoot>
