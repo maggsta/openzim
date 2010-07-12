@@ -6,6 +6,7 @@
 
 [x] Htmlconverter:
   [x] alle nicht unterstützten umlaute entfernen
+   - ZIM Template kennt andere Styles, bzw interpretiert diese anders !!!
 
 - Anlage: 
   [x] Anhänge hinzufügen
