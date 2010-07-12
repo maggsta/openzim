@@ -1,4 +1,6 @@
-<?php echo link_to('Neues ZIM erstellen', 'zim_new') ?>
+<div class="newlink">
+<?php echo link_to('', 'zim_new') ?>
+</div>
 
 <h1>Zims List</h1>
 

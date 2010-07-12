@@ -1,8 +1,10 @@
-<?php include_partial('anlage/search') ?>
-
+<div class="newlink">
 <?php
  if ( $sf_user->hasZim() || $sf_user->hasCredential('admin') )
         echo link_to('Neue Anlage erstellen','anlage/new') ?>
+</div>
+
+<?php include_partial('anlage/search') ?>
 
 <h1>Anlagen</h1>
 <div id="anlagen">

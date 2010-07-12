@@ -70,6 +70,10 @@ change_language:
   url:   /change_language
   param: { module: language, action: changeLanguage }
 
+sf_guard_user_new:
+  url: /sfGuardUser/new
+  param: { module: sfGuardUser, action: new }
+
 sf_guard_signin:
   url:   /login
   param: { module: sfGuardAuth, action: signin }

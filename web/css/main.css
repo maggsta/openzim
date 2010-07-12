@@ -510,3 +510,17 @@ textarea {
 width: 100%;
 min-height: 100px;
 }
+
+.newlink {
+width: 100%;
+}
+
+.newlink a {
+display: block;
+width: 164px;
+height: 71px;
+background: url(/images/newlink.jpg) no-repeat;
+color: #FFF;
+text-indent:-9999px;
+}
+
