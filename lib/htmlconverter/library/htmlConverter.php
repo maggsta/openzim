@@ -1,8 +1,14 @@
 <?php
 class htmlConverter {
 
-	public function __construct() {
-		
+	private $isZimInput;
+
+	public function __construct($input) {
+		$this->isZimInput = $input;	
+	}
+
+	public function getIsZimInput() {
+		return $this->isZimInput;
 	}	
 
 	public function convertFromArray($array,$text) {
@@ -11,80 +17,72 @@ class htmlConverter {
                 return $text;
         }
 
-	public function removeSpecialChars($text) {
-		
-		$result = html_entity_decode($text, ENT_QUOTES, 'UTF-8');		   	     return $result;
+	function translation_table_to_utf8($arTranslationtable)
+	{
+	    foreach($arTranslationtable as $charkey => $char)
+	    {
+		$charkey = utf8_encode($charkey);
+		$arUTFchars[$charkey]= utf8_encode($char);
+	    } 
+	     return $arUTFchars;
 	}
 
-	function cleanRemainingString($in,$offset=null) 
-	{ 
-	    $out = trim($in); 
-	    if (!empty($out)) 
-	    { 
-		$entity_start = strpos($out,'&',$offset); 
-		// nichts weiter gefunden
-		if ($entity_start === false) 
-		{ 
-		    return $out;    
-		} 
-		else 
-		{ 
-		    $entity_end = strpos($out,';',$entity_start); 
-		    if ($entity_end === false) 
-		    { 
-			 return $out; 
-		    } 
-		    // gefunden, aber zu lang um eine entity zu sein 
-		    else if ($entity_end > $entity_start+7) 
-		    { 
-			 $out = cleanString($out,$entity_start+1); 
-		    } 
-		    // weiteres vorkommen gefunden 
-		    else 
-		    { 
-			 $clean = substr($out,0,$entity_start); 
-			 $subst = substr($out,$entity_start+1,1); 
-			 
-			 $clean .= ($subst != "#") ? $subst : "_"; 
-			 $clean .= substr($out,$entity_end+1); 
-			 
-			 $out = cleanString($clean,$entity_start+1); 
-		    } 
-		} 
-	    } 
-	    return $out; 
-	} 
+	public function removeSpecialChars($text) {
+	
+		$htmlTable = get_html_translation_table(HTML_ENTITIES);
+		$htmlTable = $this->translation_table_to_utf8($htmlTable);
+		$htmlTable = array_flip($htmlTable);
+		unset($htmlTable['&quot;']);
+                unset($htmlTable['&amp;']); 
+                unset($htmlTable['&lt;']); 
+                unset($htmlTable['&gt;']); 
+		$result = strtr($text, $htmlTable); 
+		return $result;
+
+	}
 
 	public function getODF($text) {
-                $convertArray = array( 
-                  '&ldquo;'  => '“', 
-		  '&bdquo;'  => '„', 
-	          '&quot;'   => '"',
-		  '&uuml;'   => 'ü', 
-	          '&Uuml;'   => 'Ü', 
-                  '&ouml;'   => 'ö', 
-                  '&Ouml;'   => 'Ö', 
-                  '&auml;'   => 'ä', 
-                  '&Auml;'   => 'Ä', 
-                  '&szlig;'  => 'ß',
-		  '&egrave;' => 'è',
-		  '&eacute;' => 'é',
-		  '&ecirc;'  => 'ê',
-                  '&ntilde;' => 'ñ',
-		  '&nbsp;'   => ' ', 
-                  '&acute;'  => '´',
-                  '&gt;'     => '>',
-                  '&lt;'     => '<', 
-		  '<strong>'  => '<text:span text:style-name="T5">',
-		  '</strong>' => '</text:span>',
-                  '<em>'     => '<text:span text:style-name="T1">',
-                  '</em>'    => '</text:span>',
-                  '<p>'      => '', 
-                  '</p>'     => "\n");
-		$result = strip_tags($text, '<strong><em><p>');
+        
+		$commonArray = array(
+                          '&ldquo;'  => '“',
+                          '&bdquo;'  => '„',
+                          '&uuml;'   => 'ü',
+                          '&Uuml;'   => 'Ü',
+                          '&ouml;'   => 'ö',
+                          '&Ouml;'   => 'Ö',
+                          '&auml;'   => 'ä',
+                          '&Auml;'   => 'Ä',
+                          '&szlig;'  => 'ß',
+                          '&egrave;' => 'è',
+                          '&eacute;' => 'é',
+                          '&ecirc;'  => 'ê',
+                          '&ntilde;' => 'ñ',
+                          '&nbsp;'   => ' ',
+                          '&acute;'  => '´',
+			  '"'	     => '&quot;',
+			  '\''       => '&apos;');
+	
+		$anlageArray = array(
+			  '<strong>'  => '<text:span text:style-name="T5">',
+                          '</strong>' => '</text:span>',
+                          '<em>'      => '<text:span text:style-name="T1">',
+                          '</em>'     => '</text:span>');
+
+		$zimArray = array(
+                          '<strong>'  => '<text:span text:style-name="T4">',
+                          '</strong>' => '</text:span>',
+                          '<em>'      => '<text:span text:style-name="T13">',
+                          '</em>'     => '</text:span>');
+
+		if( $this->getIsZimInput()) {
+                       $convertArray = array_merge( $commonArray, $zimArray );
+		} else {
+			$convertArray = array_merge( $commonArray, $anlageArray );  
+		}
+
+		$result = strip_tags($text, '<strong><em>');
                 $result = $this->convertFromArray($convertArray,$result);
 		$result = $this->removeSpecialChars($result);
-		$result = $this->cleanRemainingString($result,null);
 		return $result;
 	}
 

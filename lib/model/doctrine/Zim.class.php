@@ -23,7 +23,7 @@ class Zim extends BaseZim
         public function generateOdf()
 	{
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
-		$htmlConverter = new htmlConverter();
+		$htmlConverter = new htmlConverter(true);
 		$odf->setVars('nameZim',$this->getName(),true,'UTF-8');
 		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),false,'UTF-8');
 		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),false,'UTF-8');
