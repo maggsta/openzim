@@ -70,6 +70,23 @@ class anlageActions extends sfActions
     $this->form = new AnlageForm($anlage);
   }
 
+  public function executeUpdateAjax(sfWebRequest $request)
+  {
+    $anlage = $this->getRoute()->getObject();
+    $this->forward404Unless($this->validateUser($anlage));  
+    $this->form = new AnlageForm($anlage);
+
+    $this->form->bind($request->getParameter($this->form->getName()), $request->getFiles($this->form->getName()));
+    if ($this->form->isValid())
+    {
+      $anlage = $this->form->save();
+
+    //  $this->redirect('anlage/edit?id='.$anlage->getId());
+    }
+    $this->setLayout(false);
+    return $this->renderPartial('anlage/formdata', array('form' => $this->form));
+  }
+
   public function executeUpdate(sfWebRequest $request)
   {
     $anlage = $this->getRoute()->getObject();

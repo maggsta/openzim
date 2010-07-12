@@ -9,7 +9,9 @@
     <?php use_javascript('tiny_mce/tiny_mce.js') ?>
     <?php use_javascript('tinymce.js') ?>
     <?php use_javascript('search.js') ?>
-    <?php use_javascript('saveanlage.js') ?>
+    <?php // use_javascript('saveanlage.js') ?>
+    <?php use_javascript('jquery.form.js') ?>
+    <?php use_javascript('saveanlageform.js') ?>
     <?php use_javascript('paginate.js') ?>
     <?php use_javascript('expander.js') ?>
     <?php include_javascripts() ?>

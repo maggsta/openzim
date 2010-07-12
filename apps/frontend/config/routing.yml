@@ -5,6 +5,13 @@ anlage:
   class:   sfDoctrineRouteCollection
   options: { model: Anlage }
 
+anlage_update_ajax:
+  url:     /anlage/:id/ajaxupdate.:sf_format
+  class:   sfDoctrineRoute
+  options: { model: Anlage, type: object }
+  param:   { module: anlage, action: updateAjax, sf_format: html }
+  requirements: { sf_method: put }
+
 zim:
   class:   sfDoctrineRouteCollection
   options: { model: Zim }
