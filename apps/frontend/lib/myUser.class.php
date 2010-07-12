@@ -13,13 +13,13 @@ class myUser extends sfGuardSecurityUser
   		$this->setAttribute('first_request', $boolean);
 	}		
 
-	public function getZim()
+	public function getZims()
 	{
-		return $this->getGuardUser()->getZim();
+		return $this->getGuardUser()->getZims();
 	}
 
 	public function hasZim()
 	{
-		return $this->getZim()->getId() != null;
+		return $this->getZims()->count() > 0;
 	}
 }

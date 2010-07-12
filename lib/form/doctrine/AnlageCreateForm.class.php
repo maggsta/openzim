@@ -12,18 +12,22 @@ class AnlageCreateForm extends BaseAnlageForm
 {
   public function configure()
   {
-    $query = null;
-    if ($zim = $this->getOption('zim'))
+    if (!$zims = $this->getOption('zims'))
     {
-	$query = StundeTable::getZimStundenQuery($zim);
+       $zims = ZimTable::getInstance()->findAll();
     }
+    $choices = array();
+    foreach( $zims as $zim ){
+	$choices[$zim->getName()] = array();
+    	foreach( $zim->getStunden() as $stunde )
+		$choices[$zim->getName()][$stunde->getId()] = $stunde->getName();
+    }
+	
     $this->useFields(array('stunde_id','kuerzel', 'lnr'));
-    $this->widgetSchema['stunde_id']  = new sfWidgetFormDoctrineChoice(array(
-	'model' => $this->getRelatedModelName('Stunde'), 
-	'query' => $query ));
+    $this->widgetSchema['stunde_id']  = new sfWidgetFormChoice(array(
+	'choices' => $choices));
     
     $this->validatorSchema['stunde_id'] = new sfValidatorDoctrineChoice(array(
-	'model' => $this->getRelatedModelName('Stunde'), 
-	'query' => $query ));
+	'model' => $this->getRelatedModelName('Stunde')));
   }
 }

@@ -67,4 +67,4 @@ Zim:
     zielGruppe: { type: string(255) }
     roterFaden: { type: string(10000) }
   relations: 
-    sfGuardUser:  {  local: user_id, foreign: id, foreignAlias: Zim , foreignType: one }
+    sfGuardUser:  {  local: user_id, foreign: id, foreignAlias: Zims }

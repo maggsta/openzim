@@ -44,7 +44,7 @@ class anlageActions extends sfActions
     }
     $this->forward404Unless($this->getUser()->hasZim());
     return new AnlageCreateForm(null,array(
-		'zim' => $this->getUser()->getZim()));
+		'zims' => $this->getUser()->getZims()));
   }
 
   public function executeNew(sfWebRequest $request)
