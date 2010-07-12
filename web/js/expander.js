@@ -4,15 +4,48 @@
  *
  */
 
+
+function setInitialState(callback)
+{
+    $(".msg_content").hide();
+
+    $(".msg_content:first").slideToggle(600,callback); 
+}
+
 function initExpander()
 {
-  $(".msg_content").hide();
-
-  $(".msg_content:first").slideToggle(600); 
+  var firstVisit = false;
+  if ( ! $.cookies.test() ){
+	setInitialState();
+  }else{
+     $(".msg_content").each(function()
+     {
+        if ( firstVisit ) return;
+        var display = $.cookies.get('anlage'+$(".msg_content").index(this));
+	if ( display == null ){
+		firstVisit = true;
+		// set initial cookies
+		setInitialState( function() {
+	    		$(".msg_content").each(function(){
+    				$.cookies.set('anlage'+$(".msg_content").index(this), $(this).css('display'));	
+			});
+		});
+	}else{
+		if ( display == 'none' ){
+			$(this).hide();	
+		}else{
+			$(this).show();
+		}
+	}
+	
+     });
+  }
 
   $(".msg_head").click(function()
   {
-    $(this).next(".msg_content").slideToggle(600);
+    $(this).next(".msg_content").slideToggle(600,function(){
+    	$.cookies.set('anlage'+$(".msg_content").index(this), $(this).css('display'));
+    });
   });
 }
 
