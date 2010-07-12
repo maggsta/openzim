@@ -63,8 +63,8 @@ class Anlage extends BaseAnlage
 	}
  
 	public function getName()
-    	{
-       		return $this->getKuerzel().$this->getLnr();
+    	{		
+       		return sprintf('%s%02d',$this->getKuerzel(),$this->getLnr());
     	}
 
 	public function updateLuceneIndex()
