@@ -1,7 +1,12 @@
 <?php include_partial('anlage/search') ?>
 
+<?php
+ if ( $sf_user->hasZim() || $sf_user->hasCredential('admin') )
+        echo link_to('Neue Anlage erstellen','anlage/new') ?>
+
 <h1>Anlagen</h1>
 <div id="anlagen">
+
 <?php include_partial('anlage/list', array('anlagen' => $pager->getResults())) ?>
 
 <?php if ($pager->haveToPaginate()): ?>
@@ -37,7 +42,3 @@ $pager->getLastPage() ?>">
   </div>
 <?php endif; ?>
 </div>
- 
-<?php
- if ( $sf_user->hasZim() || $sf_user->hasCredential('admin') ) 
-	echo link_to('Neue Anlage erstellen','anlage/new') ?>

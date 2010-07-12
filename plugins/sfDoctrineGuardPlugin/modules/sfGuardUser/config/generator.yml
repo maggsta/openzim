@@ -31,4 +31,4 @@ generator:
         title: New User
 
       filter:
-        display: [username, is_active, created_at, groups_list] 
+        display: [username, is_active, groups_list] 

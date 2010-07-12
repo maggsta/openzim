@@ -1,3 +1,5 @@
+<?php echo link_to('Neues ZIM erstellen', 'zim_new') ?>
+
 <h1>Zims List</h1>
 
 <table>
@@ -12,4 +14,3 @@
   </tbody>
 </table>
 
-<?php echo link_to('Neues ZIM erstellen', 'zim_new') ?>
