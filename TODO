@@ -36,7 +36,7 @@
 
 - sfGuardUser:
   [x] forms: abspecken / anpassen
-  - templates: anpassen
+  [x] templates: anpassen
 
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
