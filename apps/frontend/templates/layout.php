@@ -10,7 +10,7 @@
     <?php use_javascript('jquery.cookies.2.2.0.min.js') ?>
     <?php use_javascript('tinymce.js') ?>
     <?php use_javascript('search.js') ?>
-    <?php use_javascript('saveanlage.js') ?>
+    <?php use_javascript('ajaxformsave.js') ?>
     <?php use_javascript('paginate.js') ?>
     <?php use_javascript('expander.js') ?>
     <?php include_javascripts() ?>

@@ -6,10 +6,10 @@
 
 $(document).ready(function()
 {
-  $('#anlage_form').submit(function()
+  $('#ajax_form').submit(function()
   {
       var doAjax = true;
-      $('.anlage_loader').show();
+      $('.form_loader').show();
       $("input:file").each(function(){
          if ( $(this).val() != '' ){
    		doAjax = false;
@@ -20,9 +20,9 @@ $(document).ready(function()
 	return true;
       tinyMCE.triggerSave(); 
       $('#form_data').load(
-        $('#anlage_form').attr('action') + ' #form_data',
-        $('#anlage_form').serializeArray(),
-         function() { $('.anlage_loader').hide(); }
+        $('#ajax_form').attr('action') + ' #form_data',
+        $('#ajax_form').serializeArray(),
+         function() { $('.form_loader').hide(); }
       );
       return false;
   });
