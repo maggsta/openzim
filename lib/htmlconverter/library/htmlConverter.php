@@ -3,7 +3,7 @@ class htmlConverter {
 
 	private $isZimInput;
 
-	public function __construct($input) {
+	public function __construct($input=false) {
 		$this->isZimInput = $input;	
 	}
 
