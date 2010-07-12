@@ -13,6 +13,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
+      'longname'   => new sfWidgetFormFilterInput(),
       'kuerzel'    => new sfWidgetFormFilterInput(array('with_empty' => false)),
       'zeit'       => new sfWidgetFormFilterInput(),
       'ziel'       => new sfWidgetFormFilterInput(),
@@ -30,6 +31,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
     ));
 
     $this->setValidators(array(
+      'longname'   => new sfValidatorPass(array('required' => false)),
       'kuerzel'    => new sfValidatorPass(array('required' => false)),
       'zeit'       => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'ziel'       => new sfValidatorPass(array('required' => false)),
@@ -64,6 +66,7 @@ abstract class BaseAnlageFormFilter extends BaseFormFilterDoctrine
   {
     return array(
       'id'         => 'Number',
+      'longname'   => 'Text',
       'kuerzel'    => 'Text',
       'zeit'       => 'Number',
       'ziel'       => 'Text',

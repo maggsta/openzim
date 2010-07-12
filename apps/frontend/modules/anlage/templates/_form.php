@@ -14,6 +14,7 @@
 <div class="msg_content">
 <table>
     <tbody>
+      <?php echo $form['longname']->renderRow() ?>
       <?php echo $form['zeit']->renderRow() ?>
       <?php echo $form['ziel']->renderRow() ?>
       <?php echo $form['methode']->renderRow() ?>

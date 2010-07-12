@@ -17,8 +17,12 @@
 <table>
   <tbody>
     <tr>
-      <th>Name:</th>
+      <th>Nr.:</th>
       <td><?php echo $anlage->getName() ?></td>
+    </tr>
+    <tr>
+      <th>Name:</th>
+      <td><?php echo $anlage->getLongname() ?></td>
     </tr>
     <tr>
       <th>Zeit:</th>

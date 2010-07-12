@@ -36,6 +36,7 @@ Anlage:
   E02:
     kuerzel: E
     lnr: 2
+    longname: Projektvorstellung
     Stunde: S1
     zeit: 5
     ziel: TN kennen die Ziele des NDC.
@@ -79,6 +80,7 @@ Anlage:
   E<?php echo $i ?>:
     kuerzel: E
     lnr: <?php echo $i."\n" ?>
+    longname: Testanlage <?php echo ($i-99)."\n" ?>
     Stunde: S<?php echo (floor(($i-99) / 6) +1)."\n" ?>
     zeit: <?php echo fmod($i, 2) ? "10\n" : "5\n" ?>
     ziel: And as symfony uses Doctrine

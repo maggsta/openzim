@@ -16,6 +16,7 @@ abstract class BaseAnlageForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'         => new sfWidgetFormInputHidden(),
+      'longname'   => new sfWidgetFormInputText(),
       'kuerzel'    => new sfWidgetFormInputText(),
       'zeit'       => new sfWidgetFormInputText(),
       'ziel'       => new sfWidgetFormTextarea(),
@@ -34,6 +35,7 @@ abstract class BaseAnlageForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'         => new sfValidatorChoice(array('choices' => array($this->getObject()->get('id')), 'empty_value' => $this->getObject()->get('id'), 'required' => false)),
+      'longname'   => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'kuerzel'    => new sfValidatorString(array('max_length' => 255)),
       'zeit'       => new sfValidatorInteger(array('required' => false)),
       'ziel'       => new sfValidatorString(array('max_length' => 1000, 'required' => false)),

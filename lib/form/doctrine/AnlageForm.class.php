@@ -16,7 +16,7 @@ class AnlageForm extends BaseAnlageForm
       $this['kuerzel'],
       $this['lnr'],$this['stunde_id']     
     );
-
+    $this->widgetSchema->setLabel('longname', 'Name');
     $form = new BildCollectionForm(null, array(
        'anlage' => $this->getObject(),
        'size'    => 1,

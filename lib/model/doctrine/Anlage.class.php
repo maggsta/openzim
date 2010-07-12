@@ -62,9 +62,14 @@ class Anlage extends BaseAnlage
 			$user->getUsername();
 	}
  
+	public function getLnrStr()
+    	{		
+       		return sprintf('%02d',$this->getLnr());
+    	}
+
 	public function getName()
     	{		
-       		return sprintf('%s%02d',$this->getKuerzel(),$this->getLnr());
+       		return sprintf('%s%s',$this->getKuerzel(),$this->getLnrStr());
     	}
 
 	public function updateLuceneIndex()
@@ -108,16 +113,16 @@ class Anlage extends BaseAnlage
 		$convertedTip = $htmlConverter->getODF($this->getTip());
 
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
-	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr(), false);
-	   	$odf->setStyleVars('kuerzel', $this->getKuerzel(), false);
-	   	$odf->setStyleVars('lnr', $this->getLnr(), false);
-	   	$odf->setVars('zeit', $this->getZeit(), false);
+	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr());
+	   	$odf->setStyleVars('kuerzel', $this->getKuerzel());
+	   	$odf->setStyleVars('lnr', $this->getLnrStr());
+	   	$odf->setVars('longName', $this->getLongname());
+	   	$odf->setVars('zeit', $this->getZeit());
 		$odf->setVars('ziel', $convertedZiel, false,'UTF-8');
 		$odf->setVars('tip', $convertedTip, false,'UTF-8');
 		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
 		$odf->setVars('methode', $convertedMethode, false,'UTF-8');
 		$odf->setVars('material', $convertedMaterial, false,'UTF-8');
-	   	$odf->setVars('zeit', $this->getZeit(), false);
  		$bilder = $odf->setSegment('bilder');
                 foreach ( $this->getBilder() as $bild ){
                   $convertedCaption = $htmlConverter->getODF($bild->getCaption());
@@ -126,13 +131,18 @@ class Anlage extends BaseAnlage
 		  $bilder->merge();
 		}
 		$odf->mergeSegment($bilder);
-		$odf->exportAsAttachedFile ($this->getName().'.odt');  
+		$odf->exportAsAttachedFile ($this->getFilename().'_.odt');  
 
         }
+	
+	private function getFilename()
+	{
+		return $this->getLnrStr().'_'.$this->getKuerzel().'_Anlage_'.$this->getLongname();
+	}
 
 	public function __toString()
 	{
-		return $this->getName().' -- '.$this->getZiel();
+		return $this->getName().' -- '.$this->getLongname();
 	}
 
 }

@@ -2,6 +2,7 @@
 Anlage:
   actAs: { Timestampable: ~ }
   columns:
+    longname: { type: string(255) }
     kuerzel: { type: string(255), notnull: true }
     zeit: { type: integer }
     ziel: { type: string(1000) }
