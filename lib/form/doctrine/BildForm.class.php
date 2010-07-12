@@ -18,7 +18,7 @@ class BildForm extends BaseBildForm
 
     $this->validatorSchema['path'] = new sfValidatorFile(array(
       'required'   => false,
-      'path'       => sfConfig::get('sf_upload_dir').'/bilder',
+      'path'       => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder',
       'mime_types' => 'web_images',
     ));
 
@@ -40,7 +40,7 @@ class BildForm extends BaseBildForm
     $file = $this['path']->getValue();
     $object = parent::updateObject($values);
     $newfile = $object->getPath();
-    $path = sfConfig::get('sf_upload_dir').'/bilder/'.$file;
+    $path = sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$file;
     if ($file &&  file_exists($path) && $newfile != $file )
     {
       unlink($path);

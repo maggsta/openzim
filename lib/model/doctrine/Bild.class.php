@@ -48,7 +48,7 @@ class Bild extends BaseBild
 	public function imageScale()
 	{
 
-		$path = '/'.(sfConfig::get('sf_upload_dir')).'/bilder/'.$this->getPath();
+		$path = '/'.(sfConfig::get('sf_upload_dir')).DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$this->getPath();
 
 		$filename = $path;
 		$image_info = getimagesize($filename);

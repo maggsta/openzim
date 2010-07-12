@@ -127,7 +127,7 @@ class Anlage extends BaseAnlage
                 foreach ( $this->getBilder() as $bild ){
                   $convertedCaption = $htmlConverter->getODF($bild->getCaption());
 		  $bilder->setVars('titel', $convertedCaption, false, 'UTF-8');
-    		  $bilder->setImage('bild', sfConfig::get('sf_upload_dir').'/bilder/'.$bild->getPath());
+    		  $bilder->setImage('bild', sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$bild->getPath());
 		  $bilder->merge();
 		}
 		$odf->mergeSegment($bilder);

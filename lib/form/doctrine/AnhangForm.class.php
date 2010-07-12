@@ -15,7 +15,7 @@ class AnhangForm extends BaseAnhangForm
     unset($this['anlage_id'],$this['name']);
     $this->validatorSchema['path'] = new sfValidatorFile(array(
       'required'   => false,
-      'path'       => sfConfig::get('sf_upload_dir').'/anhaenge',
+      'path'       => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'anhaenge',
 //      'mime_types' => 'web_images',
     ));
 
@@ -37,7 +37,7 @@ class AnhangForm extends BaseAnhangForm
     $file = $this['path']->getValue();
     $object = parent::updateObject($values);
     $newfile = $object->getPath();
-    $path = sfConfig::get('sf_upload_dir').'/anhaenge/'.$file;
+    $path = sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'anhaenge'.DIRECTORY_SEPARATOR.$file;
     if ($file &&  file_exists($path) && $newfile != $file )
     {
       unlink($path);
