@@ -524,3 +524,13 @@ color: #FFF;
 text-indent:-9999px;
 }
 
+.newlink a:hover {
+display: block;
+width: 164px;
+height: 71px;
+background: url(/images/newlinkover.jpg) no-repeat;
+color: #FFF;
+text-indent:-9999px;
+}
+
+
