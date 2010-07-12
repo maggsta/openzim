@@ -32,7 +32,7 @@ class Zim extends BaseZim
 		foreach($this->getStunden() AS $stunde) {
 			foreach($stunde->getAnlagen() AS $anlage) {
 			    $koffer->kuerzel($anlage->getKuerzel());
-			    $koffer->lnr($anlage->getLnr());
+			    $koffer->lnr($anlage->getLnrStr());
 			    $koffer->setVars('kofferInhalt',$htmlConverter->getODF($anlage->getKofferInfo()),false,'UTF-8');
 			    $koffer->merge();
 			}
