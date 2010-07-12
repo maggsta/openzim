@@ -83,7 +83,7 @@ class Anlage extends BaseAnlage
   		$doc->addField(Zend_Search_Lucene_Field::Keyword('pk', $this->getId()));
  
   		// index anlage fields
-  		$doc->addField(Zend_Search_Lucene_Field::UnSorted('name', $this->getName(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('name', $this->getName(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('ziel', $this->getZiel(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('kurzinhalt', $this->getKurzinhalt(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('methode', $this->getMethode(), 'utf-8'));
