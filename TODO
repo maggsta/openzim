@@ -19,7 +19,7 @@
   - lock/parallel edit testen
   - Anlage template:
 	[x] new -> nur Zim Stunden für autor
-	- zim -> stunde auswählen mit ajax für admin
+	[x] zim -> stunde auswählen mit ajax für admin ( ohne ajax gelöst)
 
 - Bild/Anhänge:
   -* Media verwaltung für Admin ( Ansicht/download/suche ) 
@@ -30,7 +30,7 @@
 
 - Anhänge:
   [x] originale Dateinamen speichern
-  - In Anlagen form/show integrieren
+  [x] In Anlagen form/show integrieren
      [x] form
      [x]  show
 
@@ -40,7 +40,8 @@
 
 - ZIM:
   [/] Fix export ( fast, review von NDC fehlt )
-   -  Bearbeiter sollten nur aus noch nicht zugeordneten Autoren ausgesucht werden können  
+  [x]  Bearbeiter sollten nur aus noch nicht zugeordneten Autoren ausgesucht werden können  
+	( zim->bearbeiter ist 1-n, admins werden nicht angezeigt )
   [x] neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
   [x] Benutzer zu Zim hinzufügen
   [x] Benutzer können nur anlagen Ihres Zim sehen
