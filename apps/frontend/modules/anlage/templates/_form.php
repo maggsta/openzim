@@ -6,9 +6,7 @@
 <?php include_partial('editlinks', array('form' => $form)) ?>
 
 <div id="form_data">
-<?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
-<?php endif; ?>
 <?php echo $form->renderHiddenFields() ?>
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
