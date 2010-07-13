@@ -1,12 +1,12 @@
 - Allgemein:
   - Fix BUGS!
-  -* Ajaxify forms
+  [x] Ajaxify forms
   [x] Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
   - gleicher benutzer mehrmals eingeloggt testen
 
 [x] Htmlconverter:
   [x] alle nicht unterstützten umlaute entfernen
-   - ZIM Template kennt andere Styles, bzw interpretiert diese anders !!!
+  [x] ZIM Template kennt andere Styles, bzw interpretiert diese anders !!!
 
 - Anlage: 
   [x] Anhänge hinzufügen
@@ -17,7 +17,7 @@
         [/] export nach ZIM.odf 
 		- mehrere Zeilen werden nicht korrekt eingerückt
   - lock/parallel edit testen
-  - Anlage template:
+  [x] Anlage template:
 	[x] new -> nur Zim Stunden für autor
 	[x] zim -> stunde auswählen mit ajax für admin ( ohne ajax gelöst)
 
