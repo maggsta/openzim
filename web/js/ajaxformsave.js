@@ -8,16 +8,13 @@ $(document).ready(function()
 {
   $('#ajax_form').submit(function()
   {
-      var doAjax = true;
       $('.form_loader').show();
-      $("input:file").each(function(){
-         if ( $(this).val() != '' ){
-   		doAjax = false;
-		return;
-	 }
-      });
-      if ( !doAjax )
+      
+      // do not do ajax call if there are any
+      // non-empty file inputs
+      if ( $("input:file[value|='']").length > 0 )
 	return true;
+	
       tinyMCE.triggerSave(); 
       $('#form_data').load(
         $('#ajax_form').attr('action') + ' #form_data',
