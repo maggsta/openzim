@@ -1,4 +1,4 @@
-<table>
+<table id="linktable">
     <tfoot>
       <tr>
         <td colspan="2">

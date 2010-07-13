@@ -486,7 +486,7 @@ margin:1px;
 }
 
 .msg_content {
-background-color:#F4F4F8;
+background-color:#f3fafc;
 }
 
 /* Expander Styles End */
@@ -539,4 +539,20 @@ color: #FFF;
 text-indent:-9999px;
 }
 
+table#linktable {
+background: #FFF;
+border: solid 1px #CCC;
+}
 
+thead {
+width: 100%;
+background: #f3fafc;
+}
+
+tr {
+width: 100%;
+}
+
+td {
+width: auto;
+}

@@ -8,12 +8,12 @@
 
 <?php echo $form->renderHiddenFields() ?>
 
-<table>    <tfoot>
-      <tr>        <td colspan="2">          &nbsp;<?php echo link_to('Back to list','sf_guard_user') ?>
+<table id="linktable">    
+      <tr>        
+	<td>&nbsp;<?php echo link_to('Back to list','sf_guard_user') ?>
           <input type="submit" value="Save" />
         </td>
       </tr>
-    </tfoot>
 </table>
 
 <table>
@@ -26,12 +26,12 @@
     </tbody>
 </table>
 
-<table>    <tfoot>
-      <tr>        <td colspan="2">          &nbsp;<?php echo link_to('Back to list','sf_guard_user') ?>
+<table id="linktable">
+      <tr>
+        <td>&nbsp;<?php echo link_to('Back to list','sf_guard_user') ?>
           <input type="submit" value="Save" />
         </td>
       </tr>
-    </tfoot>
 </table>
 
 </form>

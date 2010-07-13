@@ -38,11 +38,11 @@
           <tr>
             <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
             <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
-	    <td colspan="5"><?php echo $stunde['name'] ?></td>
+	    <td><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
 	 </tr> 
          <?php if ($stunde['Anlagen']->count() > 0 ): ?>
-          <tr> <td colspan="7">Anlagen</td></tr>
+          <tr> <td>Anlagen</td></tr>
          <?php endif; ?>
          <?php foreach ($stunde['Anlagen'] as $anlage): ?>
           <tr>
@@ -70,10 +70,12 @@
     <tbody>
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
-          <td colspan="6"><?php echo link_to('Letzte Stunde löschen',
+          <td>
+		<?php echo link_to('Letzte Stunde löschen',
 		'zim_delete_stunde',$form->getObject(),
 		array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
 	  </td>
+	  <td></td>
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>

@@ -10,6 +10,8 @@ else { ?>
       <th>Nr.</th>
       <th>Name</th>
       <th>Ziel</th>
+      <th>Aktionen</th>
+      <th> </th>	
     </tr>
   </thead>
   <tbody>
