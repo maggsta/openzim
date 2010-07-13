@@ -10,6 +10,7 @@
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
+<?php echo $form->renderHiddenFields() ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -17,7 +18,6 @@
 
   <table>
     <tbody>
-      <?php echo $form->renderHiddenFields() ?>
       <?php echo $form['name']->renderRow() ?>
       <?php echo $form['user_id']->renderRow() ?>
       <?php echo $form['ziele']->renderRow() ?>	
@@ -34,9 +34,9 @@
 <p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: ".$stunde['name']->getValue() ?></p>
 <div class="msg_content">
 
+<?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
 <table> 
           <tr>
-            <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
             <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
 	    <td><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
@@ -53,8 +53,9 @@
 		<td>  <?php echo $anlage['lnr'] ?></td>
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
           	<td><?php echo link_to('Aus ZIM entfernen',
-			'anlage/removeStunde?id='.$anlage['id']->getValue()) ?> </td>
-        </tr>
+			'anlage/removeStunde?id='.$anlage['id']->getValue(),
+			array('class' => 'removeAnlage') ) ?> 
+                <td><img class="remove_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" /></td>
 	 </tr> 
          <?php endforeach; ?>
          <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
@@ -79,9 +80,11 @@
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
-         <td>Stunde hinzufügen</td>
-	 <td> <?php echo $stunde['name'] ?></td>
-	 <td> <?php echo $stunde['name']->renderError() ?></td>
+        <tr>
+          <td>Stunde hinzufügen</td>
+ 	  <td> <?php echo $stunde['name'] ?></td>
+ 	  <td> <?php echo $stunde['name']->renderError() ?></td>
+        </tr>
       <?php endforeach; ?>
     </tbody>
 </table>

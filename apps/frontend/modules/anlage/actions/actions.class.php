@@ -105,10 +105,11 @@ class anlageActions extends sfActions
   {
     $anlage = $this->getRoute()->getObject();
     $this->forward404Unless($this->validateUser($anlage));  
-    $zimId = $anlage->getStunde()->getZim()->getId();
+    $zim = $anlage->getStunde()->getZim();
     $anlage->setStunde(null);
     $anlage->save();
-    $this->redirect('zim/edit?id='.$zimId);
+
+    $this->redirect($this->generateUrl('zim_edit', $zim));
   }
 
   private function initPager(sfWebRequest $request, $query){

@@ -14,6 +14,7 @@
     <?php use_javascript('paginate.js') ?>
     <?php use_javascript('expander.js') ?>
     <?php use_javascript('autosubmit.js') ?>
+    <?php use_javascript('zimremoveanlage.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
