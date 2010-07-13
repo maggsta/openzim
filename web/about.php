@@ -59,8 +59,10 @@
 		<h1>Credits</h1>
 	
 			<img src="/images/php.gif" alt="PHP5">
-			<img src="/images/symfony.gif" alt="Symfony 1.4">	
+			<img src="/images/symfony.gif" alt="Symfony 1.4">
+			<img src="/images/tiny.jpg" alt="tinymce">	
 		        <img src="/images/sqlite.png" alt="sqlite 3">				
+			<img src="/images/jquery.png" alt="jquery">
 	</div>
       </div>
  
