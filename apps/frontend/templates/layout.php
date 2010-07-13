@@ -67,7 +67,7 @@
       <div id="footer">
         <div class="content">
           <ul>
-	    <li><a href="about.php"><?php echo __('about openZIM') ?></a></li>
+	    <li><a href="/about.php"><?php echo __('about openZIM') ?></a></li>
 	  </ul>
 	</div>
       </div>
