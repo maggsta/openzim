@@ -71,17 +71,17 @@
     <tbody>
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
-          <td colspan="6">
+          <th colspan="6">
 		<?php echo link_to('Letzte Stunde löschen',
 		'zim_delete_stunde',$form->getObject(),
 		array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-	  </td>
+	  </th>
 	  <td></td>
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
         <tr>
-          <td colspan="5">Stunde hinzufügen</td>
+          <th colspan="5">Stunde hinzufügen</th>
  	  <td> <?php echo $stunde['name'] ?></td>
  	  <td> <?php echo $stunde['name']->renderError() ?></td>
         </tr>
