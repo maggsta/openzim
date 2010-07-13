@@ -37,7 +37,7 @@
 <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
 <table> 
           <tr>
-            <td><?php echo $stunde['lnr']->getValue() ?>. Stunde</td>
+            <td>Name</td>
 	    <td colspan="6"><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
 	 </tr> 
