@@ -1,7 +1,10 @@
+OPEN:
+Anhang: anhänge werden gespeichert, egal ob geändert oder nicht
+
+FIXED:
 Anlage suche:
 - eingabe nur von zahlen -> enter
 	-> crash
-- Suche nach name (E100) schlägt fehl
+- Suche nach name (E100) schlägt fehl 
 
-Anhang: anhänge werden gespeichert, egal ob geändert oder nicht
 

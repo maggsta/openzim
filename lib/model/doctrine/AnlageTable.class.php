@@ -49,7 +49,12 @@ class AnlageTable extends Doctrine_Table
 
     private function getForLuceneQuery($query, $user = null)
     {
-  	$hits = self::getLuceneIndex()->find($query);
+	$index = self::getLuceneIndex();
+
+	Zend_Search_Lucene_Analysis_Analyzer::setDefault(
+	    new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num());
+
+  	$hits = $index->find($query);
  
   	$pks = array();
   	foreach ($hits as $hit)
@@ -74,7 +79,7 @@ class AnlageTable extends Doctrine_Table
     static public function getLuceneIndex()
     {   
   	ProjectConfiguration::registerZend();
- 
+
   	if (file_exists($index = self::getLuceneIndexFile()))
   	{
     		return Zend_Search_Lucene::open($index);

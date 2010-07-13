@@ -81,7 +81,8 @@ class Anlage extends BaseAnlage
   		{
     			$index->delete($hit->id);
   		}
- 
+		Zend_Search_Lucene_Analysis_Analyzer::setDefault(
+		    new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num()); 
   		$doc = new Zend_Search_Lucene_Document();
  
   		// store primary key to identify it in the search results
