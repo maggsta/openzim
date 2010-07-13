@@ -142,7 +142,7 @@ class Anlage extends BaseAnlage
 
 	public function __toString()
 	{
-		return $this->getName().' -- '.$this->getLongname();
+		return $this->getName(). ($this->getLongname()?' -- '.$this->getLongname():'');
 	}
 
 }
