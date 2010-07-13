@@ -37,19 +37,19 @@
 <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
 <table> 
           <tr>
-            <td>Name</td>
+            <th>Name</th>
 	    <td colspan="6"><?php echo $stunde['name'] ?></td>
 	    <td><?php echo $stunde['name']->renderError() ?></td>
 	 </tr> 
          <?php if ($stunde['Anlagen']->count() > 0 ): ?>
-          <tr> <td colspan="8">Anlagen</td></tr>
+          <tr> <th colspan="8"><strong>Anlagen</strong></th></tr>
          <?php endif; ?>
          <?php foreach ($stunde['Anlagen'] as $anlage): ?>
           <tr>
-		<td>  <?php echo $anlage['kuerzel']->renderLabelName() ?></td>
+		<th>  <?php echo $anlage['kuerzel']->renderLabelName() ?></th>
 		<td>  <?php echo $anlage['kuerzel'] ?></td>
 		<td>  <?php echo $anlage['kuerzel']->renderError() ?></td>
-		<td>  <?php echo $anlage['lnr']->renderLabelName() ?></td>
+		<th>  <?php echo $anlage['lnr']->renderLabelName() ?></th>
 		<td>  <?php echo $anlage['lnr'] ?></td>
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
           	<td><?php echo link_to('Aus ZIM entfernen',
