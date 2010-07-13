@@ -13,6 +13,7 @@
     <?php use_javascript('ajaxformsave.js') ?>
     <?php use_javascript('paginate.js') ?>
     <?php use_javascript('expander.js') ?>
+    <?php use_javascript('autosubmit.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
@@ -24,7 +25,11 @@
 		<a href="<?php echo url_for('homepage') ?>">
           		<img src="/images/logo.jpg" alt="openZIM" />
         	</a>
-	<div id="lang"><?php include_component('language', 'language') ?></div>
+	
+	<div id="lang">
+		<?php include_component('language', 'language') ?>
+	</div>
+
 	</h1>
         <?php if ($sf_user->isAuthenticated()): ?>
   	<div id="menu">
@@ -62,7 +67,7 @@
       <div id="footer">
         <div class="content">
           <ul>
-	    <li><a href=""><?php echo __('about openZIM') ?></a></li>
+	    <li><a href="about.php"><?php echo __('about openZIM') ?></a></li>
 	  </ul>
 	</div>
       </div>

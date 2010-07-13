@@ -205,6 +205,7 @@ body
   bottom: 10px;
   left: 10px;
   right: 10px;
+  color: #FFF;
 }
 
 #footer a
@@ -453,6 +454,11 @@ display: inline;
 {
  float: right;
 }
+
+#lang input[type=submit] {
+	display: none;
+}
+
 
 /* Menu Styles End */
 
