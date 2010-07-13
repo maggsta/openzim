@@ -12,9 +12,19 @@ class zimActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->zims = Doctrine::getTable('Zim')
-      ->createQuery('a')
-      ->execute();
+    $q = $this->zims = Doctrine::getTable('Zim')
+      ->createQuery('a');
+    $this->initPager($request,$q);
+  }
+
+  private function initPager(sfWebRequest $request, $query){
+    $this->pager = new sfDoctrinePager(
+    	'Zim',
+        sfConfig::get('app_max_zims')
+    );
+    $this->pager->setQuery($query);
+    $this->pager->setPage($request->getParameter('page', 1));
+    $this->pager->init();	
   }
 
   public function executeDeleteStunde(sfWebRequest $request)

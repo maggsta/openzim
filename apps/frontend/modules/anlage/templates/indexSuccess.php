@@ -7,7 +7,7 @@
 <?php include_partial('anlage/search') ?>
 
 <h1>Anlagen</h1>
-<div id="anlagen">
+<div class="paginatelist">
 
 <?php include_partial('anlage/list', array('anlagen' => $pager->getResults())) ?>
 

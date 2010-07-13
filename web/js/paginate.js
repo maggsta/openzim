@@ -1,8 +1,8 @@
 function setLinkEvents(){
   $('.pagination > a').click(function()
   {
-      $('#anlagen').load(
-        $(this).attr('href') + ' #anlagen'
+      $('.paginatelist').load(
+        $(this).attr('href') + ' .paginatelist'
       );
       return false;
   });
