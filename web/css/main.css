@@ -408,7 +408,7 @@ tr:hover
 td
 {
   padding: 12px 15px;
-  border-bottom: 1px dotted #999;
+  border-bottom: 1px solid #CCC;
   text-align: left;
 }
 
