@@ -35,16 +35,30 @@ class AnlageTable extends Doctrine_Table
 		->where('u.username = ?', $user->getUsername());
     }
 
+    private static function cleanQuery($query)
+    {
+	// trim the query, search for substring except if query is quoted
+	$query = trim($query);
+	if ( strlen($query) <= 2 )
+		$query = '*';
+	elseif ( $query[0] != '"' &&
+		 $query[strlen($query)-1] != '"' ){
+		if ( $query[strlen($query)-1] != '*' )
+			$query = $query.'*';
+	}
+	return $query;
+    }
+
     public function getAllQuery($query = '*',$user = null)
     {
+      $query = self::cleanQuery($query);
       if ('*' == $query )
       {	
 	if ( $user )
 	   return $this->getAllFromUserQuery($user);
 	return $this->createQuery('a');
       } 
-      else 
-        return $this->getForLuceneQuery($query,$user);
+      return $this->getForLuceneQuery($query,$user);
     }
 
     private function getForLuceneQuery($query, $user = null)

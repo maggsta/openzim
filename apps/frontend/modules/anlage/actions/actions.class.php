@@ -125,10 +125,6 @@ class anlageActions extends sfActions
   public function executeSearch(sfWebRequest $request)
   {
     $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
-    if ( strlen($query) <= 2 )
-	$query = '*';
-    elseif ( $query[strlen($query)-1] != '*' )
-	$query = $query.'*';
     $q = $this->getAnlagenQuery($query);
     
     $this->setTemplate('index');
