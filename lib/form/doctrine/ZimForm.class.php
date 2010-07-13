@@ -23,7 +23,7 @@ class ZimForm extends BaseZimForm
         $this->widgetSchema['roterFaden'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
 
     	$choices = array();
-	$choices[null] = null;
+	$choices[null] = 'gesperrt';
 	foreach( sfGuardUserTable::getInstance()->findAll() as $user ){
 		if( ! $user->hasCredential('admin'))
 			$choices[$user->getId()] = $user->getUserName();
