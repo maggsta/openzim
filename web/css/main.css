@@ -517,7 +517,7 @@ width: 100%;
 
 .newlink a {
 display: block;
-width: 164px;
+width: 262px;
 height: 71px;
 background: url(/images/newlink.jpg) no-repeat;
 color: #FFF;
@@ -526,7 +526,7 @@ text-indent:-9999px;
 
 .newlink a:hover {
 display: block;
-width: 164px;
+width: 262px;
 height: 71px;
 background: url(/images/newlinkover.jpg) no-repeat;
 color: #FFF;
