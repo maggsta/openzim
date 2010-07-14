@@ -63,6 +63,7 @@
 			<img src="/images/tiny.jpg" alt="tinymce">	
 		        <img src="/images/sqlite.png" alt="sqlite 3">				
 			<img src="/images/jquery.png" alt="jquery">
+			<img style="border:0;width:88px;height:31px" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" />
 	</div>
       </div>
  
