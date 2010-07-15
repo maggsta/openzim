@@ -5,12 +5,12 @@ prod:
   logger:
     class:   sfAggregateLogger
     param:
-      level:   info
+      level:   err
       loggers: 
         sf_file_debug:
           class: sfFileLogger
           param:
-            level: info
+            level: err
             file: %SF_LOG_DIR%/%SF_APP%_%SF_ENVIRONMENT%.log
 
 test:
