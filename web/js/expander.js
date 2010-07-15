@@ -5,37 +5,27 @@
  */
 
 
-function setInitialState(callback)
-{
-    $(".msg_content").hide();
-
-    $(".msg_content:first").slideToggle(600,callback); 
-}
-
 function initExpander()
 {
-  var firstVisit = false;
+  $(".msg_content").hide();
   if ( ! $.cookies.test() ){
-	setInitialState();
+    $(".msg_content:first").slideToggle(600,callback); 
   }else{
      $(".msg_content").each(function()
      {
-        if ( firstVisit ) return;
-        var display = $.cookies.get(location.pathname+'/'+$(".msg_content").index(this));
+        var pos = $(".msg_content").index(this);
+	var key = location.pathname+'/'+ pos;
+        var display = $.cookies.get(key);
 	if ( display == null ){
-		firstVisit = true;
-		// set initial cookies
-		setInitialState( function() {
-	    		$(".msg_content").each(function(){
-    				$.cookies.set(location.pathname + '/'+$(".msg_content").index(this), $(this).css('display'));	
+		if ( pos == 0 ){
+    			$(this).slideToggle(600,function(){ 
+		    		$.cookies.set(key, $(this).css('display'));
 			});
-		});
+		}else
+		    	$.cookies.set(key, $(this).css('display'));
 	}else{
-		if ( display == 'none' ){
-			$(this).hide();	
-		}else{
-			$(this).show();
-		}
+		if ( display != 'none' )
+			$(this).show();	
 	}
 	
      });
