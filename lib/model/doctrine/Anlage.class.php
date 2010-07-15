@@ -106,6 +106,7 @@ class Anlage extends BaseAnlage
 	
         public function generateOdf()
 	{
+		$encode = false;
 		
 		$htmlConverter = new htmlConverter();
 		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
@@ -120,15 +121,15 @@ class Anlage extends BaseAnlage
 	   	$odf->setStyleVars('lnr', $this->getLnrStr());
 	   	$odf->setVars('longName', $this->getLongname());
 	   	$odf->setVars('zeit', $this->getZeit());
-		$odf->setVars('ziel', $convertedZiel, false,'UTF-8');
-		$odf->setVars('tip', $convertedTip, false,'UTF-8');
-		$odf->setVars('Inhalt', $convertedInhalt, false,'UTF-8');
-		$odf->setVars('methode', $convertedMethode, false,'UTF-8');
-		$odf->setVars('material', $convertedMaterial, false,'UTF-8');
+		$odf->setVars('ziel', $convertedZiel, $encode,'UTF-8');
+		$odf->setVars('tip', $convertedTip, $encode,'UTF-8');
+		$odf->setVars('Inhalt', $convertedInhalt, $encode,'UTF-8');
+		$odf->setVars('methode', $convertedMethode, $encode,'UTF-8');
+		$odf->setVars('material', $convertedMaterial, $encode,'UTF-8');
  		$bilder = $odf->setSegment('bilder');
                 foreach ( $this->getBilder() as $bild ){
                   $convertedCaption = $htmlConverter->getODF($bild->getCaption());
-		  $bilder->setVars('titel', $convertedCaption, false, 'UTF-8');
+		  $bilder->setVars('titel', $convertedCaption, $encode, 'UTF-8');
     		  $bilder->setImage('bild', sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$bild->getPath());
 		  $bilder->merge();
 		}

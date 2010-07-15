@@ -4,7 +4,7 @@ class htmlConverter {
 	private $isZimInput;
 
 	public function __construct($input=false) {
-		$this->isZimInput = $input;	
+		$this->isZimInput = $input;
 	}
 
 	public function getIsZimInput() {
@@ -27,7 +27,7 @@ class htmlConverter {
 	     return $arUTFchars;
 	}
 
-	public function removeSpecialChars($text) {
+	public function convertSpecialChars($text) {
 	
 		$htmlTable = get_html_translation_table(HTML_ENTITIES);
 		$htmlTable = $this->translation_table_to_utf8($htmlTable);
@@ -62,27 +62,35 @@ class htmlConverter {
 			  '"'	     => '&quot;',
 			  '\''       => '&apos;');
 	
-		$anlageArray = array(
-			  '<strong>'  => '<text:span text:style-name="T5">',
+		$styles['anlage']['bold'] = "T5";
+		$styles['anlage']['italic'] = "T1";
+		$styles['anlage']['underline'] = "T13";
+		$styles['zim']['bold'] = "T4";
+		$styles['zim']['italic'] = "T13";
+		$styles['zim']['underline'] = "T15";
+	
+		if( $this->getIsZimInput()) 
+			$template = 'zim';
+		else
+			$template = 'anlage';
+
+		$styleArray = array(
+			  '<strong>'  => '<text:span text:style-name="'.$styles[$template]['bold'].'">',
                           '</strong>' => '</text:span>',
-                          '<em>'      => '<text:span text:style-name="T1">',
-                          '</em>'     => '</text:span>');
+                          '<em>'      => '<text:span text:style-name="'.$styles[$template]['italic'].'">',
+                          '</em>'     => '</text:span>',
+			  '<span style=&quot;text-decoration: underline;&quot;>' => '<text:span text:style-name="'.$styles[$template]['underline'].'">',
+                          '</span>'     => '</text:span>'
+		);
 
-		$zimArray = array(
-                          '<strong>'  => '<text:span text:style-name="T4">',
-                          '</strong>' => '</text:span>',
-                          '<em>'      => '<text:span text:style-name="T13">',
-                          '</em>'     => '</text:span>');
-
-		if( $this->getIsZimInput()) {
-                       $convertArray = array_merge( $commonArray, $zimArray );
-		} else {
-			$convertArray = array_merge( $commonArray, $anlageArray );  
-		}
-
-		$result = strip_tags($text, '<strong><em>');
-                $result = $this->convertFromArray($convertArray,$result);
-		$result = $this->removeSpecialChars($result);
+		// 1. convert our own table
+                $result = $this->convertFromArray($commonArray,$text);
+		// 2. convert styles special to template
+                $result = $this->convertFromArray($styleArray,$result);	
+		// 3. remove all but the odf tags
+		$result = strip_tags($result, '<text:span>');
+		// 4. convert leftover special chars
+		$result = $this->convertSpecialChars($result);
 		return $result;
 	}
 
