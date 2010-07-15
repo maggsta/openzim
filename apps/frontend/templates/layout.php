@@ -25,12 +25,10 @@
 		<a href="<?php echo url_for('homepage') ?>">
           		<img src="/images/logo.jpg" alt="openZIM" />
         	</a>
-	
-	<div id="lang">
-		<?php include_component('language', 'language') ?>
-	</div>
-
 	</h1>
+	
+	<?php include_component('language', 'language') ?>
+
         <?php if ($sf_user->isAuthenticated()): ?>
   	<div id="menu">
     	<ul>

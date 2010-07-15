@@ -453,6 +453,14 @@ display: inline;
  color: #CCC;
 }
 
+form#languageForm {
+ float: right;
+}
+
+form#languageForm input[type=submit] {
+ display: none;
+}
+
 #lang 
 {
  float: right;

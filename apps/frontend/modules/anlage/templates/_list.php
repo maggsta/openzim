@@ -34,6 +34,7 @@ else { ?>
       </td>
     </tr>
   <?php endforeach; ?>
+</tbody>
 </table>
 
 <?php } ?>
