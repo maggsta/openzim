@@ -12,9 +12,7 @@ class htmlConverter {
 	}	
 
 	public function convertFromArray($array,$text) {
-		foreach( $array as $key => $value )
-                	$text = str_replace($key, $value, $text);
-                return $text;
+		return str_replace(array_keys($array), array_values($array), $text);
         }
 
 	function translation_table_to_utf8($arTranslationtable)
