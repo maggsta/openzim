@@ -47,3 +47,5 @@ all:
   .actions:
     login_module:           sfGuardAuth
     login_action:           signin
+    error_404_module: 	    default
+    error_404_action:       error404
