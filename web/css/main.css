@@ -572,3 +572,14 @@ width: 100%;
 td {
 width: auto;
 }
+
+#sf_admin_content {
+position: relative;
+}
+
+#sf_admin_bar {
+float: none;
+margin: 0;
+width: 100%;
+position: relative;
+}
