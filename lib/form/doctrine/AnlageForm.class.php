@@ -26,15 +26,6 @@ class AnlageForm extends BaseAnlageForm
     $this->embedRelation('Bilder');
     $this->embedForm('neueBilder', $form);
 
-    $this->widgetSchema['inhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['ziel'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['rolle_tm'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['methode'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['kurzinhalt'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['tip'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['material'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-    $this->widgetSchema['kofferinfo'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-
     $anhang = new Anhang();
     $anhang->Anlage = $this->getObject();
     $form = new AnhangForm($anhang);

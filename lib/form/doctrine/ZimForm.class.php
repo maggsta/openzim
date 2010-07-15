@@ -19,9 +19,6 @@ class ZimForm extends BaseZimForm
 	$this->embedRelation('Stunden');
     	$this->embedForm('neueStunden', $form);
 
-	$this->widgetSchema['ziele'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-        $this->widgetSchema['roterFaden'] = new isicsWidgetFormTinyMCE(array('tiny_options' => sfConfig::get('app_tiny_mce_my_settings')));
-
     	$choices = array();
 	$choices[null] = 'gesperrt';
 	foreach( sfGuardUserTable::getInstance()->findAll() as $user ){

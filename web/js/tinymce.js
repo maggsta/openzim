@@ -13,6 +13,7 @@ function initTinyMce () {
 
 $(document).ready(function()
 {
+  initTinyMce();
   $(document).ajaxComplete(function()
   {
     initTinyMce();
