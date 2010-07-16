@@ -18,10 +18,12 @@ Zim:
 
       Ebenso wichtig ist es uns, aufzuzeigen, dass nicht alle Menschen davon profitieren können. Wir ermöglichen den TN einen kritischen Blick auf den europäischen Einigungsprozess. Dieser steht im Spannungsfeld zwischen Anspruch und Wirklichkeit. Anhand von zwei Beispielen (Antidiskriminierungsgesetz und Menschenrechte) soll den TN aufgezeigt werden, dass es große Diskrepanzen gibt. Zum Schluss werden die TN aufgefordert, sich ihr Leben in EUtopia vorzustellen. Es werden ihnen vielfältige Handlungsoptionen aufgezeigt, mit denen sie ihre EUtopien schon heute in der EU verwirklichen können.
 
-<?php for ($i = 1; $i < 1 ; $i++): ?>
+<?php /* ?>
+<?php for ($i = 1; $i < 30 ; $i++): ?>
   E<?php echo $i ?>:
     name: Testzim <?php echo $i."\n" ?>
 <?php endfor ?>
+<?php */ ?>
 
 Stunde:
   S1:
@@ -83,6 +85,7 @@ Anlage:
       anpinnen
     rolle_tm: kurz und knackig bleiben
 
+<?php /* ?>
 <?php for ($i = 100; $i <= 130; $i++): ?>
   E<?php echo $i ?>:
     kuerzel: E
@@ -113,3 +116,4 @@ Anlage:
       qui officia deserunt mollit anim id est laborum.
     rolle_tm: Voluptate velit esse cillum dolore eu fugiat
 <?php endfor ?>
+<?php */ ?>
