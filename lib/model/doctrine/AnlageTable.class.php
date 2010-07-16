@@ -66,7 +66,7 @@ class AnlageTable extends Doctrine_Table
 	$index = self::getLuceneIndex();
 
 	Zend_Search_Lucene_Analysis_Analyzer::setDefault(
-	    new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num());
+	    new Zend_Search_Lucene_Analysis_Analyzer_Common_Utf8Num_CaseInsensitive());
 
   	$hits = $index->find($query);
  
