@@ -77,17 +77,21 @@ class htmlConverter {
                           '</strong>' => '</text:span>',
                           '<em>'      => '<text:span text:style-name="'.$styles[$template]['italic'].'">',
                           '</em>'     => '</text:span>',
-			  '<span style=&quot;text-decoration: underline;&quot;>' => '<text:span text:style-name="'.$styles[$template]['underline'].'">',
-                          '</span>'     => '</text:span>'
+		);
+		$pregArray = array(
+			  '#<span style=&quot;text-decoration: underline;&quot;>(.*)</span>#U' => 
+			  '<text:span text:style-name="'.$styles[$template]['underline'].'">$1</text:span>'
 		);
 
 		// 1. convert our own table
                 $result = $this->convertFromArray($commonArray,$text);
 		// 2. convert styles special to template
                 $result = $this->convertFromArray($styleArray,$result);	
-		// 3. remove all but the odf tags
+		// 3. convert regular expressions
+		$result = preg_replace(array_keys($pregArray), array_values($pregArray), $result);
+		// 4. remove all but the odf tags
 		$result = strip_tags($result, '<text:span>');
-		// 4. convert leftover special chars
+		// 5. convert leftover special chars
 		$result = $this->convertSpecialChars($result);
 		return $result;
 	}
