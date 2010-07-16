@@ -440,6 +440,7 @@ padding: 3px 15px;
 border-right: 1px solid #000;
 border-bottom: 1px solid #000;
 display: inline;
+list-style: none;
 }
 
 #menu li a
