@@ -26,8 +26,9 @@ class Zim extends BaseZim
 		$htmlConverter = new htmlConverter(true);
 		$odf->setVars('nameZim',$this->getName(),true,'UTF-8');
 		$odf->setVars('ptkuerzel',$this->getPtkuerzel(),true,'UTF-8');
+		$odf->setVars('ptjahr',$this->getPtjahr(),true,'UTF-8');
 		$odf->setStyleVars('ptkuerzel',$this->getPtkuerzel(),true,'UTF-8');
-		$odf->setStyleVars('ptjahr',(sfConfig::get('app_start_date') + $this->getPtjahr()),true,'UTF-8');
+		$odf->setStyleVars('ptjahr', $this->getPtjahr(),true,'UTF-8');
 		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),false,'UTF-8');
 		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),false,'UTF-8');
 		$odf->setVars('roterFaden',$htmlConverter->getODF($this->getRoterFaden()),false,'UTF-8');

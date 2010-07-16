@@ -32,12 +32,16 @@ class ZimForm extends BaseZimForm
                 'choices' => array_keys($choices),
                 'required' => false));
 
+	$date_choices = array();
+	foreach( range(sfConfig::get('app_start_date'),sfConfig::get('app_end_date')) as $tmpdate ){
+		$date_choices[$tmpdate] = $tmpdate;
+	}
 	$this->widgetSchema['ptjahr'] = new sfWidgetFormChoice(array(
-		'choices'=>range(sfConfig::get('app_start_date'),sfConfig::get('app_end_date')),
-		'default'=>20, 
+		'choices'=>$date_choices,
+		'default'=>'2010', 
 		'label'=>'Jahr'));
 	$this->validatorSchema['ptjahr'] = new sfValidatorChoice(array(
-		'choices' =>array_keys(range(sfConfig::get('app_start_date'),sfConfig::get('app_end_date'))),
+		'choices' =>array_keys($date_choices),
 		'required' => true));
 	$this->widgetSchema['ptkuerzel']->setLabel('PT Kürzel');
  
