@@ -43,7 +43,10 @@ class ZimForm extends BaseZimForm
 	$this->validatorSchema['ptjahr'] = new sfValidatorChoice(array(
 		'choices' =>array_keys($date_choices),
 		'required' => true));
-	$this->widgetSchema['ptkuerzel']->setLabel('PT Kürzel');
+	$this->widgetSchema->setLabels(array(
+		'ptkuerzel'  => 'PT Kürzel',
+		'roterFaden' => 'Roter Faden',
+		'zielGruppe' => 'Zielgruppe'));
  
   }
 
