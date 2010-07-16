@@ -19,8 +19,10 @@ class AnlageCreateForm extends AnlageForm
     }
     $choices = array();
     foreach( $zims as $zim ){
+	$stunden = $zim->getStunden();
+	if ( $stunden->count() == 0 ) continue;
 	$choices[$zim->getName()] = array();
-    	foreach( $zim->getStunden() as $stunde )
+    	foreach( $stunden as $stunde )
 		$choices[$zim->getName()][$stunde->getId()] = $stunde->getName();
     }
 	
