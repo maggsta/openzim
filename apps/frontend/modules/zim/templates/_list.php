@@ -1,7 +1,7 @@
 <table>
  <thead>
     <tr>
-      <th>PT / Jahr</th>
+      <th>PT</th>
       <th>Name</th>
       <th>Aktionen</th>
       <th> </th>
