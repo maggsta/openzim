@@ -68,19 +68,19 @@ class htmlConverter {
 		$styles['zim']['underline'] = "T15";
 	
 		if( $this->getIsZimInput()) 
-			$template = 'zim';
+			$styles = $styles['zim'];
 		else
-			$template = 'anlage';
+			$styles = $styles['anlage'];
 
 		$styleArray = array(
-			  '<strong>'  => '<text:span text:style-name="'.$styles[$template]['bold'].'">',
+			  '<strong>'  => '<text:span text:style-name="'.$styles['bold'].'">',
                           '</strong>' => '</text:span>',
-                          '<em>'      => '<text:span text:style-name="'.$styles[$template]['italic'].'">',
+                          '<em>'      => '<text:span text:style-name="'.$styles['italic'].'">',
                           '</em>'     => '</text:span>',
 		);
 		$pregArray = array(
 			  '#<span style=&quot;text-decoration: underline;&quot;>(.*)</span>#U' => 
-			  '<text:span text:style-name="'.$styles[$template]['underline'].'">$1</text:span>'
+			  '<text:span text:style-name="'.$styles['underline'].'">$1</text:span>'
 		);
 
 		// 1. convert our own table
