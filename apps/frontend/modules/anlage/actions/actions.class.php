@@ -67,14 +67,14 @@ class anlageActions extends sfActions
   {
     $anlage = $this->getRoute()->getObject();
     $this->forward404Unless($this->validateUser($anlage));  
-    $this->form = new AnlageForm($anlage);
+    $this->form = new AnlageEditForm($anlage);
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
     $anlage = $this->getRoute()->getObject();
     $this->forward404Unless($this->validateUser($anlage));  
-    $this->form = new AnlageForm($anlage);
+    $this->form = new AnlageEditForm($anlage);
 
     $this->processForm($request, $this->form);
 

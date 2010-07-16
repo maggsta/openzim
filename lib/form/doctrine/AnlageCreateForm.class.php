@@ -8,10 +8,11 @@
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormTemplate.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class AnlageCreateForm extends BaseAnlageForm
+class AnlageCreateForm extends AnlageForm
 {
   public function configure()
   {
+    parent::configure();
     if (!$zims = $this->getOption('zims'))
     {
        $zims = ZimTable::getInstance()->findAll();
