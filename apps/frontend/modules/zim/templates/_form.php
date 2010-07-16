@@ -19,6 +19,8 @@
   <table>
     <tbody>
       <?php echo $form['name']->renderRow() ?>
+      <?php echo $form['ptkuerzel']->renderRow() ?>
+      <?php echo $form['ptjahr']->renderRow() ?>
       <?php echo $form['user_id']->renderRow() ?>
       <?php echo $form['ziele']->renderRow() ?>	
       <?php echo $form['zielGruppe']->renderRow() ?> 

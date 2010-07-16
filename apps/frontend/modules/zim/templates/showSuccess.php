@@ -18,6 +18,13 @@
 <table>
   <thead>    
     <tr>
+       <th><b>PT / Jahr</b></th>
+    </tr>
+    <tr>
+       <td><?php echo $zim->getPtkuerzel(); ?> <?php echo (sfConfig::get('app_start_date') + $zim->getPtjahr()); ?></td>
+    </tr>
+
+    <tr>
        <th><b>Bearbeiter</b></th>
     </tr>
     <tr>

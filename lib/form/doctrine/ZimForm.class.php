@@ -25,13 +25,22 @@ class ZimForm extends BaseZimForm
 		if( ! $user->hasCredential('admin'))
 			$choices[$user->getId()] = $user->getUserName();
     	}
+	$this->widgetSchema['user_id']  = new sfWidgetFormChoice(array(
+                'choices' => $choices,
+                'label' => 'Bearbeiter'));
+        $this->validatorSchema['user_id'] = new sfValidatorChoice(array(
+                'choices' => array_keys($choices),
+                'required' => false));
 
-    	$this->widgetSchema['user_id']  = new sfWidgetFormChoice(array(
-		'choices' => $choices,
-		'label' => 'Bearbeiter'));
-	$this->validatorSchema['user_id'] = new sfValidatorChoice(array(
-		'choices' => array_keys($choices),
-		'required' => false));
+	$this->widgetSchema['ptjahr'] = new sfWidgetFormChoice(array(
+		'choices'=>range(sfConfig::get('app_start_date'),sfConfig::get('app_end_date')),
+		'default'=>20, 
+		'label'=>'Jahr'));
+	$this->validatorSchema['ptjahr'] = new sfValidatorChoice(array(
+		'choices' =>array_keys(range(sfConfig::get('app_start_date'),sfConfig::get('app_end_date'))),
+		'required' => true));
+	$this->widgetSchema['ptkuerzel']->setLabel('PT Kürzel');
+ 
   }
 
   public function saveEmbeddedForms($con = null, $forms = null)

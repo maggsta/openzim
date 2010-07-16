@@ -63,6 +63,8 @@ Zim:
   actAs: { Timestampable: ~ }
   columns:
     name: { type: string(255), notnull: true }
+    ptkuerzel: { type: string(255), notnull: true }
+    ptjahr: { type: string(255), notnull: true }
     user_id: { type: integer }
     ziele: { type: string(10000) }
     zielGruppe: { type: string(255) }
