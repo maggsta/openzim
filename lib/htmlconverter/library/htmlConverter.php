@@ -63,9 +63,9 @@ class htmlConverter {
 		$styles['anlage']['bold'] = "T5";
 		$styles['anlage']['italic'] = "T1";
 		$styles['anlage']['underline'] = "T13";
-		$styles['zim']['bold'] = "T4";
-		$styles['zim']['italic'] = "T13";
-		$styles['zim']['underline'] = "T15";
+		$styles['zim']['bold'] = "T6";
+		$styles['zim']['italic'] = "T12";
+		$styles['zim']['underline'] = "T11";
 	
 		if( $this->getIsZimInput()) 
 			$styles = $styles['zim'];
