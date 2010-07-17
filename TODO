@@ -1,5 +1,6 @@
 - Allgemein:
   - Fix BUGS!
+    - !!! Stunden ohne Anlage bekommen im ZIM ALLE die erste Anlage !!!
   [x] Ajaxify forms
   [x] Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
   - gleicher benutzer mehrmals eingeloggt testen
