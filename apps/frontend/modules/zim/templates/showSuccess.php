@@ -60,7 +60,9 @@
 <p class="msg_head"><?php echo $stunde ?></p>
 <div class="msg_content">
 
-<table>
+<table class="zim_table">
+  <col class="nr" />
+  <col class="zeit" />
   <thead>
     <tr>
        <th><b>Anlagen</b></th>
@@ -72,7 +74,7 @@
       <td>Inhalt</td>
       <td>Methode</td>
       <td>Rolle TM</td>
-      <td>Anlagen/Hilfsmittel</td>
+      <td>Anlagen/ Hilfsmittel</td>
     </tr>
   </thead>
   <tbody>

@@ -556,6 +556,27 @@ color: #FFF;
 text-indent:-9999px;
 }
 
+table.zim_table  {
+width: 100%;
+table-layout: fixed;
+}
+
+table.zim_table  td {
+overflow: hidden;
+}
+
+table.zim_table  col.nr {
+width: 8%;
+}
+
+table.zim_table  col.zeit {
+width: 8%;
+}
+
+table.zim_table  td:hover {
+overflow: auto;
+}
+
 table#linktable {
 background: #FFF;
 border: solid 1px #CCC;
