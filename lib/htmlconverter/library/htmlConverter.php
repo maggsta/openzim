@@ -42,6 +42,8 @@ class htmlConverter {
 	public function getODF($text) {
         
 		$commonArray = array(
+			  '&rsquo;'  => '’',
+			  '&lsquo;'  => '‘',
                           '&ldquo;'  => '“',
                           '&bdquo;'  => '„',
                           '&uuml;'   => 'ü',
