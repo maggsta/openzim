@@ -65,7 +65,7 @@ class htmlConverter {
 		$styles['anlage']['bold'] = "T5";
 		$styles['anlage']['italic'] = "T1";
 		$styles['anlage']['underline'] = "T13";
-		$styles['zim']['bold'] = "T6";
+		$styles['zim']['bold'] = "T10";
 		$styles['zim']['italic'] = "T12";
 		$styles['zim']['underline'] = "T11";
 	
