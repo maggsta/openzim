@@ -2,8 +2,8 @@ function initTinyMce () {
         tinyMCE.init({
         	mode : "textareas",
 	        theme : "advanced",
-		theme_advanced_buttons1 : "bold,italic,underline,separator,undo,redo,separator,cut,copy,pastetext",
-	        theme_advanced_buttons2 : "newdocument,separator,tinyautosave",
+		theme_advanced_buttons1 : "bold,italic,underline,separator,undo,redo,separator,cut,copy,pastetext,separator,newdocument,tinyautosave",
+	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
 	        plugins: "autosave, tinyautosave, paste",
 		paste_auto_cleanup_on_paste : true,
