@@ -45,6 +45,7 @@ class htmlConverter {
 			  '&rsquo;'  => '’',
 			  '&lsquo;'  => '‘',
                           '&ldquo;'  => '“',
+                          '&rdquo;'  => '”',
                           '&bdquo;'  => '„',
                           '&uuml;'   => 'ü',
                           '&Uuml;'   => 'Ü',

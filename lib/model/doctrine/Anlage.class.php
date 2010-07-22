@@ -119,7 +119,7 @@ class Anlage extends BaseAnlage
 	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr());
 	   	$odf->setStyleVars('kuerzel', $this->getKuerzel());
 	   	$odf->setStyleVars('lnr', $this->getLnrStr());
-	   	$odf->setVars('longName', $this->getLongname());
+	   	$odf->setVars('longName', $this->getLongname(), $encode,'UTF-8');
 	   	$odf->setVars('zeit', $this->getZeit());
 		$odf->setVars('ziel', $convertedZiel, $encode,'UTF-8');
 		$odf->setVars('tip', $convertedTip, $encode,'UTF-8');
