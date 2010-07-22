@@ -117,6 +117,9 @@ class Anlage extends BaseAnlage
 		$convertedTip = $htmlConverter->getODF($this->getTip());
 
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
+	   	$odf->setStyleVars('ptKuerzel', $this->getStunde()->getZim()->getPtKuerzel());
+	   	$odf->setStyleVars('ptKuerzel1', $this->getStunde()->getZim()->getPtKuerzel());
+	   	$odf->setStyleVars('ptJahr', $this->getStunde()->getZim()->getPtJahr());
 	   	$odf->setStyleVars('stunde', $this->getStunde()->getLnr());
 	   	$odf->setStyleVars('kuerzel', $this->getKuerzel());
 	   	$odf->setStyleVars('lnr', $this->getLnrStr());
