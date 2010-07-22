@@ -61,6 +61,13 @@ class htmlConverter {
                           '&nbsp;'   => ' ',
                           '&acute;'  => '´',
                           '&ndash;'  => '–',
+                          '&rarr;'   => '→',
+                          '&larr;'   => '←',
+                          '&rArr;'   => '⇒',
+                          '&lArr;'   => '⇐',
+                          '&harr;'   => '↔',
+                          '&hArr;'   => '⇔',
+                          '&hellip;' => '…',
 			  '"'	     => '&quot;',
 			  '\''       => '&apos;');
 	
