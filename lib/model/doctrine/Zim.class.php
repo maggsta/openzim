@@ -66,6 +66,6 @@ class Zim extends BaseZim
 			$stunden->merge();
 		}
 		$odf->mergeSegment($stunden);
-		$odf->exportAsAttachedFile ('neuesZim.odt');  
+		$odf->exportAsAttachedFile ('PT_'.$this->getPtkuerzel().'_'.$this->getPtjahr().'_ZIM.odt');  
         }
 }
