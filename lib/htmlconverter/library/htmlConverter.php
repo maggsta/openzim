@@ -15,75 +15,8 @@ class htmlConverter {
 		return str_replace(array_keys($array), array_values($array), $text);
         }
 
-	function translation_table_to_utf8($arTranslationtable)
-	{
-	    foreach($arTranslationtable as $charkey => $char)
-	    {
-		$charkey = utf8_encode($charkey);
-		$arUTFchars[$charkey]= utf8_encode($char);
-	    } 
-	     return $arUTFchars;
-	}
-
-	public function convertSpecialChars($text) {
-	
-		$htmlTable = get_html_translation_table(HTML_ENTITIES);
-		$htmlTable = $this->translation_table_to_utf8($htmlTable);
-		$htmlTable = array_flip($htmlTable);
-		unset($htmlTable['&quot;']);
-                unset($htmlTable['&amp;']); 
-                unset($htmlTable['&lt;']); 
-                unset($htmlTable['&gt;']); 
-		$result = strtr($text, $htmlTable); 
-		return $result;
-
-	}
-
 	public function getODF($text) {
         
-		$commonArray = array(
-			  '&rsquo;'  => '’',
-			  '&lsquo;'  => '‘',
-                          '&ldquo;'  => '“',
-                          '&rdquo;'  => '”',
-                          '&bdquo;'  => '„',
-                          '&uuml;'   => 'ü',
-                          '&Uuml;'   => 'Ü',
-                          '&ouml;'   => 'ö',
-                          '&Ouml;'   => 'Ö',
-                          '&auml;'   => 'ä',
-                          '&Auml;'   => 'Ä',
-                          '&szlig;'  => 'ß',
-                          '&egrave;' => 'è',
-                          '&eacute;' => 'é',
-                          '&ecirc;'  => 'ê',
-                          '&ntilde;' => 'ñ',
-                          '&nbsp;'   => ' ',
-                          '&acute;'  => '´',
-                          '&rarr;'   => '→',
-                          '&larr;'   => '←',
-                          '&rArr;'   => '⇒',
-                          '&lArr;'   => '⇐',
-                          '&harr;'   => '↔',
-                          '&hArr;'   => '⇔',
-                          '&hellip;' => '…',
-			  '&mdash;'  => '—',
-                          '&ndash;'  => '–',
-			  '&minus;'  => '−',
-                          '&hyphen;' => '-',
-		          '&oline;'  => '‾',
-                          '&emsp;'   => ' ',
-			  '&ensp;'   => ' ',
-			  '&thinsp;' => ' ',
-			  '&cent;'   => '¢',
-			  '&pound;'  => '£',
-			  '&euro;'   => '€',
-			  '&sect;'   => '§',
-			  '&dagger;' => '†',
-			  '&Dagger;' => '‡',
-			  '"'	     => '&quot;',
-			  '\''       => '&apos;');
-	
 		$styles['anlage']['bold'] = "T5";
 		$styles['anlage']['italic'] = "T1";
 		$styles['anlage']['underline'] = "T13";
@@ -103,20 +36,16 @@ class htmlConverter {
                           '</em>'     => '</text:span>',
 		);
 		$pregArray = array(
-			  '#<span style=&quot;text-decoration: underline;&quot;>(.*)</span>#U' => 
+			  '#<span style="text-decoration: underline;">(.*)</span>#U' => 
 			  '<text:span text:style-name="'.$styles['underline'].'">$1</text:span>'
 		);
 
-		// 1. convert our own table
-                $result = $this->convertFromArray($commonArray,$text);
-		// 2. convert styles special to template
-                $result = $this->convertFromArray($styleArray,$result);	
-		// 3. convert regular expressions
+		// 1. convert styles special to template
+                $result = $this->convertFromArray($styleArray,$text);	
+		// 2. convert regular expressions
 		$result = preg_replace(array_keys($pregArray), array_values($pregArray), $result);
-		// 4. remove all but the odf tags
+		// 3. remove all but the odf tags
 		$result = strip_tags($result, '<text:span>');
-		// 5. convert leftover special chars
-		$result = $this->convertSpecialChars($result);
 		return $result;
 	}
 

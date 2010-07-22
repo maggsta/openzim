@@ -7,6 +7,7 @@ function initTinyMce () {
 	        theme_advanced_buttons3 : "",
 	        plugins: "autosave, tinyautosave, paste",
 		paste_auto_cleanup_on_paste : true,
+	        entity_encoding : "raw",
 		paste_preprocess : function(pl, o) {
         		o.content = o.content.replace(/&nbsp;/gi, ' '); 
 		},
