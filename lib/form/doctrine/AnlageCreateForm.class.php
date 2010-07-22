@@ -26,7 +26,7 @@ class AnlageCreateForm extends AnlageForm
 		$choices[$zim->getName()][$stunde->getId()] = $stunde;
     }
 	
-    $this->useFields(array('stunde_id','kuerzel', 'lnr'));
+    $this->useFields(array('stunde_id', 'lnr'));
     $this->widgetSchema['stunde_id']  = new sfWidgetFormChoice(array(
 	'choices' => $choices));
     

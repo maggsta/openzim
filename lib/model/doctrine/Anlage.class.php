@@ -24,7 +24,8 @@ class Anlage extends BaseAnlage
 	{  
 		if ( $this->state() != self::STATE_DIRTY && !$this->isNew() )
 			return;
-
+		if ( $this->isNew() )
+			$this->kuerzel = $this->getStunde()->getZim()->getPtKuerzel();
 		$conn = $conn ? $conn : $this->getTable()->getConnection();
   		$conn->beginTransaction();
   		try

@@ -15,7 +15,6 @@
     <tbody>
       <?php echo $form->renderHiddenFields() ?>
       <?php echo $form['stunde_id']->renderRow() ?>
-      <?php echo $form['kuerzel']->renderRow() ?>
       <?php echo $form['lnr']->renderRow() ?>
     </tbody>
   </table>
