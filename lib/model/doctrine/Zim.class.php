@@ -20,6 +20,15 @@ class Zim extends BaseZim
 		return StundeTable::getStundenSorted($this->getId());
 	}
 
+	public function delete(Doctrine_Connection $conn = null)
+	{
+		foreach( $this->getStunden() as $stunde )
+		{
+			$stunde->delete();
+		}
+  		return parent::delete($conn);
+	}
+
         public function generateOdf()
 	{
 		$encode = false;
