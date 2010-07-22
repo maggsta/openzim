@@ -60,6 +60,7 @@ class htmlConverter {
                           '&ntilde;' => 'ñ',
                           '&nbsp;'   => ' ',
                           '&acute;'  => '´',
+                          '&ndash;'  => '–',
 			  '"'	     => '&quot;',
 			  '\''       => '&apos;');
 	
