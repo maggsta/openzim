@@ -97,9 +97,9 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'type' => 'string',
              'length' => 1000,
              ));
-        $this->hasColumn('inhalt', 'string', 10000, array(
+        $this->hasColumn('inhalt', 'string', 100000, array(
              'type' => 'string',
-             'length' => 10000,
+             'length' => 100000,
              ));
         $this->hasColumn('kofferinfo', 'string', 10000, array(
              'type' => 'string',

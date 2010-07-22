@@ -43,7 +43,7 @@ abstract class BaseAnlageForm extends BaseFormDoctrine
       'material'   => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'tip'        => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'kurzinhalt' => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
-      'inhalt'     => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
+      'inhalt'     => new sfValidatorString(array('max_length' => 100000, 'required' => false)),
       'kofferinfo' => new sfValidatorString(array('max_length' => 10000, 'required' => false)),
       'rolle_tm'   => new sfValidatorString(array('max_length' => 1000, 'required' => false)),
       'stunde_id'  => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Stunde'), 'required' => false)),
