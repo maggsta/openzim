@@ -23,7 +23,7 @@ class AnlageCreateForm extends AnlageForm
 	if ( $stunden->count() == 0 ) continue;
 	$choices[$zim->getName()] = array();
     	foreach( $stunden as $stunde )
-		$choices[$zim->getName()][$stunde->getId()] = $stunde->getName();
+		$choices[$zim->getName()][$stunde->getId()] = $stunde;
     }
 	
     $this->useFields(array('stunde_id','kuerzel', 'lnr'));
