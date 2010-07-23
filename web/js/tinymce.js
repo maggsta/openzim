@@ -16,6 +16,7 @@ function initTinyMce () {
         		o.content = o.content.replace(/&nbsp;/gi, ' '); 
 		},
 		width: '100%',
+		height: '200',
 		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
 	});
 }
