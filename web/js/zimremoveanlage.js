@@ -1,23 +1,37 @@
-function setRemoveLinkEvents(){
-  $(".removeAnlage").click(function()
-  {
-      $(this).parent().next().find(".remove_loader").show();
-      $("#form_data").load(
-        $(this).attr('href') + ' #form_data',
-	function(){
-      		$(this).parent().next().find(".remove_loader").hide();
+/* 
+ * Author: Christoph Herbst 
+ * Date: 07.2010
+ *
+ */
+
+var openZIMzimRemoveAnlage = {
+
+	setup: function() {
+	  $(".removeAnlage").click(function()
+	  {
+	      var url = $(this).attr('href');
+	      $(this).parent().next().find(".remove_loader").show();
+	      $("#form_data").load(
+	        url + ' #form_data',
+	        function(response, status, xhr) {
+			if (status == "error") {
+				alert("error:!"+url);
+				window.document.location = url;
+			}else
+		      		$(this).parent().next().find(".remove_loader").hide();
+		}
+	      );
+	      return false;
+	  });
 	}
-      );
-      return false;
-  });
 }
 
 $(document).ready(function()
 {
-  setRemoveLinkEvents();
+  openZIMzimRemoveAnlage.setup();
 
   $(document).ajaxComplete(function()
   {
-    setRemoveLinkEvents();
+    openZIMzimRemoveAnlage.setup();
   });
 });
