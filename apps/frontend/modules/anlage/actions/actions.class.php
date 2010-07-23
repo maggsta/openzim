@@ -23,6 +23,7 @@ class anlageActions extends sfActions
 
   public function executeIndex(sfWebRequest $request)
   {
+    $this->getUser()->setAttribute('query',null);
     $this->initPager($request, $this->getAnlagenQuery());
   }
 
@@ -127,7 +128,7 @@ class anlageActions extends sfActions
     // save query string in user session for paginator
     $query =  $request->getParameter('query');
     $user = $this->getUser();
-    if ( $query )
+    if ( $query != null )
 	$user['query'] = $query;
     else if ( ! $query = $user['query'] )
 	$query = '*';
