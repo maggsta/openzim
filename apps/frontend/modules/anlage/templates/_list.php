@@ -15,7 +15,22 @@ else { ?>
     </tr>
   </thead>
   <tbody>
-  <?php foreach ($anlagen as $i => $anlage): ?>
+  <?php 
+     $curZimId = null;
+     foreach ($anlagen as $i => $anlage):
+       $curStunde = $anlage->getStunde();
+       $newZimId = -1;
+       if ( $curStunde ){
+          $curZim   = $curStunde->getZim();
+          $newZimId = $curZim->getId();
+       }
+       if ( $newZimId != $curZimId ){
+		$curZimId = $newZimId;
+   ?>
+      <tr class="anlage_zim">
+	<th colspan="5"><strong><?php echo $curZimId!=-1?$curZim:'Keinem ZIM zugeordnet.' ?></strong></th>
+      </tr>	
+  <?php } ?>
     <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
       <td class="name">
 	<?php echo link_to($anlage->getName(), 'anlage/show?id='.$anlage->getId(), $anlage) ?>

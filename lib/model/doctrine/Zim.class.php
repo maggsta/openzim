@@ -83,4 +83,9 @@ class Zim extends BaseZim
 		$odf->mergeSegment($stunden);
 		$odf->exportAsAttachedFile ('PT_'.$this->getPtkuerzel().'_'.$this->getPtjahr().'_ZIM.odt');  
         }
+
+	public function __toString()
+	{
+		return 'PT '.$this->getPtKuerzel().' '.$this->getPtJahr().' — '.$this->getName();
+	}
 }

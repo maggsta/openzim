@@ -28,10 +28,16 @@ class AnlageTable extends Doctrine_Table
 	return self::getAllFreeQuery()->count();
     }
 
+    private function getAllQueryPrivate(){
+	return $this->createQuery()
+  		->from('Anlage a, a.Stunde s')
+		->orderBy('s.zim_id,a.lnr');
+    }
+
     private function getAllFromUserQuery($user)
     {
-	return $q = Doctrine_Query::create()
-  		->from('Anlage a, a.Stunde s, s.Zim z, z.sfGuardUser u')
+	return $this->getAllQueryPrivate()
+		->leftJoin('s.Zim z, z.sfGuardUser u')
 		->where('u.username = ?', $user->getUsername());
     }
 
@@ -56,7 +62,7 @@ class AnlageTable extends Doctrine_Table
       {	
 	if ( $user )
 	   return $this->getAllFromUserQuery($user);
-	return $this->createQuery('a');
+	return $this->getAllQueryPrivate();
       } 
       return $this->getForLuceneQuery($query,$user);
     }
@@ -76,7 +82,7 @@ class AnlageTable extends Doctrine_Table
   	  	$pks[] = $hit->pk;
   	}
  
-	$q = $this->createQuery('a');
+	$q = $this->getAllQueryPrivate();
   	if (empty($pks))
   	{
 		return $q->andWhere('a.id = -1');
