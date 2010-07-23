@@ -1,5 +1,6 @@
 <?php if ($pager->haveToPaginate()): ?>
   <div class="pagination">
+    <img id="paginate_loader" src="/images/paginate_loader.gif" alt="paginate_loader" style="vertical-align: middle; display: none" />
     <a href="<?php echo url_for($internal_uri) ?>?page=1">
       <img src="/images/first.png" alt="First page" title="First page" />
     </a>
