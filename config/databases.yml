@@ -6,3 +6,6 @@ all:
     class: sfDoctrineDatabase
     param:
       dsn:      sqlite:%SF_DATA_DIR%/openZIM.db
+    attributes:
+      default_table_collate: utf8_general_ci
+      default_table_charset: utf8
