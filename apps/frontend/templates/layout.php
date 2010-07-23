@@ -35,7 +35,7 @@
     	<ul>
 		<li><?php echo link_to(__('Homepage'), 'homepage') ?></li>
 		<li><?php echo link_to(__('Attachments'), 'anlage') ?></li>
-		<?php if ($sf_user->isSuperAdmin()): ?>
+		<?php if ($sf_user->hasCredential('admin')): ?>
 			<li><?php echo link_to(__('ZIMs'), 'zim') ?></li>
 			<li><?php echo link_to(__('User'), 'sf_guard_user') ?></li>
 		<?php endif ?>
