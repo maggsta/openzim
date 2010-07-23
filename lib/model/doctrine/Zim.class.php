@@ -42,6 +42,12 @@ class Zim extends BaseZim
 		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),$encode,'UTF-8');
 		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),$encode,'UTF-8');
 		$odf->setVars('roterFaden',$htmlConverter->getODF($this->getRoterFaden()),$encode,'UTF-8');
+		$stdn = $odf->setSegment('stdn');
+		foreach($this->getStunden() AS $stunde) {
+			$stdn->setVars('nameStunde',$stunde->getName(),true,'UTF-8');
+			$stdn->merge();
+		}
+		$odf->mergeSegment($stdn);
 		$koffer = $odf->setSegment('koffer');
 		foreach($this->getStunden() AS $stunde) {
 			foreach($stunde->getAnlagen() AS $anlage) {
