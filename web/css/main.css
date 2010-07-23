@@ -531,7 +531,7 @@ background: url(/images/loginover.jpg) no-repeat;
 
 textarea {
 width: 100%;
-min-height: 100px;
+min-height: 200px;
 }
 
 .newlink {
