@@ -605,3 +605,28 @@ margin: 0;
 width: 100%;
 position: relative;
 }
+
+tr.anlage_zim
+{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 0px 15px;
+  font-size: 124%;
+  text-transform: uppercase;
+  background: #CCC;
+  line-height: 32px;
+  color: #fff;
+  text-shadow: #000 3px 3px 5px;
+}
+
+tr.anlage_zim:hover
+{
+  text-shadow: #000 3px 3px 5px;
+  background: #CCC;
+  color: #fff;
+}
+
+tr.anlage_zim th
+{
+  padding-left: 10px;
+}
