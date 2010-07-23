@@ -124,7 +124,13 @@ class anlageActions extends sfActions
 
   public function executeSearch(sfWebRequest $request)
   {
-    $this->forwardUnless($query = $request->getParameter('query'), 'anlage','index');
+    // save query string in user session for paginator
+    $query =  $request->getParameter('query');
+    $user = $this->getUser();
+    if ( $query )
+	$user['query'] = $query;
+    else if ( ! $query = $user['query'] )
+	$query = '*';
     $q = $this->getAnlagenQuery($query);
     
     $this->setTemplate('index');

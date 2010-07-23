@@ -11,6 +11,6 @@
 
 <?php include_partial('anlage/list', array('anlagen' => $pager->getResults())) ?>
 <?php include_partial('global/paginator', array('pager' => $pager,
-						'internal_uri' => 'anlage/index')) ?>
+						'internal_uri' => 'anlage_search')) ?>
 
 </div>
