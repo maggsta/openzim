@@ -2,7 +2,7 @@
 <?php echo link_to('Neues Zim erstellen','zim_new') ?>
 </div>
 
-<h1>Zim Liste</h1>
+<h1><?php echo __('Zim Liste') ?></h1>
 <div class="paginatelist">
 
 <?php include_partial('zim/list', array('zims' => $pager->getResults())) ?>

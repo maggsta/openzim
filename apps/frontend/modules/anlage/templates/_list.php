@@ -7,10 +7,10 @@ else { ?>
 <table>
   <thead>
     <tr>
-      <th>Nr.</th>
-      <th>Name</th>
-      <th>Ziel</th>
-      <th>Aktionen</th>
+      <th><?php echo __('Nr.') ?></th>
+      <th><?php echo __('Name') ?></th>
+      <th><?php echo __('Ziel') ?></th>
+      <th><?php echo __('Aktionen') ?></th>
       <th> </th>	
     </tr>
   </thead>
@@ -33,7 +33,7 @@ else { ?>
   <?php } ?>
     <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">
       <td class="name">
-	<?php echo link_to($anlage->getName(), 'anlage/show?id='.$anlage->getId(), $anlage) ?>
+	<?php echo link_to($anlage->getName(), 'anlage_show',$anlage) ?>
       </td>
       <td class="longname">
         <?php echo $anlage->getLongname() ?>
@@ -42,10 +42,10 @@ else { ?>
         <?php echo $anlage->getZiel(ESC_RAW) ?>
       </td>
       <td class="export">
-	<a href="<?php echo url_for('anlage/edit?id='.$anlage->getId())?>">Edit</a>
+	<?php echo link_to(__('Edit'),'anlage_edit',$anlage) ?>
       </td>
       <td class="export">
-	<a href="<?php echo url_for('anlage/export?id='.$anlage->getId()) ?>">Export</a>
+	<?php echo link_to(__('Export'),'anlage_export',$anlage) ?>
       </td>
     </tr>
   <?php endforeach; ?>
