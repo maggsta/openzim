@@ -15,7 +15,6 @@ var openZIMzimRemoveAnlage = {
 	        url + ' #form_data',
 	        function(response, status, xhr) {
 			if (status == "error") {
-				alert("error:!"+url);
 				window.document.location = url;
 			}else
 		      		$(this).parent().next().find(".remove_loader").hide();
