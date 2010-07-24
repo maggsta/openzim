@@ -116,17 +116,6 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'type' => 'integer',
              'notnull' => true,
              ));
-
-
-        $this->index('kuerzel_lnr', array(
-             'fields' => 
-             array(
-              0 => 'kuerzel',
-              1 => 'lnr',
-              2 => 'stunde_id',
-             ),
-             'type' => 'unique',
-             ));
     }
 
     public function setUp()
