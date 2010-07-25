@@ -2,7 +2,7 @@ function initTinyMce () {
         tinyMCE.init({
         	mode : "textareas",
 	        theme : "advanced",
-		theme_advanced_buttons1 : "bold,italic,underline,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
+		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
 	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
 	        plugins: "autosave, tinyautosave, paste,fullscreen",
@@ -17,7 +17,7 @@ function initTinyMce () {
 		},
 		width: '100%',
 		height: '200',
-		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
+		valid_elements : "-strong/b,-ol,-ul,li,p,-em,-span[style:text-decoration: underline;]"
 	});
 }
 
