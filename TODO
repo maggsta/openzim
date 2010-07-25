@@ -13,9 +13,9 @@
   [x] Anhänge hinzufügen
   -* Timeline für Inhalt
   [x] Autosave für Inhalt (und alle anderen TinyMCE's)
-  [/] Kofferliste
+  [x] Kofferliste
         [x] Kofferinfo im Anhang (edit/show/new/fixtures)
-        [/] export nach ZIM.odf 
+        [x] export nach ZIM.odf 
 		- mehrere Zeilen werden nicht korrekt eingerückt
   - lock/parallel edit testen
   [x] Anlage template:
