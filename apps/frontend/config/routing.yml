@@ -86,6 +86,10 @@ sf_guard_password:
   url:   /request_password
   param: { module: sfGuardAuth, action: password }
 
+admin_tools:
+  url:	/tools
+  param: {module: tools, action: index }
+
 # default rules
 homepage:
   url:   /
