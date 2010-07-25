@@ -38,11 +38,10 @@ var openZIMtinyMce = {
 	setup : function () {
 	  var self = this;		
 	  $('textarea').each(function(){
-		if ( $(this).hasClass('nonumbering')){
-			var config = $.extend({},self.config,self.configNoNumbering);
-			self.customAddEditor(config, this.id); 
-		}else
-			self.customAddEditor(self.config, this.id); 
+		var config = self.config;
+		if ( $(this).hasClass('nonumbering'))
+			config = $.extend({},self.config,self.configNoNumbering);
+		self.customAddEditor(config, this.id); 
 	  });
 	} 
 }
