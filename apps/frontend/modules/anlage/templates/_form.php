@@ -19,7 +19,7 @@
       <?php echo $form['methode']->renderRow() ?>
       <?php echo $form['rolle_tm']->renderRow() ?>
       <?php echo $form['material']->renderRow() ?>
-      <?php echo $form['kofferinfo']->renderRow() ?>
+      <?php echo $form['kofferinfo']->renderRow(array('class'=>'nonumbering')) ?>
     </tbody>
   </table>
 </div></div>
