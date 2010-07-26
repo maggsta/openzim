@@ -33,7 +33,7 @@
 				Christoph Herbst
 			</td>
 			<td>
-				Kontaktinfo ...
+				Email: christoph.p.herbst@gmx.de
 			</td>
 		</tr>
 		<tr>
