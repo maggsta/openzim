@@ -7,7 +7,7 @@
           <?php if (!$form->getObject()->isNew()): ?>
             &nbsp;<?php echo link_to(__('Delete'), 'anlage_delete',$form->getObject(), array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
           <?php endif; ?>
-          <input type="submit" value=<?php echo __('Save') ?> />
+          <input type="submit" value="<?php echo __('Save') ?>" />
           <img class="form_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" />
         </td>
       </tr>
