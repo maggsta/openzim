@@ -56,7 +56,7 @@
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
           	<td><?php echo link_to('Aus ZIM entfernen',
 			'anlage/removeStunde?id='.$anlage['id']->getValue(),
-			array('class' => 'removeAnlage') ) ?> 
+			array('class' => 'removeAnlage') ) ?></td> 
                 <td><img class="remove_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" /></td>
 	 </tr> 
          <?php endforeach; ?>

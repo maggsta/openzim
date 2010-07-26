@@ -1,4 +1,4 @@
-<table id="linktable">
+<table class="linktable">
 <tr><td>
 <?php echo link_to(__('Edit'),'zim_edit',$zim) ?>&nbsp;
 <?php echo link_to('Export','zim_export',$zim) ?>&nbsp;

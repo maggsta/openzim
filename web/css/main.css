@@ -577,7 +577,7 @@ table.zim_table  td:hover {
 overflow: auto;
 }
 
-table#linktable {
+table.linktable {
 background: #FFF;
 border: solid 1px #CCC;
 }

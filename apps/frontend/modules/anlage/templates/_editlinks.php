@@ -1,5 +1,4 @@
-<table id="linktable">
-    <tfoot>
+<table class="linktable">
       <tr>
         <td colspan="2">
           &nbsp;<?php echo link_to(__('Back to List'),'anlage') ?>
@@ -12,6 +11,5 @@
           <img class="form_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" />
         </td>
       </tr>
-    </tfoot>
 </table>
 

@@ -37,7 +37,7 @@
 		<?php if ($sf_user->hasCredential('admin')): ?>
 			<li><?php echo link_to(__('ZIMs'), 'zim') ?></li>
 			<li><?php echo link_to(__('User'), 'sf_guard_user') ?></li>
-			<li><?php echo link_to(__('Tools'), 'admin_tools') ?></a></li>
+			<li><?php echo link_to(__('Tools'), 'admin_tools') ?></li>
 		<?php endif ?>
 		<li><?php echo link_to($sf_user->getUsername().' ('.__('Logout').')', 'sf_guard_signout') ?></li>
 	</ul>
