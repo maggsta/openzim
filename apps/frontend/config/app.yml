@@ -7,3 +7,5 @@ all:
   max_zims:  10
   start_date: 2000
   end_date: 2050
+  sf_guard_plugin:
+    success_signin_url: @anlage # the plugin use the referer as default
