@@ -12,7 +12,7 @@ var openZIMformsave = {
       
 	      // do not do ajax call if there are any
 	      // non-empty file inputs
-	      if ( self.ajaxError || 
+	      if ( self.ajaxError || $.browser.msie || 
 		   $("input:file[value|='']").length > 0 )
 		return true;
 
