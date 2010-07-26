@@ -1,5 +1,5 @@
 <h1>Backup Erstellen</h1>
-<form method="post" action="download.php">
+<form method="post" action="download">
 	<select name="backuptype">
 		<option value="datenbank">Datenbank</option>
 		<option value="anlagen">Anlagen</option>

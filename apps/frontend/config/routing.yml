@@ -90,6 +90,10 @@ admin_tools:
   url:	/tools
   param: {module: tools, action: index }
 
+admin_toolsi_download:
+  url:  /download
+  param: {module: tools, action: download }
+
 # default rules
 homepage:
   url:   /
