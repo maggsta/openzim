@@ -20,7 +20,7 @@ var openZIMformsave = {
 
 	      tinyMCE.triggerSave(); 
 	      $('#form_data').load(
-	        $('#ajax_form').attr('action') + ' #form_data',
+	        $('#ajax_form').attr('action') + '?random=' + Math.random()*99999 + ' #form_data',
 	        $('#ajax_form').serializeArray(),
 	         function(response, status, xhr) {
 			if (status == "error") {
