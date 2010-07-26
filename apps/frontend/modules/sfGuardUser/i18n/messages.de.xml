@@ -24,13 +24,29 @@
         <source>yes or no</source>
         <target>ja oder nein</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit id="6">
         <source>yes</source>
         <target>ja</target>
       </trans-unit>
-      <trans-unit id="5">
+      <trans-unit id="7">
         <source>no</source>
         <target>nein</target>
+      </trans-unit>
+      <trans-unit id="8">
+        <source>Password</source>
+        <target>Passwort</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Password again</source>
+        <target>Passwort wiederholen</target>
+      </trans-unit>
+      <trans-unit id="9">
+        <source>Groups</source>
+        <target>Gruppen</target>
+      </trans-unit>
+      <trans-unit id="10">
+        <source>New User</source>
+        <target>Neuer Benutzer</target>
       </trans-unit>
     </body>
   </file>
