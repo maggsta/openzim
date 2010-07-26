@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file source-language="EN" target-language="de" datatype="plaintext" original="messages" date="2010-07-26T15:37:50Z" product-name="messages">
+    <header/>
+    <body>
+      <trans-unit id="1">
+        <source>Username</source>
+        <target>Usager</target>
+      </trans-unit>
+      <trans-unit id="2">
+        <source>Created at</source>
+        <target>créé le</target>
+      </trans-unit>
+      <trans-unit id="3">
+        <source>Is active</source>
+        <target>Est-active</target>
+      </trans-unit>
+      <trans-unit id="4">
+        <source>Groups list</source>
+        <target>Liste des groupes</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>yes or no</source>
+        <target>oui ou non</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>yes</source>
+        <target>oui</target>
+      </trans-unit>
+      <trans-unit id="5">
+        <source>no</source>
+        <target>non</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
