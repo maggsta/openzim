@@ -8,7 +8,7 @@
 			array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
           <?php endif; ?>
           <input type="submit" value="<?php echo __('Save') ?>" />
-          <img class="form_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" />
+          <img class="form_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" />
         </td>
       </tr>
 </table>

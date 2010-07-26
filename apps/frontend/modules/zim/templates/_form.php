@@ -57,7 +57,7 @@
           	<td><?php echo link_to('Aus ZIM entfernen',
 			'anlage/removeStunde?id='.$anlage['id']->getValue(),
 			array('class' => 'removeAnlage') ) ?></td> 
-                <td><img class="remove_loader" src="/images/loader.gif" style="vertical-align: middle; display: none" /></td>
+                <td><img class="remove_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
 	 </tr> 
          <?php endforeach; ?>
          <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
