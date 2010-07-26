@@ -25,7 +25,7 @@
 </div></div>
 
 <div class="msg_list">
-<p class="msg_head"><?php echo __('ANLAGE INAHLT') ?></p>
+<p class="msg_head"><?php echo __('ANLAGE INHALT') ?></p>
 <div class="msg_content">
 <table>
     <tbody>

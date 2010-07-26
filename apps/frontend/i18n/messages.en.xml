@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
 <xliff version="1.0">
-  <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2010-07-24T09:56:27Z" product-name="messages">
+  <file source-language="EN" target-language="en" datatype="plaintext" original="messages" date="2010-07-26T15:37:53Z" product-name="messages">
     <header/>
     <body>
-      <trans-unit id="1">
-        <source>Homepage</source>
-        <target/>
-      </trans-unit>
       <trans-unit id="2">
         <source>Attachments</source>
         <target/>
@@ -48,17 +44,13 @@
         <source>ANLAGE ZIM INFO</source>
         <target>ATTACHMENT ZIM INFO</target>
       </trans-unit>
-      <trans-unit id="12">
-        <source>ANLAGE INAHLT</source>
-        <target>ATTACHMENT CONTENT</target>
-      </trans-unit>
       <trans-unit id="13">
         <source>ANLAGE ANHÄNGE</source>
         <target>ATTACHMENT</target>
       </trans-unit>
       <trans-unit id="14">
         <source>ZIM DETAILS</source>
-        <target>ZIM DETAILS</target>
+        <target/>
       </trans-unit>
       <trans-unit id="15">
         <source>Name</source>
@@ -83,6 +75,74 @@
       <trans-unit id="20">
         <source>Benutzer Liste</source>
         <target>User List</target>
+      </trans-unit>
+      <trans-unit id="21">
+        <source>Tools</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="22">
+        <source>Back to List</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="23">
+        <source>Delete</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="24">
+        <source>Are you sure?</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="25">
+        <source>Save</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="26">
+        <source>Edit User</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="27">
+        <source>Preview</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="28">
+        <source>Nr.</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="29">
+        <source>Ziel</source>
+        <target>Target</target>
+      </trans-unit>
+      <trans-unit id="30">
+        <source>Keinem ZIM zugeordnet.</source>
+        <target>Not assigned.</target>
+      </trans-unit>
+      <trans-unit id="31">
+        <source>Anlagen</source>
+        <target>Attachments</target>
+      </trans-unit>
+      <trans-unit id="32">
+        <source>Edit Attachment</source>
+        <target/>
+      </trans-unit>
+      <trans-unit id="33">
+        <source>Anlage Suchen/Filtern:</source>
+        <target>Attachment Search/Filter:</target>
+      </trans-unit>
+      <trans-unit id="34">
+        <source>Backup Erstellen</source>
+        <target>Create Backup</target>
+      </trans-unit>
+      <trans-unit id="35">
+        <source>Datenbank</source>
+        <target>Database</target>
+      </trans-unit>
+      <trans-unit id="36">
+        <source>Datenbank, Anlagen, Index</source>
+        <target>Database, Attachments, Index</target>
+      </trans-unit>
+      <trans-unit id="37">
+        <source>backup now</source>
+        <target/>
       </trans-unit>
     </body>
   </file>

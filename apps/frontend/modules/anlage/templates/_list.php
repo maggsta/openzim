@@ -28,7 +28,7 @@ else { ?>
 		$curZimId = $newZimId;
    ?>
       <tr class="anlage_zim">
-	<th colspan="5"><?php echo $curZimId!=-1?$curZim:'Keinem ZIM zugeordnet.' ?></th>
+	<th colspan="5"><?php echo $curZimId!=-1?$curZim:__('Keinem ZIM zugeordnet.') ?></th>
       </tr>	
   <?php } ?>
     <tr class="<?php echo fmod($i, 2) ? 'even' : 'odd' ?>">

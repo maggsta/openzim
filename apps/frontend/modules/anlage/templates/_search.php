@@ -1,5 +1,5 @@
 <div class="search">
-   <h2>Anlage Suchen/Filtern:</h2>
+   <h2><?php echo __('Anlage Suchen/Filtern:') ?></h2>
    <form action="<?php echo url_for('anlage_search') ?>" method="get">
                 <input type="text" name="query" value="<?php echo $sf_request->getParameter('query') ?>" id="search_keywords" />
                 <input type="submit" value="GO" />
