@@ -9,6 +9,9 @@ var openZIMzimRemoveAnlage = {
 	setup: function() {
 	  $(".removeAnlage").click(function()
 	  {
+	      if ( $.browser.msie )
+		return true;
+
 	      var url = $(this).attr('href');
 	      $(this).parent().next().find(".remove_loader").show();
 	      $("#form_data").load(
