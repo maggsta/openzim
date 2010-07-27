@@ -76,7 +76,7 @@
           <th colspan="6">
 		<?php echo link_to('Letzte Stunde löschen',
 		'zim_delete_stunde',$form->getObject(),
-		array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
+		array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
 	  </th>
 	  <td></td>
         </tr>
