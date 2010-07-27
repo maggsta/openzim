@@ -327,68 +327,6 @@ em
   color: #fff;
 }
 
-
-#job_history
-{
-  width: 740px;
-  margin: 0 auto;
-  padding: 7px;
-  font-size: 80%;
-  color: #5d6162;
-}
-
-#job_history a
-{
-  color: #5d6162;
-}
-
-#job_history ul
-{
-  display: inline;
-}
-
-#job_history li
-{
-  margin-right: 10px;
-  display: inline;
-}
-
-#job_form {
-  width: 760px;
-  margin: 0 auto;
-}
-
-#job_form .radio_list label {
-  margin-right: 15px;
-}
-
-
-#job_form th
-{
-  white-space: nowrap;
-  font-style: italic;
-}
-
-#job_form td, #job_form th
-{
-  border-bottom: 1px solid #eee;
-  border-top: 1px solid #eee;
-  text-align: left;
-  vertical-align: top;
-  padding: 7px;
-}
-
-#job_form tfoot td, #job_form tfoot th
-{
-  border: 0;
-  text-align: right;
-}
-
-#job_form .radio_list li
-{
-  display: inline;
-}
-
 table
 {
 width: 100%;
@@ -531,7 +469,7 @@ background: url(/images/loginover.jpg) no-repeat;
 
 textarea {
 width: 100%;
-min-height: 200px;
+height: 100px;
 }
 
 .newlink {

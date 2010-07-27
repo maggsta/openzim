@@ -1,13 +1,16 @@
-<script type="text/javascript" src="/js/tiny_mce/tiny_mce.js"></script>
 <script type="text/javascript">
-	tinyMCE.init({
-	mode : "textareas",
-	theme : "advanced",
-	readonly : true
-});
+	$(document).ready(function()
+	{
+		tinyMCE.init({
+		mode : "exact",
+		theme : "advanced",
+		elements : "ziele_content,rf_content",
+		readonly : true
+		});
+	});
 </script>
 
-<h1><?php echo $zim->getName() ?></h1>
+<h1><?php echo $zim ?></h1>
 
 <?php include_partial('showlinks', array('zim' => $zim)) ?>
     
@@ -16,7 +19,6 @@
 <div class="msg_content">	
 
 <table>
-  <thead>    
     <tr>
        <th><b>PT / Jahr</b></th>
     </tr>
@@ -35,7 +37,7 @@
        <th><b>Ziele</b></th>
     </tr>
     <tr>
-       <td><textarea style="width:100%; height:100px"><?php echo $zim->getZiele(ESC_RAW) ?></textarea></td>
+       <td><div id="ziele_content"><?php echo $zim->getZiele(ESC_RAW) ?></div></td>
     </tr>
     <tr>
        <th><b>Zielgruppe</b></th>
@@ -47,9 +49,8 @@
        <th><b>Roter Faden</b></th>
     </tr>
     <tr>
-       <td><textarea style="width:100%; height:100px"><?php echo $zim->getRoterFaden(ESC_RAW) ?></textarea></td>
+       <td><div id="rf_content"><?php echo $zim->getRoterFaden(ESC_RAW) ?></div></td>
     </tr>
-</thead>
 </table>
 
 </div></div>
