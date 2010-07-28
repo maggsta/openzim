@@ -1,8 +1,8 @@
 <?php
 
-function makeDownload($file, $dir, $type) {
+function makeDownload($file, $filename, $dir, $type) {
     header("Content-Type: $type");
-    header("Content-Disposition: attachment; filename=\"$file\"");
+    header("Content-Disposition: attachment; filename=\"$filename\"");
     readfile($dir.$file);
 }
 
@@ -36,7 +36,8 @@ case "all":
 }
 
         if(file_exists ($dir.$file)) {
-                makeDownload($file, $dir, $type);
+		$filename = $file."_".date('h-i_j-m-y');
+                makeDownload($file, $filename, $dir, $type);
                 return;
         }
 }
