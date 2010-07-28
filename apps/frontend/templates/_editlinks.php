@@ -1,10 +1,11 @@
 <table class="linktable">
       <tr>
         <td colspan="2">
-          &nbsp;<?php echo link_to(__('Back to List'),'zim') ?>
-	  &nbsp;<?php echo link_to('Export','zim_export',$zim) ?>
-          <?php if (!$zim->isNew()): ?>
-            &nbsp;<?php echo link_to(__('Delete'), 'zim_delete',$zim, 
+          &nbsp;<?php echo link_to(__('Back to List'),$name) ?>
+          &nbsp;<?php echo link_to(__('Preview'),$name.'_show',$object) ?>
+	  &nbsp;<?php echo link_to('Export',$name.'_export',$object) ?>
+          <?php if (!$object->isNew()): ?>
+            &nbsp;<?php echo link_to(__('Delete'), $name.'_delete',$object, 
 			array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
           <?php endif; ?>
           <input type="submit" value="<?php echo __('Save') ?>" />

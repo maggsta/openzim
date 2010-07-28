@@ -11,7 +11,7 @@
 	});
 </script>
 
-<?php include_partial('showlinks', array('anlage' => $anlage)) ?>
+<?php include_partial('global/showlinks', array('object' => $anlage,'name' => 'anlage')) ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
@@ -146,5 +146,5 @@
 
 <hr />
 
-<?php include_partial('showlinks', array('anlage' => $anlage)) ?>
+<?php include_partial('global/showlinks', array('object' => $anlage,'name' => 'anlage')) ?>
 

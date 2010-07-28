@@ -12,7 +12,7 @@
 
 <h1><?php echo $zim ?></h1>
 
-<?php include_partial('showlinks', array('zim' => $zim)) ?>
+<?php include_partial('global/showlinks', array('object' => $zim,'name' => 'zim')) ?>
     
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -97,4 +97,4 @@
 
 <?php endforeach; ?>
 
-<?php include_partial('showlinks', array('zim' => $zim)) ?>
+<?php include_partial('global/showlinks', array('object' => $zim,'name' => 'zim')) ?>

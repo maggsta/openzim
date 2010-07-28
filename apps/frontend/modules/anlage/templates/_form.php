@@ -3,7 +3,8 @@
 
 <form action="<?php echo url_for('anlage/update?id='.$form->getObject()->getId()) ?>" method="post" <?php $form->isMultipart() and print 'enctype="multipart/form-data" ' ?> id="ajax_form">
 
-<?php include_partial('editlinks', array('form' => $form)) ?>
+<?php include_partial('global/editlinks', array('object' => $form->getObject(),
+						'name' => 'anlage')) ?>
 
 <div id="form_data">
 <input type="hidden" name="sf_method" value="put" />
@@ -68,6 +69,7 @@
 
 </div>
 
-<?php include_partial('editlinks', array('form' => $form)) ?>
+<?php include_partial('global/editlinks', array('object' => $form->getObject(),
+						'name' => 'anlage')) ?>
 
 </form>
