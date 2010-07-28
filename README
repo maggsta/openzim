@@ -1,2 +1,5 @@
 Ubuntu:
 sudo aptitude install php5-gd
+
+Apache2:
+php.ini output_buffering = On
