@@ -90,7 +90,7 @@ admin_tools:
   url:	/tools
   param: {module: tools, action: index }
 
-admin_toolsi_download:
+admin_tools_download:
   url:  /download
   param: {module: tools, action: download }
 
