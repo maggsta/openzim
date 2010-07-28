@@ -21,7 +21,6 @@ public function executeDownload(sfWebRequest $request)
 				$dir = '../data/';
 				break;
 			case "anlagen":
-				include_once("../lib/zip/pclzip.lib.php");
 				$zip_file="openZim_Archive.zip";
 				$verzeichnisse=array("uploads/");
 				$archive = new PclZip($zip_file);
@@ -30,7 +29,6 @@ public function executeDownload(sfWebRequest $request)
 				$dir = './';
 				break;
 			case "all":
-				include_once("../lib/zip/pclzip.lib.php");
 				$zip_file="openZim_FullArchive.zip";
 				$verzeichnisse=array("uploads/", "../data");
 				$archive = new PclZip($zip_file);
