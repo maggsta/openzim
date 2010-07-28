@@ -137,8 +137,8 @@
         <target>Database</target>
       </trans-unit>
       <trans-unit id="36">
-        <source>Datenbank, Anlagen, Index</source>
-        <target>Database, Attachments, Index</target>
+        <source>Bilder, Anhänge</source>
+        <target>Images, Attachments</target>
       </trans-unit>
       <trans-unit id="37">
         <source>backup now</source>
