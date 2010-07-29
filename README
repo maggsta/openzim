@@ -3,3 +3,71 @@ sudo aptitude install php5-gd
 
 Apache2:
 php.ini output_buffering = On
+
+MAMP:
+
+* httpd.conf
+
+Listen 127.0.0.1:PORT
+
+<VirtualHost 127.0.0.1:PORT>
+  DocumentRoot "/PATH/openzim/web"
+  DirectoryIndex index.php
+  <Directory "/PATH/openzim/web">
+    AllowOverride All
+    Allow from All
+  </Directory>
+
+  Alias /sf /PATH/openzim/lib/vendor/symfony/data/web/sf
+  <Directory "/PATH/openzim/lib/vendor/symfony/data/web/sf">
+    AllowOverride All
+    Allow from All
+  </Directory>
+</VirtualHost>
+
+* disabel MYSQL
+
+comment /Applications/MAMP/bin/startMysql.sh
+comment /Applications/MAMP/bin/start.sh (mysql line)
+
+* Cache
+
+enable APC in MAMP GUI
+
+* Symlinks etc.
+
+- Open the php.ini text file in a text editor. It should live here:
+
+/Applications/MAMP/conf/php5/php.ini
+
+- Change the memory limit to 32M by editing the memory_limit part of the file to the following:
+
+memory_limit = 32M ;
+
+Save the file and close your text editor. Now fire up your terminal…
+
+- Now we are going to move leopard’s php to a safe place…
+
+sudo mv /usr/bin/php /usr/bin/php-old
+
+- Link the MAMP php into where leopard’s php used to be…
+
+sudo ln -s /Applications/MAMP/bin/php5/bin/php /usr/bin/php
+
+- If you have PEAR already installed, we are going to move it as well. If you don’t have PEAR, this will obviously error out which you can ignore.
+
+sudo mv /usr/bin/pear /usr/bin/pear-old
+
+- Link MAMP’s PEAR into bin…
+
+sudo ln -s /Applications/MAMP/bin/php5/bin/pear /usr/bin/pear
+
+- The following two commands will use PEAR to download and install symfony.
+
+pear channel-discover pear.symfony-project.com
+pear install symfony/symfony
+
+- Now place link symfony into bin…
+
+sudo ln -s /Applications/MAMP/bin/php5/bin/symfony /usr/bin/symfony
+
