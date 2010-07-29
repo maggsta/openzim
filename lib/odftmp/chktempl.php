@@ -37,8 +37,11 @@ foreach( $matches[0] as $match ){
 	}
 }
 foreach( $regs as $key => $reg ){
-	echo "Best style for $key:\n";
-	echo $bestMatch[$key]."\n";
+	if ( array_key_exists($key,$bestMatch) ){
+		echo "Best style for $key:\n";
+		echo $bestMatch[$key]."\n";
+	}else
+		echo "No style for $key found.\n";
 }
 
 
