@@ -6,9 +6,9 @@
   <table>
     <tfoot>
       <tr>
-        <td>
-          &nbsp;<?php echo link_to('Back to list','anlage') ?>
-          <input type="submit" value="Save" />
+        <td colspan="2">
+          &nbsp;<?php echo link_to(__('Back to List'),'anlage') ?>
+          &nbsp;<input type="submit" value="<?php echo __('Save') ?>" />
         </td>
       </tr>
     </tfoot>
