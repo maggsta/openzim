@@ -71,3 +71,13 @@ pear install symfony/symfony
 
 sudo ln -s /Applications/MAMP/bin/php5/bin/symfony /usr/bin/symfony
 
+* GIT on MAC OS
+
+1) Installer 
+
+http://code.google.com/p/git-osx-installer/downloads/list
+
+2) MAC Ports 
+
+sudo port selfupdate
+sudo port install git-core (installiert die aktuellste Git-Version)
