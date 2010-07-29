@@ -2,6 +2,7 @@
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <title>-= openZIM =-</title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="stylesheet" type="text/css" media="screen" href="/css/main.css" />
@@ -25,7 +26,8 @@
       <div id="content">
         <div class="content">
 		<h1>openZIM</h1>
-        	Hier kommt der Inhalt
+        	openZIM is an open source ZIM-Document (Ziele, Inhalt, Methoden) managment system that was 
+		developed in 2010 for "Courage! Netwerk für Demokratie und Courage".  
 		<h1>Kontakt</h1>
 		<table>
 		<tr>
@@ -41,7 +43,8 @@
                                 Ralph B. Magnus
                         </td>
                         <td>
-                                Kontaktinfo ...
+                                <p>Email: info@magnus-network.de<br/><br/></p>
+				<p>Website: <a href="http://www.magnus-network.de" target="_blank">magnus-network</a></p>
                         </td>
                 </tr>
 		</table>
@@ -52,7 +55,7 @@
                                 openZIM Wiki
                         </td>
                         <td>
-                        	<a href="http://gitorious.org/openzim/pages/Home" target:"_blank">The openZIM Wiki</a>
+                        	<a href="http://gitorious.org/openzim/pages/Home" target="_blank">The openZIM Wiki</a>
 			</td>
                 </tr>
                 </table>
