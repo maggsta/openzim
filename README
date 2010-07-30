@@ -8,9 +8,11 @@ MAMP:
 
 * httpd.conf
 
-Listen 127.0.0.1:PORT
+NameVirtualHost *:8080
 
-<VirtualHost 127.0.0.1:PORT>
+Listen *:PORT
+
+<VirtualHost *:PORT>
   DocumentRoot "/PATH/openzim/web"
   DirectoryIndex index.php
   <Directory "/PATH/openzim/web">
