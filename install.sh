@@ -1,8 +1,8 @@
 #!/bin/bash
 
-USERNAME=$1
+USERNAME=$USER
 
-sudo chown -R ${USERNAME}:${USERNAME} cache log data web
+sudo chown -R ${USERNAME}:${USERNAME} *
 php symfony doctrine:insert-sql 
 php symfony doctrine:data-load --env=prod
 sudo chmod -R 777 log/ cache/
