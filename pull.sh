@@ -2,7 +2,7 @@
 
 USERNAME=$USER
 GROUPNAME=$GROUPS
-WWWUSER=`grep -m 1 www /etc/passwd | cut -d : -f 1`
+WWWUSER=`grep www /etc/passwd | cut -d : -f 1 | grep www`
 
 sudo chown -R ${USERNAME}:${GROUPNAME} cache log data web
 
