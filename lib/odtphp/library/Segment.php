@@ -26,6 +26,7 @@ class Segment implements IteratorAggregate, Countable
 	protected $images = array();
 	protected $odf;
 	protected $file;
+    protected $deleted;
     /**
      * Constructor
      *
@@ -37,6 +38,7 @@ class Segment implements IteratorAggregate, Countable
         $this->name = (string) $name;
         $this->xml = (string) $xml;
 		$this->odf = $odf;
+	$this->deleted = false;
         $zipHandler = $this->odf->getConfig('ZIP_PROXY');
         $this->file = new $zipHandler();	
         $this->_analyseChildren($this->xml);
@@ -49,6 +51,12 @@ class Segment implements IteratorAggregate, Countable
     public function getName()
     {
         return $this->name;
+    }
+
+    public function delete()
+    {
+        $this->xmlParsed = '';
+	$this->deleted = true;
     }
     /**
      * Does the segment have children ?
@@ -88,8 +96,9 @@ class Segment implements IteratorAggregate, Countable
         $this->xmlParsed .= str_replace(array_keys($this->vars), array_values($this->vars), $this->xml);
         if ($this->hasChildren()) {
             foreach ($this->children as $child) {
-                $this->xmlParsed = str_replace($child->xml, ($child->xmlParsed=="")?$child->merge():$child->xmlParsed, $this->xmlParsed);
+                $this->xmlParsed = str_replace($child->xml, ($child->xmlParsed=="" && !$child->deleted)?$child->merge():$child->xmlParsed, $this->xmlParsed);
                 $child->xmlParsed = '';
+		$child->deleted = false;
             }
         }
         $reg = "/\[!--\sBEGIN\s$this->name\s--\](.*)\[!--\sEND\s$this->name\s--\]/sm";
