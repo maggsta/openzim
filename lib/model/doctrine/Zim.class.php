@@ -62,6 +62,8 @@ class Zim extends BaseZim
 		foreach($this->getStunden() AS $stunde) {
 			$stunden->setVars('lnrStunde',$stunde->getLnr());
 			$stunden->setVars('nameStunde',$stunde->getName(),true,'UTF-8');
+			if ( $stunde->getAnlagen()->count() == 0 )
+				$stunden->anlagen->delete();
 			foreach($stunde->getAnlagen() AS $anlage) {
 			    $stunden->anlagen->name($anlage->getName());
 			    $stunden->anlagen->zeit($anlage->getZeit());
