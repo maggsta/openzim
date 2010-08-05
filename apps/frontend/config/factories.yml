@@ -45,3 +45,10 @@ all:
     param:
       cache_key_use_vary_headers: true
       cache_key_use_host_name:    true
+
+default:
+
+  user:
+    class: myUser
+    param:
+      timeout:         86400
