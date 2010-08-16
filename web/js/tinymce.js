@@ -7,6 +7,8 @@ var openZIMtinyMce = {
 	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
 	        plugins: "autosave, tinyautosave, paste,fullscreen",
+		tinyautosave_retention_minutes : 1440,
+		tinyautosave_minlength : 10,
 		paste_auto_cleanup_on_paste : true,
 	        entity_encoding : "raw",
 		theme_advanced_resizing : true,
