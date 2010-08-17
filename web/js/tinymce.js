@@ -32,7 +32,7 @@ var openZIMtinyMce = {
 		},
 		width: '100%',
 		height: '200',
-		valid_elements : "-strong/b,-ol,-ul,li,p,-em,-span[style:text-decoration: underline;]"
+		valid_elements : "br,-strong/b,-ol,-ul,li,p,-em,-span[style:text-decoration: underline;]"
        	},
 
 	configNoNumbering : {

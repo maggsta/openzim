@@ -39,7 +39,8 @@ class htmlConverter {
 		  '</ol>'     => '</text:list><text:p>',
 		  '</ul>'     => '</text:list><text:p>',
 		  '<li>'      => '<text:list-item><text:p>',	
-		  '</li>'     => '</text:p></text:list-item>'	
+		  '</li>'     => '</text:p></text:list-item>',
+                  '<br />'    => "\n"
 		);
 		$pregArray = array(
 			  '#<span style="text-decoration: underline;">(.*)</span>#U' => 
