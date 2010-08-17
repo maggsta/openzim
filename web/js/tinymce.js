@@ -19,6 +19,17 @@ var openZIMtinyMce = {
 		paste_preprocess : function(pl, o) {
         		o.content = o.content.replace(/&nbsp;/gi, ' '); 
 		},
+		setup : function(ed) {
+			// Gets executed after DOM to HTML string serialization
+			ed.onPostProcess.add(function(ed, o) {
+				// State get is set when contents is extracted from editor
+				if (o.get) {
+					// Remove paragraphs in list elements
+					o.content = o.content.replace(new RegExp( "<li>\n<p>", "g" ), '<li>');
+					o.content = o.content.replace(new RegExp( "</p>\n</li>", "g" ), '</li>');
+				}
+			});
+		},
 		width: '100%',
 		height: '200',
 		valid_elements : "-strong/b,-ol,-ul,li,p,-em,-span[style:text-decoration: underline;]"
