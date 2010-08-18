@@ -35,6 +35,8 @@ class Odf
 		protected $vars = array();
 		protected $styleVars = array();
 		protected $segments = array();
+		protected $styles = array();		// odf style identifiers
+		protected $lastStyles = array();	// odf style identifiers ( first free style )
 		const PIXEL_TO_CM = 0.026458333;
 		/**
 		 * Class constructor
@@ -100,9 +102,84 @@ class Odf
 			//print "tmpfile=".$tmpfile;
 
 			copy($filename, $this->tmpfile);
-
 			$this->_moveRowSegments();
 			$this->_moveListSegments();
+		}
+
+		
+		private function getStyles(){
+			$reg = '#<style:style[^>]*>(.*)</style:style>#smU';
+			preg_match_all($reg, $this->contentXml, $matches);
+			
+			// inititalize length to maximum
+			foreach( $this->styles as $key => $style ){
+				$oldLen[$key] = strlen($this->contentXml);
+			}
+			$bestmatch = array();	
+			$this->lastStyles['T'] = '1';
+			$this->lastStyles['P'] = '1';
+			$lastStyleReg = '#style:name="%s(.*)"#smU';
+			foreach( $matches[0] as $match ){
+
+				// heuristic: use matching style with shortest length
+				foreach( $this->styles as $key => $style ){
+					if (preg_match($style['reg'], $match, $matches2)) {
+						$len = strlen($match);
+						if ( $len < $oldLen[$key] ){
+							$oldLen[$key] = $len;
+							$bestmatch[$key] = $match;
+						}
+					}
+				}
+				// find last styles
+				foreach( $this->lastStyles as $key => $lastStyle ){
+					$reg = sprintf($lastStyleReg,$key);
+					if ( preg_match($reg, $match, $styleMatch) != 0 ){
+						$lastStyle = intval($styleMatch[1]);
+						if ( $lastStyle >= $this->lastStyles[$key] )
+							$this->lastStyles[$key] = $lastStyle+1;
+					}
+				}
+			}
+		
+			// set style names 
+			foreach( $bestmatch as $key => $match ){
+				$reg = '#style:name="(.*)"#smU';
+				preg_match($reg, $bestmatch[$key], $match);
+				$this->styles[$key]['name'] = $match[1];
+			}
+		}
+
+
+		public function getStyleNames(){
+			$this->styles['bold']['style'] = '<style:style style:name="T%u" style:family="text"><style:text-properties style:font-weight-complex="bold"/></style:style>';
+			$this->styles['italic']['style'] = '<style:style style:name="T%u" style:family="text"><style:text-properties fo:font-style="italic" style:font-style-asian="italic" style:font-style-complex="italic"/></style:style>';
+			$this->styles['underline']['style'] = '<style:style style:name="T%u" style:family="text"><style:text-properties style:text-underline-style="solid" style:text-underline-width="auto" style:text-underline-color="font-color"/></style:style>';
+			
+			$this->styles['bold']['reg'] = '#name="T.*font-weight="bold"#';
+			$this->styles['italic']['reg'] = '#name="T.*italic#';
+			$this->styles['underline']['reg'] = '#name="T.*underline.*solid#';
+
+			$this->getStyles();
+			foreach( $this->styles as $key => $style ){
+				if ( !array_key_exists('name',$style) ){
+	//				print("ERROR:odtphp: style does not exist:".$key."!\n");
+					// use first free style number
+					$newStyle = sprintf($style['style'],$this->lastStyles['T']);
+					// insert new style
+					// ...			
+					$this->styles[$key]['name'] = 'T'.$this->lastStyles['T'];
+					$this->lastStyles['T']++;
+				}
+				$styleNames[$key] = $this->styles[$key]['name'];
+			}
+/*			foreach( $styleNames as $key => $style ){
+				print("Key:".$key." Style:".$style."\n");
+			}
+			foreach( $this->lastStyles as $key => $style ){
+				print("Laststyle: Key:".$key." Style:".$style."\n");
+			}*/
+			return $styleNames;
 		}
 
 		/**

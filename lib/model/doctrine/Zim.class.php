@@ -33,7 +33,7 @@ class Zim extends BaseZim
 	{
 		$encode = false;
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Zim_template.odt');
-		$htmlConverter = new htmlConverter(true);
+		$htmlConverter = new htmlConverter($odf->getStyleNames());
 		$odf->setVars('nameZim',$this->getName(),true,'UTF-8');
 		$odf->setVars('ptkuerzel',$this->getPtkuerzel(),true,'UTF-8');
 		$odf->setVars('ptjahr',$this->getPtjahr(),true,'UTF-8');

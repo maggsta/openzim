@@ -108,15 +108,15 @@ class Anlage extends BaseAnlage
         public function generateOdf()
 	{
 		$encode = false;
+		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 		
-		$htmlConverter = new htmlConverter();
+		$htmlConverter = new htmlConverter($odf->getStyleNames());
 		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
 		$convertedZiel = $htmlConverter->getODF($this->getZiel());
 		$convertedMethode = $htmlConverter->getODF($this->getMethode());
 		$convertedMaterial = $htmlConverter->getODF($this->getMaterial());
 		$convertedTip = $htmlConverter->getODF($this->getTip());
 
-		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 	   	$odf->setStyleVars('ptKuerzel', $this->getStunde()->getZim()->getPtKuerzel());
 	   	$odf->setStyleVars('ptKuerzel1', $this->getStunde()->getZim()->getPtKuerzel());
 	   	$odf->setStyleVars('ptJahr', $this->getStunde()->getZim()->getPtJahr());

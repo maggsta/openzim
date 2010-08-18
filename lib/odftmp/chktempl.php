@@ -16,9 +16,10 @@ $contentXML = file_get_contents($dir.'/content.xml');
 $reg = '#<style:style[^>]*>(.*)</style:style>#smU';
 preg_match_all($reg, $contentXML, $matches);
 
-$regs['bold'] = '#bold#';
-$regs['italic'] = '#italic#';
-$regs['underline'] = '#underline.*solid#';
+$regs['bold'] = '#name="T.*font-weight="bold"#';
+$regs['italic'] = '#name="T.*italic#';
+$regs['underline'] = '#name="T.*underline.*solid#';
+$bestMatch = array();
 
 foreach( $regs as $key => $reg ){
 	$oldLen[$key] = strlen($contentXML);
