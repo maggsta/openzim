@@ -1,6 +1,5 @@
 
 var openZIMtinyMce = {
-
 	config : {
 	        theme : "advanced",
 		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
@@ -36,7 +35,7 @@ var openZIMtinyMce = {
        	},
 
 	configNoNumbering : {
-		theme_advanced_buttons1 : "bold,italic,underline,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
+		theme_advanced_buttons1 : "bold,italic,underline,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
 		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
 	},
 
@@ -58,8 +57,6 @@ var openZIMtinyMce = {
 	  });
 	} 
 }
-
-
 
 $(document).ready(function()
 {
