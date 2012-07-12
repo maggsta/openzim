@@ -2,7 +2,7 @@
 var openZIMtinyMce = {
 	config : {
 	        theme : "advanced",
-		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
+		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,outdent,indent,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
 	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
 	        plugins: "autosave, tinyautosave, paste,fullscreen",
