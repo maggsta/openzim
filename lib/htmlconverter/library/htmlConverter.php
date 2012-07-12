@@ -13,21 +13,24 @@ class htmlConverter {
 
 	public function getODF($text) {
 		$styleArray = array(
-		  '<strong>'  => '<text:span text:style-name="'.$this->styles['bold'].'">',
+		  		  '<strong>'  => '<text:span text:style-name="'.$this->styles['bold'].'">',
                   '</strong>' => '</text:span>',
                   '<em>'      => '<text:span text:style-name="'.$this->styles['italic'].'">',
                   '</em>'     => '</text:span>',
                   '<ol>'      => '</text:p><text:list text:style-name="'.$this->styles['numbering'].'">',
                   '<ul>'      => '</text:p><text:list text:style-name="'.$this->styles['bullet'].'">',
-		  '</ol>'     => '</text:list><text:p>',
-		  '</ul>'     => '</text:list><text:p>',
-		  '<li>'      => '<text:list-item><text:p>',	
-		  '</li>'     => '</text:p></text:list-item>',
-                  '<br />'    => "\n"
+				  '</ol>'     => '</text:list><text:p>',
+				  '</ul>'     => '</text:list><text:p>',
+				  '<li>'      => '<text:list-item><text:p>',	
+				  '</li>'     => '</text:p></text:list-item>',
+                  '<br />'    => "\n",
 		);
 		$pregArray = array(
 			  '#<span style="text-decoration: underline;">(.*)</span>#U' => 
-			  '<text:span text:style-name="'.$this->styles['underline'].'">$1</text:span>'
+			  '<text:span text:style-name="'.$this->styles['underline'].'">$1</text:span>',
+			  '#text:list-item>\n<(/?)text:list#U' => 'text:list-item><$1text:list',
+			  '#<text:p>(\n)?</text:p>#U' => '',
+			  '#<text:p>(.*)\n</text:p>#U' => '<text:p>$1</text:p>',
 		);
 
 		// 1. convert styles special to template
