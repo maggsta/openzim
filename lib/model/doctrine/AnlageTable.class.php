@@ -28,6 +28,14 @@ class AnlageTable extends Doctrine_Table
 	return self::getAllFreeQuery()->count();
     }
 
+    public static function getAllCount( $zim_id )
+    {
+    	return self::getInstance()->createQuery()
+		->from('Anlage a, a.Stunde s')
+		->where('s.zim_id = ?',$zim_id)
+		->count();
+    }
+   
     private function getAllQueryPrivate(){
 	return $this->createQuery()
   		->from('Anlage a, a.Stunde s')

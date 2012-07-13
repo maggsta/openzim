@@ -4,7 +4,7 @@
         echo link_to('Neue Anlage erstellen','anlage/new') ?>
 </div>
 
-<?php include_partial('anlage/search') ?>
+<?php include_partial('anlage/search', array('form' => $form)) ?>
 
 <h1><?php echo __('Anlagen') ?></h1>
 <div class="paginatelist" id="anlagen">

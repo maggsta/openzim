@@ -15,6 +15,11 @@ require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php')
  */
 class Zim extends BaseZim
 {
+	public function hasAnlagen()
+	{
+		return AnlageTable::getAllCount($this->getId()) > 0;
+	}
+
 	public function getStunden()
 	{
 		return StundeTable::getStundenSorted($this->getId());

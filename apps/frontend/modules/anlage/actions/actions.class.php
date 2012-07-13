@@ -24,6 +24,12 @@ class anlageActions extends sfActions
   public function executeIndex(sfWebRequest $request)
   {
     $this->getUser()->setAttribute('query',null);
+    if($this->getUser()->hasCredential('admin')) {
+   		$this->form = new FilterZimForm();
+    }else {
+    	$this->form = new FilterZimForm(null,array(    
+			'zims' => $this->getUser()->getZims()));
+    }
     $this->initPager($request, $this->getAnlagenQuery());
   }
 
