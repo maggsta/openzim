@@ -1,58 +1,42 @@
-- Allgemein:
-  - Fix BUGS!
-    - !!! Stunden ohne Anlage bekommen im ZIM ALLE die erste Anlage !!!
-  [x] Ajaxify forms
-  [x] Forms sollen ein expander layout bekommen, wenn nötig (zim,anlage)
-  - gleicher benutzer mehrmals eingeloggt testen
+1. Zum System: 
 
-[x] Htmlconverter:
-  [x] alle nicht unterstützten umlaute entfernen
-  [x] ZIM Template kennt andere Styles, bzw interpretiert diese anders !!!
+*- Anpassung von PHP 5.3 oder höher und SQ-Light 3 Treiber an die Standardversionen, so können wir dann auch zB die aktuelle Fedora-Version nutzen, ohne Fehlermeldungen.
 
-- Anlage: 
-  [x] Anhänge hinzufügen
-  -* Timeline für Inhalt
-  [x] Autosave für Inhalt (und alle anderen TinyMCE's)
-  [x] Kofferliste
-        [x] Kofferinfo im Anhang (edit/show/new/fixtures)
-        [x] export nach ZIM.odf 
-		- mehrere Zeilen werden nicht korrekt eingerückt
-  - lock/parallel edit testen
-  [x] Anlage template:
-	[x] new -> nur Zim Stunden für autor
-	[x] zim -> stunde auswählen mit ajax für admin ( ohne ajax gelöst)
 
-- Bild/Anhänge:
-  -* Media verwaltung für Admin ( Ansicht/download/suche ) 
-  [x] Lösche Bilder/Anhänge wenn Datensatz gelöscht
+2. Zum Edieren in openZIM
 
-- Bild:
-  [x] originale Dateinamen speichern
+[x] *- erweiterte Aufzählungsfunktion, sprich mehr als eine Ebene
 
-- Anhänge:
-  [x] originale Dateinamen speichern
-  [x] In Anlagen form/show integrieren
-     [x] form
-     [x]  show
+*- bisher läßt sich nur ein Tipp eingeben, jedoch gibt es mehrere Tipps an verschiedenen Stellen
 
-- sfGuardUser:
-  [x] forms: abspecken / anpassen
-  [x] templates: anpassen
 
-- ZIM:
-  [/] Fix export ( fast, review von NDC fehlt )
-  [x]  Bearbeiter sollten nur aus noch nicht zugeordneten Autoren ausgesucht werden können  
-	( zim->bearbeiter ist 1-n, admins werden nicht angezeigt )
-  [x] neue Felder: Titel, Ziel, Zielgruppe, Roter Faden,
-  [x] Benutzer zu Zim hinzufügen
-  [x] Benutzer können nur anlagen Ihres Zim sehen
-     [x] Anlage executeIndex
-     [x]  Anlage executeSearch
-     [x]  Anlage templates sperren: edit, show
-  [x] Zim sperren/freigeben ( Autoren aktivieren/deaktivieren )
-  [x] Datum als Zeitstempel im Footer (beim Erstellen / Ändern)
 
-* Optional ( wenn zeit )
-- geplant
+Aufbau/Struktur - Wünsche ob es machbar ist:
+
+- ZIM ohne Anlagen erstellen können
+
+*- Vorschauanzeige ohne OpenOffice-Export
+
+- Editierbarkeit der OpenOffice Vorlage
+
+[x] *- Filterfunktion bei den Anlagen nach ZIM-Zugehörigkeit
+
+- Bilder als festen Punkt Visualisierung
+
+*- Materialliste generieren?
+
+- Chatfunktion intern zwischen den ZIM-Angehörigen
+
+- einfache Serverinstallpaket openZIM
+
+- CSS Bearbeitung durch mich
+
+
+
+Legende
+=========
+
+* Hohe Priorität 
+- geplant ( wenn zeit )
 x fertig
 / fast fertig
