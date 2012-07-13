@@ -15,6 +15,7 @@ class FilterZimForm extends BaseForm
 		{
 			$zims = ZimTable::getInstance()->findAll();
 		}
+
 		$choices = array();
 		$choices[null] = 'Alle';
 		foreach( $zims as $zim ){
@@ -22,8 +23,9 @@ class FilterZimForm extends BaseForm
 				$choices[$zim->getId()] = $zim;
 		}
 		$this->setWidgets(array(
-				'zims'    => new sfWidgetFormChoice(
+				'zim'    => new sfWidgetFormChoice(
 						array('choices' => $choices)),
 		));
+		$this->setDefault('zim', $this->getOption('zim'));
 	}
 }
