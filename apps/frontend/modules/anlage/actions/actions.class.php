@@ -9,12 +9,12 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class anlageActions extends sfActions {
-	private function getAnlagenQuery($query = '*') {
+	private function getAnlagenQuery($query = '*', $zim_id) {
 		$anlage = Doctrine::getTable('Anlage');
 		if ($this->getUser()->hasCredential('admin')) {
-			$q = $anlage->getAllQuery($query);
+			$q = $anlage->getAllQuery($query, null, $zim_id);
 		} else {
-			$q = $anlage->getAllQuery($query, $this->getUser());
+			$q = $anlage->getAllQuery($query, $this->getUser(), $zim_id);
 		}
 		return $q;
 	}
@@ -121,15 +121,15 @@ class anlageActions extends sfActions {
 	public function executeSearch(sfWebRequest $request) {
 		// save query string in user session for paginator
 		$query = $request->getParameter('query');
-		error_log('Selected zim:'. $request->getParameter('zim'));
+		$zim_id = $request->getParameter('zim');
 		$user = $this->getUser();
 		if ($query != null)
 			$user['query'] = $query;
 		else if (!$query = $user['query'])
 			$query = '*';
-		$q = $this->getAnlagenQuery($query);
+		$q = $this->getAnlagenQuery($query, $zim_id);
 
-		$this->form = $this->getZimFilterForm($request->getParameter('zim'));
+		$this->form = $this->getZimFilterForm($zim_id);
 		$this->setTemplate('index');
 		$this->initPager($request, $q);
 	}

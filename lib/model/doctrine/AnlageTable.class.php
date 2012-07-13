@@ -25,15 +25,21 @@ class AnlageTable extends Doctrine_Table {
 				->where('s.zim_id = ?', $zim_id)->count();
 	}
 
-	private function getAllQueryPrivate() {
-		return $this->createQuery()->from('Anlage a, a.Stunde s')
+	private function getAllQueryPrivate($zim_id) {
+		$query = $this->createQuery()->from('Anlage a, a.Stunde s')
 				->orderBy('s.zim_id,a.lnr');
+		if ( $zim_id == null )
+			return $query;
+		return $query->leftJoin('s.Zim z')->where('z.id = ?', $zim_id);
 	}
 
-	private function getAllFromUserQuery($user) {
-		return $this->getAllQueryPrivate()
+	private function getAllFromUserQuery($user, $zim_id) {
+		$query = $this->getAllQueryPrivate()
 				->leftJoin('s.Zim z, z.sfGuardUser u')
 				->where('u.username = ?', $user->getUsername());
+		if ( $zim_id == null )
+			return $query;
+		return $query->where('z.id = ?', $zim_id);
 	}
 
 	private static function cleanQuery($query) {
@@ -48,17 +54,17 @@ class AnlageTable extends Doctrine_Table {
 		return $query;
 	}
 
-	public function getAllQuery($query = '*', $user = null) {
+	public function getAllQuery($query = '*', $user = null, $zim_id) {
 		$query = self::cleanQuery($query);
 		if ('*' == $query) {
 			if ($user)
-				return $this->getAllFromUserQuery($user);
-			return $this->getAllQueryPrivate();
+				return $this->getAllFromUserQuery($user, $zim_id);
+			return $this->getAllQueryPrivate($zim_id);
 		}
-		return $this->getForLuceneQuery($query, $user);
+		return $this->getForLuceneQuery($query, $user, $zim_id);
 	}
 
-	private function getForLuceneQuery($query, $user = null) {
+	private function getForLuceneQuery($query, $user = null, $zim_id) {
 		$index = self::getLuceneIndex();
 
 		Zend_Search_Lucene_Analysis_Analyzer::setDefault(
@@ -71,12 +77,12 @@ class AnlageTable extends Doctrine_Table {
 			$pks[] = $hit->pk;
 		}
 
-		$q = $this->getAllQueryPrivate();
+		$q = $this->getAllQueryPrivate($zim_id);
 		if (empty($pks)) {
 			return $q->andWhere('a.id = -1');
 		}
 		if ($user) {
-			$q = $this->getAllFromUserQuery($user);
+			$q = $this->getAllFromUserQuery($user, $zim_id);
 		}
 
 		$q->andwhereIn('a.id', $pks);
