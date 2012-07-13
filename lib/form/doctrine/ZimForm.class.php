@@ -38,7 +38,7 @@ class ZimForm extends BaseZimForm
 	}
 	$this->widgetSchema['ptjahr'] = new sfWidgetFormChoice(array(
 		'choices'=>$date_choices,
-		'default'=>'2010', 
+		'default'=>date('Y'), 
 		'label'=>'Jahr'));
 	$this->validatorSchema['ptjahr'] = new sfValidatorChoice(array(
 		'choices' =>array_keys($date_choices),
