@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <buildpath>
-	<buildpathentry excluding=".git/|log/|cache/|lib/vendor/symfony-1.4.5/|lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/data/generator/sfDoctrineModule/admin/skeleton/|lib/vendor/symfony/lib/task/generator/skeleton/|lib/vendor/symfony/lib/plugins/sfPropelPlugin/data/generator/sfPropelModule/admin/skeleton/|lib/vendor/symfony/lib/plugins/sfPropelPlugin/data/generator/sfPropelModule/default/skeleton/|lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/data/generator/sfDoctrineModule/default/skeleton/" kind="src" path=""/>
+	<buildpathentry excluding=".git/|log/|cache/|lib/vendor/symfony-1.4.5/|lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/data/generator/sfDoctrineModule/admin/skeleton/|lib/vendor/symfony/lib/task/generator/skeleton/|lib/vendor/symfony/lib/plugins/sfPropelPlugin/data/generator/sfPropelModule/admin/skeleton/|lib/vendor/symfony/lib/plugins/sfPropelPlugin/data/generator/sfPropelModule/default/skeleton/|lib/vendor/symfony/lib/plugins/sfDoctrinePlugin/data/generator/sfDoctrineModule/default/skeleton/|lib/vendor/symfony-1.4.18/" kind="src" path=""/>
 	<buildpathentry kind="con" path="org.eclipse.php.core.LANGUAGE"/>
 </buildpath>
