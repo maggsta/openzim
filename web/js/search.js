@@ -4,7 +4,8 @@ var openZIMsearch = {
       		$('#loader').show();
 	      	$('#anlagen').load(
 	        	action + ' #anlagen',
-		        { query: value + '*' },
+		        { query: value + '*',
+	        	  zim: $('#zim').attr('value') },
 		        function() {
 			   $('#loader').hide();
 			}
@@ -21,22 +22,23 @@ var openZIMsearch = {
 
 	setup: function() {
 	  var self = this;
+	  self.action = $('#search_keywords').parents('form').attr('action');
+	  self.oldValue = $('#search_keywords').attr('value');
 	  $('#search_keywords').keyup(function(key)
 	  {
 	    // only react for backspace and delete
 	    if ( key.which != '8' && key.which != '46' && !self.doLoad )
 		return;
 	    if ( (this.value.length >= 3 || this.value == '' ) && 
-		   self.oldValue != this.value )
+	    		self.oldValue != this.value )
 	    {
-		// cancel pending ajax calls
-		self.cancel();
-		self.oldValue = this.value;
-		action = $(this).parents('form').attr('action');
-		// start new call with 1s delay
-		self.timeoutID = window.setTimeout(function(){
-					self.doAjaxCall(self.oldValue,action);
-				}, 1000);
+	    	// cancel pending ajax calls
+	    	self.cancel();
+	    	self.oldValue = this.value;
+	    	// start new call with 1s delay
+	    	self.timeoutID = window.setTimeout(function(){
+	    		self.doAjaxCall(self.oldValue, self.action);
+	    	}, 1000);
 	    }
 	  });
 
@@ -45,6 +47,10 @@ var openZIMsearch = {
 	  {
 	    if (this.value.length >= 2)
 	    	self.doLoad = true;
+	  });
+	  
+	  $('#zim').change(function(){
+		  self.doAjaxCall(self.oldValue, self.action);
 	  });
 	}
 }
