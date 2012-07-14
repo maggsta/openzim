@@ -1,0 +1,12 @@
+@CHARSET "UTF-8";
+
+#header,
+.linktable,
+.msg_list > p {
+	display: none;
+}
+
+table {
+	width: 100%;
+	border: 5px black;
+}
