@@ -538,10 +538,11 @@ IMG;
 		/**
 		 * Export the file as html
 		 *
+		 * @param $css optional include css file
 		 * @throws OdfException
 		 * @return void
 		 */
-		public function exportAsHtml()
+		public function exportAsHtml($css = null)
 		{
 			$this->_save();
 			if (headers_sent($filename, $linenum)) {
@@ -551,6 +552,17 @@ IMG;
 			header('Content-type: text/html');
 			exec('../lib/odftools/odf2html ' . $this->tmpfile, $output);
 			$output = str_replace("Pictures/","/uploads/bilder/", $output);
+
+			if ( $css != null ){
+				foreach ($output as $key => $line){
+
+					if ( strpos($line, "</head>") !== false ){
+						$output[$key] = str_replace("</head>",
+								'<link href="/css/'.$css.'" type="text/css" rel="stylesheet" /></head>', $line);
+						break;
+					}
+				}
+			}
 			echo implode(' ', $output);
 		}
 		/**
