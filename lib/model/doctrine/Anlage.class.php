@@ -130,6 +130,7 @@ class Anlage extends BaseAnlage
 		$odf->setVars('Inhalt', $convertedInhalt, $encode,'UTF-8');
 		$odf->setVars('methode', $convertedMethode, $encode,'UTF-8');
 		$odf->setVars('material', $convertedMaterial, $encode,'UTF-8');
+		$odf->setMetaVars('title', $this, $encode,'UTF-8');
  		$bilder = $odf->setSegment('bilder');
                 foreach ( $this->getBilder() as $bild ){
                   $convertedCaption = $htmlConverter->getODF($bild->getCaption());
