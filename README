@@ -1,5 +1,5 @@
 Ubuntu:
-sudo aptitude install php5-gd
+sudo aptitude install php5-gd xsltproc
 
 Apache2:
 php.ini output_buffering = On
