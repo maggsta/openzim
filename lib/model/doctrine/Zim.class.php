@@ -45,8 +45,9 @@ class Zim extends BaseZim
 		$odf->setStyleVars('ptkuerzel',$this->getPtkuerzel(),true,'UTF-8');
 		$odf->setStyleVars('ptjahr', $this->getPtjahr(),true,'UTF-8');
 		$odf->setVars('zieleZim',$htmlConverter->getODF($this->getZiele()),$encode,'UTF-8');
-		$odf->setVars('zielGruppe',$htmlConverter->getODF($this->getZielGruppe()),$encode,'UTF-8');
+		$odf->setVars('zielGruppe',$this->getZielGruppe(), true,'UTF-8');
 		$odf->setVars('roterFaden',$htmlConverter->getODF($this->getRoterFaden()),$encode,'UTF-8');
+		$odf->setMetaVars('title', $this, true,'UTF-8');
 		$stdn = $odf->setSegment('stdn');
 		foreach($this->getStunden() AS $stunde) {
 			$stdn->setVars('nameStunde',$stunde->getName(),true,'UTF-8');
