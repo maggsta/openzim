@@ -5,6 +5,7 @@
           <?php if (!$object->isNew()): ?>&nbsp;
           <?php	echo link_to(__('Preview'),$name.'_show',$object) ?>&nbsp;
           <?php echo link_to('Export',$name.'_export',$object) ?>&nbsp;
+          <?php echo link_to('Export Preview',$name.'_export_preview',$object) ?>&nbsp;
           <?php echo link_to(__('Delete'), $name.'_delete',$object, 
 			array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
           <?php endif; ?>

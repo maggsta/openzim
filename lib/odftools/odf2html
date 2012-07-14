@@ -1,0 +1,162 @@
+#!/usr/bin/perl -w
+use strict;
+use File::Copy;
+use Getopt::Long;
+use constant PACKAGE => "odftools";
+use constant FALSE => 0;
+
+# NOTE:
+# Currently we only understand ODT files. Future versions will cope
+# with other file types.
+
+=head1 NAME
+
+odf2html - Converts OpenDocument files into HTML.
+
+=head1 SYNOPSIS
+
+odf2html [-o output.html] [-h] [--fast] document.odt
+
+=head1 DESCRIPTION
+
+odf2html is a command-line tool that converts Opendocument Text
+files into HTML. By default, the HTML is sent to standard output.
+
+=over 12
+
+=item B<-o>
+
+=item B<--out>
+
+Specifies a file in which to write the HTML output.
+
+=item B<-f>
+
+=item B<--fast>
+
+Ignores formatting information, which makes the program produce output faster. This is useful if you are only interested in the document structure and not the formatting.
+
+=item B<-h>
+
+=item B<--help>
+
+Prints the help information.
+
+=back
+
+=head1 AUTHORS
+
+Daniel Carrera - L<daniel.carrera@zmsl.com>
+
+Alex Hudson - L<alex@stratagia.co.uk>
+
+=head1 COPYRIGHT
+
+Copyright 2006 Daniel Carrera, Alex Hudson.
+
+This is free software.  You may redistribute it under the terms
+of the Apache license and the GNU General Public License Version
+2 or at your option any later version.
+
+=head1 SEE ALSO
+
+L<odfread>
+
+=cut
+
+#
+# Getopts - The -o flag is for the output file.
+#
+my $out = FALSE;
+my $fast = FALSE;
+my $help = FALSE;
+GetOptions ("out|o=s" => \$out, "fast" => \$fast, "help|h"  => \$help);
+if ($help) {
+	print "Usage: odf2html odf2html [-o output.html] [-h] [--fast] document.odt\n"
+		."\n"
+		."  -o   Output file.\n"
+		."  -h   Show this help.\n"
+		."  -f   Fast option (ignore formatting).\n";
+	exit;
+}
+
+#
+# Base variables
+#
+my $file = $ARGV[0];
+my $dir = "/tmp/".PACKAGE."_$$";
+my $install_dir="../lib/".PACKAGE;
+my $xslt = "odt2html.xsl";
+
+if ($fast) {
+	$xslt = "odt2html-fast.xsl";
+}
+
+#
+# Work directory
+#
+system("mkdir -p $dir");
+
+#
+# Fix spaces in file name
+#
+if ($file =~ / /) {
+	copy($file,"$dir/document.odt");
+	$file = "$dir/document.odt";
+}
+
+# Extract the contents
+system("unzip -q $file content.xml -d $dir");
+system("unzip -q $file meta.xml    -d $dir");
+unless($fast) {
+	system("unzip -q $file styles.xml -d $dir");
+}
+
+# Make into HTML and spit it to STDOUT
+create_single_file();
+
+if ($out) {
+	system("xsltproc $install_dir/$xslt $dir/single_file.xml > $out");
+} else {
+	system("xsltproc $install_dir/$xslt $dir/single_file.xml");
+}
+
+#
+# Clean up
+#
+system("rm -r $dir");
+
+############################
+#  FUNCTIONS
+############################
+sub create_single_file {
+	# Uses global variable $dir
+
+	# First line clears the file.
+	open(OUT,">$dir/single_file.xml");
+	print OUT "<?xml version='1.0' encoding='UTF-8'?>\n";
+	close(OUT);
+	# Now start appending.
+	open(OUT,">>$dir/single_file.xml");
+	print OUT "<office:document xmlns:office='urn:oasis:names:tc:opendocument:xmlns:office:1.0'>\n";
+
+	open(IN,"<$dir/meta.xml");
+	while(<IN>) { print OUT if (not /^<\?xml version="1.0"/)}
+	close(IN);
+
+	open(IN,"<$dir/content.xml");
+	while(<IN>) { print OUT if (not /^<\?xml version="1.0"/)}
+	close(IN);
+
+	unless ($fast) {
+		open(IN,"<$dir/styles.xml");
+		while(<IN>) { print OUT if (not /^<\?xml version="1.0"/)}
+		close(IN);
+	}
+
+	print OUT "</office:document>\n";
+	close(OUT);
+}
+
+
+

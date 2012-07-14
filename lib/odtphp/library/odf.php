@@ -520,6 +520,23 @@ IMG;
 			header('Content-Disposition: attachment; filename="'.$name.'"');
 			readfile($this->tmpfile);
 		}
+		
+		/**
+		 * Export the file as html
+		 *
+		 * @throws OdfException
+		 * @return void
+		 */
+		public function exportAsHtml()
+		{
+			$this->_save();
+			if (headers_sent($filename, $linenum)) {
+				throw new OdfException("headers already sent ($filename at $linenum)");
+			}
+
+			header('Content-type: text/html');
+			system('../lib/odftools/odf2html ' . $this->tmpfile);
+		}
 		/**
 		 * Returns a variable of configuration
 		 *

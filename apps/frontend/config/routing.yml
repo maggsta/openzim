@@ -18,6 +18,15 @@ zim_export:
     id: \d+
     sf_method: [get]
 
+zim_export_preview:
+  url:     /zim/:id/export_preview
+  class:   sfDoctrineRoute
+  options: { model: Zim, type: object }
+  param:   { module: zim, action: exportPreview }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
 zim_delete_stunde:
   url:     /zim/:id/delete_stunde
   class:   sfDoctrineRoute
@@ -44,6 +53,15 @@ anlage_export:
   class:   sfDoctrineRoute
   options: { model: Anlage, type: object }
   param:   { module: anlage, action: export }
+  requirements:
+    id: \d+
+    sf_method: [get]
+
+anlage_export_preview:
+  url:     /anlage/:id/export_preview
+  class:   sfDoctrineRoute
+  options: { model: Anlage, type: object }
+  param:   { module: anlage, action: exportPreview }
   requirements:
     id: \d+
     sf_method: [get]

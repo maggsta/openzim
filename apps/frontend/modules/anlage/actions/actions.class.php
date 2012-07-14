@@ -96,7 +96,17 @@ class anlageActions extends sfActions {
 		$anlage = $this->getRoute()->getObject();
 		$this->forward404Unless($this->validateUser($anlage));
 
-		$anlage->generateOdf();
+		$odf = $anlage->generateOdf();
+		$odf->exportAsAttachedFile ($anlage->getFilename().'.odt');
+		throw new sfStopException();
+	}
+
+	public function executeExportPreview(sfWebRequest $request) {
+		$anlage = $this->getRoute()->getObject();
+		$this->forward404Unless($this->validateUser($anlage));
+	
+		$odf = $anlage->generateOdf();
+		$odf->exportAsHtml();
 		throw new sfStopException();
 	}
 

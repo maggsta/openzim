@@ -42,10 +42,19 @@ class zimActions extends sfActions
   public function executeExport(sfWebRequest $request)
   {
     $zim = $this->getRoute()->getObject();
-    $zim->generateOdf();
+    $odf = $zim->generateOdf();
+    $odf->exportAsAttachedFile ($zim->getFilename());
     throw new sfStopException();        
   }
 
+  public function executeExportPreview(sfWebRequest $request)
+  {
+  	$zim = $this->getRoute()->getObject();
+  	$odf = $zim->generateOdf();
+  	$odf->exportAsHtml();
+  	throw new sfStopException();
+  }
+ 
   public function executeShow(sfWebRequest $request)
   {
     $this->zim = $this->getRoute()->getObject();

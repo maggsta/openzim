@@ -138,11 +138,10 @@ class Anlage extends BaseAnlage
 		  $bilder->merge();
 		}
 		$odf->mergeSegment($bilder);
-		$odf->exportAsAttachedFile ($this->getFilename().'_.odt');  
-
+		return $odf;
         }
 	
-	private function getFilename()
+	public function getFilename()
 	{
 		return $this->getLnrStr().'_'.$this->getKuerzel().'_Anlage_'.$this->getLongname();
 	}
