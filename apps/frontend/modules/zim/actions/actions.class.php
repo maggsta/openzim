@@ -51,7 +51,7 @@ class zimActions extends sfActions
   {
   	$zim = $this->getRoute()->getObject();
   	$odf = $zim->generateOdf();
-  	$odf->exportAsHtml("preview.css");
+  	$odf->exportAsHtml("zim_preview.css");
   	throw new sfStopException();
   }
  

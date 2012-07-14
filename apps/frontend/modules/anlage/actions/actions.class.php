@@ -106,7 +106,7 @@ class anlageActions extends sfActions {
 		$this->forward404Unless($this->validateUser($anlage));
 	
 		$odf = $anlage->generateOdf();
-		$odf->exportAsHtml();
+		$odf->exportAsHtml("anlage_preview.css");
 		throw new sfStopException();
 	}
 
