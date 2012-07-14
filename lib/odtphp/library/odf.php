@@ -28,12 +28,14 @@ class Odf
 		protected $file;
 		protected $contentXml;			// To store content of content.xml file
 		protected $stylesXml;			// To store content of styles.xml file
+		protected $metaXml;			// To store content of meta.xml file
 		protected $manifestXml;			// To store content of META-INF/manifest.xml file
 		protected $tmpfile;
 		protected $tmpdir='';
 		protected $images = array();
 		protected $vars = array();
 		protected $styleVars = array();
+		protected $metaVars = array();
 		protected $segments = array();
 		protected $styles = array();		// odf style identifiers
 		protected $lastStyles = array();	// odf style identifiers ( first free style )
@@ -92,7 +94,10 @@ class Odf
 				throw new OdfException("Nothing to parse - Check that the styles.xml file is correctly formed in source file '$filename'");
 			}
 			if (($this->manifestXml = $this->file->getFromName('META-INF/manifest.xml')) === false) {
- 				throw new OdfException("Something is wrong with META-INF/manifest.xm in source file '$filename'");
+ 				throw new OdfException("Something is wrong with META-INF/manifest.xml in source file '$filename'");
+			}
+			if (($this->metaXml = $this->file->getFromName('meta.xml')) === false) {
+				throw new OdfException("Something is wrong with meta.xml in source file '$filename'");
 			}
 			$this->file->close();
 
@@ -238,6 +243,11 @@ class Odf
 			return $this;
 		}
 
+		public function setMetaVars($key, $value, $encode = true, $charset = 'ISO-8859')
+		{
+			$this->setVarsPrivate($key,$value,$encode,$charset,$this->metaXml,$this->metaVars);
+			return $this;
+		}
 		/**
 		 * Assign a template variable as a picture
 		 *
@@ -367,6 +377,7 @@ IMG;
 		{
 			$this->contentXml = str_replace(array_keys($this->vars), array_values($this->vars), $this->contentXml);
 			$this->stylesXml = str_replace(array_keys($this->styleVars), array_values($this->styleVars),$this->stylesXml);
+			$this->metaXml = str_replace(array_keys($this->metaVars), array_values($this->metaVars),$this->metaXml);
 		}
 
 		/**
@@ -473,6 +484,9 @@ IMG;
 				throw new OdfException('Error during file export addFromString');
 			}
 			if (! $this->file->addFromString('styles.xml',$this->stylesXml)) {
+				throw new OdfException('Error during file export addFromString');
+			}
+			if (! $this->file->addFromString('meta.xml',$this->metaXml)) {
 				throw new OdfException('Error during file export addFromString');
 			}
 			foreach ($this->images as $imageKey => $imageValue) {
