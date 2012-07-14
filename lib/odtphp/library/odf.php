@@ -549,7 +549,9 @@ IMG;
 			}
 
 			header('Content-type: text/html');
-			system('../lib/odftools/odf2html ' . $this->tmpfile);
+			exec('../lib/odftools/odf2html ' . $this->tmpfile, $output);
+			$output = str_replace("Pictures/","/uploads/bilder/", $output);
+			echo implode(' ', $output);
 		}
 		/**
 		 * Returns a variable of configuration
