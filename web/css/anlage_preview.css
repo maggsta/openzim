@@ -3,3 +3,11 @@
 .fr1:nth-of-type(1) {
 	float: right;
 }
+
+td {
+	vertical-align: top;
+}
+
+table {
+	border-spacing: 0;
+}
