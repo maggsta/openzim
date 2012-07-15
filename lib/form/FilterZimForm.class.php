@@ -17,11 +17,15 @@ class FilterZimForm extends BaseForm
 		}
 
 		$choices = array();
-		$choices[null] = 'Alle';
 		foreach( $zims as $zim ){
 			if ( $zim->hasAnlagen() )
 				$choices[$zim->getId()] = $zim;
 		}
+
+		if ( count($choices) <= 1 )
+			return;
+
+		$choices[null] = 'Alle';
 		$this->setWidgets(array(
 				'zim'    => new sfWidgetFormChoice(
 						array('choices' => $choices)),
