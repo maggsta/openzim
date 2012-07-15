@@ -1,7 +1,11 @@
 @CHARSET "UTF-8";
 
 table {
-	margin-left: 0  !important;
+	margin: 0  !important;
 	width: 100% !important;
 	border-spacing: 0;
+}
+
+td {
+	vertical-align: middle;
 }

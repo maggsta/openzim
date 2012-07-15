@@ -8,6 +8,13 @@
 	float: right;
 }
 
+#draw\:frame-draw\:name_Rahmen1 {
+	margin-left: 0 !important;
+	margin-top: 0 !important;
+	float: right;
+	white-space: normal !important;
+}
+
 td {
 	vertical-align: top;
 }
