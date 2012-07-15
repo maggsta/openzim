@@ -29,6 +29,7 @@ class htmlConverter {
 			  '#<span style="text-decoration: underline;">(.*)</span>#U' => 
 			  '<text:span text:style-name="'.$this->styles['underline'].'">$1</text:span>',
 			  '#text:list-item>\n<(/?)text:list#U' => 'text:list-item><$1text:list',
+			  '#\n<text:list-item>#U' => '<text:list-item>',
 			  '#<text:p>(\n)?</text:p>#U' => '',
 			  '#<text:p>(.*)\n</text:p>#U' => '<text:p>$1</text:p>',
 		);
