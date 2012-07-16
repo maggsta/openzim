@@ -30,11 +30,13 @@
 <div class="msg_content">
 <table>
     <tbody>
-      <?php echo $form['kurzinhalt']->renderRow() ?>      
-      <?php foreach ($form['Sections'] as $section): ?>
+      <?php echo $form['kurzinhalt']->renderRow() ?>
+      <?php foreach ($form['Sections'] as $nr => $section): ?>
+      	<tr><td></td><td><?php echo $nr+1 . ". Abschnitt" ?></td></tr>
      	<?php echo $section['inhalt']->renderRow() ?>
       	<?php echo $section['tip']->renderRow() ?>   
       <?php endforeach; ?>
+      <tr><td></td><td>Neuer Abschnitt</td></tr>
       <?php foreach ($form['neueSections'] as $section): ?>
           <?php echo $section['inhalt']->renderRow() ?>
           <?php echo $section['tip']->renderRow() ?>
