@@ -20,6 +20,11 @@ class Anlage extends BaseAnlage
 		return BildTable::getBilderSorted($this->getId());
 	}
 
+	public function getSections()
+	{
+		return SectionTable::getSectionsSorted($this->getId());
+	}
+
 	public function save(Doctrine_Connection $conn = null)
 	{  
 		if ( $this->state() != self::STATE_DIRTY && !$this->isNew() )
@@ -95,10 +100,12 @@ class Anlage extends BaseAnlage
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('ziel', $this->getZiel(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('kurzinhalt', $this->getKurzinhalt(), 'utf-8'));
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('methode', $this->getMethode(), 'utf-8'));
-  		$doc->addField(Zend_Search_Lucene_Field::UnStored('material', $this->getMaterial(), 'utf-8'));
-  		$doc->addField(Zend_Search_Lucene_Field::UnStored('tip', $this->getTip(), 'utf-8'));
+  		$doc->addField(Zend_Search_Lucene_Field::UnStored('material', $this->getMaterial(), 'utf-8'));  		
   		$doc->addField(Zend_Search_Lucene_Field::UnStored('rolletm', $this->getRolleTm(), 'utf-8'));
-  		$doc->addField(Zend_Search_Lucene_Field::UnStored('inhalt', $this->getInhalt(), 'utf-8'));
+  		foreach( $this->getSections() as $key => $section ){
+  			$doc->addField(Zend_Search_Lucene_Field::UnStored('tip_'.$key, $section->getTip(), 'utf-8'));
+  			$doc->addField(Zend_Search_Lucene_Field::UnStored('inhalt_'.$key, $section->getInhalt(), 'utf-8'));
+  		}
  
   		// add anlage to the index
   		$index->addDocument($doc);
@@ -111,11 +118,10 @@ class Anlage extends BaseAnlage
 		$odf = new odf(dirname(__FILE__).'/../../odftmp/Anlage_template.odt');
 		
 		$htmlConverter = new htmlConverter($odf->getStyleNames());
-		$convertedInhalt = $htmlConverter->getODF($this->getInhalt());	
 		$convertedZiel = $htmlConverter->getODF($this->getZiel());
 		$convertedMethode = $htmlConverter->getODF($this->getMethode());
 		$convertedMaterial = $htmlConverter->getODF($this->getMaterial());
-		$convertedTip = $htmlConverter->getODF($this->getTip());
+		
 
 	   	$odf->setStyleVars('ptKuerzel', $this->getStunde()->getZim()->getPtKuerzel());
 	   	$odf->setStyleVars('ptKuerzel1', $this->getStunde()->getZim()->getPtKuerzel());
@@ -126,8 +132,20 @@ class Anlage extends BaseAnlage
 	   	$odf->setVars('longName', $this->getLongname(), true,'UTF-8');
 	   	$odf->setVars('zeit', $this->getZeit());
 		$odf->setVars('ziel', $convertedZiel, $encode,'UTF-8');
-		$odf->setVars('tip', $convertedTip, $encode,'UTF-8');
-		$odf->setVars('Inhalt', $convertedInhalt, $encode,'UTF-8');
+		$sections = $odf->setSegment('sections');
+		foreach ( $this->getSections() as $section ){
+			$convertedInhalt = $htmlConverter->getODF($section->getInhalt());
+			$convertedTip = $htmlConverter->getODF($section->getTip());
+			$sections->setVars('Inhalt', $convertedInhalt, $encode,'UTF-8');
+			if ( !$convertedTip )
+				$sections->tipSection->delete();
+			else {
+				$sections->tipSection->setVars('tip', $convertedTip, $encode,'UTF-8');
+				$sections->tipSection->merge();
+			}
+			$sections->merge();
+		}
+		$odf->mergeSegment($sections);
 		$odf->setVars('methode', $convertedMethode, $encode,'UTF-8');
 		$odf->setVars('material', $convertedMaterial, $encode,'UTF-8');
 		$odf->setMetaVars('title', $this, true,'UTF-8');

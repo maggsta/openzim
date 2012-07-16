@@ -11,14 +11,13 @@
  * @property string $ziel
  * @property string $methode
  * @property string $material
- * @property string $tip
  * @property string $kurzinhalt
- * @property string $inhalt
  * @property string $kofferinfo
  * @property string $rolle_tm
  * @property integer $stunde_id
  * @property integer $lnr
  * @property Stunde $Stunde
+ * @property Doctrine_Collection $Sections
  * @property Doctrine_Collection $Bilder
  * @property Doctrine_Collection $Anhaenge
  * 
@@ -28,14 +27,13 @@
  * @method string              getZiel()       Returns the current record's "ziel" value
  * @method string              getMethode()    Returns the current record's "methode" value
  * @method string              getMaterial()   Returns the current record's "material" value
- * @method string              getTip()        Returns the current record's "tip" value
  * @method string              getKurzinhalt() Returns the current record's "kurzinhalt" value
- * @method string              getInhalt()     Returns the current record's "inhalt" value
  * @method string              getKofferinfo() Returns the current record's "kofferinfo" value
  * @method string              getRolleTm()    Returns the current record's "rolle_tm" value
  * @method integer             getStundeId()   Returns the current record's "stunde_id" value
  * @method integer             getLnr()        Returns the current record's "lnr" value
  * @method Stunde              getStunde()     Returns the current record's "Stunde" value
+ * @method Doctrine_Collection getSections()   Returns the current record's "Sections" collection
  * @method Doctrine_Collection getBilder()     Returns the current record's "Bilder" collection
  * @method Doctrine_Collection getAnhaenge()   Returns the current record's "Anhaenge" collection
  * @method Anlage              setLongname()   Sets the current record's "longname" value
@@ -44,14 +42,13 @@
  * @method Anlage              setZiel()       Sets the current record's "ziel" value
  * @method Anlage              setMethode()    Sets the current record's "methode" value
  * @method Anlage              setMaterial()   Sets the current record's "material" value
- * @method Anlage              setTip()        Sets the current record's "tip" value
  * @method Anlage              setKurzinhalt() Sets the current record's "kurzinhalt" value
- * @method Anlage              setInhalt()     Sets the current record's "inhalt" value
  * @method Anlage              setKofferinfo() Sets the current record's "kofferinfo" value
  * @method Anlage              setRolleTm()    Sets the current record's "rolle_tm" value
  * @method Anlage              setStundeId()   Sets the current record's "stunde_id" value
  * @method Anlage              setLnr()        Sets the current record's "lnr" value
  * @method Anlage              setStunde()     Sets the current record's "Stunde" value
+ * @method Anlage              setSections()   Sets the current record's "Sections" collection
  * @method Anlage              setBilder()     Sets the current record's "Bilder" collection
  * @method Anlage              setAnhaenge()   Sets the current record's "Anhaenge" collection
  * 
@@ -89,17 +86,9 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'type' => 'string',
              'length' => 1000,
              ));
-        $this->hasColumn('tip', 'string', 1000, array(
-             'type' => 'string',
-             'length' => 1000,
-             ));
         $this->hasColumn('kurzinhalt', 'string', 1000, array(
              'type' => 'string',
              'length' => 1000,
-             ));
-        $this->hasColumn('inhalt', 'string', 100000, array(
-             'type' => 'string',
-             'length' => 100000,
              ));
         $this->hasColumn('kofferinfo', 'string', 10000, array(
              'type' => 'string',
@@ -124,6 +113,10 @@ abstract class BaseAnlage extends sfDoctrineRecord
         $this->hasOne('Stunde', array(
              'local' => 'stunde_id',
              'foreign' => 'id'));
+
+        $this->hasMany('Section as Sections', array(
+             'local' => 'id',
+             'foreign' => 'anlage_id'));
 
         $this->hasMany('Bild as Bilder', array(
              'local' => 'id',

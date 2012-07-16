@@ -30,9 +30,15 @@
 <div class="msg_content">
 <table>
     <tbody>
-      <?php echo $form['tip']->renderRow() ?>
-      <?php echo $form['kurzinhalt']->renderRow() ?>
-      <?php echo $form['inhalt']->renderRow() ?>
+      <?php echo $form['kurzinhalt']->renderRow() ?>      
+      <?php foreach ($form['Sections'] as $section): ?>
+     	<?php echo $section['inhalt']->renderRow() ?>
+      	<?php echo $section['tip']->renderRow() ?>   
+      <?php endforeach; ?>
+      <?php foreach ($form['neueSections'] as $section): ?>
+          <?php echo $section['inhalt']->renderRow() ?>
+          <?php echo $section['tip']->renderRow() ?>
+      <?php endforeach; ?>
     </tbody>
   </table>  
 </div></div>

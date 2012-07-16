@@ -27,6 +27,14 @@ class AnlageEditForm extends AnlageForm
     $this->embedRelation('Bilder');
     $this->embedForm('neueBilder', $form);
 
+    $form = new SectionCollectionForm(null, array(
+    		'anlage' => $this->getObject(),
+    		'size'    => 1,
+    		'label' => 'Abschnitt hinzufügen',
+    ));
+    $this->embedRelation('Sections');
+    $this->embedForm('neueSections', $form);
+    
     $anhang = new Anhang();
     $anhang->Anlage = $this->getObject();
     $form = new AnhangForm($anhang);
@@ -48,6 +56,14 @@ class AnlageEditForm extends AnlageForm
           {
             unset($forms['neueBilder'][$name]);
           }
+        }
+        $sections = $this->getValue('neueSections');
+        foreach ($this->embeddedForms['neueSections'] as $name => $form)
+        {
+        	if (!isset($sections[$name]))
+        	{
+        		unset($forms['neueSections'][$name]);
+        	}
         }
 	$anhang = $this->getValue('neuerAnhang');
         if ( !isset($anhang['path'] ) )
