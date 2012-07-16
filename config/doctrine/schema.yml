@@ -8,15 +8,27 @@ Anlage:
     ziel: { type: string(1000) }
     methode: { type: string(1000) }
     material: { type: string(1000) }
-    tip: { type: string(1000) }
     kurzinhalt: { type: string(1000) }
-    inhalt: { type: string(100000) }
     kofferinfo: { type: string(10000) }
     rolle_tm: { type: string(1000) }
     stunde_id:  { type: integer }
     lnr: { type: integer, notnull: true }
   relations:
     Stunde: { local: stunde_id, foreign: id, foreignAlias: Anlagen }
+
+Section:
+  actAs: { Timestampable: ~ }
+  columns:
+    lnr: { type: integer, notnull: true }
+    anlage_id:  { type: integer }
+    inhalt: { type: string(100000) }
+    tip: { type: string(1000) }
+  relations:
+    Anlage: {  onDelete: CASCADE, local: anlage_id, foreign: id, foreignAlias: Sections }
+  indexes:
+    section_lnr:
+      fields: [anlage_id, lnr]
+      type: unique
 
 Bild:
   actAs: { Timestampable: ~ }

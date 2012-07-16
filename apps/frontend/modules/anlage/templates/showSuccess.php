@@ -62,19 +62,21 @@
 <div class="msg_content">
 
 <table>
-  <tbody>
-    <tr>
-      <th>Tip:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getTip() ?></textarea></td>
-    </tr>
+  <tbody>   
     <tr>
       <th>Kurzinhalt:</th>
       <td><textarea cols="40" rows="4"><?php echo $anlage->getKurzinhalt() ?></textarea></td>
     </tr>
-    <tr>
+     <?php foreach ($anlage->getSections() as $i => $section): ?>
+     <tr>
       <th>Inhalt:</th>
-      <td><textarea style="height:300px" cols="40" rows="4"><?php echo $anlage->getInhalt() ?></textarea></td>
+      <td><textarea style="height:300px" cols="40" rows="4"><?php echo $section->getInhalt() ?></textarea></td>
     </tr>
+     <tr>
+      <th>Tip:</th>
+      <td><textarea cols="40" rows="4"><?php echo $section->getTip() ?></textarea></td>
+    </tr>
+     <?php endforeach; ?>
   </tbody>
 </table>
 
