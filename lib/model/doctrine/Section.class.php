@@ -35,6 +35,7 @@ class Section extends BaseSection
 		$oldLnr = $this->getLnr();
 		$ret = parent::delete($conn);
 		$this->getTable()->updateLnrDeleted($oldLnr,$this->getAnlage()->getId());
+		$this->getAnlage()->updateLuceneIndex();
 		return $ret;
 	}
 }
