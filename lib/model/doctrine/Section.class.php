@@ -24,6 +24,7 @@ class Section extends BaseSection
 			}
 	
 			$ret = parent::save($conn);
+			$this->getAnlage()->updateLuceneIndex();
 			return $ret;
 		}
 	}
