@@ -9,7 +9,7 @@
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class anlageActions extends sfActions {
-	private function getAnlagenQuery($query = '*', $zim_id) {
+	private function getAnlagenQuery($query = '*', $zim_id = null) {
 		$anlage = Doctrine::getTable('Anlage');
 		if ($this->getUser()->hasCredential('admin')) {
 			$q = $anlage->getAllQuery($query, null, $zim_id);
@@ -19,7 +19,7 @@ class anlageActions extends sfActions {
 		return $q;
 	}
 
-	private function getZimFilterForm($zim_id) {
+	private function getZimFilterForm($zim_id = null) {
 		$options['zim'] = $zim_id;
 		if ( !$this->getUser()->hasCredential('admin')) {
 			$options['zims'] = $this->getUser()->getZims();
