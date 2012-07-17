@@ -1,36 +1,53 @@
 1. Zum System: 
 
 *- Anpassung von PHP 5.3 oder höher und SQ-Light 3 Treiber an die Standardversionen, so können wir dann auch zB die aktuelle Fedora-Version nutzen, ohne Fehlermeldungen.
+   - aktuelles fedora testen  
+
+- einfache Serverinstallpaket openZIM
+   - abhängigkeiten aufführen
+   - Tutorial schreiben ( Schritt für Schritt installation )
 
 
 2. Zum Edieren in openZIM
 
 [x] *- erweiterte Aufzählungsfunktion, sprich mehr als eine Ebene
+   - max 3 Ebenen, 
+	1. Ebene: 1.2.3
+	2. Ebene: a.b.c
+	3. Ebene: Bulletpoints
 
-[\] *- bisher läßt sich nur ein Tipp eingeben, jedoch gibt es mehrere Tipps an verschiedenen Stellen
-	- Fertig, bis auf die migration der alten daten
+[*] *- bisher läßt sich nur ein Tipp eingeben, jedoch gibt es mehrere Tipps an verschiedenen Stellen
+	- Keine migration von alten Daten
 
 Aufbau/Struktur - Wünsche ob es machbar ist:
 
 - ZIM ohne Anlagen erstellen können
+  - Verschoben auf später
+  - Idee ist die ZIM Tabelle direkt Editierbar zu machen, 
+	ohne Anlagen zu Erstellen
 
 [x] *- Vorschauanzeige ohne OpenOffice-Export
+    - eventuell export der Anlage nur für admins
 
-- Editierbarkeit der OpenOffice Vorlage
+[\] - Editierbarkeit der OpenOffice Vorlage
+	- Anleitung ins Tutorial
 
 [x] *- Filterfunktion bei den Anlagen nach ZIM-Zugehörigkeit
 
-- Bilder als festen Punkt Visualisierung
-
-*- Materialliste generieren?
+[\] - Bilder 
+	- Bildunterschrift zu weit unten
+	- Bild an Section hängen
 
 - Chatfunktion intern zwischen den ZIM-Angehörigen
 
-- einfache Serverinstallpaket openZIM
 
 - CSS Bearbeitung durch mich
+  - Ins Tutorial
 
+Algemein
+========
 
+- alles Gendern: Benutzer_in
 
 Legende
 =========
