@@ -7,9 +7,8 @@
 
 [x] *- erweiterte Aufzählungsfunktion, sprich mehr als eine Ebene
 
-*- bisher läßt sich nur ein Tipp eingeben, jedoch gibt es mehrere Tipps an verschiedenen Stellen
-
-
+[\] *- bisher läßt sich nur ein Tipp eingeben, jedoch gibt es mehrere Tipps an verschiedenen Stellen
+	- Fertig, bis auf die migration der alten daten
 
 Aufbau/Struktur - Wünsche ob es machbar ist:
 
