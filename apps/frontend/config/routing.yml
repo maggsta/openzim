@@ -105,7 +105,7 @@ sf_guard_password:
   param: { module: sfGuardAuth, action: password }
 
 admin_tools:
-  url:	/tools
+  url:   /tools
   param: {module: tools, action: index }
 
 admin_tools_download:
