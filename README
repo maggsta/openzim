@@ -1,3 +1,40 @@
+Fedora:
+
+0. Alles als root machen:
+ sudo -i
+
+1. Install software
+ yum install httpd php php-pdo php-mbstring php-gd git-core
+
+2. Set timezone in php
+  - In /etc/php.ini
+  - Semikolon for dat.timezone entfernen
+  - z.B.:
+    date.timezone=Europe/Berlin
+
+2. Clone openZIM repository
+  - We assume install directory /var/www/openzim
+  - cd /var/www
+  - git clone https://github.com/maggsta/openzim.git
+  - cd openzim
+  -  ./install.sh
+
+3. Apache konfigurieren
+  - In /etc/httpd/conf/httpd.conf:
+    DocumentRoot "/var/www/openzim"
+    AllowOverride All
+
+  - service restart http
+
+4. Selinux deaktivieren
+ - in /etc/selinux/config:
+   SELINUX=disabled
+
+5. reboot
+
+6. openZim öffnen mit Firefox: localhost
+
+
 Ubuntu:
 sudo aptitude install php5-gd xsltproc
 
