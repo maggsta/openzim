@@ -15,10 +15,6 @@ require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php')
  */
 class Anlage extends BaseAnlage
 {
-	public function getBilder()
-	{
-		return BildTable::getBilderSorted($this->getId());
-	}
 
 	public function getSections()
 	{
@@ -136,6 +132,7 @@ class Anlage extends BaseAnlage
 		foreach ( $this->getSections() as $section ){
 			$convertedInhalt = $htmlConverter->getODF($section->getInhalt());
 			$convertedTip = $htmlConverter->getODF($section->getTip());
+			
 			$sections->setVars('Inhalt', $convertedInhalt, $encode,'UTF-8');
 			if ( !$convertedTip )
 				$sections->tipSection->delete();
@@ -143,20 +140,23 @@ class Anlage extends BaseAnlage
 				$sections->tipSection->setVars('tip', $convertedTip, $encode,'UTF-8');
 				$sections->tipSection->merge();
 			}
+			
+			if (!$section->getBild() || !$section->getBild()->getPath()) {
+				$sections->setVars('bild', "", $encode, 'UTF-8');
+				$caption = "";
+			} else {
+				error_log("Bild:".$section->getBild()->getName());
+				$sections->setImage('bild', sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$section->getBild()->getPath());
+				$caption = $htmlConverter->getODF($section->getBild()->getCaption());
+			}
+			$sections->setVars('titel', $caption, $encode, 'UTF-8');
+			
 			$sections->merge();
 		}
 		$odf->mergeSegment($sections);
 		$odf->setVars('methode', $convertedMethode, $encode,'UTF-8');
 		$odf->setVars('material', $convertedMaterial, $encode,'UTF-8');
 		$odf->setMetaVars('title', $this, true,'UTF-8');
- 		$bilder = $odf->setSegment('bilder');
-                foreach ( $this->getBilder() as $bild ){
-                  $convertedCaption = $htmlConverter->getODF($bild->getCaption());
-		  $bilder->setVars('titel', $convertedCaption, $encode, 'UTF-8');
-    		  $bilder->setImage('bild', sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$bild->getPath());
-		  $bilder->merge();
-		}
-		$odf->mergeSegment($bilder);
 		return $odf;
         }
 	

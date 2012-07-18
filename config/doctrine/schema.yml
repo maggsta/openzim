@@ -33,17 +33,12 @@ Section:
 Bild:
   actAs: { Timestampable: ~ }
   columns:
-    lnr: { type: integer, notnull: true }
     name: { type: string(255), notnull: true }
     path: { type: string(255), notnull: true }
     caption: { type: string(1000) }
-    anlage_id: { type: integer, notnull: true } 
+    section_id: { type: integer, notnull: true } 
   relations:
-    Anlage: {  onDelete: CASCADE, local: anlage_id, foreign: id, foreignAlias: Bilder }
-  indexes:
-    anlage_lnr:
-      fields: [anlage_id, lnr]
-      type: unique
+    Section: {  onDelete: CASCADE, local: section_id, foreign: id, foreignAlias: Bild, foreignType: one }
 
 Anhang:
   actAs: { Timestampable: ~ }

@@ -15,5 +15,7 @@ class SectionForm extends BaseSectionForm
   	unset(
   			$this['anlage_id'],$this['lnr']
   	);
+  	
+  	$this->embedRelation('Bild');
   }
 }

@@ -76,35 +76,22 @@
       <th>Tip:</th>
       <td><textarea cols="40" rows="4"><?php echo $section->getTip() ?></textarea></td>
     </tr>
-     <?php endforeach; ?>
-  </tbody>
-</table>
-
-</div></div>
-
-<?php if ($anlage->getBilder()->count() > 0) : ?>
-<div class="msg_list">
-<p class="msg_head"><?php echo __('ANLAGE BILDER') ?></p>
-<div class="msg_content">
-
-<table>
-  <tbody>
-    <?php foreach ($anlage->getBilder() as $i => $bild): ?>
+    <?php if ($section->getBild() != null ) : ?>
     <tr>
-      <th><?php echo $i+1 ?>. Bild:</th>
-      <td><img style="height:100px" src="<?php echo '/'.basename(sfConfig::get('sf_upload_dir')).'/bilder/'.$bild->getPath() ?>" />
+      <th>Bild:</th>
+      <td><img style="height:100px" src="<?php echo '/'.basename(sfConfig::get('sf_upload_dir')).'/bilder/'.$section->getBild()->getPath() ?>" />
       </td>
     </tr>
     <tr>
       <th>Beschriftung:</th>
-      <td><textarea cols="40" rows="4"><?php echo $bild->getCaption() ?></textarea></td>
+      <td><textarea cols="40" rows="4"><?php echo $section->getBild()->getCaption() ?></textarea></td>
     </tr>
-    <?php endforeach; ?>
-</tbody>
+    <?php endif; ?>
+    <?php endforeach; ?>    
+  </tbody>
 </table>
 
 </div></div>
-<?php endif; ?>
 
 <?php if ($anlage->getAnhaenge()->count() > 0) : ?>
 <div class="msg_list">

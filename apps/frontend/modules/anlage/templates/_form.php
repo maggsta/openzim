@@ -34,29 +34,14 @@
       <?php foreach ($form['Sections'] as $nr => $section): ?>
       	<tr><td></td><td><?php echo $nr+1 . ". Abschnitt" ?></td></tr>
      	<?php echo $section['inhalt']->renderRow() ?>
-      	<?php echo $section['tip']->renderRow() ?>   
+      	<?php echo $section['tip']->renderRow() ?>
+      	<?php echo $section['Bild']['path']->renderRow(array('width' => 100)) ?>
+        <?php echo $section['Bild']['caption']->renderRow() ?>
       <?php endforeach; ?>
       <tr><td></td><td>Neuer Abschnitt</td></tr>
       <?php foreach ($form['neueSections'] as $section): ?>
           <?php echo $section['inhalt']->renderRow() ?>
-          <?php echo $section['tip']->renderRow() ?>
-      <?php endforeach; ?>
-    </tbody>
-  </table>  
-</div></div>
-
-<div class="msg_list">
-<p class="msg_head"><?php echo __('ANLAGE BILDER') ?></p>
-<div class="msg_content">
-<table>
-    <tbody>
-      <?php foreach ($form['Bilder'] as $bild): ?>
-          <?php echo $bild['path']->renderRow(array('width' => 100)) ?>
-          <?php echo $bild['caption']->renderRow() ?>
-      <?php endforeach; ?>
-      <?php foreach ($form['neueBilder'] as $bild): ?>
-          <?php echo $bild['path']->renderRow() ?>
-          <?php echo $bild['caption']->renderRow() ?>
+          <?php echo $section['tip']->renderRow() ?>         
       <?php endforeach; ?>
     </tbody>
   </table>  

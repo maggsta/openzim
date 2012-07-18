@@ -18,7 +18,6 @@
  * @property integer $lnr
  * @property Stunde $Stunde
  * @property Doctrine_Collection $Sections
- * @property Doctrine_Collection $Bilder
  * @property Doctrine_Collection $Anhaenge
  * 
  * @method string              getLongname()   Returns the current record's "longname" value
@@ -34,7 +33,6 @@
  * @method integer             getLnr()        Returns the current record's "lnr" value
  * @method Stunde              getStunde()     Returns the current record's "Stunde" value
  * @method Doctrine_Collection getSections()   Returns the current record's "Sections" collection
- * @method Doctrine_Collection getBilder()     Returns the current record's "Bilder" collection
  * @method Doctrine_Collection getAnhaenge()   Returns the current record's "Anhaenge" collection
  * @method Anlage              setLongname()   Sets the current record's "longname" value
  * @method Anlage              setKuerzel()    Sets the current record's "kuerzel" value
@@ -49,7 +47,6 @@
  * @method Anlage              setLnr()        Sets the current record's "lnr" value
  * @method Anlage              setStunde()     Sets the current record's "Stunde" value
  * @method Anlage              setSections()   Sets the current record's "Sections" collection
- * @method Anlage              setBilder()     Sets the current record's "Bilder" collection
  * @method Anlage              setAnhaenge()   Sets the current record's "Anhaenge" collection
  * 
  * @package    openZIM
@@ -115,10 +112,6 @@ abstract class BaseAnlage extends sfDoctrineRecord
              'foreign' => 'id'));
 
         $this->hasMany('Section as Sections', array(
-             'local' => 'id',
-             'foreign' => 'anlage_id'));
-
-        $this->hasMany('Bild as Bilder', array(
              'local' => 'id',
              'foreign' => 'anlage_id'));
 

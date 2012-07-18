@@ -30,7 +30,7 @@ class SectionValidatorSchema extends sfValidatorSchema
       }
  
       // no inhalt and no tip, remove the empty values
-      if (!$value['inhalt'] && !$value['tip'])
+      if (!$value['inhalt'] && !$value['tip'] && !isset($value['Bild']))
       {
         unset($values[$key]);
       }

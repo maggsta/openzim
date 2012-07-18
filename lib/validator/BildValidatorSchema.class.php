@@ -18,10 +18,12 @@ class BildValidatorSchema extends sfValidatorSchema
   {
     $errorSchema = new sfValidatorErrorSchema($this);
  
-    foreach($values as $key => $value)
-    {
+    $key = 'Bild';
+    $value = $values['Bild'];
+   
       $errorSchemaLocal = new sfValidatorErrorSchema($this);
  
+      error_log("Bild validation:".$value['path'] .":". $value['caption']);
       // caption is filled but no path
       if ($value['caption'] && !$value['path'])
       {
@@ -40,7 +42,6 @@ class BildValidatorSchema extends sfValidatorSchema
       {
         $errorSchema->addError($errorSchemaLocal, (string) $key);
       }
-    }
  
     // throws the error for the main form
     if (count($errorSchema))

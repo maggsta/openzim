@@ -14,7 +14,7 @@ class Section extends BaseSection
 {
 	public function save(Doctrine_Connection $conn = null)
 	{
-		if ( !$this->getInhalt() && !$this->getTip() ) {
+		if ( !$this->getInhalt() && !$this->getTip() && !$this->getBild() ) {
 			$this->delete();
 		}
 		else {

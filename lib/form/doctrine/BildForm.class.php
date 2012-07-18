@@ -13,7 +13,7 @@ class BildForm extends BaseBildForm
   public function configure()
   { 
     unset(
-      $this['anlage_id'],$this['lnr'],$this['name'] 
+      $this['section_id'],$this['name'] 
     );
 
     $this->validatorSchema['path'] = new sfValidatorFile(array(
@@ -27,8 +27,7 @@ class BildForm extends BaseBildForm
         'edit_mode'   => !$this->isNew(),
         'is_image'    => true,
         'with_delete' => !$this->isNew(),
-	'label'     => $this->isNew() ? 'Bild hinzufügen' : 
-		$this->getObject()->getLnr().'. Bild',
+		'label'       => $this->isNew() ? 'Bild hinzufügen' : 'Bild',
     ));
 
     $this->validatorSchema['path_delete'] = new sfValidatorPass();

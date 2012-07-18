@@ -18,14 +18,6 @@ class AnlageEditForm extends AnlageForm
       $this['lnr'],$this['stunde_id']     
     );
     $this->widgetSchema->setLabel('longname', 'Name');
-    $form = new BildCollectionForm(null, array(
-       'anlage' => $this->getObject(),
-       'size'    => 1,
-       'label' => 'Bilder hinzufügen',
-     ));
- 
-    $this->embedRelation('Bilder');
-    $this->embedForm('neueBilder', $form);
 
     $form = new SectionCollectionForm(null, array(
     		'anlage' => $this->getObject(),
@@ -48,15 +40,6 @@ class AnlageEditForm extends AnlageForm
   {
      if (null === $forms)
      {
-        $bilder = $this->getValue('neueBilder');
-        $forms = $this->embeddedForms;
-        foreach ($this->embeddedForms['neueBilder'] as $name => $form)
-        {
-          if (!isset($bilder[$name]))
-          {
-            unset($forms['neueBilder'][$name]);
-          }
-        }
         $sections = $this->getValue('neueSections');
         foreach ($this->embeddedForms['neueSections'] as $name => $form)
         {

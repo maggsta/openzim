@@ -54,11 +54,17 @@ Anlage:
       Vorbereitetes Pinnwandpapier mit „Netzwerk für Demokratie und Courage„
       Überschrift
       laminierte Karten
-    kofferinfo: Ich packe meinen Koffer und nehme mit: Meinen Laptop und einen UMTS Stick
+    kofferinfo: Ich packe meinen Koffer und nehme mit: Meinen Laptop und einen UMTS Stick    
+    kurzinhalt: Projektvorstellung NDC    
+    rolle_tm: kurz und knackig bleiben
+
+Section:
+   Section1:
+    Anlage: E02
+    lnr: 1
     tip: |
       Locker, fluffig mitreißend erzählen. Fremdworte von der Klasse erklären
       lassen, wenn möglich.
-    kurzinhalt: Projektvorstellung NDC
     inhalt: |
       1.„Das Netzwerk für Demokratie und Courage ist ein großes Projekt, indem alle
       Beteiligten eines gemeinsam haben, das sind die Ziele“ Zielscheibe anpinnen
@@ -83,7 +89,6 @@ Anlage:
       6.„Da wir ein Beteiligungsprojekt sind, könnt ihr auch gern bei uns mitmachen,
       dafür schaut einfach mal auf unserer Website vorbei.“ Karte mit Webadresse
       anpinnen
-    rolle_tm: kurz und knackig bleiben
 
 <?php /* ?>
 <?php for ($i = 100; $i <= 130; $i++): ?>
