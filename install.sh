@@ -2,7 +2,7 @@
 
 USERNAME=$USER
 GROUPNAME=$GROUPS
-WWWUSER=`grep www /etc/passwd | cut -d : -f 1 | grep www`
+WWWUSER=$(ps axho user,comm|grep -E "httpd|apache"|uniq|grep -v "root"|awk 'END {if ($1) print $1}')
 
 sudo chown -R ${USERNAME}:${GROUPNAME} .
 php symfony doctrine:insert-sql 
