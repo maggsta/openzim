@@ -84,6 +84,24 @@ anlage_remove_stunde:
     id: \d+
     sf_method: [get]
 
+anlage_remove_section:
+  url:     /anlage/:id/removeSection
+  class:   sfDoctrineRoute
+  options: { model: Section, type: object }
+  param:   { module: anlage, action: removeSection }
+  requirements:
+    id: \d+
+    sf_method: [get]
+    
+anlage_add_section:
+  url:     /anlage/:id/addSection
+  class:   sfDoctrineRoute
+  options: { model: Anlage, type: object }
+  param:   { module: anlage, action: addSection }
+  requirements:
+    id: \d+
+    sf_method: [get]
+    
 change_language:
   url:   /change_language
   param: { module: language, action: changeLanguage }

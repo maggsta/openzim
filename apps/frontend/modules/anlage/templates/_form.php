@@ -32,19 +32,25 @@
     <tbody>
       <?php echo $form['kurzinhalt']->renderRow() ?>
       <?php foreach ($form['Sections'] as $nr => $section): ?>
-      	<tr><td></td><td><?php echo $nr+1 . ". Abschnitt" ?></td></tr>
+      	<tr>
+      		<td><?php echo $nr+1 . ". Abschnitt" ?></td>
+      		<td><?php echo link_to('Abschnitt löschen',
+			'anlage/removeSection?id='.$section['id']->getValue(),
+			array('class' => 'removeSection') ) ?></td>
+      	</tr>
      	<?php echo $section['inhalt']->renderRow() ?>
       	<?php echo $section['tip']->renderRow() ?>
       	<?php echo $section['Bild']['path']->renderRow(array('width' => 100)) ?>
         <?php echo $section['Bild']['caption']->renderRow() ?>
       <?php endforeach; ?>
-      <tr><td></td><td>Neuer Abschnitt</td></tr>
-      <?php foreach ($form['neueSections'] as $section): ?>
-          <?php echo $section['inhalt']->renderRow() ?>
-          <?php echo $section['tip']->renderRow() ?>         
-      <?php endforeach; ?>
+      <tr>
+      		<td>Neuer Abschnitt</td>
+      		<td><?php echo link_to('Abschnitt hinzufügen',
+			'anlage/addSection?id='. $form->getObject()->getId(),
+			array('class' => 'addSection') ) ?></td>
+      	</tr>
     </tbody>
-  </table>  
+  </table>
 </div></div>
 
 <div class="msg_list">

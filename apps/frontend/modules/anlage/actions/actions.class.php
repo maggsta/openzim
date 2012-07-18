@@ -120,6 +120,24 @@ class anlageActions extends sfActions {
 		$this->redirect($this->generateUrl('zim_edit', $zim));
 	}
 
+	public function executeRemoveSection(sfWebRequest $request) {
+		$section = $this->getRoute()->getObject();
+		$this->forward404Unless($this->validateUser($section->getAnlage()));
+		$section->delete();
+
+		$this->redirect($this->generateUrl('anlage_edit', $section->getAnlage()));
+	}
+
+	public function executeAddSection(sfWebRequest $request) {
+		$anlage = $this->getRoute()->getObject();
+		$this->forward404Unless($this->validateUser($anlage));
+		$section = new Section();
+		$section->setAnlage($anlage);;
+		$section->save();
+	
+		$this->redirect($this->generateUrl('anlage_edit', $anlage));
+	}
+
 	private function initPager(sfWebRequest $request, $query) {
 		$this->pager = new sfDoctrinePager('Anlage',
 				sfConfig::get('app_max_anlagen'));

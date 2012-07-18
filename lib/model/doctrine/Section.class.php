@@ -14,19 +14,14 @@ class Section extends BaseSection
 {
 	public function save(Doctrine_Connection $conn = null)
 	{
-		if ( !$this->getInhalt() && !$this->getTip() && !$this->getBild() ) {
-			$this->delete();
+		if ($this->isNew() && !$this->getLnr()){
+			$this->setLnr($this->getAnlage()->
+					getSections()->count() + 1);
 		}
-		else {
-			if ($this->isNew() && !$this->getLnr()){
-				$this->setLnr($this->getAnlage()->
-						getSections()->count() + 1);
-			}
-	
-			$ret = parent::save($conn);
-			$this->getAnlage()->updateLuceneIndex();
-			return $ret;
-		}
+
+		$ret = parent::save($conn);
+		$this->getAnlage()->updateLuceneIndex();
+		return $ret;
 	}
 	
 	public function delete(Doctrine_Connection $conn = null)
