@@ -15,10 +15,13 @@ require_once(dirname(__FILE__).'/../../htmlconverter/library/htmlConverter.php')
  */
 class Anlage extends BaseAnlage
 {
+	private $sections = null;
 
 	public function getSections()
 	{
-		return SectionTable::getSectionsSorted($this->getId());
+		if ( $this->sections == null )
+			$this->sections = SectionTable::getSectionsSorted($this->getId());
+		return $this->sections;
 	}
 
 	public function save(Doctrine_Connection $conn = null)
