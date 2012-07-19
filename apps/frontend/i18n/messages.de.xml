@@ -14,7 +14,7 @@
       </trans-unit>
       <trans-unit id="4">
         <source>User</source>
-        <target>Benutzer</target>
+        <target>Benutzer_in</target>
       </trans-unit>
       <trans-unit id="5">
         <source>Logout</source>
@@ -73,8 +73,8 @@
         <target/>
       </trans-unit>
       <trans-unit id="20">
-        <source>Benutzer Liste</source>
-        <target/>
+        <source>User List</source>
+        <target>Benutzer_innen Liste</target>
       </trans-unit>
       <trans-unit id="21">
         <source>Back to List</source>
@@ -110,7 +110,7 @@
       </trans-unit>
       <trans-unit id="29">
         <source>Edit User</source>
-        <target>Benutzer bearbeiten</target>
+        <target>Benutzer_in bearbeiten</target>
       </trans-unit>
       <trans-unit id="30">
         <source>Tools</source>

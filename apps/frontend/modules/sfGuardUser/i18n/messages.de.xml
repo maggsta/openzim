@@ -6,7 +6,7 @@
     <body>
       <trans-unit id="1">
         <source>Username</source>
-        <target>Benutzer</target>
+        <target>Benutzer_in</target>
       </trans-unit>
       <trans-unit id="2">
         <source>Created at</source>
@@ -46,7 +46,7 @@
       </trans-unit>
       <trans-unit id="10">
         <source>New User</source>
-        <target>Neuer Benutzer</target>
+        <target>Neue/r Benutzer_in</target>
       </trans-unit>
     </body>
   </file>

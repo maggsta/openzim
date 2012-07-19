@@ -6,7 +6,7 @@
 </div>
 
 <div id="sf_admin_container">
-  <h1><?php echo __('Benutzer Liste', array(), 'messages') ?></h1>
+  <h1><?php echo __('User List', array(), 'messages') ?></h1>
 
   <div id="sf_admin_header">
     <?php include_partial('sfGuardUser/list_header', array('pager' => $pager)) ?>
