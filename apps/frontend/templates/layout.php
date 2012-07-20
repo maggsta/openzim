@@ -52,6 +52,22 @@
         <div class="content">
           <?php echo $sf_content ?>
         </div>
+
+	<div id="page-wrap">
+
+        <h2 id="chat">oZchat</h2>
+
+        <p id="name-area"></p>
+
+        <div id="chat-wrap"><div id="chat-area"></div></div>
+
+        <form id="send-message-area">
+            <p>Your message: </p>
+            <textarea id="sendie" maxlength = '100' ></textarea>
+        </form>
+
+    </div>
+
       </div>
  
       <div id="footer">

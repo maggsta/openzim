@@ -12,9 +12,9 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main, users, print: { media: print }]
+  stylesheets:    [main, users, print: { media: print }, chat]
 
-  javascripts:    [jquery: { position: first }]
+  javascripts:    [jquery: { position: first }, chat, chat_init]
 
   has_layout:     true
   layout:         layout

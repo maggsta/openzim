@@ -52,7 +52,7 @@ var openZIMtinyMce = {
 
 	setup : function () {
 	  var self = this;		
-	  $('textarea').each(function(){
+	  $('textarea:not(#sendie)').each(function(){
 		var config = self.config;
 		if ( $(this).hasClass('nonumbering'))
 			config = $.extend({},self.config,self.configNoNumbering);

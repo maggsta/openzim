@@ -52,6 +52,40 @@ function initExpander()
   });
 }
 
+function updateExpander()
+{
+  $(".msg_content").hide();
+  if ( ! $.cookies.test() ){
+    $(".msg_content:first").slideToggle(600,callback);
+  }else{
+     $(".msg_content").each(function()
+     {
+        var pos = $(".msg_content").index(this);
+        var key = location.pathname+'/'+ pos;
+        var display = $.cookies.get(key);
+        if ( display == null ){
+                if ( pos == 0 ){
+                        $(this).slideToggle(600,function(){
+                                $(this).parent().children('.msg_head').css('background-image','url("' + baseUrl() +  '/images/div_opened.png")');
+                                $.cookies.set(key, $(this).css('display'));
+                        });
+                } else {
+                        $(this).parent().children('.msg_head').css('background-image','url("' + baseUrl() +  '/images/div_closed.png")');
+                        $.cookies.set(key, $(this).css('display'));
+                }
+        }else{
+                if ( display != 'none' ) {
+                        $(this).parent().children('.msg_head').css('background-image','url("' + baseUrl() +  '/images/div_opened.png")');
+                        $(this).show();
+                } else {
+                        $(this).parent().children('.msg_head').css('background-image','url("' + baseUrl() +  '/images/div_closed.png")');
+                }
+        }
+
+     });
+  }
+}
+
 function baseUrl() {
    var href = window.location.href.split('/');
    return href[0]+'//'+href[2]+'/';
@@ -59,10 +93,12 @@ function baseUrl() {
 
 $(document).ready(function()
 {
-  initExpander(); 
-  $(document).ajaxComplete(function()
+  initExpander();
+  $(document).ajaxComplete(function(e, xhr, settings)
   {
-    initExpander();
+	console.log("> " + settings.url);
+	if (settings.url != baseUrl() + "ozchat/process.php") {
+    		initExpander();
+	}
   });
-
 });
