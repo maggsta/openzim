@@ -22,8 +22,11 @@ class FilterZimForm extends BaseForm
 				$choices[$zim->getId()] = $zim;
 		}
 
-		if ( count($choices) <= 1 )
+		if ( count($choices) <= 1 ) {
+			$this->setDefault('zim', null);
+			$this->setWidget('zim', new sfWidgetFormInputHidden());
 			return;
+		}
 
 		$choices[null] = 'Alle';
 		$this->setWidgets(array(

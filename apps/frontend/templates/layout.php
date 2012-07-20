@@ -5,17 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title><?php include_slot('title', '-= openZIM =-') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
-    <?php use_javascript('jquery-1.4.2.min.js') ?>
-    <?php use_javascript('tiny_mce/tiny_mce_gzip.js') ?>
-    <?php use_javascript('jquery.cookies.2.2.0.min.js') ?>
-    <?php use_javascript('tinymce_gz.js') ?> 
-    <?php use_javascript('tinymce.js') ?>
-    <?php use_javascript('search.js') ?>
-    <?php use_javascript('ajaxformsave.js') ?>
-    <?php use_javascript('paginate.js') ?>
-    <?php use_javascript('expander.js') ?>
     <?php use_javascript('autosubmit.js') ?>
-    <?php use_javascript('zimremoveanlage.js') ?>
     <?php include_javascripts() ?>
     <?php include_stylesheets() ?>
   </head>
