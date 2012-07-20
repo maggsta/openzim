@@ -1,6 +1,6 @@
 <?php 
 if(count($anlagen) == 0) {
-	echo 'no results';
+	echo __('No attachments found');
 }
 else { ?>   
 
