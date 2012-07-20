@@ -5,7 +5,7 @@ var openZIMtinyMce = {
 		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,outdent,indent,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
 	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
-	        plugins: "autosave, tinyautosave, paste,fullscreen",
+	        plugins: "autosave, tinyautosave, paste,fullscreen, lists",
 		tinyautosave_retention_minutes : 1440,
 		tinyautosave_minlength : 10,
 		paste_auto_cleanup_on_paste : true,
