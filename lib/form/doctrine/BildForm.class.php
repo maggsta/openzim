@@ -16,6 +16,7 @@ class BildForm extends BaseBildForm
       $this['section_id'],$this['name'] 
     );
 
+    $this->widgetSchema->setLabel('caption', 'Beschriftung');
     $this->validatorSchema['path'] = new sfValidatorFile(array(
       'required'   => false,
       'path'       => sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder',
@@ -27,6 +28,7 @@ class BildForm extends BaseBildForm
         'edit_mode'   => !$this->isNew(),
         'is_image'    => true,
         'with_delete' => !$this->isNew(),
+    	'delete_label'=> 'Bild entfernen',
 		'label'       => $this->isNew() ? 'Bild hinzufügen' : 'Bild',
     ));
 
