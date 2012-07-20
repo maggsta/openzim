@@ -1,16 +1,4 @@
 
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-		tinyMCE.init({
-		mode : "textareas",
-		theme : "advanced",
-		readonly : true,
-		width : "100%"
-		});
-	});
-</script>
-
 <?php include_partial('global/showlinks', array('object' => $anlage,'name' => 'anlage')) ?>
 
 <div class="msg_list">
@@ -33,23 +21,23 @@
     </tr>
     <tr>
       <th>Ziel:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getZiel() ?></textarea></td>
+      <td><?php echo $anlage->getZiel(ESC_RAW) ?></td>
     </tr>
     <tr>
       <th>Methode:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getMethode() ?></textarea></td>
+      <td><?php echo $anlage->getMethode(ESC_RAW) ?></td>
     </tr>
     <tr>
       <th>Rolle tm:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getRolleTm() ?></textarea></td>
+      <td><?php echo $anlage->getRolleTm(ESC_RAW) ?></td>
     </tr>
     <tr>
       <th>Material:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getMaterial() ?></textarea></td>
+      <td><?php echo $anlage->getMaterial(ESC_RAW) ?></td>
     </tr>
     <tr>
       <th>Kofferinfo:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getKofferinfo() ?></textarea></td>
+      <td><?php echo $anlage->getKofferinfo(ESC_RAW) ?></td>
     </tr>
 
 </tbody>
@@ -65,16 +53,16 @@
   <tbody>   
     <tr>
       <th>Kurzinhalt:</th>
-      <td><textarea cols="40" rows="4"><?php echo $anlage->getKurzinhalt() ?></textarea></td>
+      <td><?php echo $anlage->getKurzinhalt(ESC_RAW) ?></td>
     </tr>
      <?php foreach ($anlage->getSections() as $i => $section): ?>
      <tr>
       <th>Inhalt:</th>
-      <td><textarea style="height:300px" cols="40" rows="4"><?php echo $section->getInhalt() ?></textarea></td>
+      <td><?php echo $section->getInhalt(ESC_RAW) ?></td>
     </tr>
      <tr>
       <th>Tip:</th>
-      <td><textarea cols="40" rows="4"><?php echo $section->getTip() ?></textarea></td>
+      <td><?php echo $section->getTip(ESC_RAW) ?></td>
     </tr>
     <?php if ($section->getBild() != null ) : ?>
     <tr>
@@ -84,7 +72,7 @@
     </tr>
     <tr>
       <th>Beschriftung:</th>
-      <td><textarea cols="40" rows="4"><?php echo $section->getBild()->getCaption() ?></textarea></td>
+      <td><?php echo $section->getBild()->getCaption(ESC_RAW) ?></td>
     </tr>
     <?php endif; ?>
     <?php endforeach; ?>    

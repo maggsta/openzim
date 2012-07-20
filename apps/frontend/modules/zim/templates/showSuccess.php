@@ -1,14 +1,3 @@
-<script type="text/javascript">
-	$(document).ready(function()
-	{
-		tinyMCE.init({
-		mode : "exact",
-		theme : "advanced",
-		elements : "ziele_content,rf_content",
-		readonly : true
-		});
-	});
-</script>
 
 <h1><?php echo $zim ?></h1>
 
