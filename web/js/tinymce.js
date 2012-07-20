@@ -14,6 +14,7 @@ var openZIMtinyMce = {
 		theme_advanced_resize_horizontal : false,
 		theme_advanced_path : false,
 		cleanup_on_startup : true,
+		mode: "none",
 //		theme_advanced_statusbar_location : "bottom",
 		paste_preprocess : function(pl, o) {
         		o.content = o.content.replace(/&nbsp;/gi, ' '); 
@@ -41,10 +42,12 @@ var openZIMtinyMce = {
 
 	customAddEditor : function ( config, elmID ) {
 
-    		// create a new instance from calling element
-		e = new tinymce.Editor(elmID, config );
-		e.render();
-		tinyMCE.add(e);
+    	// create a new instance of tiny mce
+		if (tinymce.get(elmID)) {
+			tinymce.EditorManager.execCommand('mceRemoveControl',true, elmID);
+		}
+		tinyMCE.settings = config;
+		tinyMCE.execCommand('mceAddControl', true, elmID);
 	},
 
 	setup : function () {
@@ -53,6 +56,7 @@ var openZIMtinyMce = {
 		var config = self.config;
 		if ( $(this).hasClass('nonumbering'))
 			config = $.extend({},self.config,self.configNoNumbering);
+
 		self.customAddEditor(config, this.id); 
 	  });
 	} 

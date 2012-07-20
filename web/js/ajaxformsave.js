@@ -44,18 +44,36 @@ var openZIMformsave = {
 	  var self = this;
 	  self.cancel();
 	  self.timeoutID = window.setTimeout(function(){
-	  			$('#ajax_form').submit();
-			   }, self.autosave);
+		  $('#ajax_form').submit();
+	  }, self.autosave);
+	},
+
+	setSaveEvent: function(elem){
+		elem.keypress(function(event){
+			if ((event.which == 115 && event.ctrlKey)){
+				$('#ajax_form').submit();
+				return false;
+			}
+		});
 	},
 
 	setup: function() {
 	  var self = this;
 	  self.setTimeout();
-	  $('#ajax_form').submit(function()
-  	  {
+	  $('#ajax_form').submit(function() {
 		self.setTimeout();
 		return self.doSave();
 	  });
+
+	  // bind ctrl+s to tiny mces
+	  tinyMCE.onAddEditor.add(function(mgr,ed) {
+		  ed.onInit.add(function(ed) {
+			  self.setSaveEvent($(ed.getDoc()));
+		  });
+	  });
+
+	  // bind ctrl+s to the document
+	  this.setSaveEvent($(document));
 	}
 }
 

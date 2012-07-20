@@ -20,7 +20,7 @@ default:
   layout:         layout
 
 editSuccess:
-  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, ajaxformsave, tinymce_gz, tinymce]
+  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave]
   
 showSuccess:
   javascripts:      [jquery.cookies.js, expander]
