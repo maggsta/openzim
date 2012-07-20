@@ -80,6 +80,7 @@ class zimActions extends sfActions
   {
     $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
+    $this->getResponse()->addJavaScript('zimremoveanlage');
   }
 
   public function executeUpdate(sfWebRequest $request)
