@@ -136,10 +136,8 @@
 
 					// Auto save contents each interval time
 					setInterval(function() {
-						if (!ed.removed) {
-							self.storeDraft();
-							ed.nodeChanged();
-						}
+						self.storeDraft();
+						ed.nodeChanged();
 					}, settings.autosave_interval);
 				}
 			});
@@ -259,24 +257,15 @@
 
 								userDataElement.setAttribute(key, value);
 								userDataElement.expires = self.getExpDate();
-
-								try {
-									userDataElement.save("TinyMCE");
-								} catch (e) {
-									// Ignore, saving might fail if "Userdata Persistence" is disabled in IE
-								}
+								userDataElement.save("TinyMCE");
 							},
 
 							getItem : function(key) {
 								var userDataElement = ed.getElement();
 
-								try {
-									userDataElement.load("TinyMCE");
-									return userDataElement.getAttribute(key);
-								} catch (e) {
-									// Ignore, loading might fail if "Userdata Persistence" is disabled in IE
-									return null;
-								}
+								userDataElement.load("TinyMCE");
+
+								return userDataElement.getAttribute(key);
 							},
 
 							removeItem : function(key) {
@@ -337,7 +326,7 @@
 		 * @method restoreDraft
 		 */
 		restoreDraft : function() {
-			var self = this, storage = self.storage, content;
+			var self = this, storage = self.storage;
 
 			if (storage) {
 				content = storage.getItem(self.key);

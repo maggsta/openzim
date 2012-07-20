@@ -16,7 +16,7 @@ function onLoadInit() {
 	document.getElementById('htmlSource').value = tinyMCEPopup.editor.getContent({source_view : true});
 
 	if (tinyMCEPopup.editor.getParam("theme_advanced_source_editor_wrap", true)) {
-		turnWrapOn();
+		setWrap('soft');
 		document.getElementById('wraped').checked = true;
 	}
 
@@ -37,42 +37,26 @@ function setWrap(val) {
 	}
 }
 
-function setWhiteSpaceCss(value) {
-	var el = document.getElementById('htmlSource');
-	tinymce.DOM.setStyle(el, 'white-space', value);
-}
-
-function turnWrapOff() {
-	if (tinymce.isWebKit) {
-		setWhiteSpaceCss('pre');
-	} else {
-		setWrap('off');
-	}
-}
-
-function turnWrapOn() {
-	if (tinymce.isWebKit) {
-		setWhiteSpaceCss('pre-wrap');
-	} else {
-		setWrap('soft');
-	}
-}
-
 function toggleWordWrap(elm) {
-	if (elm.checked) {
-		turnWrapOn();
-	} else {
-		turnWrapOff();
-	}
+	if (elm.checked)
+		setWrap('soft');
+	else
+		setWrap('off');
 }
+
+var wHeight=0, wWidth=0, owHeight=0, owWidth=0;
 
 function resizeInputs() {
-	var vp = tinyMCEPopup.dom.getViewPort(window), el;
+	var el = document.getElementById('htmlSource');
 
-	el = document.getElementById('htmlSource');
-
-	if (el) {
-		el.style.width = (vp.w - 20) + 'px';
-		el.style.height = (vp.h - 65) + 'px';
+	if (!tinymce.isIE) {
+		 wHeight = self.innerHeight - 65;
+		 wWidth = self.innerWidth - 16;
+	} else {
+		 wHeight = document.body.clientHeight - 70;
+		 wWidth = document.body.clientWidth - 16;
 	}
+
+	el.style.height = Math.abs(wHeight) + 'px';
+	el.style.width  = Math.abs(wWidth) + 'px';
 }
