@@ -576,6 +576,7 @@ tr.anlage_zim th
 select#zim {
   width: 200px;
   height: 46px;
+  vertical-align: top;
 }
 
 label[for=zim] {
