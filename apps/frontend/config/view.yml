@@ -23,7 +23,7 @@ editSuccess:
   javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, ajaxformsave, tinymce_gz, tinymce]
   
 showSuccess:
-  javascripts:      [jquery.cookies, expander]
+  javascripts:      [jquery.cookies.js, expander]
 
 indexSuccess:
   javascripts:      [paginate]
