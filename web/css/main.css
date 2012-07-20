@@ -106,7 +106,7 @@ body
   line-height: 1.5em;
   margin-bottom: 3px;
   margin-left: 0px;
-  width: 579px;
+  width: 470px;
   height: 27px;
   border: 0;
   background: url(../images/search-box.jpg);
@@ -578,3 +578,18 @@ tr.anlage_zim th
 {
   padding-left: 10px;
 }
+
+select#zim {
+  width: 200px;
+  height: 46px;
+}
+
+label[for=zim] {
+	display: none;
+}
+
+input#search_submit {
+	height: 46px;
+	width: 46px;
+}
+
