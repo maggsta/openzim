@@ -14,16 +14,16 @@ default:
 
   stylesheets:    [main, users, print: { media: print }]
 
-  javascripts:    [jquery-1.4.2.min: { position: first }]
+  javascripts:    [jquery: { position: first }]
 
   has_layout:     true
   layout:         layout
 
 editSuccess:
-  javascripts:      [jquery.cookies.2.2.0.min, expander, tiny_mce/tiny_mce_gzip, ajaxformsave, tinymce_gz, tinymce]
+  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, ajaxformsave, tinymce_gz, tinymce]
   
 showSuccess:
-  javascripts:      [jquery.cookies.2.2.0.min, expander]
+  javascripts:      [jquery.cookies, expander]
 
 indexSuccess:
   javascripts:      [paginate]
