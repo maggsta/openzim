@@ -1,4 +1,4 @@
-h2#chat                         { color: #fa9f00; font: 30px Helvetica, Sans-Serif; margin: 0 0 10px 0; }
+h2#chat                         { color: #fa9f00; font: 14px Helvetica, Sans-Serif; margin: 0 0 10px 0; }
 #page-wrap                      { width: 300px; float: right; right: 20px; position: relative; background: #FFF; z-index: 10000;}
 
 #chat-wrap                      { border: 1px solid #eee; margin: 0 0 15px 0; }
