@@ -1,1 +1,0 @@
-More information about how to use and install this compressor can be found at the TinyMCE Web Site at: http://tinymce.moxiecode.com
