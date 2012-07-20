@@ -179,6 +179,7 @@ body
   font-size: 124%;
   text-transform: uppercase;
   background: #777; 
+  background: url(../images/bg-header.jpg) repeat-x top;
   line-height: 32px;
   color: #fff;
 }
@@ -559,19 +560,12 @@ tr.anlage_zim
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 0px 15px;
-  font-size: 124%;
   text-transform: uppercase;
   background: #CCC;
+  background: url(../images/bg-header.jpg) repeat-x top;
   line-height: 32px;
   color: #fff;
-  text-shadow: #000 3px 3px 5px;
-}
-
-tr.anlage_zim:hover
-{
-  text-shadow: #000 3px 3px 5px;
-  background: #CCC;
-  color: #fff;
+  text-shadow: #000 2px 2px 2px;
 }
 
 tr.anlage_zim th
