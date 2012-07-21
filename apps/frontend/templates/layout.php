@@ -53,7 +53,9 @@
           <?php echo $sf_content ?>
         </div>
 
-	<div id="page-wrap">
+	<div id="show-chat">show chat</div>
+	
+    <div id="page-wrap">
 
         <h2 id="chat">oZchat</h2>
 
@@ -65,6 +67,8 @@
             <p>Your message: </p>
             <textarea id="sendie" maxlength = '100' ></textarea>
         </form>
+
+	<div id="hide-chat">hide chat</div>
 
     </div>
 

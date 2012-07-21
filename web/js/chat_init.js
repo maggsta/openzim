@@ -2,7 +2,12 @@ var chat;
 var name;
 
 function initChat() {
-	name = getUser();//prompt("Enter your chat name:", "Guest");
+
+	name = $.cookies.get("chatuser");        
+	if(name == null) {
+        	name = prompt("Enter your chat name:", "Guest");
+                $.cookies.set("chatuser", name);        
+	}
 
 	// default name is 'Guest'
 	if (!name || name === ' ') {
@@ -50,10 +55,16 @@ function initChat() {
 		}
 	});
     
-}
+	$('#hide-chat').click(function() {
+                $('#page-wrap').toggle();
+                $('#show-chat').toggle();
+        });
 
-function getUser() {
-   return window.location.hostname;
+        $('#show-chat').click(function() {
+                $('#page-wrap').toggle();
+                $('#show-chat').toggle();
+        });
+
 }
 
 $(document).ready(function()
