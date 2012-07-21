@@ -58,7 +58,8 @@ var openZIMformsave = {
 
 	setSaveEvent: function(elem){
 		elem.keydown(function(event){
-			if ((String.fromCharCode(event.which).toLowerCase() == 's' && event.ctrlKey)){
+			if ((String.fromCharCode(event.which).toLowerCase() == 's' && event.ctrlKey) ||
+					(event.which == 19)){
 				$('#ajax_form').submit();
 				return false;
 			}
