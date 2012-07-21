@@ -1,5 +1,9 @@
 h2#chat                         { color: #fa9f00; font: 14px Helvetica, Sans-Serif; margin: 0 0 10px 0; }
-#page-wrap                      { width: 300px; float: right; right: 20px; position: relative; background: #FFF; z-index: 10000;}
+
+#page-wrap                      { display: none; width: 300px; float: right; right: 10px; bottom: 10px; position: fixed; background: #FFF; z-index: 10000;}
+#show-chat                      { float: right; right: 10px; bottom: 10px; position: fixed; z-index: 10000; width: 100px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
+
+#hide-chat                      { float: right; right: 10px; bottom: 10px; z-index: 10000; width: 100px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
 
 #chat-wrap                      { border: 1px solid #eee; margin: 0 0 15px 0; }
 #chat-area                      { height: 200px; overflow: auto; border: 1px solid #666; padding: 20px; background: white; }
