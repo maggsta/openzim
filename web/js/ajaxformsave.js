@@ -3,10 +3,18 @@
  * Date: 07.2010
  *
  */
-$(document).ready(function(){
 
 var openZIMformsave = {
-        autosave : 900000,
+    autosave : 900000,
+    
+    replaceForm: function(data) {
+    	openZIMtinyMce.removeEditors();
+    	$('#form_data').replaceWith($(data).find('#form_data'));
+    	// re-init tiny mces
+    	openZIMtinyMce.setup();
+    	// re init expanders
+    	openZIMExpander.init();
+    },
 	doSave: function() {
 	     var self = this;
       	 $('.form_loader').show();
@@ -22,17 +30,12 @@ var openZIMformsave = {
 	      tinyMCE.triggerSave();
 	      $.post( $('#ajax_form').attr('action') + '?random=' + Math.random()*99999,
 	    		  $('#ajax_form').serializeArray(), function(data) {
-	    	  		openZIMtinyMce.removeEditors();
-	    	  		$('#form_data').replaceWith($(data).find('#form_data'));
+	    	  		self.replaceForm(data);
+	    	  		$('.form_loader').hide();
 	    		  })
 	    		  .error(function() {
 	    			  self.ajaxError = true;
 	    			  $('#ajax_form').submit();
-	    		  })
-	    		  .success(function(){
-	    			// re-init tiny mces
-		    		openZIMtinyMce.setup();
-		    		$('.form_loader').hide();
 	    		  });
 
 	      return false;
@@ -82,6 +85,7 @@ var openZIMformsave = {
 	}
 }
 
+$(document).ready(function(){
 	openZIMformsave.setup();
 });
 

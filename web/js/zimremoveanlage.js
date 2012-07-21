@@ -17,10 +17,7 @@ var openZIMzimRemoveAnlage = {
 	      var loader = $(this).parent().next().find(".remove_loader");
 	      loader.show();
 	      $.get( url, function(data) {
-	    	  		  openZIMtinyMce.removeEditors();
-	    		  	  $('#form_data').replaceWith($(data).find('#form_data'));
-	    		  	  // re-init tiny mces
-	    		  	  openZIMtinyMce.setup();
+	    	  		  openZIMformsave.replaceForm(data);	    	  		  
 	    		  	  loader.hide();
 	    		  })
 	    		  .error(function() {
