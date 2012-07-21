@@ -20,10 +20,10 @@ default:
   layout:         layout
 
 editSuccess:
-  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave]
+  javascripts:      [expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave]
   
 showSuccess:
-  javascripts:      [jquery.cookies.js, expander]
+  javascripts:      [expander]
 
 indexSuccess:
   javascripts:      [paginate]

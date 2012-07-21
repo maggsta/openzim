@@ -4,36 +4,29 @@
  *
  */
 
+$(document).ready(function(){
+
 var openZIMzimRemoveAnlage = {
 
 	setup: function() {
-	  $(".removeAnlage").click(function()
-	  {
+	  $(document).on("click", ".removeAnlage", function() {
 	      if ( $.browser.msie )
-		return true;
+	    	  return true;
 
 	      var url = $(this).attr('href');
-	      $(this).parent().next().find(".remove_loader").show();
-	      $("#form_data").load(
-	        url + ' #form_data',
-	        function(response, status, xhr) {
-			if (status == "error") {
-				window.document.location = url;
-			}else
-		      		$(this).parent().next().find(".remove_loader").hide();
-		}
-	      );
+	      var loader = $(this).parent().next().find(".remove_loader");
+	      loader.show();
+	      $.get( url, function(data) {
+	    	  		  openZIMformsave.replaceForm(data);	    	  		  
+	    		  	  loader.hide();
+	    		  })
+	    		  .error(function() {
+	    			  window.document.location = url;
+	    		  });
 	      return false;
 	  });
 	}
 }
 
-$(document).ready(function()
-{
   openZIMzimRemoveAnlage.setup();
-
-  $(document).ajaxComplete(function()
-  {
-    openZIMzimRemoveAnlage.setup();
-  });
 });
