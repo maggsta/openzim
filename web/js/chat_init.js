@@ -4,7 +4,7 @@ var name;
 function initChat() {
 
 	name = $.cookies.get("chatuser");        
-	if(name == null) {
+	if(name == null || name === 'null') {
         	name = prompt("Enter your chat name:", "Guest");
                 $.cookies.set("chatuser", name);        
 	}
