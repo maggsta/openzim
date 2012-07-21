@@ -1,2 +1,2 @@
 indexSuccess:
-    javascripts:  [paginate,search]
+    javascripts:  [jquery.cookies.js, paginate, chat, chat_init, search]
