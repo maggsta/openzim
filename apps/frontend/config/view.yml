@@ -14,7 +14,7 @@ default:
 
   stylesheets:    [main, users, print: { media: print }, chat]
 
-  javascripts:    [jquery: { position: first }, jquery.cookies.js, chat, chat_init]
+  javascripts:    [jquery: { position: first }, chat, chat_init]
 
   has_layout:     true
   layout:         layout
