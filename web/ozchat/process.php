@@ -40,16 +40,8 @@
     	 case('send'):
 		$nickname = htmlentities(strip_tags($_POST['nickname']));
 		$reg_exUrl = "/(http|https|ftp|ftps)\:\/\/[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\/\S*)?/";
-		$message = htmlentities(strip_tags($_POST['message']));
+		$message = htmlentities(strip_tags($_POST['message']),ENT_QUOTES, "UTF-8");
 		
-		$message = str_replace("<", "&lt;", $message);
-		$message = str_replace(">", "&gt;", $message);
-		$message = strip_tags($message);
-		$message = htmlspecialchars($message, ENT_NOQUOTES);
-		$message = mysql_real_escape_string($message);
-		$message = str_replace(array('\\','\''),array('\\\\','\\\''),$message);
-		$message = "'".$message."'";
-
 		if(($message) != "\n"){
         	
 			if(preg_match($reg_exUrl, $message, $url)) {
