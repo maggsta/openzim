@@ -3,33 +3,38 @@
  * Date: 07.2010
  *
  */
+$(document).ready(function(){
 
 var openZIMformsave = {
         autosave : 900000,
 	doSave: function() {
 	     var self = this;
-      	     $('.form_loader').show();
+      	 $('.form_loader').show();
       
 	      // do not do ajax call if there are any
 	      // non-empty file inputs
 	      if ( self.ajaxError || $.browser.msie || 
 		   $("input:file[value|='']").length > 0 )
-		return true;
+	    	  return true;
 
 	      self.ajaxError = false;
 
-	      tinyMCE.triggerSave(); 
-	      $('#form_data').load(
-	        $('#ajax_form').attr('action') + '?random=' + Math.random()*99999 + ' #form_data',
-	        $('#ajax_form').serializeArray(),
-	         function(response, status, xhr) {
-			if (status == "error") {
-				self.ajaxError = true;
-	  			$('#ajax_form').submit();
-			}else
-				$('.form_loader').hide(); 
-		 }
-	      );
+	      tinyMCE.triggerSave();
+	      $.post( $('#ajax_form').attr('action') + '?random=' + Math.random()*99999,
+	    		  $('#ajax_form').serializeArray(), function(data) {
+	    	  		openZIMtinyMce.removeEditors();
+	    	  		$('#form_data').replaceWith($(data).find('#form_data'));
+	    		  })
+	    		  .error(function() {
+	    			  self.ajaxError = true;
+	    			  $('#ajax_form').submit();
+	    		  })
+	    		  .success(function(){
+	    			// re-init tiny mces
+		    		openZIMtinyMce.setup();
+		    		$('.form_loader').hide();
+	    		  });
+
 	      return false;
 	},
 
@@ -77,8 +82,6 @@ var openZIMformsave = {
 	}
 }
 
-$(document).ready(function()
-{
 	openZIMformsave.setup();
 });
 

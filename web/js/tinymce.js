@@ -40,19 +40,24 @@ var openZIMtinyMce = {
 		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
 	},
 
+	selector: 'textarea:not(#sendie)',
+
+	removeEditors : function(){
+		$(this.selector).each(function(){
+			tinyMCE.execCommand('mceRemoveControl', true, this.id);
+		});
+	},
+
 	customAddEditor : function ( config, elmID ) {
 
     	// create a new instance of tiny mce
-		if (tinymce.get(elmID)) {
-			tinymce.EditorManager.execCommand('mceRemoveControl',true, elmID);
-		}
 		tinyMCE.settings = config;
 		tinyMCE.execCommand('mceAddControl', true, elmID);
 	},
 
 	setup : function () {
-	  var self = this;		
-	  $('textarea:not(#sendie)').each(function(){
+	  var self = this;
+	  $(this.selector).each(function(){
 		var config = self.config;
 		if ( $(this).hasClass('nonumbering'))
 			config = $.extend({},self.config,self.configNoNumbering);
@@ -62,11 +67,6 @@ var openZIMtinyMce = {
 	} 
 }
 
-$(document).ready(function()
-{
+$(document).ready(function() {
   openZIMtinyMce.setup();
-  $(document).ajaxComplete(function()
-  {
-    openZIMtinyMce.setup();
-  });
 });
