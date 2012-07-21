@@ -14,16 +14,16 @@ default:
 
   stylesheets:    [main, users, print: { media: print }, chat]
 
-  javascripts:    [jquery: { position: first }, jquery.cookies.js, chat, chat_init]
+  javascripts:    [jquery: { position: first }]
 
   has_layout:     true
   layout:         layout
 
 editSuccess:
-  javascripts:      [expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave]
+  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave, chat, chat_init]
   
 showSuccess:
-  javascripts:      [expander]
+  javascripts:      [jquery.cookies.js, expander, chat, chat_init]
 
 indexSuccess:
-  javascripts:      [paginate]
+  javascripts:      [jquery.cookies.js, paginate, chat, chat_init]
