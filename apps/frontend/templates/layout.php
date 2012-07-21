@@ -53,24 +53,28 @@
           <?php echo $sf_content ?>
         </div>
 
-	<div id="show-chat">show chat</div>
-	
-    <div id="page-wrap">
+	<?php if ($sf_user->isAuthenticated()): ?>
 
-        <h2 id="chat">oZchat</h2>
+        <div id="show-chat">show chat</div>
 
-        <p id="name-area"></p>
+        <div id="page-wrap">
 
-        <div id="chat-wrap"><div id="chat-area"></div></div>
+                <h2 id="chat">oZchat</h2>
 
-        <form id="send-message-area">
-            <p>Your message: </p>
-            <textarea id="sendie" maxlength = '100' ></textarea>
-        </form>
+                <p id="name-area"></p>
 
-	<div id="hide-chat">hide chat</div>
+                <div id="chat-wrap"><div id="chat-area"></div></div>
 
-    </div>
+                <form id="send-message-area">
+                        <p>Your message: </p>
+                        <textarea id="sendie" maxlength = '300' ></textarea>
+                </form>
+
+                <div id="hide-chat">hide chat</div>
+
+        </div>
+
+        <?php endif; ?>
 
       </div>
  
