@@ -18,12 +18,15 @@ var openZIMformsave = {
 	doSave: function() {
 	     var self = this;
       	 $('.form_loader').show();
-      
+
 	      // do not do ajax call if there are any
 	      // non-empty file inputs
 	      if ( self.ajaxError || $.browser.msie || 
-		   $("input:file[value|='']").length > 0 )
+		   $("input:file[value|='']").length > 0 ) {
+	    	  // suppress leave warning
+	    	  window.onbeforeunload = function() {};
 	    	  return true;
+	      }
 
 	      self.ajaxError = false;
 
