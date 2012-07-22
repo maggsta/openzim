@@ -22,6 +22,9 @@ var openZIMtinyMce = {
         		o.content = o.content.replace(/&nbsp;/gi, ' '); 
 		},
 		setup : function(ed) {
+			ed.onUndo.add(function(ed){
+				ed.nodeChanged();
+			});
 			// Gets executed after DOM to HTML string serialization
 			ed.onPostProcess.add(function(ed, o) {
 				// State get is set when contents is extracted from editor
