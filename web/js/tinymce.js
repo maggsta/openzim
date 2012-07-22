@@ -48,6 +48,12 @@ var openZIMtinyMce = {
 		});
 	},
 
+	resetDirty : function(){
+		$(this.selector).each(function(){
+			tinyMCE.get(this.id).isNotDirty = 1;
+		});
+	},
+
 	customAddEditor : function ( config, elmID ) {
 
     	// create a new instance of tiny mce

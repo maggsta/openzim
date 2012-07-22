@@ -77,10 +77,13 @@ class anlageActions extends sfActions {
 		$anlage = $this->getRoute()->getObject();
 		$this->forward404Unless($this->validateUser($anlage));
 		$this->form = new AnlageEditForm($anlage);
+		$oldCnt = $anlage->getBilderCount();
 		if (($anlage = $this->processForm($request, $this->form)) ){
 			if ( $request->isXmlHttpRequest() ){
 				AnlageTable::getInstance()->getConnection()->clear();
 				$this->form = new AnlageEditForm(AnlageTable::getInstance()->find($anlage->getId()));
+				if ( $oldCnt == $anlage->getBilderCount() )
+					return $this->renderText("OK");
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
 		}

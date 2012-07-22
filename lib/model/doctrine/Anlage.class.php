@@ -24,6 +24,15 @@ class Anlage extends BaseAnlage
 		return $this->sections;
 	}
 
+	public function getBilderCount(){
+		$cnt = 0;
+		foreach ($this->getSections() as $section) {
+			if ( $section->getBild() && $section->getBild()->getPath())
+				$cnt++;
+		}
+		return $cnt;
+	}
+
 	public function save(Doctrine_Connection $conn = null)
 	{  
 		if ( $this->state() != self::STATE_DIRTY && !$this->isNew() )
