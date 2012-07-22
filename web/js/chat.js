@@ -5,7 +5,7 @@ Name: Chat Engine
 */
 
 var instanse = false;
-var c_state;
+var c_state = 0;
 var mes;
 var file;
 var processor = baseUrl() + "ozchat/process.php";
