@@ -1,5 +1,6 @@
 var chat;
 var name;
+var chatId;
 
 function initChat() {
 
@@ -21,10 +22,12 @@ function initChat() {
 
 	// kick off chat
 	chat =  new Chat();
-	chat.update();
+
 	if ($.cookies.get("chatstate") === 'shown') {
                 $('#page-wrap').css('display', 'block');
                 $('#show-chat').css('display', 'none');
+                chat.update();
+        		chatId = setInterval('chat.update()', 10000);
         };
 
 	// watch textarea for key presses
@@ -62,18 +65,20 @@ function initChat() {
                 $('#page-wrap').toggle();
                 $('#show-chat').toggle();
 		$.cookies.set("chatstate", "hidden");
+		clearInterval(chatId);
         });
 
         $('#show-chat').click(function() {
                 $('#page-wrap').toggle();
                 $('#show-chat').toggle();
 		$.cookies.set("chatstate", "shown");
+		chat.update();
+		chatId = setInterval('chat.update()', 10000);
         });
 
 }
 
 $(document).ready(function()
 {
-  initChat();
-  setInterval('chat.update()', 10000);
+  initChat();  
 });
