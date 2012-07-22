@@ -64,7 +64,7 @@
       <th>Tip:</th>
       <td><?php echo $section->getTip(ESC_RAW) ?></td>
     </tr>
-    <?php if ($section->getBild() != null ) : ?>
+    <?php if ($section->getBild() != null && $section->getBild()->getPath()) : ?>
     <tr>
       <th>Bild:</th>
       <td><img style="height:100px" src="<?php echo '/'.basename(sfConfig::get('sf_upload_dir')).'/bilder/'.$section->getBild()->getPath() ?>" />
