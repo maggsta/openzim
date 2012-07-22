@@ -71,7 +71,8 @@ class zimActions extends sfActions
 
     $this->form = new ZimForm();
 
-    $this->processForm($request, $this->form);
+    if ( ($zim = $this->processForm($request, $this->form) ) )
+   		$this->redirect($this->generateUrl('zim_edit',$zim));
 
     $this->setTemplate('new');
   }
@@ -88,7 +89,13 @@ class zimActions extends sfActions
     $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
 
-    $this->processForm($request, $this->form);
+  	if (($zim = $this->processForm($request, $this->form)) ){
+		if ( $request->isXmlHttpRequest() ){
+			ZimTable::getInstance()->getConnection()->clear();
+			$this->form = new ZimForm(ZimTable::getInstance()->find($zim->getId()));
+		}else
+			$this->redirect($this->generateUrl('anlage_edit', $anlage));
+	}
 
     $this->setTemplate('edit');
   }
@@ -106,10 +113,6 @@ class zimActions extends sfActions
   {
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
-    {
-      $zim = $form->save();
-
-      $this->redirect($this->generateUrl('zim_edit',$zim));
-    }
+      return $form->save();
   }
 }
