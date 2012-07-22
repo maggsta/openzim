@@ -91,6 +91,7 @@ class zimActions extends ozActions
 
     $oldFreeCnt = AnlageTable::getAllFreeCount();
     $oldStundenCnt = $zim->getStunden()->count();
+
   	if (($zim = $this->processForm($request, $this->form)) ){
 		if ( $request->isXmlHttpRequest() ){
 			$isValid = $this->resetValid();
@@ -99,8 +100,14 @@ class zimActions extends ozActions
 			$this->form = new ZimForm($zim);
 			if ( $oldFreeCnt == AnlageTable::getAllFreeCount() && 
 				  $oldStundenCnt == $zim->getStunden()->count() &&
-				  $isValid)
-				return $this->renderText(json_encode(array('zim_name' => $zim->__toString())));
+				  $isValid) {
+				$json_data = array('zim_name' => $zim->__toString());
+ 				foreach ($zim->getStunden() as $stunde ){
+ 					$json_data['stunde_'.$stunde->getLnr().'_name'] = $stunde->getName();
+ 				}
+				return $this->renderText(json_encode($json_data));
+			}
+
 		}else
 			$this->redirect($this->generateUrl('anlage_edit', $anlage));
 	}

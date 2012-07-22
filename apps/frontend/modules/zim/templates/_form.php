@@ -34,7 +34,8 @@
 <?php foreach ($form['Stunden'] as $stunde): ?>
 
 <div class="msg_list">
-<p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: ".$stunde['name']->getValue() ?></p>
+<p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: " ?>
+	<span id="<?php echo "stunde_" . $stunde['lnr']->getValue(). "_name" ?>"><?php echo $stunde['name']->getValue() ?></span></p>
 <div class="msg_content">
 
 <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
