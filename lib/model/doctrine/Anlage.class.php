@@ -148,7 +148,6 @@ class Anlage extends BaseAnlage
 				$sections->setVars('bild', "", $encode, 'UTF-8');
 				$caption = "";
 			} else {
-				error_log("Bild:".$section->getBild()->getName());
 				$sections->setImage('bild', sfConfig::get('sf_upload_dir').DIRECTORY_SEPARATOR.'bilder'.DIRECTORY_SEPARATOR.$section->getBild()->getPath());
 				$caption = $htmlConverter->getODF($section->getBild()->getCaption());
 			}
