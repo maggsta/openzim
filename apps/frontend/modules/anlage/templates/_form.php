@@ -36,7 +36,8 @@
       		<td><?php echo $nr+1 . ". Abschnitt" ?></td>
       		<td><?php echo link_to('Abschnitt löschen',
 			'anlage/removeSection?id='.$section['id']->getValue(),
-			array('class' => 'removeSection') ) ?></td>
+			array('class' => 'removeSection',
+				'confirm' => __('Are you sure?')) ) ?></td>
       	</tr>
      	<?php echo $section['inhalt']->renderRow() ?>
       	<?php echo $section['tip']->renderRow() ?>
