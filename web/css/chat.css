@@ -5,9 +5,9 @@ h2#chat                         { color: #fa9f00; font: 14px Helvetica, Sans-Ser
 #page-wrap                      { opacity:0.5; filter:alpha(opacity=50); }
 #page-wrap:hover                { opacity:1.0; filter:alpha(opacity=100); } 
 
-#show-chat                      { float: right; right: 10px; bottom: 10px; position: fixed; z-index: 10000; width: 100px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
+#show-chat                      { float: right; right: 10px; bottom: 10px; position: fixed; z-index: 10000; width: 130px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
 
-#hide-chat                      { float: right; right: 10px; bottom: 10px; z-index: 10000; width: 100px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
+#hide-chat                      { float: right; right: 10px; bottom: 10px; z-index: 10000; width: 130px; height: 20px; border: solid 1px #000; background: #fff; text-align: center; }
 
 #chat-wrap                      { border: 1px solid #eee; margin: 0 0 15px 0; }
 #chat-area                      { height: 200px; overflow: auto; border: 1px solid #666; padding: 20px; background: white; }

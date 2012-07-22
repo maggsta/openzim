@@ -55,7 +55,7 @@
 
 	<?php if ($sf_user->isAuthenticated()): ?>
 
-        <div id="show-chat">show chat</div>
+        <div id="show-chat"><?php echo __('show chat') ?></div>
 
         <div id="page-wrap">
 
@@ -66,11 +66,11 @@
                 <div id="chat-wrap"><div id="chat-area"></div></div>
 
                 <form id="send-message-area">
-                        <p>Your message: </p>
+                        <p><?php echo __('Your message:') ?></p>
                         <textarea id="sendie" maxlength = '300' ></textarea>
                 </form>
 
-                <div id="hide-chat">hide chat</div>
+                <div id="hide-chat"><?php echo __('hide chat') ?></div>
 
         </div>
 
