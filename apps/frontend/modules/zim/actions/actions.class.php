@@ -89,10 +89,13 @@ class zimActions extends sfActions
     $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
 
+    $oldCnt = AnlageTable::getAllFreeCount();
   	if (($zim = $this->processForm($request, $this->form)) ){
 		if ( $request->isXmlHttpRequest() ){
 			ZimTable::getInstance()->getConnection()->clear();
 			$this->form = new ZimForm(ZimTable::getInstance()->find($zim->getId()));
+			if ( $oldCnt == AnlageTable::getAllFreeCount() )
+				return $this->renderText("OK");
 		}else
 			$this->redirect($this->generateUrl('anlage_edit', $anlage));
 	}
