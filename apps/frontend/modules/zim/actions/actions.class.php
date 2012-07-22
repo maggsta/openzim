@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class zimActions extends sfActions
+class zimActions extends ozActions
 {
   public function executeIndex(sfWebRequest $request)
   {
@@ -93,11 +93,13 @@ class zimActions extends sfActions
     $oldStundenCnt = $zim->getStunden()->count();
   	if (($zim = $this->processForm($request, $this->form)) ){
 		if ( $request->isXmlHttpRequest() ){
+			$isValid = $this->resetValid();
 			ZimTable::getInstance()->getConnection()->clear();
 			$zim = ZimTable::getInstance()->find($zim->getId());
 			$this->form = new ZimForm($zim);
 			if ( $oldFreeCnt == AnlageTable::getAllFreeCount() && 
-				  $oldStundenCnt == $zim->getStunden()->count())
+				  $oldStundenCnt == $zim->getStunden()->count() &&
+				  $isValid)
 				return $this->renderText("OK");
 		}else
 			$this->redirect($this->generateUrl('anlage_edit', $anlage));
@@ -113,12 +115,5 @@ class zimActions extends sfActions
     $zim->delete();
 
     $this->redirect('zim/index');
-  }
-
-  protected function processForm(sfWebRequest $request, sfForm $form)
-  {
-    $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
-    if ($form->isValid())
-      return $form->save();
   }
 }

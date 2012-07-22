@@ -8,7 +8,7 @@
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
-class anlageActions extends sfActions {
+class anlageActions extends ozActions {
 	private function getAnlagenQuery($query = '*', $zim_id = null) {
 		$anlage = Doctrine::getTable('Anlage');
 		if ($this->getUser()->hasCredential('admin')) {
@@ -80,9 +80,11 @@ class anlageActions extends sfActions {
 		$oldCnt = $anlage->getBilderCount();
 		if (($anlage = $this->processForm($request, $this->form)) ){
 			if ( $request->isXmlHttpRequest() ){
+				// get previous form valid state
+				$isValid = $this->resetValid();
 				AnlageTable::getInstance()->getConnection()->clear();
 				$this->form = new AnlageEditForm(AnlageTable::getInstance()->find($anlage->getId()));
-				if ( $oldCnt == $anlage->getBilderCount() )
+				if ( $oldCnt == $anlage->getBilderCount() && $isValid )
 					return $this->renderText("OK");
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
@@ -168,14 +170,5 @@ class anlageActions extends sfActions {
 		$this->form = $this->getZimFilterForm($zim_id);
 		$this->setTemplate('index');
 		$this->initPager($request, $q);
-	}
-
-	protected function processForm(sfWebRequest $request, sfForm $form) {
-		$form
-				->bind($request->getParameter($form->getName()),
-						$request->getFiles($form->getName()));
-		if ($form->isValid())
-			return $form->save();
-		return false;
 	}
 }
