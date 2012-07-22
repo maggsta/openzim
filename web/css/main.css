@@ -529,6 +529,7 @@ overflow: auto;
 table.linktable {
 background: #FFF;
 border: solid 1px #CCC;
+height: 60px;
 }
 
 thead {
