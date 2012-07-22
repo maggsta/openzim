@@ -1,6 +1,6 @@
 var openZIMtinyMceGZ = {
 	config : {
-	        plugins: "autosave, tinyautosave, paste,fullscreen, lists",
+	        plugins: "autosave, tinyautosave, paste,fullscreen, lists, save",
 		themes : 'advanced',
 		languages : 'de,en,fr',
 		disk_cache : true,

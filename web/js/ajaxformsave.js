@@ -90,6 +90,11 @@ var openZIMformsave = {
 
 	  // bind ctrl+s to the document
 	  this.setSaveEvent($(document));
+
+	  // set tinymce save method
+	  openZIMtinyMce.tinymcesave = function(){
+		  $('#ajax_form').submit();
+	  };
 	}
 }
 

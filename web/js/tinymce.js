@@ -2,10 +2,10 @@
 var openZIMtinyMce = {
 	config : {
 	        theme : "advanced",
-		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,outdent,indent,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
+		theme_advanced_buttons1 : "bold,italic,underline,|,numlist,bullist,outdent,indent,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen, save",
 	        theme_advanced_buttons2 : "",
 	        theme_advanced_buttons3 : "",
-	        plugins: "autosave, tinyautosave, paste,fullscreen, lists",
+	        plugins: "autosave, tinyautosave, paste,fullscreen, lists, save",
 		tinyautosave_retention_minutes : 1440,
 		tinyautosave_minlength : 10,
 		paste_auto_cleanup_on_paste : true,
@@ -14,6 +14,8 @@ var openZIMtinyMce = {
 		theme_advanced_resize_horizontal : false,
 		theme_advanced_path : false,
 		cleanup_on_startup : true,
+		save_enablewhendirty : true,
+		save_onsavecallback : function(){ openZIMtinyMce.tinymcesave() },
 		mode: "none",
 //		theme_advanced_statusbar_location : "bottom",
 		paste_preprocess : function(pl, o) {
@@ -36,11 +38,15 @@ var openZIMtinyMce = {
        	},
 
 	configNoNumbering : {
-		theme_advanced_buttons1 : "bold,italic,underline,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen",
+		theme_advanced_buttons1 : "bold,italic,underline,|,undo,redo,|,cut,copy,pastetext,|,newdocument,tinyautosave,|,fullscreen, save",
 		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
 	},
 
 	selector: 'textarea:not(#sendie)',
+
+	tinymcesave: function(){
+		alert("saving");
+	},
 
 	removeEditors : function(){
 		$(this.selector).each(function(){
@@ -51,6 +57,7 @@ var openZIMtinyMce = {
 	resetDirty : function(){
 		$(this.selector).each(function(){
 			tinyMCE.get(this.id).isNotDirty = 1;
+			tinyMCE.get(this.id).nodeChanged();
 		});
 	},
 
