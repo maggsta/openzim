@@ -21,7 +21,7 @@ function initChat() {
 
 	// kick off chat
 	chat =  new Chat();
-
+	chat.update();
 	if ($.cookies.get("chatstate") === 'shown') {
                 $('#page-wrap').css('display', 'block');
                 $('#show-chat').css('display', 'none');
