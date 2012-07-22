@@ -61,7 +61,8 @@ class anlageActions extends sfActions {
 
 		$this->form = $this->getAnlageCreateForm();
 
-		$this->processForm($request, $this->form);
+		if ( ($anlage = $this->processForm($request, $this->form)) )
+			$this->redirect($this->generateUrl('anlage_edit', $anlage));
 
 		$this->setTemplate('new');
 	}
@@ -76,9 +77,13 @@ class anlageActions extends sfActions {
 		$anlage = $this->getRoute()->getObject();
 		$this->forward404Unless($this->validateUser($anlage));
 		$this->form = new AnlageEditForm($anlage);
-
-		$this->processForm($request, $this->form);
-
+		if (($anlage = $this->processForm($request, $this->form)) ){
+			if ( $request->isXmlHttpRequest() ){
+				AnlageTable::getInstance()->getConnection()->clear();
+				$this->form = new AnlageEditForm(AnlageTable::getInstance()->find($anlage->getId()));
+			}else
+				$this->redirect($this->generateUrl('anlage_edit', $anlage));
+		}
 		$this->setTemplate('edit');
 	}
 
@@ -166,10 +171,8 @@ class anlageActions extends sfActions {
 		$form
 				->bind($request->getParameter($form->getName()),
 						$request->getFiles($form->getName()));
-		if ($form->isValid()) {
-			$anlage = $form->save();
-
-			$this->redirect('anlage/edit?id=' . $anlage->getId());
-		}
+		if ($form->isValid())
+			return $form->save();
+		return false;
 	}
 }
