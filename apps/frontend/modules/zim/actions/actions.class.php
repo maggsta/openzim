@@ -100,7 +100,7 @@ class zimActions extends ozActions
 			if ( $oldFreeCnt == AnlageTable::getAllFreeCount() && 
 				  $oldStundenCnt == $zim->getStunden()->count() &&
 				  $isValid)
-				return $this->renderText("OK");
+				return $this->renderText(json_encode(array('zim_name' => $zim->__toString())));
 		}else
 			$this->redirect($this->generateUrl('anlage_edit', $anlage));
 	}

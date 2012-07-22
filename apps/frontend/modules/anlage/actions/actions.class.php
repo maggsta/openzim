@@ -78,14 +78,15 @@ class anlageActions extends ozActions {
 		$this->forward404Unless($this->validateUser($anlage));
 		$this->form = new AnlageEditForm($anlage);
 		$oldCnt = $anlage->getBilderCount();
-		if (($anlage = $this->processForm($request, $this->form)) ){
+
+		if ( $anlage = $this->processForm($request, $this->form) ){
 			if ( $request->isXmlHttpRequest() ){
 				// get previous form valid state
 				$isValid = $this->resetValid();
 				AnlageTable::getInstance()->getConnection()->clear();
 				$this->form = new AnlageEditForm(AnlageTable::getInstance()->find($anlage->getId()));
 				if ( $oldCnt == $anlage->getBilderCount() && $isValid )
-					return $this->renderText("OK");
+					return $this->renderText(json_encode(array('anlage_name' => $anlage->__toString())));
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
 		}

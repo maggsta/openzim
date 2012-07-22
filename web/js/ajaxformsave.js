@@ -8,16 +8,25 @@ var openZIMformsave = {
     autosave : 900000,
     
     replaceForm: function(data) {
-    	var newForm = $(data).find('#form_data');
-    	if ( newForm.length > 0 ){
+    	var jdata = null;
+    	try{
+    		jdata = eval('(' + data + ')');
+    	}catch(e){}
+
+    	if ( jdata == null ){
+        	var newForm = $(data).find('#form_data');
     		openZIMtinyMce.removeEditors();
     		$('#form_data').replaceWith(newForm);
     		// 	re-init tiny mces
     		openZIMtinyMce.setup();
     		// re init expanders
     		openZIMExpander.init();
-    	} else
+    	} else {
+    		$.each(jdata, function(index, value){
+        		$('#' + index).text(value);
+    		});
     		openZIMtinyMce.resetDirty();
+    	}
     },
 	doSave: function() {
 	     var self = this;
