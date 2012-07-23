@@ -89,8 +89,14 @@ class zimActions extends ozActions
     $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
 
-    $oldFreeCnt = AnlageTable::getAllFreeCount();
     $oldStundenCnt = $zim->getStunden()->count();
+
+    // remember anlage ordering
+    $anlage_order = array();
+   	foreach ($zim->getStunden() as $stunde ){
+    	foreach ($stunde->getAnlagen() as $anlage)
+    		$anlage_order[] = $anlage->getId();
+    }
 
   	if (($zim = $this->processForm($request, $this->form)) ){
 		if ( $request->isXmlHttpRequest() ){
@@ -98,7 +104,22 @@ class zimActions extends ozActions
 			ZimTable::getInstance()->getConnection()->clear();
 			$zim = ZimTable::getInstance()->find($zim->getId());
 			$this->form = new ZimForm($zim);
-			if ( $oldFreeCnt == AnlageTable::getAllFreeCount() && 
+
+			// check if order of anlagen changed
+			$order_changed = false;
+			$i = 0;
+			foreach ($zim->getStunden() as $stunde ){
+				foreach ($stunde->getAnlagen() as $anlage){
+					if ( !isset($anlage_order[$i]) ||
+						  $anlage_order[$i] != $anlage->getId() ){
+						$order_changed = true;
+						break;
+					}
+					$i++;
+				}
+			}
+
+			if ( !$order_changed &&
 				  $oldStundenCnt == $zim->getStunden()->count() &&
 				  $isValid) {
 				$json_data = array('zim_name' => $zim->__toString());
