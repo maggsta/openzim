@@ -36,8 +36,9 @@
       		<td><?php echo $nr+1 . ". Abschnitt" ?></td>
       		<td><?php echo link_to('Abschnitt löschen',
 			'anlage/removeSection?id='.$section['id']->getValue(),
-			array('class' => 'removeSection',
+			array('class' => 'ajaxLink',
 				'confirm' => __('Are you sure?')) ) ?></td>
+			<td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
       	</tr>
      	<?php echo $section['inhalt']->renderRow() ?>
       	<?php echo $section['tip']->renderRow() ?>
@@ -48,7 +49,8 @@
       		<td>Neuer Abschnitt</td>
       		<td><?php echo link_to('Abschnitt hinzufügen',
 			'anlage/addSection?id='. $form->getObject()->getId(),
-			array('class' => 'addSection') ) ?></td>
+			array('class' => 'ajaxLink') ) ?></td>
+			<td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
       	</tr>
     </tbody>
   </table>

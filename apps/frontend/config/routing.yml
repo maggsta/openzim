@@ -34,7 +34,7 @@ zim_delete_stunde:
   param:   { module: zim, action: deleteStunde }
   requirements:
     id: \d+
-    sf_method: [delete]
+    sf_method: [get]
 
 bild:
   class:   sfDoctrineRouteCollection

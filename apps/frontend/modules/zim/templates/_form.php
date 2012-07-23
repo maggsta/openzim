@@ -58,8 +58,8 @@
 		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
           	<td><?php echo link_to('Aus ZIM entfernen',
 			'anlage/removeStunde?id='.$anlage['id']->getValue(),
-			array('class' => 'removeAnlage') ) ?></td> 
-                <td><img class="remove_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
+			array('class' => 'ajaxLink') ) ?></td> 
+            <td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
 	 </tr> 
          <?php endforeach; ?>
          <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
@@ -75,11 +75,12 @@
     <tbody>
       <?php if ($form['Stunden']->count() > 0 ): ?>
         <tr>
-          <th colspan="6">
+          <th colspan="5">
 		<?php echo link_to('Letzte Stunde löschen',
 		'zim_delete_stunde',$form->getObject(),
-		array('method' => 'delete', 'confirm' => __('Are you sure?'))) ?>
+		array('class' => 'ajaxLink', 'confirm' => __('Are you sure?'))) ?>
 	  </th>
+	  <th><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></th>
 	  <td></td>
         </tr>
       <?php endif; ?>

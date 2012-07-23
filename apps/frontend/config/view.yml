@@ -20,7 +20,7 @@ default:
   layout:         layout
 
 editSuccess:
-  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave, chat, chat_init]
+  javascripts:      [jquery.cookies.js, expander, tiny_mce/tiny_mce_gzip, tinymce_gz, tinymce, ajaxformsave, ajaxlink, chat, chat_init]
   
 showSuccess:
   javascripts:      [jquery.cookies.js, expander, chat, chat_init]

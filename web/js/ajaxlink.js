@@ -6,15 +6,15 @@
 
 $(document).ready(function(){
 
-var openZIMzimRemoveAnlage = {
+var openZIMajaxLink = {
 
 	setup: function() {
-	  $(document).on("click", ".removeAnlage", function() {
+	  $(document).on("click", ".ajaxLink", function() {
 	      if ( $.browser.msie )
 	    	  return true;
 
 	      var url = $(this).attr('href');
-	      var loader = $(this).parent().next().find(".remove_loader");
+	      var loader = $(this).parent().next().find(".link_loader");
 	      loader.show();
 	      $.get( url, function(data) {
 	    	  		  openZIMformsave.replaceForm(data);	    	  		  
@@ -28,5 +28,5 @@ var openZIMzimRemoveAnlage = {
 	}
 }
 
-  openZIMzimRemoveAnlage.setup();
+openZIMajaxLink.setup();
 });

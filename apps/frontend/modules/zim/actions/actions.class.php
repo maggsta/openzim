@@ -29,8 +29,6 @@ class zimActions extends ozActions
 
   public function executeDeleteStunde(sfWebRequest $request)
   {
-    $request->checkCSRFProtection();
-
     $zim = $this->getRoute()->getObject();
     $stunde = Doctrine::getTable('Stunde')->getLastZimStunde($zim->getId());
     $this->forward404Unless($stunde, sprintf('Zim (%s) has no stunden.', $request->getParameter('id')));
@@ -81,7 +79,6 @@ class zimActions extends ozActions
   {
     $zim = $this->getRoute()->getObject();
     $this->form = new ZimForm($zim);
-    $this->getResponse()->addJavaScript('zimremoveanlage');
   }
 
   public function executeUpdate(sfWebRequest $request)
