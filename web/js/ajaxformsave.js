@@ -22,9 +22,21 @@ var openZIMformsave = {
     		// re init expanders
     		openZIMExpander.init();
     	} else {
-    		$.each(jdata, function(index, value){
-        		$('#' + index).text(value);
-    		});
+    		console.log(jdata);
+    		switch (jdata.method) {
+			case 'set':
+				$.each(jdata.actions, function(index, value){
+	        		$('#' + index).text(value);
+	    		});
+				break;
+			case 'remove':
+				$.each(jdata.actions, function(index, value){
+	        		$('#' + value).remove();
+	    		});
+				break;
+			default:
+				break;
+			}
     		openZIMtinyMce.resetDirty();
     	}
     },

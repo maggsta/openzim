@@ -11,7 +11,7 @@
 <?php if (!$form->getObject()->isNew()): ?>
 <input type="hidden" name="sf_method" value="put" />
 <?php endif; ?>
-<?php echo $form->renderHiddenFields() ?>
+<?php echo $form->renderHiddenFields(false) ?>
 
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
@@ -33,11 +33,11 @@
 
 <?php foreach ($form['Stunden'] as $stunde): ?>
 
-<div class="msg_list">
+<div id="<?php echo "stunde_" . $stunde['lnr']->getValue() ?>" class="msg_list">
 <p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: " ?>
 	<span id="<?php echo "stunde_" . $stunde['lnr']->getValue(). "_name" ?>"><?php echo $stunde['name']->getValue() ?></span></p>
 <div class="msg_content">
-
+<?php echo $stunde->renderHiddenFields() ?>
 <?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
 <table> 
           <tr>
@@ -74,14 +74,13 @@
 <table>
     <tbody>
       <?php if ($form['Stunden']->count() > 0 ): ?>
-        <tr>
+        <tr id="delete_stunde_link">
           <th colspan="5">
 		<?php echo link_to('Letzte Stunde löschen',
 		'zim_delete_stunde',$form->getObject(),
 		array('class' => 'ajaxLink', 'confirm' => __('Are you sure?'))) ?>
 	  </th>
 	  <th><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></th>
-	  <td></td>
         </tr>
       <?php endif; ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>

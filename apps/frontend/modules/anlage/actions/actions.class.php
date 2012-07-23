@@ -89,7 +89,7 @@ class anlageActions extends ozActions {
 				$this->form = new AnlageEditForm($anlage);
 				if ( $oldBilderCnt == $anlage->getBilderCount() && 
 					  $oldAnhangCnt == $anlage->getAnhaenge()->count() && $isValid )
-					return $this->renderText(json_encode(array('anlage_name' => $anlage->__toString())));
+					return $this->renderText(json_encode(array('method' => 'set','actions' => array('anlage_name' => $anlage->__toString()))));
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
 		}

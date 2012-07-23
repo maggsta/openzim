@@ -32,8 +32,16 @@ class zimActions extends ozActions
     $zim = $this->getRoute()->getObject();
     $stunde = Doctrine::getTable('Stunde')->getLastZimStunde($zim->getId());
     $this->forward404Unless($stunde, sprintf('Zim (%s) has no stunden.', $request->getParameter('id')));
+    $lnr = $stunde->getFirst()->getLnr();
     $stunde->delete();
 
+    if ( $request->isXmlHttpRequest() ){
+    	$json_data['method'] = 'remove';
+    	$json_data['actions'] = array('stunde_'. $lnr );
+    	if ( $zim->getStunden()->count() == 0 )
+    		$json_data['actions'][] = 'delete_stunde_link';
+    	return $this->renderText(json_encode($json_data));
+    }
     $this->redirect($this->generateUrl('zim_edit',$zim));
   }
 
@@ -119,9 +127,10 @@ class zimActions extends ozActions
 			if ( !$order_changed &&
 				  $oldStundenCnt == $zim->getStunden()->count() &&
 				  $isValid) {
-				$json_data = array('zim_name' => $zim->__toString());
+				$json_data['method'] = 'set';
+				$json_data['actions'] = array('zim_name' => $zim->__toString());
  				foreach ($zim->getStunden() as $stunde ){
- 					$json_data['stunde_'.$stunde->getLnr().'_name'] = $stunde->getName();
+ 					$json_data['actions']['stunde_'.$stunde->getLnr().'_name'] = $stunde->getName();
  				}
 				return $this->renderText(json_encode($json_data));
 			}
