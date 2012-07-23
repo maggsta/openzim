@@ -38,7 +38,7 @@ Aufbau/Struktur - Wünsche ob es machbar ist:
 	- Bildunterschrift zu weit unten
 	- Bild an Section hängen
 
-[\] Chatfunktion intern zwischen den ZIM-Angehörigen
+[x] Chatfunktion intern zwischen den ZIM-Angehörigen
 	[x] toggle visibility
 	[x] cleared scope 
 	[x] state cookie
