@@ -53,6 +53,10 @@ var openZIMformsave = {
 					break;
 				}
     		});
+    		// clear inputs
+    		$('input.clearonsubmit').each(function(){
+    			$(this).val("");
+    		});
     		openZIMtinyMce.resetDirty();
     	}
     },

@@ -41,7 +41,7 @@
       <?php foreach ($form['neueStunden'] as $stunde): ?>
         <tr>
           <th colspan="5">Stunde hinzufügen</th>
- 	  <td> <?php echo $stunde['name'] ?></td>
+ 	  <td> <?php echo $stunde['name']->render(array('class' => 'clearonsubmit')) ?></td>
  	  <td> <?php echo $stunde['name']->renderError() ?></td>
         </tr>
       <?php endforeach; ?>
