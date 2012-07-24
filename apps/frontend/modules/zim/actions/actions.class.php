@@ -124,15 +124,36 @@ class zimActions extends ozActions
 				}
 			}
 
-			if ( !$order_changed &&
-				  $oldStundenCnt == $zim->getStunden()->count() &&
+			if ( !$order_changed &&				  
 				  $isValid) {
+
+				$changes = array();
+				if ( $oldStundenCnt < $zim->getStunden()->count() ){
+					$lastId = $oldStundenCnt==0?'zim_details':'stunde_' . $oldStundenCnt;
+					// new stunde added
+					$json_data['method'] = 'insert';
+					$json_data['actions'][$lastId] = $this->getPartial('zim/stundeform',
+							array('nr' => $oldStundenCnt,'form' => $this->form));
+					$changes[] = $json_data;
+					
+					if ( $oldStundenCnt==0 ) {
+						$json_data = array();
+						$json_data['method'] = 'insert';
+						$json_data['actions']['stunde_1'] = $this->getPartial('zim/deletestunde',
+								array('form' => $this->form));
+						$changes[] = $json_data;
+					}
+				}
+
+				$json_data = array();
 				$json_data['method'] = 'set';
 				$json_data['actions'] = array('zim_name' => $zim->__toString());
  				foreach ($zim->getStunden() as $stunde ){
  					$json_data['actions']['stunde_'.$stunde->getLnr().'_name'] = $stunde->getName();
  				}
-				return $this->renderText(json_encode(array($json_data)));
+				
+ 				$changes[] = $json_data;
+				return $this->renderText(json_encode($changes));
 			}
 
 		}else

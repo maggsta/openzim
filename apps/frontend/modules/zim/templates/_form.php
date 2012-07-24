@@ -13,7 +13,7 @@
 <?php endif; ?>
 <?php echo $form->renderHiddenFields(false) ?>
 
-<div class="msg_list">
+<div id="zim_details" class="msg_list">
 <p class="msg_head"><?php echo __('ZIM DETAILS') ?></p>
 <div class="msg_content">
 
@@ -31,58 +31,13 @@
 
 </div></div>
 
-<?php foreach ($form['Stunden'] as $stunde): ?>
-
-<div id="<?php echo "stunde_" . $stunde['lnr']->getValue() ?>" class="msg_list">
-<p class="msg_head"><?php echo $stunde['lnr']->getValue().". Stunde: " ?>
-	<span id="<?php echo "stunde_" . $stunde['lnr']->getValue(). "_name" ?>"><?php echo $stunde['name']->getValue() ?></span></p>
-<div class="msg_content">
-<?php echo $stunde->renderHiddenFields() ?>
-<?php echo $stunde['lnr']->render(array('type'=>'hidden')) ?>
-<table> 
-          <tr>
-            <th>Name</th>
-	    <td colspan="6"><?php echo $stunde['name'] ?></td>
-	    <td><?php echo $stunde['name']->renderError() ?></td>
-	 </tr> 
-         <?php if ($stunde['Anlagen']->count() > 0 ): ?>
-          <tr> <th colspan="8"><strong>Anlagen</strong></th></tr>
-         <?php endif; ?>
-         <?php foreach ($stunde['Anlagen'] as $anlage): ?>
-          <tr>
-		<th>  <?php echo $anlage['kuerzel']->renderLabelName() ?></th>
-		<td>  <?php echo $anlage['kuerzel'] ?></td>
-		<td>  <?php echo $anlage['kuerzel']->renderError() ?></td>
-		<th>  <?php echo $anlage['lnr']->renderLabelName() ?></th>
-		<td>  <?php echo $anlage['lnr'] ?></td>
-		<td>  <?php echo $anlage['lnr']->renderError() ?></td>
-          	<td><?php echo link_to('Aus ZIM entfernen',
-			'anlage/removeStunde?id='.$anlage['id']->getValue(),
-			array('class' => 'ajaxLink') ) ?></td> 
-            <td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
-	 </tr> 
-         <?php endforeach; ?>
-         <?php if (AnlageTable::getAllFreeCount() > 0 ): ?>
-	    <?php echo $stunde['neueAnlage']->renderRow() ?>
-         <?php endif; ?>
-</table>
-
-</div></div>
-
+<?php foreach ($form['Stunden'] as $nr => $stunde): ?>
+	<?php include_partial('zim/stundeform', array('nr' => $nr, 'form' => $form)) ?>
 <?php endforeach; ?>
 
 <table>
     <tbody>
-      <?php if ($form['Stunden']->count() > 0 ): ?>
-        <tr id="delete_stunde_link">
-          <th colspan="5">
-		<?php echo link_to('Letzte Stunde löschen',
-		'zim_delete_stunde',$form->getObject(),
-		array('class' => 'ajaxLink', 'confirm' => __('Are you sure?'))) ?>
-	  </th>
-	  <th><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></th>
-        </tr>
-      <?php endif; ?>
+      <?php include_partial('zim/deletestunde', array('form' => $form)) ?>
       <?php foreach ($form['neueStunden'] as $stunde): ?>
         <tr>
           <th colspan="5">Stunde hinzufügen</th>

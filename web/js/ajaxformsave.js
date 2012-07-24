@@ -43,7 +43,10 @@ var openZIMformsave = {
 				case 'insert':
 					$.each(changes.actions, function(index, value){
 						$('#' + index).after($(value));
+						// init tinymce
 						openZIMtinyMce.addEditorsToContent($('#' + $(value).attr('id')) );
+						// re init expanders
+			    		openZIMExpander.init();
 					});
 					break;
 				default:
