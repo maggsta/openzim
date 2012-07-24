@@ -3,7 +3,7 @@
 class chatActions extends sfActions {
 
 	public function executeChat(sfWebRequest $request) {
-		$chatfile = 'ozchat/chat.txt';
+		$chatfile = 'ozchat/chat_' . $this->getUser()->getUsername() . '.txt';
 		$function = $request->getPostParameter('function');
 
 		$log = array();
