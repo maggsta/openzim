@@ -45,10 +45,16 @@ var openZIMtinyMce = {
 		valid_elements : "-strong/b,p,-em,-span[style:text-decoration: underline;]"
 	},
 
-	selector: 'textarea:not(#sendie)',
+	selector: 'textarea.tinymce',
 
 	tinymcesave: function(){
 		alert("saving");
+	},
+
+	removeChildEditors : function(elem){
+		$(elem).find(this.selector).each(function(){
+			tinyMCE.execCommand('mceRemoveControl', true, this.id);
+		});
 	},
 
 	removeEditors : function(){

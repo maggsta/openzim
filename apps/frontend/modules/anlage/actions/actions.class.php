@@ -89,7 +89,9 @@ class anlageActions extends ozActions {
 				$this->form = new AnlageEditForm($anlage);
 				if ( $oldBilderCnt == $anlage->getBilderCount() && 
 					  $oldAnhangCnt == $anlage->getAnhaenge()->count() && $isValid )
-					return $this->renderText(json_encode(array('method' => 'set','actions' => array('anlage_name' => $anlage->__toString()))));
+					$json_data = array('method' => 'set',
+							'actions' => array('anlage_name' => $anlage->__toString()));
+					return $this->renderText(json_encode(array($json_data)));
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
 		}
@@ -141,8 +143,16 @@ class anlageActions extends ozActions {
 
 		if ( $request->isXmlHttpRequest() ){
 			$json_data['method'] = 'remove';
-			$json_data['actions'] = array('section_'. $section->getLnr() );			
-			return $this->renderText(json_encode($json_data));
+			$json_data['actions'] = array('section_'. $section->getId() );
+			$changes[] = $json_data;
+			
+			$json_data = array();
+			$json_data['method'] = 'set';
+			foreach ($section->getAnlage()->getSections() as $sct){
+				$json_data['actions']['section_' . $sct->getId() . '_lnr'] = $sct->getLnr();
+			}
+			$changes[] = $json_data;
+			return $this->renderText(json_encode($changes));
 		}
 		$this->redirect($this->generateUrl('anlage_edit', $section->getAnlage()));
 	}

@@ -22,20 +22,28 @@ var openZIMformsave = {
     		// re init expanders
     		openZIMExpander.init();
     	} else {
-    		switch (jdata.method) {
-			case 'set':
-				$.each(jdata.actions, function(index, value){
-	        		$('#' + index).text(value);
-	    		});
-				break;
-			case 'remove':
-				$.each(jdata.actions, function(index, value){
-	        		$('#' + value).remove();
-	    		});
-				break;
-			default:
-				break;
-			}
+    		$.each(jdata, function(idx, changes){
+	    		switch (changes.method) {
+				case 'set':
+					$.each(changes.actions, function(index, value){
+		        		$('#' + index).text(value);
+		    		});
+					break;
+				case 'remove':
+					$.each(changes.actions, function(index, value){
+						$('#' + value).animate({							
+								height: 0
+							}, 1000, function() {
+								openZIMtinyMce.removeChildEditors(this);
+								$(this).remove();
+							}
+						);
+					});
+					break;
+				default:
+					break;
+				}
+    		});
     		openZIMtinyMce.resetDirty();
     	}
     },

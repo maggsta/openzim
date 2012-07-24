@@ -40,7 +40,7 @@ class zimActions extends ozActions
     	$json_data['actions'] = array('stunde_'. $lnr );
     	if ( $zim->getStunden()->count() == 0 )
     		$json_data['actions'][] = 'delete_stunde_link';
-    	return $this->renderText(json_encode($json_data));
+    	return $this->renderText(json_encode(array($json_data)));
     }
     $this->redirect($this->generateUrl('zim_edit',$zim));
   }
@@ -132,7 +132,7 @@ class zimActions extends ozActions
  				foreach ($zim->getStunden() as $stunde ){
  					$json_data['actions']['stunde_'.$stunde->getLnr().'_name'] = $stunde->getName();
  				}
-				return $this->renderText(json_encode($json_data));
+				return $this->renderText(json_encode(array($json_data)));
 			}
 
 		}else

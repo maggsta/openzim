@@ -23,9 +23,9 @@
       <?php echo $form['ptkuerzel']->renderRow() ?>
       <?php echo $form['ptjahr']->renderRow() ?>
       <?php echo $form['user_id']->renderRow() ?>
-      <?php echo $form['ziele']->renderRow() ?>	
+      <?php echo $form['ziele']->renderRow(array('class' => 'tinymce')) ?>	
       <?php echo $form['zielGruppe']->renderRow() ?> 
-      <?php echo $form['roterFaden']->renderRow() ?> 
+      <?php echo $form['roterFaden']->renderRow(array('class' => 'tinymce')) ?> 
      </tbody>
     </table>	
 

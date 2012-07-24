@@ -8,7 +8,7 @@
 
 <div id="form_data">
 <input type="hidden" name="sf_method" value="put" />
-<?php echo $form->renderHiddenFields() ?>
+<?php echo $form->renderHiddenFields(false) ?>
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INFO') ?></p>
 <div class="msg_content">
@@ -16,11 +16,11 @@
     <tbody>
       <?php echo $form['longname']->renderRow() ?>
       <?php echo $form['zeit']->renderRow() ?>
-      <?php echo $form['ziel']->renderRow() ?>
-      <?php echo $form['methode']->renderRow() ?>
-      <?php echo $form['rolle_tm']->renderRow() ?>
-      <?php echo $form['material']->renderRow() ?>
-      <?php echo $form['kofferinfo']->renderRow(array('class'=>'nonumbering')) ?>
+      <?php echo $form['ziel']->renderRow(array('class' => 'tinymce')) ?>
+      <?php echo $form['methode']->renderRow(array('class' => 'tinymce')) ?>
+      <?php echo $form['rolle_tm']->renderRow(array('class' => 'tinymce')) ?>
+      <?php echo $form['material']->renderRow(array('class' => 'tinymce')) ?>
+      <?php echo $form['kofferinfo']->renderRow(array('class'=>'nonumbering tinymce')) ?>
     </tbody>
   </table>
 </div></div>
@@ -30,26 +30,29 @@
 <div class="msg_content">
 <table>
     <tbody>
-      <?php echo $form['kurzinhalt']->renderRow() ?>
+      <?php echo $form['kurzinhalt']->renderRow(array('class' => 'tinymce')) ?>
     </tbody>
 </table>
       <?php foreach ($form['Sections'] as $nr => $section): ?>
-<table>
-    <tbody id="section_<?php echo $nr+1 ?>">      
+<div id="section_<?php echo $section['id']->getValue() ?>">
+<?php echo $section->renderHiddenFields() ?>
+<table >
+    <tbody>      
       	<tr>
-      		<td><?php echo $nr+1 . ". Abschnitt" ?></td>
+      		<td><span id="section_<?php echo $section['id']->getValue() ?>_lnr"><?php echo $nr+1 ?></span>. Abschnitt</td>
       		<td><?php echo link_to('Abschnitt löschen',
 			'anlage/removeSection?id='.$section['id']->getValue(),
 			array('class' => 'ajaxLink',
 				'confirm' => __('Are you sure?')) ) ?></td>
 			<td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
       	</tr>
-     	<?php echo $section['inhalt']->renderRow() ?>
-      	<?php echo $section['tip']->renderRow() ?>
+     	<?php echo $section['inhalt']->renderRow(array('class' => 'tinymce')) ?>
+      	<?php echo $section['tip']->renderRow(array('class' => 'tinymce')) ?>
       	<?php echo $section['Bild']['path']->renderRow(array('width' => 100)) ?>
-        <?php echo $section['Bild']['caption']->renderRow() ?>
+        <?php echo $section['Bild']['caption']->renderRow(array('class' => 'tinymce')) ?>
    </tbody>
 </table>
+</div>
       <?php endforeach; ?>
 <table>
     <tbody>      
