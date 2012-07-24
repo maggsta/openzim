@@ -33,9 +33,10 @@ class zimActions extends ozActions
     $stunde = Doctrine::getTable('Stunde')->getLastZimStunde($zim->getId());
     $this->forward404Unless($stunde, sprintf('Zim (%s) has no stunden.', $request->getParameter('id')));
     $lnr = $stunde->getFirst()->getLnr();
+    $anlageCnt = $stunde->getFirst()->getAnlagen()->count();
     $stunde->delete();
 
-    if ( $request->isXmlHttpRequest() ){
+    if ( $request->isXmlHttpRequest() && $anlageCnt == 0){
     	$json_data['method'] = 'remove';
     	$json_data['actions'] = array('stunde_'. $lnr );
     	if ( $zim->getStunden()->count() == 0 )
