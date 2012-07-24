@@ -8,7 +8,7 @@ var instanse = false;
 var c_state = 0;
 var mes;
 var file;
-var processor = baseUrl() + "ozchat/process.php";
+var processor = baseUrl() + "chat";
 
 function Chat () {
     this.update = updateChat;

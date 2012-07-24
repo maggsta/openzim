@@ -130,6 +130,10 @@ admin_tools_download:
   url:  /download
   param: {module: tools, action: download }
 
+oz_chat:
+  url:   /chat
+  param: { module: chat, action: chat }
+ 
 # default rules
 homepage:
   url:   /
