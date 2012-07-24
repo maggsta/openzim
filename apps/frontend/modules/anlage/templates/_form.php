@@ -31,7 +31,11 @@
 <table>
     <tbody>
       <?php echo $form['kurzinhalt']->renderRow() ?>
+    </tbody>
+</table>
       <?php foreach ($form['Sections'] as $nr => $section): ?>
+<table>
+    <tbody id="section_<?php echo $nr+1 ?>">      
       	<tr>
       		<td><?php echo $nr+1 . ". Abschnitt" ?></td>
       		<td><?php echo link_to('Abschnitt löschen',
@@ -44,7 +48,11 @@
       	<?php echo $section['tip']->renderRow() ?>
       	<?php echo $section['Bild']['path']->renderRow(array('width' => 100)) ?>
         <?php echo $section['Bild']['caption']->renderRow() ?>
+   </tbody>
+</table>
       <?php endforeach; ?>
+<table>
+    <tbody>      
       <tr>
       		<td>Neuer Abschnitt</td>
       		<td><?php echo link_to('Abschnitt hinzufügen',

@@ -22,7 +22,6 @@ var openZIMformsave = {
     		// re init expanders
     		openZIMExpander.init();
     	} else {
-    		console.log(jdata);
     		switch (jdata.method) {
 			case 'set':
 				$.each(jdata.actions, function(index, value){

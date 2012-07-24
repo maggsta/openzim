@@ -139,6 +139,11 @@ class anlageActions extends ozActions {
 		$this->forward404Unless($this->validateUser($section->getAnlage()));
 		$section->delete();
 
+		if ( $request->isXmlHttpRequest() ){
+			$json_data['method'] = 'remove';
+			$json_data['actions'] = array('section_'. $section->getLnr() );			
+			return $this->renderText(json_encode($json_data));
+		}
 		$this->redirect($this->generateUrl('anlage_edit', $section->getAnlage()));
 	}
 
