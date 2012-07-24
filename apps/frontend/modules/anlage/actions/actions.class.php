@@ -160,10 +160,23 @@ class anlageActions extends ozActions {
 	public function executeAddSection(sfWebRequest $request) {
 		$anlage = $this->getRoute()->getObject();
 		$this->forward404Unless($this->validateUser($anlage));
+		
+		if ( $anlage->getSections()->count() > 0 )
+			$lastId = 'section_' . $anlage->getSections()->getLast()->getId();
+		else 
+			$lastId = 'kurzinhalt_table';
 		$section = new Section();
-		$section->setAnlage($anlage);;
+		$section->setAnlage($anlage);
 		$section->save();
 	
+		if ( $request->isXmlHttpRequest() ){
+			AnlageTable::getInstance()->getConnection()->clear();
+			$anlage = AnlageTable::getInstance()->find($anlage->getId());
+			$json_data['method'] = 'insert';
+			$json_data['actions'][$lastId] = $this->getPartial('anlage/sectionform', 
+					array('nr' => $section->getLnr() - 1,'form' => new AnlageEditForm($anlage)));
+			return $this->renderText(json_encode(array($json_data)));
+		}
 		$this->redirect($this->generateUrl('anlage_edit', $anlage));
 	}
 

@@ -77,15 +77,18 @@ var openZIMtinyMce = {
 		tinyMCE.execCommand('mceAddControl', true, elmID);
 	},
 
+	addEditorsToContent : function ( elem ) {
+		  var self = this;
+		  elem.find(this.selector).each(function(){
+			var config = self.config;
+			if ( $(this).hasClass('nonumbering'))
+				config = $.extend({},self.config,self.configNoNumbering);
+			self.customAddEditor(config, this.id); 
+		  });
+	},
+	
 	setup : function () {
-	  var self = this;
-	  $(this.selector).each(function(){
-		var config = self.config;
-		if ( $(this).hasClass('nonumbering'))
-			config = $.extend({},self.config,self.configNoNumbering);
-
-		self.customAddEditor(config, this.id); 
-	  });
+		this.addEditorsToContent($(document));	 
 	} 
 }
 

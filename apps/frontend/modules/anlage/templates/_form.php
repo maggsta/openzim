@@ -28,31 +28,13 @@
 <div class="msg_list">
 <p class="msg_head"><?php echo __('ANLAGE INHALT') ?></p>
 <div class="msg_content">
-<table>
+<table id="kurzinhalt_table">
     <tbody>
       <?php echo $form['kurzinhalt']->renderRow(array('class' => 'tinymce')) ?>
     </tbody>
 </table>
       <?php foreach ($form['Sections'] as $nr => $section): ?>
-<div id="section_<?php echo $section['id']->getValue() ?>">
-<?php echo $section->renderHiddenFields() ?>
-<table >
-    <tbody>      
-      	<tr>
-      		<td><span id="section_<?php echo $section['id']->getValue() ?>_lnr"><?php echo $nr+1 ?></span>. Abschnitt</td>
-      		<td><?php echo link_to('Abschnitt löschen',
-			'anlage/removeSection?id='.$section['id']->getValue(),
-			array('class' => 'ajaxLink',
-				'confirm' => __('Are you sure?')) ) ?></td>
-			<td><img class="link_loader" src="/images/loader.gif" alt="loader" style="vertical-align: middle; display: none" /></td>
-      	</tr>
-     	<?php echo $section['inhalt']->renderRow(array('class' => 'tinymce')) ?>
-      	<?php echo $section['tip']->renderRow(array('class' => 'tinymce')) ?>
-      	<?php echo $section['Bild']['path']->renderRow(array('width' => 100)) ?>
-        <?php echo $section['Bild']['caption']->renderRow(array('class' => 'tinymce')) ?>
-   </tbody>
-</table>
-</div>
+	  <?php include_partial('anlage/sectionform', array('nr' => $nr, 'form' => $form)) ?>
       <?php endforeach; ?>
 <table>
     <tbody>      

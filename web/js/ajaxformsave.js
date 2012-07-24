@@ -40,6 +40,12 @@ var openZIMformsave = {
 						);
 					});
 					break;
+				case 'insert':
+					$.each(changes.actions, function(index, value){
+						$('#' + index).after($(value));
+						openZIMtinyMce.addEditorsToContent($('#' + $(value).attr('id')) );
+					});
+					break;
 				default:
 					break;
 				}
