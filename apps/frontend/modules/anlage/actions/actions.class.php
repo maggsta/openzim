@@ -88,10 +88,11 @@ class anlageActions extends ozActions {
 				$anlage = AnlageTable::getInstance()->find($anlage->getId());
 				$this->form = new AnlageEditForm($anlage);
 				if ( $oldBilderCnt == $anlage->getBilderCount() && 
-					  $oldAnhangCnt == $anlage->getAnhaenge()->count() && $isValid )
+					  $oldAnhangCnt == $anlage->getAnhaenge()->count() && $isValid ){
 					$json_data = array('method' => 'set',
 							'actions' => array('anlage_name' => $anlage->__toString()));
 					return $this->renderText(json_encode(array($json_data)));
+				}
 			}else
 				$this->redirect($this->generateUrl('anlage_edit', $anlage));
 		}
