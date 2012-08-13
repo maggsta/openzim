@@ -4,7 +4,7 @@
  sudo -i
 
 1. Software Abhängigkeiten installieren
- yum install httpd mysql mysql-server php php-mysql php-pdo php-mbstring php-gd git-core
+ yum install httpd php php-pdo php-mbstring php-gd git-core
 
 2. PHP Zeityone setzen
   - In /etc/php.ini
@@ -12,25 +12,19 @@
   - z.B.:
     date.timezone=Europe/Berlin
 
-2. Mysql konfigurieren
-  - systemctl enable mysqld.service
-  - systemctl start mysqld.service
-  - mysqladmin -u root password 'test'
-
-3. openZIM Repository clonen / openZim installieren 
+2. openZIM Repository clonen / openZim installieren 
   - Beispielhaftes Installationsverzeichniss: /var/www/openzim
 	  - cd /var/www
 	  - git clone https://github.com/maggsta/openzim.git
 	  - cd openzim
 	  -  ./install.sh
 
-4. Apache konfigurieren
+3. Apache konfigurieren
   - In /etc/httpd/conf/httpd.conf:
     DocumentRoot "/var/www/openzim"
     AllowOverride All
-  - systemctl enable httpd.service
 
-5. Selinux deaktivieren
+4. Selinux deaktivieren
  - In /etc/selinux/config:
    SELINUX=disabled
 

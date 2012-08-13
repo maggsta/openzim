@@ -2,7 +2,7 @@
 
 USERNAME=$USER
 GROUPNAME=$GROUPS
-WWWUSER=$(ps axho user,comm|grep -E "httpd|apache"|uniq|grep -v "root"|awk 'END {if ($1) print $1}')
+WWWUSER=`grep www /etc/passwd | cut -d : -f 1 | grep www`
 
 sudo chown -R ${USERNAME}:${GROUPNAME} cache log data web
 
