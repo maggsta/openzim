@@ -1,0 +1,44 @@
+0. Alles als root machen
+sudo su -
+
+1. Software Abhängigkeiten installieren
+
+apt-get install apache2 php5 php5-sqlite php5-gd git-core xsltproc
+
+2. PHP Zeityone setzen
+
+  - In /etc/php5/apache2/php.ini UND /etc/php5/cli/php.ini
+  - Semikolon vor dat.timezone entfernen und Zeitzone eintragen
+  - z.B.:
+    gedit /etc/php5/apache2/php.ini
+    date.timezone=Europe/Berlin
+
+3. openZIM Repository clonen / openZim installieren 
+  - Beispielhaftes Installationsverzeichniss: /var/www/openzim
+	  - cd /var/www
+	  - git clone https://github.com/maggsta/openzim.git
+	  - cd openzim
+	  -  ./install.sh
+
+4. Apache konfigurieren
+  - in /etc/apache2/sites-available/default :
+    - z.B. gedit /etc/apache2/sites-available/default
+    - DocumentRoot ändern:
+    - DocumentRoot /var/www/ -> DocumentRoot /var/www/openzim/web
+    - Unter DocumentRoot folgenden Text einfügen:   
+
+	<Directory /var/www/openzim/web>
+		Options FollowSymLinks
+    		AllowOverride All
+	</Directory>
+
+  - Rewrite aktivieren:
+     - a2enmod rewrite
+  - Apache neu starten:
+     -  service apache2 restart
+
+5. OpenZim öffnen mit Firefox: localhost
+ Benutzer:  admin
+ Passwort:  admin
+
+
