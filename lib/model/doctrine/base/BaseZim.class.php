@@ -59,8 +59,9 @@ abstract class BaseZim extends sfDoctrineRecord
              'notnull' => true,
              'length' => 255,
              ));
-        $this->hasColumn('user_id', 'integer', null, array(
+        $this->hasColumn('user_id', 'integer', 4, array(
              'type' => 'integer',
+             'length' => 4,
              ));
         $this->hasColumn('ziele', 'string', 10000, array(
              'type' => 'string',

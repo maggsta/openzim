@@ -68,7 +68,7 @@ Zim:
     name: { type: string(255), notnull: true }
     ptkuerzel: { type: string(255), notnull: true }
     ptjahr: { type: string(255), notnull: true }
-    user_id: { type: integer }
+    user_id: { type: integer(4) }
     ziele: { type: string(10000) }
     zielGruppe: { type: string(255) }
     roterFaden: { type: string(10000) }
