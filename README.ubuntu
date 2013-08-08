@@ -3,7 +3,8 @@ sudo su -
 
 1. Software Abhängigkeiten installieren
 
-apt-get install apache2 php5 php5-sqlite php5-gd git-core xsltproc
+ - apt-get install apache2 mysql-server php5 php5-mysql php5-gd git-core xsltproc
+ - Für das MySql root Passwort "test" verwenden
 
 2. PHP Zeityone setzen
 
